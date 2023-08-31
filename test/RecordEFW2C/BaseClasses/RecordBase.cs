@@ -6,57 +6,79 @@ namespace EFW2C.Records
 {
     public abstract class RecordBase
     {
-        protected List<FieldBase> _fields = new List<FieldBase>();
         public char[] RecordBuffer;
-        public string Name { get; set; } 
-        // Define common properties or methods for your records here
+        protected List<FieldBase> _fields;
+        protected List<FieldBase> _requiredFields;
+
+        public string Name { get; set ; }
+        
         public RecordBase()
         {
             RecordBuffer = new char[1024];
+            _fields = new List<FieldBase>();
+            _requiredFields = new List<FieldBase>();
+
+            CreateRequiredFields();
+
             for (int i = 0; i < RecordBuffer.Length; i++)
             {
                 RecordBuffer[i] = ' ';
             }
 
-            Name = "name is missing";
+            Name = "name is missing, you need to fill this from child class";
         }
+
+        protected abstract void CreateRequiredFields();
 
         public void AddField(FieldBase field)
         {
-            if(string.IsNullOrEmpty(field.Name))
+            if(string.IsNullOrEmpty(field.ClassName))
                 throw new Exception($"Field name missing to assign Name property");
 
-            if (!AddedOnce(field))
+            if (IsFieldExists(field))
                 throw new Exception($"{Name} is already added");
 
             _fields.Add(field);
         }
 
-        private bool AddedOnce(FieldBase newField)
+        public bool IsFieldExists(FieldBase newField)
         {
             foreach(var field in _fields)
             {
-                if (field.Name == newField.Name)
-                    return false;
+                if (field.ClassName == newField.ClassName)
+                    return true;
             }
 
-            return true;
+            return false;
         }
 
         public abstract void Write();
-        public abstract bool Verify();
+        public virtual bool Verify()
+        {
+            foreach (var reqField in _requiredFields)
+            {
+                if(!IsFieldExists(reqField))
+                {
+                    throw new Exception($"{reqField.ClassName} : Field is required");
+                }
+            }
+            return true;
+        }
+
         public bool IsRecordEmpty()
         {
-            if (RecordBuffer == null)
-                return true;
-
-            for(var i = 0; i < RecordBuffer.Length; i++)
+            if (RecordBuffer != null)
             {
-                if (RecordBuffer[i] != ' ')
-                    return false;
+                for (var i = 0; i < RecordBuffer.Length; i++)
+                {
+                    if (RecordBuffer[i] != ' ')
+                        return false;
+                }
             }
 
             return true;
         }
+
+        public abstract void AbstractMethod();
     }
 }

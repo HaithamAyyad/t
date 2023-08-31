@@ -12,12 +12,15 @@ namespace EFW2C.Fields
         {
             _pos = 3;
             _length = 9;
-            Name = GetType().Name;
+            ClassName = GetType().Name;
         }
 
         public override void Write()
         {
-            var data = (_data as string).ToCharArray();
+            if (!VerifyWrite())
+                return;
+
+            var data = _data.ToCharArray();
 
             if (data.Length != _length)
                 return;
@@ -27,8 +30,11 @@ namespace EFW2C.Fields
 
         public override bool Verify()
         {
-            if ((_data as string).Length != _length)
-                throw new Exception($"{Name} Length is not correct");
+            if (!base.Verify())
+                return false;
+                
+            if (_data.Length != _length)
+                throw new Exception($"{ClassName} Length is not correct");
 
             var invalidList = new List<string>
             {
@@ -39,7 +45,7 @@ namespace EFW2C.Fields
             for (int i = _pos; i < _pos + _length; i++)
             {
                 if (!char.IsDigit(_record.RecordBuffer[i]))
-                    throw new Exception($"{Name} all field char must be numerical");
+                    throw new Exception($"{ClassName} all field char must be numerical");
             }
 
             var str = string.Concat(_record.RecordBuffer[_pos], _record.RecordBuffer[_pos + 1]);
@@ -48,7 +54,7 @@ namespace EFW2C.Fields
             {
                 if (invalidStr == str)
                 {
-                    throw new Exception($"{Name} can't be started with the following: {string.Join(", ", invalidList)}");
+                    throw new Exception($"{ClassName} can't be started with the following: {string.Join(", ", invalidList)}");
                 }
             }
 

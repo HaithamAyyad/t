@@ -1,4 +1,5 @@
 ﻿using EFW2C.Common.Enum;
+using EFW2C.Fields;
 
 namespace EFW2C.Records
 {
@@ -15,6 +16,9 @@ namespace EFW2C.Records
         }
         public override bool Verify()
         {
+            if (!base.Verify())
+                return false;
+
             foreach (var field in _fields)
             {
                 if (!field.Verify())
@@ -23,6 +27,12 @@ namespace EFW2C.Records
                 }
             }
             return true;
+        }
+
+        protected override void CreateRequiredFields()
+        {
+            _requiredFields.Add(new RcaIdentifierField(null, null));
+            _requiredFields.Add(new RcaSubmitterEinField(null, null));
         }
     }
 }

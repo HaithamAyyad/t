@@ -23,7 +23,8 @@ namespace test
                 var rca = new RCARecord();
 
                 rca.AddField(new RcaIdentifierField(rca, "RCA"));
-                rca.AddField(new RcaSubmitterEinField(rca, "073456789"));
+
+                rca.AddField(new RcaSubmitterEinField(rca, "773456789"));
 
                 manager.AddRecord(rca);
 
