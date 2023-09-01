@@ -5,6 +5,9 @@ using EFW2C.Records;
 
 namespace EFW2C.Fields
 {
+    //Created by : HSA 9-1-2023
+    //Reviewed by : HSA on ........
+
     public class RcaSubmitterEinField : FieldBase
     {
         public RcaSubmitterEinField(RecordBase record, string data)
@@ -12,20 +15,6 @@ namespace EFW2C.Fields
         {
             _pos = 3;
             _length = 9;
-            ClassName = GetType().Name;
-        }
-
-        public override void Write()
-        {
-            if (!VerifyWrite())
-                return;
-
-            var data = _data.ToCharArray();
-
-            if (data.Length != _length)
-                return;
-
-            Array.Copy(data, 0, _record.RecordBuffer, _pos, _length);
         }
 
         public override bool Verify()
@@ -42,12 +31,6 @@ namespace EFW2C.Fields
                 "49", "69", "70", "78", "79", "89"
             };
 
-            for (int i = _pos; i < _pos + _length; i++)
-            {
-                if (!char.IsDigit(_record.RecordBuffer[i]))
-                    throw new Exception($"{ClassName} all field char must be numerical");
-            }
-
             var str = string.Concat(_record.RecordBuffer[_pos], _record.RecordBuffer[_pos + 1]);
 
             foreach (var invalidStr in invalidList)
@@ -58,6 +41,16 @@ namespace EFW2C.Fields
                 }
             }
 
+            return true;
+        }
+
+        protected override bool IsNumeric()
+        {
+            return true;
+        }
+
+        protected override bool IsUpperCase()
+        {
             return true;
         }
     }

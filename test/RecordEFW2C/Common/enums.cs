@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EFW2C.Common.Enum
 {
-    public enum RecordName
+    public enum RecordNameEnum
     {
         RCA,
         RCE,

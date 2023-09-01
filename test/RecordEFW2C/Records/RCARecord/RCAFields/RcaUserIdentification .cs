@@ -5,15 +5,16 @@ using EFW2C.Records;
 
 namespace EFW2C.Fields
 {
-    //Created by  : HSA on 9-1-2023
+    //Created by : HSA 9-1-2023
     //Reviewed by : HSA on ........
-    public class RcaIdentifierField : FieldBase
+
+    public class RcaUserIdentification : FieldBase
     {
-        public RcaIdentifierField(RecordBase record, string data)
+        public RcaUserIdentification(RecordBase record, string data)
             : base(record, data)
         {
-            _pos = 0;
-            _length = 3;
+            _pos = 12;
+            _length = 8;
         }
 
         public override bool Verify()
@@ -21,8 +22,6 @@ namespace EFW2C.Fields
             if (!base.Verify())
                 return false;
 
-            if (!_record.RecordBuffer.Compare(_pos, _record.RecordName.ToCharArray(), _length))
-                throw new Exception($"{ClassName} Field must be {_record.RecordName}");
 
             return true;
         }

@@ -56,10 +56,13 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="RecordEFW2C\BaseClasses\FieldBase.cs" />
-    <Compile Include="RecordEFW2C\Common\enums.cs" />
+    <Compile Include="RecordEFW2C\Common\Enums.cs" />
     <Compile Include="RecordEFW2C\RecordsManager\RecordManager.cs" />
+    <Compile Include="RecordEFW2C\BaseClasses\Template\FieldTemplate.cs" />
+    <Compile Include="RecordEFW2C\Records\RCARecord\RCAFields\RcaUserIdentification .cs" />
     <Compile Include="RecordEFW2C\Records\RCARecord\RCAFields\RcaIdentifierField.cs" />
     <Compile Include="RecordEFW2C\Records\RCARecord\RCAFields\RcaSubmitterEinField.cs" />
+    <Compile Include="RecordEFW2C\BaseClasses\Template\RecordTemplate.cs" />
     <Compile Include="RecordEFW2C\Records\RCARecord\RCARecord.cs" />
     <Compile Include="RecordEFW2C\Helpper\Extensions.cs" />
     <Compile Include="RecordEFW2C\BaseClasses\RecordBase.cs" />

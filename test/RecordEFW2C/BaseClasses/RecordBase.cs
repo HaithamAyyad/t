@@ -10,33 +10,33 @@ namespace EFW2C.Records
         protected List<FieldBase> _fields;
         protected List<FieldBase> _requiredFields;
 
-        public string Name { get; set ; }
+        public string RecordName { get; set ; }
+        public string ClassName { get; set ; }
         
         public RecordBase()
         {
             RecordBuffer = new char[1024];
             _fields = new List<FieldBase>();
             _requiredFields = new List<FieldBase>();
+            ClassName = GetType().Name;
 
             CreateRequiredFields();
-
+            
             for (int i = 0; i < RecordBuffer.Length; i++)
             {
                 RecordBuffer[i] = ' ';
             }
 
-            Name = "name is missing, you need to fill this from child class";
+            RecordName = "";
         }
-
-        protected abstract void CreateRequiredFields();
 
         public void AddField(FieldBase field)
         {
             if(string.IsNullOrEmpty(field.ClassName))
-                throw new Exception($"Field name missing to assign Name property");
+                throw new Exception($"{ClassName}:{field.ClassName} Field name missing to assign Name property");
 
             if (IsFieldExists(field))
-                throw new Exception($"{Name} is already added");
+                throw new Exception($"{field.ClassName} is already added");
 
             _fields.Add(field);
         }
@@ -52,8 +52,31 @@ namespace EFW2C.Records
             return false;
         }
 
-        public abstract void Write();
-        public virtual bool Verify()
+        public void Write()
+        {
+            foreach (var field in _fields)
+                field.Write();
+        }
+
+        public bool Verify()
+        {
+            if(string.IsNullOrEmpty(RecordName))
+                throw new Exception($"{ClassName} RecordName can't be empty.");
+
+            if (!CheckRequiredFields())
+                return false;
+
+            foreach (var field in _fields)
+            {
+                if (!field.Verify())
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        private bool CheckRequiredFields()
         {
             foreach (var reqField in _requiredFields)
             {
@@ -79,6 +102,6 @@ namespace EFW2C.Records
             return true;
         }
 
-        public abstract void AbstractMethod();
+        protected abstract void CreateRequiredFields();
     }
 }

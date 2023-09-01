@@ -7,32 +7,15 @@ namespace EFW2C.Records
     {
         public RCARecord()
         {
-            Name = RecordName.RCA.ToString();
+            RecordName = RecordNameEnum.RCA.ToString();
         }
-        public override void Write()
-        {
-            foreach (var field in _fields)
-                field.Write();
-        }
-        public override bool Verify()
-        {
-            if (!base.Verify())
-                return false;
-
-            foreach (var field in _fields)
-            {
-                if (!field.Verify())
-                {
-                    return false;
-                }
-            }
-            return true;
-        }
-
         protected override void CreateRequiredFields()
         {
+            _requiredFields.Clear();
+
             _requiredFields.Add(new RcaIdentifierField(null, null));
             _requiredFields.Add(new RcaSubmitterEinField(null, null));
+            _requiredFields.Add(new RcaUserIdentification(null, null));
         }
     }
 }
