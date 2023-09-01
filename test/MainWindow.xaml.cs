@@ -31,6 +31,7 @@ namespace test
                 rca.AddField(new RcaSoftwareVendorCode(rca, "4444"));
 
                 rca.AddField(new RcaSubmitterName(rca, "Haitham"));
+                rca.AddField(new RcaContactName(rca, "john"));
 
                 manager.AddRecord(rca);
 
