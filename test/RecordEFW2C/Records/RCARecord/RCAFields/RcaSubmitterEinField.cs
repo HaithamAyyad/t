@@ -22,9 +22,6 @@ namespace EFW2C.Fields
             if (!base.Verify())
                 return false;
                 
-            if (_data.Length != _length)
-                throw new Exception($"{ClassName} Length is not correct");
-
             var invalidList = new List<string>
             {
                 "07", "08", "09", "17", "18", "19", "28", "29",
@@ -51,7 +48,7 @@ namespace EFW2C.Fields
 
         protected override bool IsUpperCase()
         {
-            return true;
+            return false;
         }
     }
 }

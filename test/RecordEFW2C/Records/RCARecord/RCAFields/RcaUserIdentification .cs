@@ -22,7 +22,6 @@ namespace EFW2C.Fields
             if (!base.Verify())
                 return false;
 
-
             return true;
         }
 

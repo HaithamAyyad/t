@@ -15,7 +15,6 @@ namespace EFW2C.Fields
         {
             _pos = -1;
             _length = -1;
-            ClassName = GetType().Name;
         }
 
         public override bool Verify()

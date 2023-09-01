@@ -22,13 +22,14 @@ namespace EFW2C.Fields
 
             _record = record;
             _data = data;
+            
             _numeric = IsNumeric();
-
             _upperCase = IsUpperCase();
+
             ClassName = GetType().Name;
         }
 
-        internal bool VerifyWrite()
+        private bool VerifyWrite()
         {
             if (string.IsNullOrEmpty(_data))
                 throw new Exception($"{ClassName} data can't be null or empty");
