@@ -24,7 +24,7 @@ namespace EFW2C.Records
             
             for (int i = 0; i < RecordBuffer.Length; i++)
             {
-                RecordBuffer[i] = ' ';
+                RecordBuffer[i] = Constants.EmptyChar;
             }
 
             RecordName = "";
@@ -94,7 +94,7 @@ namespace EFW2C.Records
             {
                 for (var i = 0; i < RecordBuffer.Length; i++)
                 {
-                    if (RecordBuffer[i] != ' ')
+                    if (RecordBuffer[i] != Constants.EmptyChar)
                         return false;
                 }
             }
