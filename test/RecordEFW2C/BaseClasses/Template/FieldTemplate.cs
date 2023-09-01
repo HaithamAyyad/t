@@ -1,5 +1,5 @@
 ﻿using System;
-
+using EFW2C.Common.Enum;
 using EFW2C.Extensions;
 using EFW2C.Records;
 
@@ -27,12 +27,7 @@ namespace EFW2C.Fields
             //return true;
         }
 
-        protected override bool IsNumeric()
-        {
-            throw new NotImplementedException();
-        }
-
-        protected override bool IsUpperCase()
+        protected override FieldTypeEnum GetFieldType()
         {
             throw new NotImplementedException();
         }

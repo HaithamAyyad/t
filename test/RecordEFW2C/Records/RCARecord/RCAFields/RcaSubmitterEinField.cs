@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using EFW2C.Common.Enum;
 using EFW2C.Extensions;
 using EFW2C.Records;
 
@@ -41,14 +42,9 @@ namespace EFW2C.Fields
             return true;
         }
 
-        protected override bool IsNumeric()
+        protected override FieldTypeEnum GetFieldType()
         {
-            return true;
-        }
-
-        protected override bool IsUpperCase()
-        {
-            return false;
+            return FieldTypeEnum.Numerical_LeftJustify_Blank;
         }
     }
 }

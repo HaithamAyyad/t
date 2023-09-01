@@ -1,5 +1,6 @@
 ﻿
 using EFW2C.Common.Constants;
+using EFW2C.Common.Enum;
 using EFW2C.Extensions;
 using EFW2C.Records;
 using System;
@@ -13,8 +14,7 @@ namespace EFW2C.Fields
         protected int _length;
         protected string _data;
         protected bool _excludeFromWriting;
-        private bool _upperCase;
-        private bool _numeric;
+        private FieldTypeEnum _fieldType;
 
         public string ClassName { get; set; }
         public FieldBase(RecordBase record, string data)
@@ -23,12 +23,11 @@ namespace EFW2C.Fields
             _length = -1;
 
             _record = record;
-            _numeric = IsNumeric();
-            _upperCase = IsUpperCase();
+            _fieldType = GetFieldType();
 
             _excludeFromWriting = false;
 
-            _data = _upperCase ? data.ToUpper() : data;
+            _data = _fieldType == FieldTypeEnum.UpperCase_LeftJustify_Blank ? data.ToUpper() : data;
 
             ClassName = GetType().Name;
         }
@@ -50,7 +49,7 @@ namespace EFW2C.Fields
             if (_length < _data.Length)
                throw new Exception($"{ClassName} Length exceeds the allowed length");
 
-            if (_numeric)
+            if (_fieldType == FieldTypeEnum.Numerical_LeftJustify_Blank || _fieldType == FieldTypeEnum.Numerical_RightJustify_Zero)
             {
                 foreach (char c in _data)
                 {
@@ -60,7 +59,7 @@ namespace EFW2C.Fields
             }
             else
             {
-                if (_upperCase && !_data.IsUpper())
+                if (_fieldType == FieldTypeEnum.UpperCase_LeftJustify_Blank && !_data.IsUpper())
                     throw new Exception($"{ClassName} Field is not upper case");
             }
 
@@ -70,16 +69,19 @@ namespace EFW2C.Fields
         {
             if (!VerifyWrite())
                 return;
-
-            if (_numeric)
+            switch (_fieldType)
             {
-                _record.RecordBuffer.Fill('0', _pos, _length);
+                case FieldTypeEnum.Numerical_RightJustify_Zero:
 
-                Array.Copy(_data.ToCharArray(), 0, _record.RecordBuffer, _pos + _length - _data.Length, _data.Length);
-            }
-            else
-            {
-                Array.Copy(_data.ToCharArray(), 0, _record.RecordBuffer, _pos, _data.Length);
+                    _record.RecordBuffer.Fill('0', _pos, _length);
+                    Array.Copy(_data.ToCharArray(), 0, _record.RecordBuffer, _pos + _length - _data.Length, _data.Length);
+                    break;
+
+                case FieldTypeEnum.UpperCase_LeftJustify_Blank:
+                case FieldTypeEnum.Numerical_LeftJustify_Blank:
+                case FieldTypeEnum.CaseSensitive_LeftJustify:
+                    Array.Copy(_data.ToCharArray(), 0, _record.RecordBuffer, _pos, _data.Length);
+                    break;
             }
         }
 
@@ -91,30 +93,40 @@ namespace EFW2C.Fields
             if (_pos == -1)
                 throw new Exception($"{ClassName} Postion is not set");
 
-            if (_numeric && !_excludeFromWriting)
+            if (!_excludeFromWriting)
             {
-                for(var i = _pos; i < _pos + _length; i++)
+                switch(_fieldType)
                 {
-                    if (!char.IsDigit(_record.RecordBuffer[i]))
-                        throw new Exception($"{ClassName} all field char must be numerical");
-                }
-            }
-            else
-            {
-                if (_upperCase)
-                {
-                    for (var i = _pos; i < _pos + _length; i++)
-                    {
-                        if (_record.RecordBuffer[i] != Constants.EmptyChar && !char.IsUpper(_record.RecordBuffer[i]))
-                            throw new Exception($"{ClassName} Field is not upper case");
-                    }
+                    case FieldTypeEnum.Numerical_RightJustify_Zero:
+                        for (var i = _pos; i < _pos + _length; i++)
+                        {
+                            if (!char.IsDigit(_record.RecordBuffer[i]))
+                                throw new Exception($"{ClassName} all field char must be numerical");
+                        }
+                        break;
+                    case FieldTypeEnum.Numerical_LeftJustify_Blank:
+                        for (var i = _pos; i < _pos + _length; i++)
+                        {
+                            if (!(char.IsDigit(_record.RecordBuffer[i]) || _record.RecordBuffer[i] == Constants.EmptyChar ))
+                                throw new Exception($"{ClassName} all field char must be numerical");
+                        }
+
+                        break;
+                    case FieldTypeEnum.UpperCase_LeftJustify_Blank:
+                        for (var i = _pos; i < _pos + _length; i++)
+                        {
+                            if (_record.RecordBuffer[i] != Constants.EmptyChar && !char.IsUpper(_record.RecordBuffer[i]))
+                                throw new Exception($"{ClassName} Field is not upper case");
+                        }
+                        break;
+                    case FieldTypeEnum.CaseSensitive_LeftJustify:
+                        break;
                 }
             }
 
             return true;
         }
-        protected abstract bool IsUpperCase();
-        protected abstract bool IsNumeric();
+        protected abstract FieldTypeEnum GetFieldType();
     }
 }
 

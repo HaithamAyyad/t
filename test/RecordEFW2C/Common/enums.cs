@@ -18,4 +18,12 @@ namespace EFW2C.Common.Enum
         RCV,
         RCF,
     }
+
+    public enum FieldTypeEnum
+    {
+        Numerical_RightJustify_Zero,
+        Numerical_LeftJustify_Blank,
+        UpperCase_LeftJustify_Blank,
+        CaseSensitive_LeftJustify,
+    }
 }
