@@ -21,6 +21,7 @@ namespace EFW2C.Common.Enum
 
     public enum FieldTypeEnum
     {
+        Numerical_Only,
         Numerical_RightJustify_Zero,
         Numerical_LeftJustify_Blank,
         UpperCase_LeftJustify_Blank,

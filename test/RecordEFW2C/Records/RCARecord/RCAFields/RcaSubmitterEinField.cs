@@ -44,7 +44,7 @@ namespace EFW2C.Fields
 
         protected override FieldTypeEnum GetFieldType()
         {
-            return FieldTypeEnum.Numerical_LeftJustify_Blank;
+            return FieldTypeEnum.Numerical_Only;
         }
     }
 }
