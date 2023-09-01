@@ -56,4 +56,16 @@ namespace EFW2C.Extensions
             return true;
         }
     }
+
+    public static class CharArrayExtensions
+    {
+        public static void Fill(this char[] array, char value, int startPosition, int length)
+        {
+            for (int i = startPosition; i < length; i++)
+            {
+                array[i] = value;
+            }
+        }
+    }
+
 }

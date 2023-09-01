@@ -25,6 +25,7 @@ namespace EFW2C.Records
             _requiredFields.Add(new RcaIdentifierField(null, "dummy"));
             _requiredFields.Add(new RcaSubmitterEinField(null, "dummy"));
             _requiredFields.Add(new RcaUserIdentification(null, "dummy"));
+            _requiredFields.Add(new RcaSubmitterName(null, "dummy"));
         }
     }
 }

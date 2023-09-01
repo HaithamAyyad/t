@@ -25,6 +25,10 @@ namespace EFW2C.Fields
             {
                 base.Write();
             }
+            else
+            {
+                _excludeFromWriting = true;
+            }    
         }
         public override bool Verify()
         {

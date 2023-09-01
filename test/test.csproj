@@ -56,6 +56,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="RecordEFW2C\BaseClasses\FieldBase.cs" />
+    <Compile Include="RecordEFW2C\Records\RCARecord\RCAFields\RcaSubmitterName.cs" />
     <Compile Include="RecordEFW2C\Common\Constants.cs" />
     <Compile Include="RecordEFW2C\Records\RCARecord\RCAFields\RcaSoftwareCode.cs" />
     <Compile Include="RecordEFW2C\Records\RCARecord\RCAFields\RcaSoftwareVendorCode.cs" />
