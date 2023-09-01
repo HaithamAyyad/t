@@ -11,6 +11,7 @@ namespace EFW2C.Records
         public char[] RecordBuffer;
         protected List<FieldBase> _fields;
         protected List<FieldBase> _requiredFields;
+        protected List<Tuple<FieldBase, FieldBase>> _linkedFields;
 
         public string RecordName { get; set ; }
         public string ClassName { get; set ; }
@@ -19,11 +20,11 @@ namespace EFW2C.Records
         {
             RecordBuffer = new char[1024];
             _fields = new List<FieldBase>();
-            _requiredFields = new List<FieldBase>();
             ClassName = GetType().Name;
 
             CreateRequiredFields();
-            
+            CreateLinkedFields();
+
             for (int i = 0; i < RecordBuffer.Length; i++)
             {
                 RecordBuffer[i] = Constants.EmptyChar;
@@ -32,7 +33,7 @@ namespace EFW2C.Records
             RecordName = "";
         }
 
-        public FieldBase GetFields(string className)
+        public FieldBase GetField(string className)
         {
             return _fields.FirstOrDefault(field => field.ClassName == className);
         }
@@ -72,6 +73,9 @@ namespace EFW2C.Records
             if (!CheckRequiredFields())
                 return false;
 
+            if (!CheckLinkedFields())
+                return false;
+
             foreach (var field in _fields)
             {
                 if (!field.Verify())
@@ -79,6 +83,23 @@ namespace EFW2C.Records
                     return false;
                 }
             }
+            return true;
+        }
+
+        private bool CheckLinkedFields()
+        {
+            foreach(var pair in _linkedFields)
+            {
+                var item1 = _fields.FirstOrDefault(field => field.ClassName == pair.Item1.ClassName);
+                if(item1 != null )
+                {
+                    var item2 = _fields.FirstOrDefault(field => field.ClassName == pair.Item2.ClassName);
+                    
+                    if(item2 == null)
+                        throw new Exception($"{item1.ClassName} : require other fields");
+                }
+            }
+
             return true;
         }
 
@@ -109,5 +130,6 @@ namespace EFW2C.Records
         }
 
         protected abstract void CreateRequiredFields();
+        protected abstract void CreateLinkedFields();
     }
 }

@@ -19,28 +19,21 @@ namespace EFW2C.Fields
 
         public override void Write()
         {
-            var rcaSoftwareCode = _record.GetFields("RcaSoftwareCode") as RcaSoftwareCode;
+            var rcaSoftwareCode = _record.GetField("RcaSoftwareCode") as RcaSoftwareCode;
 
-            if (rcaSoftwareCode == null)
-                throw new Exception($"RcaSoftwareCode field must be added before write {ClassName}");
-
-            if (rcaSoftwareCode.OffShelfSoftware())
+            if (rcaSoftwareCode != null && rcaSoftwareCode.OffShelfSoftware())
             {
                 base.Write();
             }
-
         }
         public override bool Verify()
         {
             if (!base.Verify())
                 return false;
 
-            var rcaSoftwareCode = _record.GetFields("RcaSoftwareCode") as RcaSoftwareCode;
+            var rcaSoftwareCode = _record.GetField("RcaSoftwareCode") as RcaSoftwareCode;
 
-            if(rcaSoftwareCode == null)
-                throw new Exception($"RcaSoftwareCode field must be added before write {ClassName}");
-
-            if (!rcaSoftwareCode.OffShelfSoftware())
+            if (rcaSoftwareCode != null && !rcaSoftwareCode.OffShelfSoftware())
             {
                 for (int i = _pos; i < _pos + _length; i++)
                 {

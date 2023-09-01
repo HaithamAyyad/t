@@ -22,7 +22,7 @@ namespace EFW2C.Fields
 
             _record = record;
             _data = data;
-            
+
             _numeric = IsNumeric();
             _upperCase = IsUpperCase();
 
@@ -81,6 +81,6 @@ namespace EFW2C.Fields
         }
         protected abstract bool IsUpperCase();
         protected abstract bool IsNumeric();
-}
+    }
 }
 

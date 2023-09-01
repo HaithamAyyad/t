@@ -1,5 +1,7 @@
 ﻿using EFW2C.Common.Enum;
 using EFW2C.Fields;
+using System;
+using System.Collections.Generic;
 
 namespace EFW2C.Records
 {
@@ -9,13 +11,20 @@ namespace EFW2C.Records
         {
             RecordName = RecordNameEnum.RCA.ToString();
         }
+
+        protected override void CreateLinkedFields()
+        {
+            _linkedFields = new List<Tuple<FieldBase, FieldBase>>();
+            _linkedFields.Add(Tuple.Create<FieldBase, FieldBase>(new RcaSoftwareVendorCode(null, "dummy"),
+                                                                 new RcaSoftwareCode(null, "dummy")));
+        }
         protected override void CreateRequiredFields()
         {
-            _requiredFields.Clear();
+            _requiredFields = new List<FieldBase>();
 
-            _requiredFields.Add(new RcaIdentifierField(null, null));
-            _requiredFields.Add(new RcaSubmitterEinField(null, null));
-            _requiredFields.Add(new RcaUserIdentification(null, null));
+            _requiredFields.Add(new RcaIdentifierField(null, "dummy"));
+            _requiredFields.Add(new RcaSubmitterEinField(null, "dummy"));
+            _requiredFields.Add(new RcaUserIdentification(null, "dummy"));
         }
     }
 }
