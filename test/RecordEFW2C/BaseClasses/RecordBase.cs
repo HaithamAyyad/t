@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using EFW2C.Common.Constants;
 using EFW2C.Fields;
 
 namespace EFW2C.Records
@@ -30,6 +32,10 @@ namespace EFW2C.Records
             RecordName = "";
         }
 
+        public FieldBase GetFields(string className)
+        {
+            return _fields.FirstOrDefault(field => field.ClassName == className);
+        }
         public void AddField(FieldBase field)
         {
             if(string.IsNullOrEmpty(field.ClassName))

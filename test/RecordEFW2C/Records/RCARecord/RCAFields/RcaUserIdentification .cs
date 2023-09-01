@@ -32,7 +32,7 @@ namespace EFW2C.Fields
 
         protected override bool IsUpperCase()
         {
-            return true;
+            return false;
         }
     }
 }

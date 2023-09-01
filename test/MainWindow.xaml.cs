@@ -25,6 +25,9 @@ namespace test
                 rca.AddField(new RcaIdentifierField(rca, "RCA"));
 
                 rca.AddField(new RcaSubmitterEinField(rca, "773456789"));
+                rca.AddField(new RcaSoftwareVendorCode(rca, "4444"));
+                rca.AddField(new RcaSoftwareCode(rca, "98"));
+                rca.AddField(new RcaUserIdentification(rca, "12345678"));
 
                 manager.AddRecord(rca);
 
