@@ -4,6 +4,7 @@ using EFW2C.Common.Enum;
 using EFW2C.Extensions;
 using EFW2C.Records;
 using System;
+using System.Windows;
 
 namespace EFW2C.Fields
 {
@@ -98,6 +99,15 @@ namespace EFW2C.Fields
                     Array.Copy(_data.ToCharArray(), 0, _record.RecordBuffer, _pos, _data.Length);
                     break;
             }
+        }
+        public bool VerifcationTestOnly()
+        {
+            Write();
+            if (!Verify())
+                return false;
+
+            MessageBox.Show($"verifcation for{ClassName} Successed");
+            return true;
         }
 
         public virtual bool Verify()
