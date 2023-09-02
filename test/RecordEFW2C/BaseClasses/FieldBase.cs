@@ -100,7 +100,7 @@ namespace EFW2C.Fields
                     break;
             }
         }
-        public bool VerifcationTestOnly()
+         public bool VerifcationTestOnly()
         {
             Write();
             if (!Verify())
@@ -153,6 +153,25 @@ namespace EFW2C.Fields
 
             return true;
         }
+        public static bool IsValidStateCode(string state, bool value = false)
+        {
+            foreach (var zipCode in Enum.GetValues(typeof(ZipCodeEnum)))
+            {
+                if (value)
+                {
+                    if (((int)zipCode).ToString("D2") == state)
+                        return true;
+                }
+                else
+                {
+                    if (zipCode.ToString() == state)
+                        return true;
+                }
+            }
+
+            return false;
+        }
+
         protected abstract FieldTypeEnum GetFieldType();
     }
 }
