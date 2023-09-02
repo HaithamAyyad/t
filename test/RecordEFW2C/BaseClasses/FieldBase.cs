@@ -63,6 +63,7 @@ namespace EFW2C.Fields
                         if (_data.Length != _length)
                             throw new Exception($"{ClassName} lenght is not correct\n it must be {_length}");
                     }
+
                     foreach (char c in _data)
                     {
                         if (!char.IsDigit(c))
@@ -156,6 +157,17 @@ namespace EFW2C.Fields
 
             return true;
         }
+        public bool IsCountryCodeValid(string str)
+        {
+            foreach (var countryCode in Enum.GetValues(typeof(CountryCode)))
+            {
+                if (countryCode.ToString() == str)
+                    return true;
+            }
+
+            return false;
+        }
+
         public static bool IsValidStateCode(string state, bool value = false)
         {
             foreach (var zipCode in Enum.GetValues(typeof(ZipCodeEnum)))

@@ -12,6 +12,7 @@ namespace EFW2C.Records
         protected List<FieldBase> _fields;
         protected List<FieldBase> _requiredFields;
         protected List<Tuple<FieldBase, FieldBase>> _linkedFields;
+        protected bool _isForeignAddres;
 
         public string RecordName { get; set ; }
         public string ClassName { get; set ; }
@@ -129,6 +130,10 @@ namespace EFW2C.Records
             return true;
         }
 
+        public void SetForeignAddress(bool value)
+        {
+            _isForeignAddres = value;
+        }
         protected abstract void CreateRequiredFields();
         protected abstract void CreateLinkedFields();
     }
