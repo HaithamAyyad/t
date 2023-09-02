@@ -32,7 +32,7 @@ namespace EFW2C.Fields
 
         protected override FieldTypeEnum GetFieldType()
         {
-            return FieldTypeEnum.Numerical_Only;
+            return FieldTypeEnum.UpperCase_LeftJustify_Blank;
         }
     }
 }
