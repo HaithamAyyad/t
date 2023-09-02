@@ -1,4 +1,5 @@
-﻿using EFW2C.Fields;
+﻿using EFW2C.Common.Enum;
+using EFW2C.Fields;
 using EFW2C.Manager;
 using EFW2C.Records;
 using System;
@@ -32,6 +33,9 @@ namespace test
 
                 rca.AddField(new RcaSubmitterName(rca, "Haitham"));
                 rca.AddField(new RcaContactName(rca, "john"));
+                rca.AddField(new RcaZIPCode(rca, "11118"));
+                rca.AddField(new RcaZIPCodeExtension(rca, "1117"));
+                rca.AddField(new RcaStateAbbreviation(rca, "01"));
 
                 manager.AddRecord(rca);
 
