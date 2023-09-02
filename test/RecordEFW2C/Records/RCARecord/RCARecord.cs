@@ -27,6 +27,11 @@ namespace EFW2C.Records
             _requiredFields.Add(new RcaUserIdentification(null, "dummy"));
             _requiredFields.Add(new RcaSubmitterName(null, "dummy"));
             _requiredFields.Add(new RcaContactName(null, "dummy"));
+            _requiredFields.Add(new RcaLocationAddress(null, "dummy"));
+            _requiredFields.Add(new RcaDeliveryAddress(null, "dummy"));
+            _requiredFields.Add(new RcaCity(null, "dummy"));
+            _requiredFields.Add(new RcaStateAbbreviation(null, "dummy"));
+            _requiredFields.Add(new RcaZIPCode(null, "dummy"));
         }
     }
 }

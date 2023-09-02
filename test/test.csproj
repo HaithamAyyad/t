@@ -56,6 +56,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="RecordEFW2C\BaseClasses\FieldBase.cs" />
+    <Compile Include="RecordEFW2C\Records\RCARecord\RCAFields\RcaDeliveryAddress.cs" />
+    <Compile Include="RecordEFW2C\Records\RCARecord\RCAFields\RcaLocationAddress.cs" />
+    <Compile Include="RecordEFW2C\Records\RCARecord\RCAFields\RcaCity.cs" />
     <Compile Include="RecordEFW2C\Records\RCARecord\RCAFields\RcaStateAbbreviation.cs" />
     <Compile Include="RecordEFW2C\Records\RCARecord\RCAFields\RcaZIPCodeExtension.cs" />
     <Compile Include="RecordEFW2C\Records\RCARecord\RCAFields\RcaZIPCode .cs" />

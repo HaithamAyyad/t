@@ -31,11 +31,14 @@ namespace test
                 rca.AddField(new RcaUserIdentification(rca, "12345678"));
                 rca.AddField(new RcaSoftwareVendorCode(rca, "4444"));
 
-                rca.AddField(new RcaSubmitterName(rca, "Haitham"));
+                rca.AddField(new RcaSubmitterName(rca, "Adam"));
                 rca.AddField(new RcaContactName(rca, "john"));
                 rca.AddField(new RcaZIPCode(rca, "11118"));
                 rca.AddField(new RcaZIPCodeExtension(rca, "1117"));
-                rca.AddField(new RcaStateAbbreviation(rca, "01"));
+                rca.AddField(new RcaStateAbbreviation(rca, "AL"));
+                rca.AddField(new RcaLocationAddress(rca, ""));
+                rca.AddField(new RcaDeliveryAddress(rca, "Alask box 444 0"));
+                rca.AddField(new RcaCity(rca, "City1"));
 
                 manager.AddRecord(rca);
 

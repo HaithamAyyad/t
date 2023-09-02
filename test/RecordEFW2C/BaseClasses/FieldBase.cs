@@ -18,6 +18,8 @@ namespace EFW2C.Fields
         private FieldTypeEnum _fieldType;
 
         public string ClassName { get; set; }
+
+        public string Data { get { return _data;} }
         public FieldBase(RecordBase record, string data)
         {
             _pos = -1;
@@ -140,7 +142,8 @@ namespace EFW2C.Fields
                     case FieldTypeEnum.UpperCase_LeftJustify_Blank:
                         for (var i = _pos; i < _pos + _length; i++)
                         {
-                            if (_record.RecordBuffer[i] != Constants.EmptyChar && !char.IsUpper(_record.RecordBuffer[i]))
+                            var str = new string(_record.RecordBuffer, _pos, _length);
+                            if (!str.IsUpper())
                                 throw new Exception($"{ClassName} Field nust be upper case");
                         }
                         break;

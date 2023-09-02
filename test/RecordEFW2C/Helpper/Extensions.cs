@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EFW2C.Common.Constants;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,7 +22,8 @@ namespace EFW2C.Extensions
         {
             for (int i = 0; i < input.Length; i++)
             {
-                if (!char.IsUpper(input[i]))
+                var c = input[i];
+                if (!(char.IsUpper(c) || char.IsDigit(c) || c == Constants.EmptyChar))
                 {
                     return false;
                 }

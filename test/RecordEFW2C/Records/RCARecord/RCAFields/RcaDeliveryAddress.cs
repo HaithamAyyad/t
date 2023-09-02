@@ -8,13 +8,13 @@ namespace EFW2C.Fields
     //Created by : hsa 9-2-2023
     //Reviewed by : 
 
-    public class RcaStateAbbreviation : FieldBase
+    public class RcaDeliveryAddress : FieldBase
     {
-        public RcaStateAbbreviation(RecordBase record, string data)
+        public RcaDeliveryAddress(RecordBase record, string data)
             : base(record, data)
         {
-            _pos = 154;
-            _length = 2;
+            _pos = 110;
+            _length = 22;
         }
 
         public override bool Verify()
@@ -22,17 +22,12 @@ namespace EFW2C.Fields
             if (!base.Verify())
                 return false;
 
-            var state = new string(_record.RecordBuffer, _pos, _length);
-
-            if(!IsValidStateCode(state))
-                throw new Exception($"{ClassName} State code is not valid");
-
             return true;
         }
 
         protected override FieldTypeEnum GetFieldType()
         {
-            return FieldTypeEnum.Numerical_Only;
+            return FieldTypeEnum.UpperCase_LeftJustify_Blank;
         }
     }
 }
