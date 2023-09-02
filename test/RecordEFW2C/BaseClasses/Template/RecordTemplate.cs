@@ -12,11 +12,6 @@ namespace EFW2C.Records
             RecordName = null;
         }
 
-        protected override void CreateLinkedFields()
-        {
-            _linkedFields = new List<Tuple<FieldBase, FieldBase>>();
-        }
-
         protected override void CreateRequiredFields()
         {
             _requiredFields = new List<FieldBase>();

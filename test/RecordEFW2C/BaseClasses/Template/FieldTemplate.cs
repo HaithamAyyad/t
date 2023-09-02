@@ -31,5 +31,10 @@ namespace EFW2C.Fields
         {
             throw new NotImplementedException();
         }
+
+        public override bool IsRequired()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

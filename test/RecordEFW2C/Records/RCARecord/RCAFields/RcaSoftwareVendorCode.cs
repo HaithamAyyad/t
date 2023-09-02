@@ -54,5 +54,11 @@ namespace EFW2C.Fields
         {
             return FieldTypeEnum.Numerical_LeftJustify_Blank;
         }
+
+        public override bool IsRequired()
+        {
+            var rcaSoftwareCode = _record.GetField(typeof(RcaSoftwareCode).Name);
+            return rcaSoftwareCode != null;
+        }
     }
 }

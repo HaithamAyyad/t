@@ -11,7 +11,6 @@ namespace EFW2C.Records
         public char[] RecordBuffer;
         protected List<FieldBase> _fields;
         protected List<FieldBase> _requiredFields;
-        protected List<Tuple<FieldBase, FieldBase>> _linkedFields;
         protected bool _isForeignAddres;
 
         public string RecordName { get; set ; }
@@ -24,7 +23,6 @@ namespace EFW2C.Records
             ClassName = GetType().Name;
 
             CreateRequiredFields();
-            CreateLinkedFields();
 
             for (int i = 0; i < RecordBuffer.Length; i++)
             {
@@ -74,9 +72,6 @@ namespace EFW2C.Records
             if (!CheckRequiredFields())
                 return false;
 
-            if (!CheckLinkedFields())
-                return false;
-
             foreach (var field in _fields)
             {
                 if (!field.Verify())
@@ -87,28 +82,11 @@ namespace EFW2C.Records
             return true;
         }
 
-        private bool CheckLinkedFields()
-        {
-            foreach(var pair in _linkedFields)
-            {
-                var item1 = _fields.FirstOrDefault(field => field.ClassName == pair.Item1.ClassName);
-                if(item1 != null )
-                {
-                    var item2 = _fields.FirstOrDefault(field => field.ClassName == pair.Item2.ClassName);
-                    
-                    if(item2 == null)
-                        throw new Exception($"{item1.ClassName} : require other fields");
-                }
-            }
-
-            return true;
-        }
-
         private bool CheckRequiredFields()
         {
             foreach (var reqField in _requiredFields)
             {
-                if(!IsFieldExists(reqField))
+                if(reqField.IsRequired() && !IsFieldExists(reqField))
                 {
                     throw new Exception($"{reqField.ClassName} : Field is required");
                 }
@@ -134,7 +112,12 @@ namespace EFW2C.Records
         {
             _isForeignAddres = value;
         }
+
+        public bool IsForeign()
+        {
+            return _isForeignAddres;
+        }
         protected abstract void CreateRequiredFields();
-        protected abstract void CreateLinkedFields();
+
     }
 }

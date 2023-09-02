@@ -29,5 +29,10 @@ namespace EFW2C.Fields
         {
             return FieldTypeEnum.UpperCase_LeftJustify_Blank;
         }
+
+        public override bool IsRequired()
+        {
+            return true;
+        }
     }
 }

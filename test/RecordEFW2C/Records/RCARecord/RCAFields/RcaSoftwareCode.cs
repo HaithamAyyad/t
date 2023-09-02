@@ -40,5 +40,10 @@ namespace EFW2C.Fields
         {
             return FieldTypeEnum.Numerical_LeftJustify_Blank;
         }
+
+        public override bool IsRequired()
+        {
+            return false;
+        }
     }
 }

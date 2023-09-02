@@ -23,7 +23,7 @@ namespace test
 
                 var rca = new RCARecord();
 
-                rca.SetForeignAddress(false);
+                rca.SetForeignAddress(true);
 
                 rca.AddField(new RcaIdentifierField(rca, "RCA"));
 
@@ -41,7 +41,7 @@ namespace test
                 rca.AddField(new RcaDeliveryAddress(rca, "Alask box 444 0"));
                 rca.AddField(new RcaCity(rca, "City1"));
                 rca.AddField(new RcaForeignStateProvince(rca, "KKK"));
-                rca.AddField(new RcaForeignPostalCode(rca, "BOX. 300"));
+                rca.AddField(new RcaForeignPostalCode(rca, "BOX 300"));
                 rca.AddField(new RcaCountryCode(rca, "Jo"));
 
 

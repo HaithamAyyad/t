@@ -187,6 +187,7 @@ namespace EFW2C.Fields
             return false;
         }
 
+        public abstract bool IsRequired();
         protected abstract FieldTypeEnum GetFieldType();
     }
 }

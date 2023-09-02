@@ -5,15 +5,16 @@ using EFW2C.Records;
 
 namespace EFW2C.Fields
 {
-    //Created by  : HSA on 9-1-2023
-    //Reviewed by : HSA on ........
-    public class RcaIdentifierField : FieldBase
+    //Created by : hsa 9-2-2023
+    //Reviewed by : 
+
+    public class RcaCountryCode : FieldBase
     {
-        public RcaIdentifierField(RecordBase record, string data)
+        public RcaCountryCode(RecordBase record, string data)
             : base(record, data)
         {
-            _pos = 0;
-            _length = 3;
+            _pos = 209;
+            _length = 2;
         }
 
         public override bool Verify()
@@ -21,8 +22,10 @@ namespace EFW2C.Fields
             if (!base.Verify())
                 return false;
 
-            if (!_record.RecordBuffer.Compare(_pos, _record.RecordName.ToCharArray(), _length))
-                throw new Exception($"{ClassName} Field must be {_record.RecordName}");
+            var str = new string(_record.RecordBuffer, _pos, _length);
+
+            if(!IsCountryCodeValid(str))
+                 throw new Exception($"{ClassName} country code is not correct");
 
             return true;
         }
@@ -34,7 +37,7 @@ namespace EFW2C.Fields
 
         public override bool IsRequired()
         {
-            return true;
+            return _record.IsForeign();
         }
     }
 }

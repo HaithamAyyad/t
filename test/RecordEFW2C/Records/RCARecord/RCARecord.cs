@@ -12,26 +12,24 @@ namespace EFW2C.Records
             RecordName = RecordNameEnum.RCA.ToString();
         }
 
-        protected override void CreateLinkedFields()
-        {
-            _linkedFields = new List<Tuple<FieldBase, FieldBase>>();
-            _linkedFields.Add(Tuple.Create<FieldBase, FieldBase>(new RcaSoftwareVendorCode(null, "dummy"),
-                                                                 new RcaSoftwareCode(null, "dummy")));
-        }
         protected override void CreateRequiredFields()
         {
             _requiredFields = new List<FieldBase>();
 
-            _requiredFields.Add(new RcaIdentifierField(null, "dummy"));
-            _requiredFields.Add(new RcaSubmitterEinField(null, "dummy"));
-            _requiredFields.Add(new RcaUserIdentification(null, "dummy"));
-            _requiredFields.Add(new RcaSubmitterName(null, "dummy"));
-            _requiredFields.Add(new RcaContactName(null, "dummy"));
-            _requiredFields.Add(new RcaLocationAddress(null, "dummy"));
-            _requiredFields.Add(new RcaDeliveryAddress(null, "dummy"));
-            _requiredFields.Add(new RcaCity(null, "dummy"));
-            _requiredFields.Add(new RcaStateAbbreviation(null, "dummy"));
-            _requiredFields.Add(new RcaZIPCode(null, "dummy"));
+            _requiredFields.Add(new RcaIdentifierField(this, "dummy"));
+            _requiredFields.Add(new RcaSubmitterEinField(this, "dummy"));
+            _requiredFields.Add(new RcaUserIdentification(this, "dummy"));
+            _requiredFields.Add(new RcaSubmitterName(this, "dummy"));
+            _requiredFields.Add(new RcaContactName(this, "dummy"));
+            _requiredFields.Add(new RcaLocationAddress(this, "dummy"));
+            _requiredFields.Add(new RcaDeliveryAddress(this, "dummy"));
+            _requiredFields.Add(new RcaCity(this, "dummy"));
+            _requiredFields.Add(new RcaStateAbbreviation(this, "dummy"));
+            _requiredFields.Add(new RcaZIPCode(this, "dummy"));
+            _requiredFields.Add(new RcaForeignPostalCode(this, "dummy"));
+            _requiredFields.Add(new RcaForeignStateProvince(this, "dummy"));
+            _requiredFields.Add(new RcaCountryCode(this, "dummy"));
+            _requiredFields.Add(new RcaSoftwareVendorCode(this, "dummy"));
         }
     }
 }
