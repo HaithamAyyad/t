@@ -13,6 +13,7 @@ namespace EFW2C.Records
         protected List<FieldBase> _requiredFields;
         protected bool _isForeignAddres;
 
+        public List<FieldBase> Fields { get { return _fields; } }
         public string RecordName { get; set ; }
         public string ClassName { get; set ; }
         
