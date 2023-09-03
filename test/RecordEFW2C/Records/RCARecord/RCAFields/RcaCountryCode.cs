@@ -33,9 +33,7 @@ namespace EFW2C.Fields
 
             if (_record.IsForeign())
             {
-                var str = new string(_record.RecordBuffer, _pos, _length);
-
-                if (!IsCountryCodeValid(str))
+                if (!IsCountryCodeValid(DataInRecordBuffer()))
                     throw new Exception($"{ClassName} country code is not correct");
 
             }

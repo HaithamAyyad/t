@@ -35,6 +35,7 @@ namespace EFW2C.Fields
         public override bool IsRequired()
         {
             throw new NotImplementedException();
+            //return FieldTypeEnum.;
         }
     }
 }

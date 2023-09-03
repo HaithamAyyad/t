@@ -16,7 +16,7 @@ namespace EFW2C.Records
         {
             _requiredFields = new List<FieldBase>();
 
-            //_requiredFields.Add(new RcaIdentifierField(null, null));
+            //_requiredFields.Add(new RcaIdentifierField(this, "dummy"));
         }
     }
 }

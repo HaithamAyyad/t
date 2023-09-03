@@ -22,10 +22,10 @@ namespace EFW2C.Fields
             if (!base.Verify())
                 return false;
 
-            if (!_record.RecordBuffer.Compare(_pos, _record.RecordName.ToCharArray(), _length))
+            if(DataInRecordBuffer() != _record.RecordName)
                 throw new Exception($"{ClassName} Field must be {_record.RecordName}");
 
-            return true;
+                return true;
         }
 
         protected override FieldTypeEnum GetFieldType()

@@ -29,9 +29,7 @@ namespace EFW2C.Fields
 
             if (!_record.IsForeign())
             {
-                var state = new string(_record.RecordBuffer, _pos, _length);
-
-                if (!IsValidStateCode(state))
+                if (!IsValidStateCode(DataInRecordBuffer()))
                     throw new Exception($"{ClassName} State code is not valid");
             }
 

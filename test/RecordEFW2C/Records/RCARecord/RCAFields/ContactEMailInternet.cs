@@ -22,7 +22,7 @@ namespace EFW2C.Fields
             if (!base.Verify())
                 return false;
 
-            var email = new string(_record.RecordBuffer, _pos, _length);
+            var email = DataInRecordBuffer();
 
             if (string.IsNullOrEmpty(email))
                 throw new Exception($"{ClassName} email is empty");

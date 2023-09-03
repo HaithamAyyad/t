@@ -22,6 +22,11 @@ namespace EFW2C.Fields
 
         public string Data { get { return _data;} }
 
+        public string DataInRecordBuffer()
+        {
+            return new string(_record.RecordBuffer, _pos, _length);
+        }
+
         protected bool VerifyEmail(string email)
         {
             return true;
@@ -150,7 +155,7 @@ namespace EFW2C.Fields
                     case FieldTypeEnum.UpperCase_LeftJustify_Blank:
                         for (var i = _pos; i < _pos + _length; i++)
                         {
-                            var str = new string(_record.RecordBuffer, _pos, _length);
+                            var str = DataInRecordBuffer();
                             if (!str.IsUpper())
                                 throw new Exception($"{ClassName} Field nust be upper case");
                         }
@@ -212,7 +217,7 @@ namespace EFW2C.Fields
 
         public bool IsStateTerritoriseMiltary()
         {
-            var str = new string(_record.RecordBuffer, _pos, _length);
+            var str = DataInRecordBuffer();
             return IsUsaState(str) || IsTerritorise(str) || IsMiltaryPostOffice(str);
         }
 
