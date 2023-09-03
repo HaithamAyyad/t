@@ -23,6 +23,7 @@ namespace test
 
                 manager.AddRecord(CreateRcaRecord(manager));
                 manager.AddRecord(CreateRceRecord(manager));
+                manager.AddRecord(CreateRcvRecord(manager));
 
 
                 manager.write();
@@ -36,6 +37,15 @@ namespace test
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private RecordBase CreateRcvRecord(RecordManager manager)
+        {
+            var rcvRecord = new RCVRecord();
+            rcvRecord.AddField(new RcvRecordIdentifier(rcvRecord));
+            rcvRecord.AddField(new RcvSupplementalData(rcvRecord," this is data from user"));
+
+            return rcvRecord;
         }
 
         private RecordBase CreateRceRecord(RecordManager manager)

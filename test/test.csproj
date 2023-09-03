@@ -86,6 +86,9 @@
     <Compile Include="RecordEFW2C\Records\RCARecord\RCARecord.cs" />
     <Compile Include="RecordEFW2C\Helpper\Extensions.cs" />
     <Compile Include="RecordEFW2C\BaseClasses\RecordBase.cs" />
+    <Compile Include="RecordEFW2C\Records\RCVRecord\RCVFields\RcvSupplementalData.cs" />
+    <Compile Include="RecordEFW2C\Records\RCVRecord\RCVFields\RcvRecordIdentifier.cs" />
+    <Compile Include="RecordEFW2C\Records\RCVRecord\RCVRecord.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
