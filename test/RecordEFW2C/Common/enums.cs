@@ -83,6 +83,21 @@ namespace EFW2C.Common.Enum
         WY = 56,
     }
 
+    public enum TERRITORIES_AND_POSSESSIONS
+    {
+        AS,
+        GU,
+        MP,
+        PR,
+        VI,
+    }
+
+    public enum MILITARY_POST_OFFICES
+    {
+        AP,
+        AE,
+        AA,
+    }
     public enum CountryCode
     {
         AF,

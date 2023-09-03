@@ -17,15 +17,23 @@ namespace EFW2C.Fields
             _length = 2;
         }
 
+        public override void Write()
+        {
+            if (!_record.IsForeign())
+                base.Write();
+        }
         public override bool Verify()
         {
             if (!base.Verify())
                 return false;
 
-            var state = new string(_record.RecordBuffer, _pos, _length);
+            if (!_record.IsForeign())
+            {
+                var state = new string(_record.RecordBuffer, _pos, _length);
 
-            if(!IsValidStateCode(state))
-                throw new Exception($"{ClassName} State code is not valid");
+                if (!IsValidStateCode(state))
+                    throw new Exception($"{ClassName} State code is not valid");
+            }
 
             return true;
         }

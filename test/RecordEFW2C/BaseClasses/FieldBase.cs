@@ -157,6 +157,7 @@ namespace EFW2C.Fields
 
             return true;
         }
+
         public bool IsCountryCodeValid(string str)
         {
             foreach (var countryCode in Enum.GetValues(typeof(CountryCode)))
@@ -167,6 +168,47 @@ namespace EFW2C.Fields
 
             return false;
         }
+
+        public bool IsMiltaryPostOffice(string state)
+        {
+            foreach (var zipCode in Enum.GetValues(typeof(MILITARY_POST_OFFICES)))
+            {
+                if (zipCode.ToString() == state)
+                    return true;
+            }
+
+            return false;
+
+        }
+
+        public bool IsTerritorise(string state)
+        {
+            foreach (var zipCode in Enum.GetValues(typeof(TERRITORIES_AND_POSSESSIONS)))
+            {
+                if (zipCode.ToString() == state)
+                    return true;
+            }
+
+            return false;
+        }
+
+        public static bool IsUsaState(string state)
+        {
+            foreach (var zipCode in Enum.GetValues(typeof(ZipCodeEnum)))
+            {
+                if (zipCode.ToString() == state)
+                    return true;
+            }
+
+            return false;
+        }
+
+        public bool IsStateTerritoriseMiltary()
+        {
+            var str = new string(_record.RecordBuffer, _pos, _length);
+            return IsUsaState(str) || IsTerritorise(str) || IsMiltaryPostOffice(str);
+        }
+
 
         public static bool IsValidStateCode(string state, bool value = false)
         {

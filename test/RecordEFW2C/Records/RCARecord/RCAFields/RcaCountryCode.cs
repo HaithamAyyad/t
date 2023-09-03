@@ -17,15 +17,28 @@ namespace EFW2C.Fields
             _length = 2;
         }
 
+        public override void Write()
+        {
+            var rcaStateAbbreviation = _record.GetField(typeof(RcaStateAbbreviation).Name);
+            if (rcaStateAbbreviation != null)
+            {
+                if (!rcaStateAbbreviation.IsStateTerritoriseMiltary())
+                    base.Write();
+            }
+        }
         public override bool Verify()
         {
             if (!base.Verify())
                 return false;
 
-            var str = new string(_record.RecordBuffer, _pos, _length);
+            if (_record.IsForeign())
+            {
+                var str = new string(_record.RecordBuffer, _pos, _length);
 
-            if(!IsCountryCodeValid(str))
-                 throw new Exception($"{ClassName} country code is not correct");
+                if (!IsCountryCodeValid(str))
+                    throw new Exception($"{ClassName} country code is not correct");
+
+            }
 
             return true;
         }

@@ -16,6 +16,12 @@ namespace EFW2C.Fields
             _pos = 171;
             _length = 23;
         }
+        
+        public override void Write()
+        {
+            if (!_record.IsForeign())
+                base.Write();
+        }
 
         public override bool Verify()
         {
