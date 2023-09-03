@@ -42,7 +42,10 @@ namespace test
                 rca.AddField(new RcaCity(rca, "City1"));
                 rca.AddField(new RcaForeignStateProvince(rca, "KKK"));
                 rca.AddField(new RcaForeignPostalCode(rca, "BOX 300"));
-                rca.AddField(new RcaCountryCode(rca, "FF"));
+                rca.AddField(new RcaCountryCode(rca, "UK"));
+                rca.AddField(new RcaContactPhone(rca, "9090000000"));
+                rca.AddField(new RcaContactPhoneExtension(rca, "108"));
+                rca.AddField(new ContactEMailInternet(rca, "e@t.com"));
 
 
                 manager.AddRecord(rca);

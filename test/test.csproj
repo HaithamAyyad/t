@@ -56,6 +56,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="RecordEFW2C\BaseClasses\FieldBase.cs" />
+    <Compile Include="RecordEFW2C\Records\RCARecord\RCAFields\ContactEMailInternet.cs" />
+    <Compile Include="RecordEFW2C\Records\RCARecord\RCAFields\RcaContactPhoneExtension.cs" />
+    <Compile Include="RecordEFW2C\Records\RCARecord\RCAFields\RcaContactPhone .cs" />
     <Compile Include="RecordEFW2C\Records\RCARecord\RCAFields\RcaCountryCode.cs" />
     <Compile Include="RecordEFW2C\Records\RCARecord\RCAFields\RcaForeignPostalCode.cs" />
     <Compile Include="RecordEFW2C\Records\RCARecord\RCAFields\RcaForeignStateProvince.cs" />

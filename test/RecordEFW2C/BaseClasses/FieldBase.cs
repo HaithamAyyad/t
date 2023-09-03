@@ -4,6 +4,7 @@ using EFW2C.Common.Enum;
 using EFW2C.Extensions;
 using EFW2C.Records;
 using System;
+using System.Text.RegularExpressions;
 using System.Windows;
 
 namespace EFW2C.Fields
@@ -20,6 +21,12 @@ namespace EFW2C.Fields
         public string ClassName { get; set; }
 
         public string Data { get { return _data;} }
+
+        protected bool VerifyEmail(string email)
+        {
+            return true;
+        }
+
         public FieldBase(RecordBase record, string data)
         {
             _pos = -1;
