@@ -21,34 +21,9 @@ namespace test
             {
                 var manager = new RecordManager();
 
-                var rca = new RCARecord();
+                manager.AddRecord(CreateRcaRecord(manager));
+                manager.AddRecord(CreateRceRecord(manager));
 
-                rca.SetForeignAddress(true);
-
-                rca.AddField(new RcaIdentifierField(rca, "RCA"));
-
-                rca.AddField(new RcaSubmitterEinField(rca, "773456789"));
-                rca.AddField(new RcaSoftwareCode(rca, "98"));
-                rca.AddField(new RcaUserIdentification(rca, "12345678"));
-                rca.AddField(new RcaSoftwareVendorCode(rca, "4444"));
-
-                rca.AddField(new RcaSubmitterName(rca, "Adam"));
-                rca.AddField(new RcaContactName(rca, "john"));
-                rca.AddField(new RcaZIPCode(rca, "11118"));
-                rca.AddField(new RcaZIPCodeExtension(rca, "1117"));
-                rca.AddField(new RcaStateAbbreviation(rca, "AL"));
-                rca.AddField(new RcaLocationAddress(rca, ""));
-                rca.AddField(new RcaDeliveryAddress(rca, "Alask box 444 0"));
-                rca.AddField(new RcaCity(rca, "City1"));
-                rca.AddField(new RcaForeignStateProvince(rca, "KKK"));
-                rca.AddField(new RcaForeignPostalCode(rca, "BOX 300"));
-                rca.AddField(new RcaCountryCode(rca, "UK"));
-                rca.AddField(new RcaContactPhone(rca, "9090000000"));
-                rca.AddField(new RcaContactPhoneExtension(rca, "108"));
-                rca.AddField(new RcaContactEMailInternet(rca, "e@t.com"));
-
-
-                manager.AddRecord(rca);
 
                 manager.write();
 
@@ -61,6 +36,42 @@ namespace test
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private RecordBase CreateRceRecord(RecordManager manager)
+        {
+            var rceRecord = new RCERecord();
+            rceRecord.AddField(new RceRecordIdentifier(rceRecord));
+            rceRecord.AddField(new RceTaxYear(rceRecord, "1960"));
+
+            return rceRecord;
+        }
+
+        private RecordBase CreateRcaRecord(RecordManager manager)
+        {
+            var rcaRecord = new RCARecord();
+            rcaRecord.SetForeignAddress(true);
+            rcaRecord.AddField(new RcaIdentifierField(rcaRecord));
+            rcaRecord.AddField(new RcaSubmitterEinField(rcaRecord, "773456789"));
+            rcaRecord.AddField(new RcaSoftwareCode(rcaRecord, "98"));
+            rcaRecord.AddField(new RcaUserIdentification(rcaRecord, "12345678"));
+            rcaRecord.AddField(new RcaSoftwareVendorCode(rcaRecord, "4444"));
+            rcaRecord.AddField(new RcaSubmitterName(rcaRecord, "Adam"));
+            rcaRecord.AddField(new RcaContactName(rcaRecord, "john"));
+            rcaRecord.AddField(new RcaZIPCode(rcaRecord, "11118"));
+            rcaRecord.AddField(new RcaZIPCodeExtension(rcaRecord, "1117"));
+            rcaRecord.AddField(new RcaStateAbbreviation(rcaRecord, "AL"));
+            rcaRecord.AddField(new RcaLocationAddress(rcaRecord, ""));
+            rcaRecord.AddField(new RcaDeliveryAddress(rcaRecord, "Alask box 444 0"));
+            rcaRecord.AddField(new RcaCity(rcaRecord, "City1"));
+            rcaRecord.AddField(new RcaForeignStateProvince(rcaRecord, "KKK"));
+            rcaRecord.AddField(new RcaForeignPostalCode(rcaRecord, "BOX 300"));
+            rcaRecord.AddField(new RcaCountryCode(rcaRecord, "UK"));
+            rcaRecord.AddField(new RcaContactPhone(rcaRecord, "9090000000"));
+            rcaRecord.AddField(new RcaContactPhoneExtension(rcaRecord, "108"));
+            rcaRecord.AddField(new RcaContactEMailInternet(rcaRecord, "e@t.com"));
+
+            return rcaRecord;
         }
     }
 }

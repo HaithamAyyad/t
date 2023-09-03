@@ -10,8 +10,8 @@ namespace EFW2C.Fields
 
     public class RcaIdentifierField : FieldBase
     {
-        public RcaIdentifierField(RecordBase record, string data)
-            : base(record, data)
+        public RcaIdentifierField(RecordBase record)
+            : base(record, record.RecordName)
         {
             _pos = 0;
             _length = 3;

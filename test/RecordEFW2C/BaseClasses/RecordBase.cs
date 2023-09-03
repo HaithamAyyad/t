@@ -23,14 +23,14 @@ namespace EFW2C.Records
             _fields = new List<FieldBase>();
             ClassName = GetType().Name;
 
+            RecordName = "";
+
             CreateRequiredFields();
 
             for (int i = 0; i < RecordBuffer.Length; i++)
             {
                 RecordBuffer[i] = Constants.EmptyChar;
             }
-
-            RecordName = "";
         }
 
         public FieldBase GetField(string className)
