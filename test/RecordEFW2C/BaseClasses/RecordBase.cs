@@ -9,7 +9,7 @@ namespace EFW2C.Records
 {
     public abstract class RecordBase
     {
-        private RecordManager _recordManager;
+        private RecordManager _manager;
         public char[] RecordBuffer;
 
         protected List<FieldBase> _fields;
@@ -17,13 +17,13 @@ namespace EFW2C.Records
         protected bool _isForeignAddres;
 
         public List<FieldBase> Fields { get { return _fields; } }
-        public RecordManager RecordManager { get { return _recordManager; } }
+        public RecordManager Manager { get { return _manager; } }
         public string RecordName { get; set ; }
         public string ClassName { get; set ; }
         
         public RecordBase(RecordManager recordManager)
         {
-            _recordManager = recordManager;
+            _manager = recordManager;
             RecordBuffer = new char[1024];
             _fields = new List<FieldBase>();
             ClassName = GetType().Name;
@@ -44,7 +44,7 @@ namespace EFW2C.Records
         }
         public void AddField(FieldBase field)
         {
-            if(string.IsNullOrEmpty(field.ClassName))
+            if(string.IsNullOrWhiteSpace(field.ClassName))
                 throw new Exception($"{ClassName}:{field.ClassName} Field name missing to assign Name property");
 
             if (IsFieldExists(field))
@@ -72,7 +72,7 @@ namespace EFW2C.Records
 
         public bool Verify()
         {
-            if(string.IsNullOrEmpty(RecordName))
+            if(string.IsNullOrWhiteSpace(RecordName))
                 throw new Exception($"{ClassName} RecordName can't be empty.");
 
             if (!CheckRequiredFields())

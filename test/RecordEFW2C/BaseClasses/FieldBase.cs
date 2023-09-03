@@ -4,6 +4,7 @@ using EFW2C.Common.Enum;
 using EFW2C.Extensions;
 using EFW2C.Records;
 using System;
+using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows;
 
@@ -19,6 +20,11 @@ namespace EFW2C.Fields
         private FieldTypeEnum _fieldType;
 
         public string ClassName { get; set; }
+
+        public bool IsPreparerCodeVaild(string code)
+        {
+            return Enum.GetNames(typeof(PreparerCodeEnum)).Any(enumValue => enumValue == code);
+        }
 
         public string Data { get { return _data;} }
 
@@ -49,7 +55,7 @@ namespace EFW2C.Fields
 
         private bool VerifyWrite()
         {
-            if (string.IsNullOrEmpty(_data))
+            if (string.IsNullOrWhiteSpace(_data))
                 throw new Exception($"{ClassName} data can't be null or empty");
 
             if (_length == -1)
@@ -62,7 +68,7 @@ namespace EFW2C.Fields
                 throw new Exception($"{ClassName} Postion and Length is not correct");
 
             if (_length < _data.Length)
-                throw new Exception($"{ClassName} Length exceeds the allowed length");
+                throw new Exception($"{ClassName} Length exceeds {_length} ");
 
             switch (_fieldType)
             {

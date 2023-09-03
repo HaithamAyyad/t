@@ -56,6 +56,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="RecordEFW2C\BaseClasses\FieldBase.cs" />
+    <Compile Include="RecordEFW2C\Records\RCARecord\RCAFields\RcaResubWageFile.cs" />
+    <Compile Include="RecordEFW2C\Records\RCARecord\RCAFields\RcaResubIndicator.cs" />
+    <Compile Include="RecordEFW2C\Records\RCARecord\RCAFields\RcaPreparerCode.cs" />
+    <Compile Include="RecordEFW2C\Records\RCARecord\RCAFields\RcaContactFax.cs" />
     <Compile Include="RecordEFW2C\Records\RCERecord\RCEFields\RceTaxYear.cs" />
     <Compile Include="RecordEFW2C\Records\RCERecord\RCEFields\RceRecordIdentifier.cs" />
     <Compile Include="RecordEFW2C\Records\RCERecord\RCERecord.cs" />

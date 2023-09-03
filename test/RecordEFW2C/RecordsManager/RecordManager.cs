@@ -5,8 +5,11 @@ using EFW2C.Records;
 
 namespace EFW2C.Manager
 {
+
     public class RecordManager
     {
+        private bool _reSubmitted;
+
         List<RecordBase> _records;
         public RecordManager()
         {
@@ -61,6 +64,16 @@ namespace EFW2C.Manager
         public void AddRecord(RecordBase record)
         {
             _records.Add(record);
+        }
+
+        public void SetSubmitter(bool value)
+        {
+            _reSubmitted = value;
+        }
+
+        public bool IsSubmitter()
+        {
+            return _reSubmitted;
         }
     }
 

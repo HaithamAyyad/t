@@ -28,7 +28,7 @@ namespace EFW2C.Fields
         {
             var data = _data;
 
-            if (string.IsNullOrEmpty(_data))
+            if (string.IsNullOrWhiteSpace(_data))
             {
                 var rcaDeliveryAddress = _record.GetField(typeof(RcaDeliveryAddress).Name);
                 if (rcaDeliveryAddress != null)

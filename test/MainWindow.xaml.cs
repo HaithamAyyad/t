@@ -20,6 +20,7 @@ namespace test
             try
             {
                 var manager = new RecordManager();
+                manager.SetSubmitter(false);
 
                 manager.AddRecord(CreateRcaRecord(manager));
                 manager.AddRecord(CreateRceRecord(manager));
@@ -89,6 +90,10 @@ namespace test
             rcaRecord.AddField(new RcaContactPhone(rcaRecord, "9090000000"));
             rcaRecord.AddField(new RcaContactPhoneExtension(rcaRecord, "108"));
             rcaRecord.AddField(new RcaContactEMailInternet(rcaRecord, "e@t.com"));
+            rcaRecord.AddField(new RcaContactFax(rcaRecord, "123456456"));
+            rcaRecord.AddField(new RcaPreparerCode(rcaRecord, "A"));
+            rcaRecord.AddField(new RcaResubIndicator(rcaRecord, "0"));
+            rcaRecord.AddField(new RcaResubWageFile(rcaRecord, "hjhfj"));
 
             return rcaRecord;
         }

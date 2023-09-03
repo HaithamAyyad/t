@@ -11,7 +11,7 @@ namespace EFW2C.Fields
     public class RcfNumberOfRCWRecord : FieldBase
     {
         public RcfNumberOfRCWRecord(RecordBase record)
-            : base(record, record.RecordManager.GetRcwRecordsCount().ToString())
+            : base(record, record.Manager.GetRcwRecordsCount().ToString())
         {
             _pos = 3;
             _length = 9;
@@ -22,7 +22,7 @@ namespace EFW2C.Fields
             if (!base.Verify())
                 return false;
 
-            var RcwCount = _record.RecordManager.GetRcwRecordsCount();
+            var RcwCount = _record.Manager.GetRcwRecordsCount();
 
             if (Int32.Parse(DataInRecordBuffer()) != RcwCount)
                 throw new Exception($"{ClassName} number of RCW records is not correct");

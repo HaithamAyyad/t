@@ -24,7 +24,7 @@ namespace EFW2C.Fields
 
             var email = DataInRecordBuffer();
 
-            if (string.IsNullOrEmpty(email))
+            if (string.IsNullOrWhiteSpace(email))
                 throw new Exception($"{ClassName} email is empty");
 
             if (!VerifyEmail(email))

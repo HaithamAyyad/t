@@ -367,4 +367,13 @@ namespace EFW2C.Common.Enum
         ZI,
         OC,
     }
+
+    public enum PreparerCodeEnum
+    {
+        A,
+        L,
+        S,
+        P,
+        O,
+    }
 }
