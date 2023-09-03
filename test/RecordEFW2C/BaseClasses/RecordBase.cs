@@ -3,22 +3,27 @@ using System.Collections.Generic;
 using System.Linq;
 using EFW2C.Common.Constants;
 using EFW2C.Fields;
+using EFW2C.Manager;
 
 namespace EFW2C.Records
 {
     public abstract class RecordBase
     {
+        private RecordManager _recordManager;
         public char[] RecordBuffer;
+
         protected List<FieldBase> _fields;
         protected List<FieldBase> _requiredFields;
         protected bool _isForeignAddres;
 
         public List<FieldBase> Fields { get { return _fields; } }
+        public RecordManager RecordManager { get { return _recordManager; } }
         public string RecordName { get; set ; }
         public string ClassName { get; set ; }
         
-        public RecordBase()
+        public RecordBase(RecordManager recordManager)
         {
+            _recordManager = recordManager;
             RecordBuffer = new char[1024];
             _fields = new List<FieldBase>();
             ClassName = GetType().Name;

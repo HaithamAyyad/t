@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using EFW2C.Common.Enum;
 using EFW2C.Records;
 
 namespace EFW2C.Manager
@@ -31,6 +31,17 @@ namespace EFW2C.Manager
             }
 
             return true;
+        }
+
+        public int GetRcwRecordsCount()
+        {
+            var count = 0;
+            foreach (var record in _records)
+            {
+                if (record.RecordName == RecordNameEnum.RCW.ToString())
+                    count++;
+            }
+            return count;
         }
 
         private bool IsFeildsBelogToClass()

@@ -6,20 +6,20 @@ using System.Collections.Generic;
 
 namespace EFW2C.Records
 {
-    public class RCERecord : RecordBase
+    public class RCFRecord : RecordBase
     {
-        public RCERecord(RecordManager recordManager)
+        public RCFRecord(RecordManager recordManager)
             : base(recordManager)
         {
-            RecordName = RecordNameEnum.RCE.ToString();
+            RecordName = RecordNameEnum.RCF.ToString();
         }
 
         protected override void CreateRequiredFields()
         {
             _requiredFields = new List<FieldBase>();
 
-            _requiredFields.Add(new RceRecordIdentifier(this));
-            _requiredFields.Add(new RceTaxYear(this,"dummy"));
+            _requiredFields.Add(new RcfRecordIdentifier(this));
+            _requiredFields.Add(new RcfNumberOfRCWRecord(this));
         }
     }
 }

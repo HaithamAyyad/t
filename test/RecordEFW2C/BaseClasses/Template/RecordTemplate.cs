@@ -1,5 +1,6 @@
 ﻿using EFW2C.Common.Enum;
 using EFW2C.Fields;
+using EFW2C.Manager;
 using System;
 using System.Collections.Generic;
 
@@ -7,7 +8,8 @@ namespace EFW2C.Records
 {
     public class RecordTemplate : RecordBase
     {
-        public RecordTemplate()
+        public RecordTemplate(RecordManager recordManager)
+            : base(recordManager)
         {
             RecordName = null;
         }

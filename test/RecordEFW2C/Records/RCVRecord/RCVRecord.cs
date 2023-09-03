@@ -1,5 +1,6 @@
 ﻿using EFW2C.Common.Enum;
 using EFW2C.Fields;
+using EFW2C.Manager;
 using System;
 using System.Collections.Generic;
 
@@ -7,7 +8,8 @@ namespace EFW2C.Records
 {
     public class RCVRecord : RecordBase
     {
-        public RCVRecord()
+        public RCVRecord(RecordManager recordManager)
+            : base(recordManager)
         {
             RecordName = RecordNameEnum.RCV.ToString();
         }

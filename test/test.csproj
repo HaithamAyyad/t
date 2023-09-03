@@ -78,7 +78,7 @@
     <Compile Include="RecordEFW2C\Records\RCARecord\RCAFields\RcaSoftwareVendorCode.cs" />
     <Compile Include="RecordEFW2C\Common\Enums.cs" />
     <Compile Include="RecordEFW2C\RecordsManager\RecordManager.cs" />
-    <Compile Include="RecordEFW2C\Records\RCERecord\FieldTemplate.cs" />
+    <Compile Include="RecordEFW2C\Records\FieldTemplate.cs" />
     <Compile Include="RecordEFW2C\Records\RCARecord\RCAFields\RcaUserIdentification .cs" />
     <Compile Include="RecordEFW2C\Records\RCARecord\RCAFields\RcaIdentifierField.cs" />
     <Compile Include="RecordEFW2C\Records\RCARecord\RCAFields\RcaSubmitterEinField.cs" />
@@ -86,6 +86,9 @@
     <Compile Include="RecordEFW2C\Records\RCARecord\RCARecord.cs" />
     <Compile Include="RecordEFW2C\Helpper\Extensions.cs" />
     <Compile Include="RecordEFW2C\BaseClasses\RecordBase.cs" />
+    <Compile Include="RecordEFW2C\Records\RCFRecord\RCFFields\RcfNumberOfRCWRecord .cs" />
+    <Compile Include="RecordEFW2C\Records\RCFRecord\RCFFields\RcfRecordIdentifier.cs" />
+    <Compile Include="RecordEFW2C\Records\RCFRecord\RCFRecord.cs" />
     <Compile Include="RecordEFW2C\Records\RCVRecord\RCVFields\RcvSupplementalData.cs" />
     <Compile Include="RecordEFW2C\Records\RCVRecord\RCVFields\RcvRecordIdentifier.cs" />
     <Compile Include="RecordEFW2C\Records\RCVRecord\RCVRecord.cs" />

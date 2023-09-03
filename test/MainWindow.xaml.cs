@@ -24,6 +24,7 @@ namespace test
                 manager.AddRecord(CreateRcaRecord(manager));
                 manager.AddRecord(CreateRceRecord(manager));
                 manager.AddRecord(CreateRcvRecord(manager));
+                manager.AddRecord(CreateRcfRecord(manager));
 
 
                 manager.write();
@@ -39,9 +40,17 @@ namespace test
             }
         }
 
+        private RecordBase CreateRcfRecord(RecordManager manager)
+        {
+            var rcfRecord = new RCFRecord(manager);
+            rcfRecord.AddField(new RcfRecordIdentifier(rcfRecord));
+            rcfRecord.AddField(new RcfNumberOfRCWRecord(rcfRecord));
+            return rcfRecord;
+        }
+
         private RecordBase CreateRcvRecord(RecordManager manager)
         {
-            var rcvRecord = new RCVRecord();
+            var rcvRecord = new RCVRecord(manager);
             rcvRecord.AddField(new RcvRecordIdentifier(rcvRecord));
             rcvRecord.AddField(new RcvSupplementalData(rcvRecord," this is data from user"));
 
@@ -50,7 +59,7 @@ namespace test
 
         private RecordBase CreateRceRecord(RecordManager manager)
         {
-            var rceRecord = new RCERecord();
+            var rceRecord = new RCERecord(manager);
             rceRecord.AddField(new RceRecordIdentifier(rceRecord));
             rceRecord.AddField(new RceTaxYear(rceRecord, "1960"));
 
@@ -59,7 +68,7 @@ namespace test
 
         private RecordBase CreateRcaRecord(RecordManager manager)
         {
-            var rcaRecord = new RCARecord();
+            var rcaRecord = new RCARecord(manager);
             rcaRecord.SetForeignAddress(true);
             rcaRecord.AddField(new RcaIdentifierField(rcaRecord));
             rcaRecord.AddField(new RcaSubmitterEinField(rcaRecord, "773456789"));
