@@ -5,7 +5,7 @@ using EFW2C.Records;
 
 namespace EFW2C.Fields
 {
-    //Created by : 
+    //Created by : hsa 9-2-2013
     //Reviewed by : 
 
     public class RcaContactPhone : FieldBase

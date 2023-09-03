@@ -5,7 +5,7 @@ using EFW2C.Records;
 
 namespace EFW2C.Fields
 {
-    //Created by : 
+    //Created by : hsa 9-1-2023
     //Reviewed by : 
 
     public class RcaCity : FieldBase

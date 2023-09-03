@@ -7,6 +7,7 @@ namespace EFW2C.Fields
 {
     //Created by  : HSA on 9-1-2023
     //Reviewed by : HSA on ........
+
     public class RcaIdentifierField : FieldBase
     {
         public RcaIdentifierField(RecordBase record, string data)
