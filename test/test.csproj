@@ -56,11 +56,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="RecordEFW2C\BaseClasses\FieldBase.cs" />
-    <Compile Include="RecordEFW2C\Records\RCERecord\FieldTemplate - Copy.cs" />
-    <Compile Include="RecordEFW2C\Records\RCERecord\RCAFields\RceTaxYear.cs" />
-    <Compile Include="RecordEFW2C\Records\RCERecord\RCAFields\RceRecordIdentifier.cs" />
+    <Compile Include="RecordEFW2C\Records\RCERecord\RCEFields\RceTaxYear.cs" />
+    <Compile Include="RecordEFW2C\Records\RCERecord\RCEFields\RceRecordIdentifier.cs" />
     <Compile Include="RecordEFW2C\Records\RCERecord\RCERecord.cs" />
-    <Compile Include="RecordEFW2C\Records\RCARecord\RCAFields\ContactEMailInternet.cs" />
+    <Compile Include="RecordEFW2C\Records\RCARecord\RCAFields\RcaContactEMailInternet.cs" />
     <Compile Include="RecordEFW2C\Records\RCARecord\RCAFields\RcaContactPhoneExtension.cs" />
     <Compile Include="RecordEFW2C\Records\RCARecord\RCAFields\RcaContactPhone .cs" />
     <Compile Include="RecordEFW2C\Records\RCARecord\RCAFields\RcaCountryCode.cs" />

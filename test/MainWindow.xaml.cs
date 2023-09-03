@@ -45,7 +45,7 @@ namespace test
                 rca.AddField(new RcaCountryCode(rca, "UK"));
                 rca.AddField(new RcaContactPhone(rca, "9090000000"));
                 rca.AddField(new RcaContactPhoneExtension(rca, "108"));
-                rca.AddField(new ContactEMailInternet(rca, "e@t.com"));
+                rca.AddField(new RcaContactEMailInternet(rca, "e@t.com"));
 
 
                 manager.AddRecord(rca);

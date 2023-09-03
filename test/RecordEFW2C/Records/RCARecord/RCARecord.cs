@@ -31,7 +31,7 @@ namespace EFW2C.Records
             _requiredFields.Add(new RcaCountryCode(this, "dummy"));
             _requiredFields.Add(new RcaSoftwareVendorCode(this, "dummy"));
             _requiredFields.Add(new RcaContactPhone(this, "dummy"));
-            _requiredFields.Add(new ContactEMailInternet(this, "dummy"));
+            _requiredFields.Add(new RcaContactEMailInternet(this, "dummy"));
         }
     }
 }

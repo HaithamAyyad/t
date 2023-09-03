@@ -21,8 +21,8 @@ namespace EFW2C.Manager
 
         public bool Verify()
         {
-            //if (!IsFeildsBelogToClass())
-            //    return true;
+            if (!IsFeildsBelogToClass())
+                return true;
 
             foreach (var record in _records)
             {
