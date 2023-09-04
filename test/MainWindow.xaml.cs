@@ -61,7 +61,8 @@ namespace test
         private RecordBase CreateRceRecord(RecordManager manager)
         {
             var rceRecord = new RCERecord(manager);
-            rceRecord.AddField(new RceRecordIdentifier(rceRecord));
+
+            rceRecord.AddField(new RceIdentifierField(rceRecord));
             rceRecord.AddField(new RceTaxYear(rceRecord, "1960"));
 
             return rceRecord;

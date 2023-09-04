@@ -18,7 +18,7 @@ namespace EFW2C.Records
         {
             _requiredFields = new List<FieldBase>();
 
-            _requiredFields.Add(new RceRecordIdentifier(this));
+            _requiredFields.Add(new RceIdentifierField(this));
             _requiredFields.Add(new RceTaxYear(this,"dummy"));
         }
     }
