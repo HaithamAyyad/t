@@ -11,12 +11,17 @@ namespace EFW2C.Fields
     public class RcfNumberOfRCWRecord : FieldBase
     {
         public RcfNumberOfRCWRecord(RecordBase record)
-            : base(record, record.Manager.GetRcwRecordsCount().ToString())
+            : base(record, "0")
         {
             _pos = 3;
             _length = 9;
         }
 
+        public override void Write()
+        {
+            _data = _record.Manager.GetRcwRecordsCount().ToString();
+            base.Write();
+        }
         public override bool Verify()
         {
             if (!base.Verify())

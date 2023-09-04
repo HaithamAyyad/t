@@ -18,7 +18,7 @@ namespace EFW2C.Records
         {
             _requiredFields = new List<FieldBase>();
 
-            _requiredFields.Add(new RcfRecordIdentifier(this));
+            _requiredFields.Add(new RcfIdentifierField(this));
             _requiredFields.Add(new RcfNumberOfRCWRecord(this));
         }
     }

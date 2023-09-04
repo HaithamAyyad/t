@@ -8,9 +8,9 @@ namespace EFW2C.Fields
     //Created by : Has 9-3-2023
     //Reviewed by : 
 
-    public class RcfRecordIdentifier : FieldBase
+    public class RcfIdentifierField : FieldBase
     {
-        public RcfRecordIdentifier(RecordBase record)
+        public RcfIdentifierField(RecordBase record)
             : base(record, record.RecordName)
         {
             _pos = 0;

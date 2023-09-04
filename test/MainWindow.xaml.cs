@@ -25,10 +25,9 @@ namespace test
                 manager.AddRecord(CreateRcaRecord(manager));
                 manager.AddRecord(CreateRceRecord(manager));
                 manager.AddRecord(CreateRcvRecord(manager));
-                manager.AddRecord(CreateRcfRecord(manager));
                 manager.AddRecord(CreateRcoRecord(manager));
                 manager.AddRecord(CreateRcwRecord(manager));
-
+                manager.AddRecord(CreateRcfRecord(manager));
 
                 manager.write();
 
@@ -55,14 +54,14 @@ namespace test
         {
             var rcoRecord = new RCORecord(manager);
 
-            rcoRecord.AddField(new RcfRecordIdentifier(rcoRecord));
+            rcoRecord.AddField(new RcoIdentifierField(rcoRecord));
             return rcoRecord;
         }
 
         private RecordBase CreateRcfRecord(RecordManager manager)
         {
             var rcfRecord = new RCFRecord(manager);
-            rcfRecord.AddField(new RcfRecordIdentifier(rcfRecord));
+            rcfRecord.AddField(new RcfIdentifierField(rcfRecord));
             rcfRecord.AddField(new RcfNumberOfRCWRecord(rcfRecord));
             return rcfRecord;
         }
