@@ -47,6 +47,15 @@ namespace test
             var rcwRecord = new RCWRecord(manager);
 
             rcwRecord.AddField(new RcwIdentifierField(rcwRecord));
+            rcwRecord.AddField(new RcwZIPCode(rcwRecord, "11118"));
+            rcwRecord.AddField(new RcwZIPCodeExtension(rcwRecord, "1117"));
+            rcwRecord.AddField(new RcwStateAbbreviation(rcwRecord, "AL"));
+            rcwRecord.AddField(new RcwLocationAddress(rcwRecord, "ggg"));
+            rcwRecord.AddField(new RcwDeliveryAddress(rcwRecord, "Alask box 444 0"));
+            rcwRecord.AddField(new RcwCity(rcwRecord, "City1"));
+            rcwRecord.AddField(new RcwForeignStateProvince(rcwRecord, "KKK"));
+            rcwRecord.AddField(new RcwForeignPostalCode(rcwRecord, "BOX 300"));
+            rcwRecord.AddField(new RcwCountryCode(rcwRecord, "UK"));
             return rcwRecord;
         }
 

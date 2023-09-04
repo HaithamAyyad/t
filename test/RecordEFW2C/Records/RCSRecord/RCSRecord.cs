@@ -14,19 +14,31 @@ namespace EFW2C.Records
             RecordName = RecordNameEnum.RCS.ToString();
         }
 
-        protected override void CreateRequiredFields()
+        protected override List<(int, int)> CreateBlankList()
         {
-            _requiredFields = new List<FieldBase>();
+            return new List<(int, int)>
+            {
+                (210, 5),
+                (269, 6),
+                (383, 12),
+                (799, 225)
+            };
+        }
 
-            _requiredFields.Add(new RcsIdentifierField(this));
-            _requiredFields.Add(new RcsLocationAddress(this, "dummy"));
-            _requiredFields.Add(new RcsDeliveryAddress(this, "dummy"));
-            _requiredFields.Add(new RcsCity(this, "dummy"));
-            _requiredFields.Add(new RcsStateAbbreviation(this, "dummy"));
-            _requiredFields.Add(new RcsZIPCode(this, "dummy"));
-            _requiredFields.Add(new RcsForeignPostalCode(this, "dummy"));
-            _requiredFields.Add(new RcsForeignStateProvince(this, "dummy"));
-            _requiredFields.Add(new RcsCountryCode(this, "dummy"));
+        protected override List<FieldBase> CreateRequiredFields()
+        {
+            return new List<FieldBase>
+            {
+                new RcsIdentifierField(this),
+                new RcsLocationAddress(this, "dummy"),
+                new RcsDeliveryAddress(this, "dummy"),
+                new RcsCity(this, "dummy"),
+                new RcsStateAbbreviation(this, "dummy"),
+                new RcsZIPCode(this, "dummy"),
+                new RcsForeignPostalCode(this, "dummy"),
+                new RcsForeignStateProvince(this, "dummy"),
+                new RcsCountryCode(this, "dummy")
+            };
         }
     }
 }

@@ -14,11 +14,19 @@ namespace EFW2C.Records
             RecordName = null;
         }
 
-        protected override void CreateRequiredFields()
+        protected override List<(int, int)> CreateBlankList()
         {
-            _requiredFields = new List<FieldBase>();
+            return new List<(int, int)>()
+            {
+                //(24, 5),               
+            };
+        }
 
-            //_requiredFields.Add(new RcaIdentifierField(this, "dummy"));
+        protected override List<FieldBase> CreateRequiredFields()
+        {
+            var requiredFields = new List<FieldBase>();
+
+            return requiredFields;
         }
     }
 }

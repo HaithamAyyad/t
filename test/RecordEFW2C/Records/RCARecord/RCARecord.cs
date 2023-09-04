@@ -14,28 +14,42 @@ namespace EFW2C.Records
             RecordName = RecordNameEnum.RCA.ToString();
         }
 
-        protected override void CreateRequiredFields()
+        protected override List<(int, int)> CreateBlankList()
         {
-            _requiredFields = new List<FieldBase>();
+            return new List<(int, int)> 
+            { 
+                (24, 5), 
+                (165, 6), 
+                (258, 3), 
+                (301, 3), 
+                (314, 1), 
+                (323, 701) 
+            };
+        }
 
-            _requiredFields.Add(new RcaIdentifierField(this));
-            _requiredFields.Add(new RcaEinSubmitterField(this, "dummy"));
-            _requiredFields.Add(new RcaUserIdentification(this, "dummy"));
-            _requiredFields.Add(new RcaSubmitterName(this, "dummy"));
-            _requiredFields.Add(new RcaContactName(this, "dummy"));
-            _requiredFields.Add(new RcaLocationAddress(this, "dummy"));
-            _requiredFields.Add(new RcaDeliveryAddress(this, "dummy"));
-            _requiredFields.Add(new RcaCity(this, "dummy"));
-            _requiredFields.Add(new RcaStateAbbreviation(this, "dummy"));
-            _requiredFields.Add(new RcaZIPCode(this, "dummy"));
-            _requiredFields.Add(new RcaForeignPostalCode(this, "dummy"));
-            _requiredFields.Add(new RcaForeignStateProvince(this, "dummy"));
-            _requiredFields.Add(new RcaCountryCode(this, "dummy"));
-            _requiredFields.Add(new RcaSoftwareVendorCode(this, "dummy"));
-            _requiredFields.Add(new RcaContactPhone(this, "dummy"));
-            _requiredFields.Add(new RcaContactEMailInternet(this, "dummy"));
-            _requiredFields.Add(new RcaResubIndicator(this, "dummy"));
-            _requiredFields.Add(new RcaResubWageFile(this, "dummy"));
+        protected override List<FieldBase> CreateRequiredFields()
+        {
+            return new List<FieldBase>
+            {
+                new RcaIdentifierField(this),
+                new RcaEinSubmitterField(this, "dummy"),
+                new RcaUserIdentification(this, "dummy"),
+                new RcaSubmitterName(this, "dummy"),
+                new RcaContactName(this, "dummy"),
+                new RcaLocationAddress(this, "dummy"),
+                new RcaDeliveryAddress(this, "dummy"),
+                new RcaCity(this, "dummy"),
+                new RcaStateAbbreviation(this, "dummy"),
+                new RcaZIPCode(this, "dummy"),
+                new RcaForeignPostalCode(this, "dummy"),
+                new RcaForeignStateProvince(this, "dummy"),
+                new RcaCountryCode(this, "dummy"),
+                new RcaSoftwareVendorCode(this, "dummy"),
+                new RcaContactPhone(this, "dummy"),
+                new RcaContactEMailInternet(this, "dummy"),
+                new RcaResubIndicator(this, "dummy"),
+                new RcaResubWageFile(this, "dummy")
+            };
         }
     }
 }

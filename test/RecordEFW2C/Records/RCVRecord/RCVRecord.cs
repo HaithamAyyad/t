@@ -14,11 +14,19 @@ namespace EFW2C.Records
             RecordName = RecordNameEnum.RCV.ToString();
         }
 
-        protected override void CreateRequiredFields()
+        protected override List<(int, int)> CreateBlankList()
         {
-            _requiredFields = new List<FieldBase>();
+            //no blank fields
+            //question
+            return new List<(int, int)>();
+        }
 
-            _requiredFields.Add(new RcvRecordIdentifier(this));
+        protected override List<FieldBase> CreateRequiredFields()
+        {
+            return new List<FieldBase>
+            {
+                new RcvRecordIdentifier(this)
+            };
         }
     }
 }

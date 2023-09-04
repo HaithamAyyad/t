@@ -14,11 +14,21 @@ namespace EFW2C.Records
             RecordName = RecordNameEnum.RCU.ToString();
         }
 
-        protected override void CreateRequiredFields()
+        protected override List<(int, int)> CreateBlankList()
         {
-            _requiredFields = new List<FieldBase>();
+            return new List<(int, int)>
+            {
+                (250, 30),
+                (370, 654)
+            };
+        }
 
-            _requiredFields.Add(new RcuIdentifierField(this));
+        protected override List<FieldBase> CreateRequiredFields()
+        {
+            return new List<FieldBase>
+            {
+                new RcuIdentifierField(this)
+            };
         }
     }
 }

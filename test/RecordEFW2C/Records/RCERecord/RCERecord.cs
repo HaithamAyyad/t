@@ -14,13 +14,24 @@ namespace EFW2C.Records
             RecordName = RecordNameEnum.RCE.ToString();
         }
 
-        protected override void CreateRequiredFields()
+        protected override List<(int, int)> CreateBlankList()
         {
-            _requiredFields = new List<FieldBase>();
+            return new List<(int, int)>
+            {
+                (177, 4),
+                (225, 1),
+                (324, 700)
+            };
+        }
 
-            _requiredFields.Add(new RceIdentifierField(this));
-            _requiredFields.Add(new RceTaxYear(this,"dummy"));
-            _requiredFields.Add(new RceKindOfEmployer(this,"dummy"));
+        protected override List<FieldBase> CreateRequiredFields()
+        {
+            return new List<FieldBase>
+            {
+                new RceIdentifierField(this),
+                new RceTaxYear(this, "dummy"),
+                new RceKindOfEmployer(this, "dummy")
+            };
         }
     }
 }
