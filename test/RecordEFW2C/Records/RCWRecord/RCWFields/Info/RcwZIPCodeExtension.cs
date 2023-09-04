@@ -5,15 +5,15 @@ using EFW2C.Records;
 
 namespace EFW2C.Fields
 {
-    //Created by : hsa 9-2-2023
+    //Created by : hsa 9-4-2023
     //Reviewed by : 
 
-    public class RceZIPCodeExtension : ZIPCodeExtensionBase
+    public class RcwZIPCodeExtension : ZIPCodeExtensionBase
     {
-        public RceZIPCodeExtension(RecordBase record, string data)
+        public RcwZIPCodeExtension(RecordBase record, string data)
             : base(record, data)
         {
-            _pos = 174;
+            _pos = 194;
             _length = 4;
         }
     }

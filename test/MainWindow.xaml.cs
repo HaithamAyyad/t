@@ -26,6 +26,8 @@ namespace test
                 manager.AddRecord(CreateRceRecord(manager));
                 manager.AddRecord(CreateRcvRecord(manager));
                 manager.AddRecord(CreateRcfRecord(manager));
+                manager.AddRecord(CreateRcoRecord(manager));
+                manager.AddRecord(CreateRcwRecord(manager));
 
 
                 manager.write();
@@ -39,6 +41,22 @@ namespace test
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private RecordBase CreateRcwRecord(RecordManager manager)
+        {
+            var rcwRecord = new RCWRecord(manager);
+
+            rcwRecord.AddField(new RcwIdentifierField(rcwRecord));
+            return rcwRecord;
+        }
+
+        private RecordBase CreateRcoRecord(RecordManager manager)
+        {
+            var rcoRecord = new RCORecord(manager);
+
+            rcoRecord.AddField(new RcfRecordIdentifier(rcoRecord));
+            return rcoRecord;
         }
 
         private RecordBase CreateRcfRecord(RecordManager manager)

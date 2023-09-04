@@ -72,6 +72,20 @@
     <Compile Include="RecordEFW2C\BaseClasses\Info\ZIPCodeExtensionBase.cs" />
     <Compile Include="RecordEFW2C\BaseClasses\Info\ZIPCodeBase.cs" />
     <Compile Include="RecordEFW2C\BaseClasses\Info\StateAbbreviationBase.cs" />
+    <Compile Include="RecordEFW2C\Records\RCURecord\RCUFields\Info\RcuIdentifierField.cs" />
+    <Compile Include="RecordEFW2C\Records\RCURecord\RCURecord.cs" />
+    <Compile Include="RecordEFW2C\Records\RCORecord\RCORecord.cs" />
+    <Compile Include="RecordEFW2C\Records\RCSRecord\RCSRecord.cs" />
+    <Compile Include="RecordEFW2C\Records\RCSRecord\RCSFields\Info\RcsCity.cs" />
+    <Compile Include="RecordEFW2C\Records\RCSRecord\RCSFields\Info\RcsCountryCode.cs" />
+    <Compile Include="RecordEFW2C\Records\RCSRecord\RCSFields\Info\RcsDeliveryAddress.cs" />
+    <Compile Include="RecordEFW2C\Records\RCSRecord\RCSFields\Info\RcsForeignPostalCode.cs" />
+    <Compile Include="RecordEFW2C\Records\RCSRecord\RCSFields\Info\RcsForeignStateProvince.cs" />
+    <Compile Include="RecordEFW2C\Records\RCSRecord\RCSFields\Info\RcsIdentifierField.cs" />
+    <Compile Include="RecordEFW2C\Records\RCSRecord\RCSFields\Info\RcsLocationAddress.cs" />
+    <Compile Include="RecordEFW2C\Records\RCSRecord\RCSFields\Info\RcsStateAbbreviation.cs" />
+    <Compile Include="RecordEFW2C\Records\RCSRecord\RCSFields\Info\RcsZIPCode .cs" />
+    <Compile Include="RecordEFW2C\Records\RCSRecord\RCSFields\Info\RcsZIPCodeExtension.cs" />
     <Compile Include="RecordEFW2C\Records\RCARecord\RCAFields\Info\RcaForeignPostalCode.cs" />
     <Compile Include="RecordEFW2C\Records\RCARecord\RCAFields\RcaResubWageFile.cs" />
     <Compile Include="RecordEFW2C\Records\RCARecord\RCAFields\RcaResubIndicator.cs" />
@@ -130,9 +144,23 @@
     <Compile Include="RecordEFW2C\Records\RCFRecord\RCFFields\RcfNumberOfRCWRecord .cs" />
     <Compile Include="RecordEFW2C\Records\RCFRecord\RCFFields\RcfRecordIdentifier.cs" />
     <Compile Include="RecordEFW2C\Records\RCFRecord\RCFRecord.cs" />
+    <Compile Include="RecordEFW2C\Records\RCTRecord\RCTFields\Info\RctIdentifierField.cs" />
+    <Compile Include="RecordEFW2C\Records\RCTRecord\RCTRecord.cs" />
     <Compile Include="RecordEFW2C\Records\RCVRecord\RCVFields\RcvSupplementalData.cs" />
     <Compile Include="RecordEFW2C\Records\RCVRecord\RCVFields\RcvRecordIdentifier.cs" />
     <Compile Include="RecordEFW2C\Records\RCVRecord\RCVRecord.cs" />
+    <Compile Include="RecordEFW2C\Records\RCORecord\RCOFields\Info\RcoIdentifierField.cs" />
+    <Compile Include="RecordEFW2C\Records\RCWRecord\RCWRecord.cs" />
+    <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\Info\RcwCity.cs" />
+    <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\Info\RcwCountryCode.cs" />
+    <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\Info\RcwDeliveryAddress.cs" />
+    <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\Info\RcwForeignPostalCode.cs" />
+    <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\Info\RcwForeignStateProvince.cs" />
+    <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\Info\RcwIdentifierField.cs" />
+    <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\Info\RcwLocationAddress.cs" />
+    <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\Info\RcwStateAbbreviation.cs" />
+    <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\Info\RcwZIPCode .cs" />
+    <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\Info\RcwZIPCodeExtension.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
