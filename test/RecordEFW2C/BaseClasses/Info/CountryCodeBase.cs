@@ -19,7 +19,7 @@ namespace EFW2C.Fields
 
         public override void Write()
         {
-            var rcaStateAbbreviation = _record.GetField(typeof(RcaStateAbbreviation).Name);
+            var rcaStateAbbreviation = _record.GetFields(typeof(RcaStateAbbreviation).Name);
             if (rcaStateAbbreviation != null)
             {
                 if (!rcaStateAbbreviation.IsStateTerritoriseMiltary())

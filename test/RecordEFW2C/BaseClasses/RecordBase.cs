@@ -33,7 +33,7 @@ namespace EFW2C.Records
             CreateRequiredFields();
         }
 
-        public FieldBase GetField(string className)
+        public FieldBase GetFields(string className)
         {
             return _fields.FirstOrDefault(field => field.ClassName == className);
         }

@@ -20,7 +20,7 @@ namespace test
             try
             {
                 var manager = new RecordManager();
-                manager.SetSubmitter(false);
+                manager.SetSubmitter(true);
 
                 manager.AddRecord(CreateRcaRecord(manager));
                 manager.AddRecord(CreateRceRecord(manager));
@@ -64,6 +64,7 @@ namespace test
 
             rceRecord.AddField(new RceIdentifierField(rceRecord));
             rceRecord.AddField(new RceTaxYear(rceRecord, "1960"));
+            rceRecord.AddField(new RceKindOfEmployer(rceRecord, "S"));
 
             return rceRecord;
         }
@@ -93,7 +94,7 @@ namespace test
             rcaRecord.AddField(new RcaContactEMailInternet(rcaRecord, "e@t.com"));
             rcaRecord.AddField(new RcaContactFax(rcaRecord, "123456456"));
             rcaRecord.AddField(new RcaPreparerCode(rcaRecord, "A"));
-            rcaRecord.AddField(new RcaResubIndicator(rcaRecord, "0"));
+            rcaRecord.AddField(new RcaResubIndicator(rcaRecord, "1"));
             rcaRecord.AddField(new RcaResubWageFile(rcaRecord, "hjhfj"));
 
             return rcaRecord;

@@ -19,7 +19,7 @@ namespace EFW2C.Fields
 
         public override void Write()
         {
-            var rcaResubIndicator = _record.GetField(typeof(RcaResubIndicator).Name);
+            var rcaResubIndicator = _record.GetFields(typeof(RcaResubIndicator).Name);
 
             if (rcaResubIndicator != null && rcaResubIndicator.DataInRecordBuffer() == "1")
                 base.Write();
@@ -29,7 +29,7 @@ namespace EFW2C.Fields
             if (!base.Verify())
                 return false;
 
-            var rcaResubIndicator = _record.GetField(typeof(RcaResubIndicator).Name);
+            var rcaResubIndicator = _record.GetFields(typeof(RcaResubIndicator).Name);
             var localData = DataInRecordBuffer();
 
             if (rcaResubIndicator != null)
