@@ -19,7 +19,7 @@ namespace EFW2C.Records
             _requiredFields = new List<FieldBase>();
 
             _requiredFields.Add(new RcaIdentifierField(this));
-            _requiredFields.Add(new RcaSubmitterEinField(this, "dummy"));
+            _requiredFields.Add(new RcaEinSubmitterField(this, "dummy"));
             _requiredFields.Add(new RcaUserIdentification(this, "dummy"));
             _requiredFields.Add(new RcaSubmitterName(this, "dummy"));
             _requiredFields.Add(new RcaContactName(this, "dummy"));

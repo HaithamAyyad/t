@@ -55,6 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="RecordEFW2C\BaseClasses\Common\EinFieldBase.cs" />
     <Compile Include="RecordEFW2C\BaseClasses\FieldBase.cs" />
     <Compile Include="RecordEFW2C\BaseClasses\Info\LocationAddressBase.cs" />
     <Compile Include="RecordEFW2C\BaseClasses\Info\DeliveryAddressBase.cs" />
@@ -76,6 +77,10 @@
     <Compile Include="RecordEFW2C\Records\RCARecord\RCAFields\RcaResubIndicator.cs" />
     <Compile Include="RecordEFW2C\Records\RCARecord\RCAFields\RcaPreparerCode.cs" />
     <Compile Include="RecordEFW2C\Records\RCARecord\RCAFields\Info\RcaContactFax.cs" />
+    <Compile Include="RecordEFW2C\Records\RCERecord\RCEFields\RceAgentIndicator.cs" />
+    <Compile Include="RecordEFW2C\Records\RCERecord\RCEFields\RceEinAgentFederalOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCERecord\RCEFields\RceEinAgentFederal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCERecord\RCEFields\RceKindOfEmployer.cs" />
     <Compile Include="RecordEFW2C\Records\RCERecord\RCEFields\Info\RceIdentifierField.cs" />
     <Compile Include="RecordEFW2C\Records\RCERecord\RCEFields\Info\RceContactName.cs" />
     <Compile Include="RecordEFW2C\Records\RCERecord\RCEFields\Info\RceContactPhone.cs" />
@@ -114,7 +119,7 @@
     <Compile Include="RecordEFW2C\Records\FieldTemplate.cs" />
     <Compile Include="RecordEFW2C\Records\RCARecord\RCAFields\RcaUserIdentification .cs" />
     <Compile Include="RecordEFW2C\Records\RCARecord\RCAFields\Info\RcaIdentifierField.cs" />
-    <Compile Include="RecordEFW2C\Records\RCARecord\RCAFields\RcaSubmitterEinField.cs" />
+    <Compile Include="RecordEFW2C\Records\RCARecord\RCAFields\RcaEinSubmitterField.cs" />
     <Compile Include="RecordEFW2C\BaseClasses\Template\RecordTemplate.cs" />
     <Compile Include="RecordEFW2C\Records\RCARecord\RCARecord.cs" />
     <Compile Include="RecordEFW2C\Helpper\Extensions.cs" />

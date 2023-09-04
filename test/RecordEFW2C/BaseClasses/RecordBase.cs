@@ -24,18 +24,13 @@ namespace EFW2C.Records
         public RecordBase(RecordManager recordManager)
         {
             _manager = recordManager;
-            RecordBuffer = new char[1024];
+            RecordBuffer = new string(' ', Constants.RecordLength).ToCharArray();
             _fields = new List<FieldBase>();
             ClassName = GetType().Name;
 
             RecordName = "";
 
             CreateRequiredFields();
-
-            for (int i = 0; i < RecordBuffer.Length; i++)
-            {
-                RecordBuffer[i] = Constants.EmptyChar;
-            }
         }
 
         public FieldBase GetField(string className)
@@ -106,7 +101,7 @@ namespace EFW2C.Records
             {
                 for (var i = 0; i < RecordBuffer.Length; i++)
                 {
-                    if (RecordBuffer[i] != Constants.EmptyChar)
+                    if (!char.IsWhiteSpace(RecordBuffer[i]))
                         return false;
                 }
             }

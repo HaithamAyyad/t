@@ -73,7 +73,7 @@ namespace test
             var rcaRecord = new RCARecord(manager);
             rcaRecord.SetForeignAddress(true);
             rcaRecord.AddField(new RcaIdentifierField(rcaRecord));
-            rcaRecord.AddField(new RcaSubmitterEinField(rcaRecord, "773456789"));
+            rcaRecord.AddField(new RcaEinSubmitterField(rcaRecord, "773456789"));
             rcaRecord.AddField(new RcaSoftwareCode(rcaRecord, "98"));
             rcaRecord.AddField(new RcaUserIdentification(rcaRecord, "12345678"));
             rcaRecord.AddField(new RcaSoftwareVendorCode(rcaRecord, "4444"));

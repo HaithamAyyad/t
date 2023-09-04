@@ -20,6 +20,7 @@ namespace EFW2C.Records
 
             _requiredFields.Add(new RceIdentifierField(this));
             _requiredFields.Add(new RceTaxYear(this,"dummy"));
+            _requiredFields.Add(new RceKindOfEmployer(this,"dummy"));
         }
     }
 }

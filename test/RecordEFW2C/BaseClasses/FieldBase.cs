@@ -20,23 +20,7 @@ namespace EFW2C.Fields
         private FieldTypeEnum _fieldType;
 
         public string ClassName { get; set; }
-
-        public bool IsPreparerCodeVaild(string code)
-        {
-            return Enum.GetNames(typeof(PreparerCodeEnum)).Any(enumValue => enumValue == code);
-        }
-
-        public string Data { get { return _data;} }
-
-        public string DataInRecordBuffer()
-        {
-            return new string(_record.RecordBuffer, _pos, _length);
-        }
-
-        protected bool VerifyEmail(string email)
-        {
-            return true;
-        }
+        public string Data { get { return _data; } }
 
         public FieldBase(RecordBase record, string data)
         {
@@ -51,6 +35,16 @@ namespace EFW2C.Fields
             _data = _fieldType == FieldTypeEnum.UpperCase_LeftJustify_Blank ? data.ToUpper() : data;
 
             ClassName = GetType().Name;
+        }
+
+        public string DataInRecordBuffer()
+        {
+            return new string(_record.RecordBuffer, _pos, _length);
+        }
+
+        protected bool VerifyEmail(string email)
+        {
+            return true;
         }
 
         private bool VerifyWrite()
@@ -121,7 +115,7 @@ namespace EFW2C.Fields
                     break;
             }
         }
-         public bool VerifcationTestOnly()
+        public bool VerifcationTestOnly()
         {
             Write();
             if (!Verify())
@@ -154,7 +148,7 @@ namespace EFW2C.Fields
                     case FieldTypeEnum.Numerical_LeftJustify_Blank:
                         for (var i = _pos; i < _pos + _length; i++)
                         {
-                            if (!(char.IsDigit(_record.RecordBuffer[i]) || _record.RecordBuffer[i] == Constants.EmptyChar ))
+                            if (!(char.IsDigit(_record.RecordBuffer[i]) || char.IsWhiteSpace(_record.RecordBuffer[i])))
                                 throw new Exception($"{ClassName} field must be numerical");
                         }
                         break;
@@ -227,7 +221,6 @@ namespace EFW2C.Fields
             return IsUsaState(str) || IsTerritorise(str) || IsMiltaryPostOffice(str);
         }
 
-
         public static bool IsValidStateCode(string state, bool value = false)
         {
             foreach (var zipCode in Enum.GetValues(typeof(ZipCodeEnum)))
@@ -245,6 +238,21 @@ namespace EFW2C.Fields
             }
 
             return false;
+        }
+
+        public bool IsPreparerCodeVaild(string code)
+        {
+            return Enum.GetNames(typeof(PreparerCodeEnum)).Any(enumValue => enumValue == code);
+        }
+
+        public bool IsKindOfEmployerValid(string kind)
+        {
+            return Enum.GetNames(typeof(KindOfEmployerEnum)).Any(enumValue => enumValue == kind);
+        }
+
+        public bool IsAgentIndicatorValid(string indicator)
+        {
+            return Enum.IsDefined(typeof(AgentIndicatorCodeEnum), indicator);
         }
 
         public abstract bool IsRequired();

@@ -376,4 +376,19 @@ namespace EFW2C.Common.Enum
         P,
         O,
     }
+
+    public enum KindOfEmployerEnum
+    {
+        F,
+        S,
+        T,
+        Y,
+        N,
+    }
+    public enum AgentIndicatorCodeEnum
+    {
+        One = 1,
+        Two = 2,
+        Three = 3,
+    }
 }

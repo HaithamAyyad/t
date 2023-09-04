@@ -8,6 +8,6 @@ namespace EFW2C.Common.Constants
 {
     public class Constants
     {
-        public static char EmptyChar = ' ';
+        public static int RecordLength = 1024;
     }
 }
