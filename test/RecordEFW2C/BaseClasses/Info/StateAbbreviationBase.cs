@@ -1,5 +1,6 @@
 ﻿using System;
-using EFW2C.Common.Enum;
+using EFW2C.Common.Enums;
+using EFW2C.Common.Helper;
 using EFW2C.Extensions;
 using EFW2C.Records;
 
@@ -29,7 +30,7 @@ namespace EFW2C.Fields
 
             if (!_record.IsForeign())
             {
-                if (!IsValidStateCode(DataInRecordBuffer()))
+                if (!EnumHelper.IsValidStateCode(DataInRecordBuffer()))
                     throw new Exception($"{ClassName} State code is not valid");
             }
 

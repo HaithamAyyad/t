@@ -1,6 +1,6 @@
 ﻿
 using EFW2C.Common.Constants;
-using EFW2C.Common.Enum;
+using EFW2C.Common.Enums;
 using EFW2C.Extensions;
 using EFW2C.Records;
 using System;
@@ -168,91 +168,6 @@ namespace EFW2C.Fields
             }
 
             return true;
-        }
-
-        public bool IsCountryCodeValid(string str)
-        {
-            foreach (var countryCode in Enum.GetValues(typeof(CountryCode)))
-            {
-                if (countryCode.ToString() == str)
-                    return true;
-            }
-
-            return false;
-        }
-
-        public bool IsMiltaryPostOffice(string state)
-        {
-            foreach (var zipCode in Enum.GetValues(typeof(MILITARY_POST_OFFICES)))
-            {
-                if (zipCode.ToString() == state)
-                    return true;
-            }
-
-            return false;
-
-        }
-
-        public bool IsTerritorise(string state)
-        {
-            foreach (var zipCode in Enum.GetValues(typeof(TERRITORIES_AND_POSSESSIONS)))
-            {
-                if (zipCode.ToString() == state)
-                    return true;
-            }
-
-            return false;
-        }
-
-        public static bool IsUsaState(string state)
-        {
-            foreach (var zipCode in Enum.GetValues(typeof(ZipCodeEnum)))
-            {
-                if (zipCode.ToString() == state)
-                    return true;
-            }
-
-            return false;
-        }
-
-        public bool IsStateTerritoriseMiltary()
-        {
-            var str = DataInRecordBuffer();
-            return IsUsaState(str) || IsTerritorise(str) || IsMiltaryPostOffice(str);
-        }
-
-        public static bool IsValidStateCode(string state, bool value = false)
-        {
-            foreach (var zipCode in Enum.GetValues(typeof(ZipCodeEnum)))
-            {
-                if (value)
-                {
-                    if (((int)zipCode).ToString("D2") == state)
-                        return true;
-                }
-                else
-                {
-                    if (zipCode.ToString() == state)
-                        return true;
-                }
-            }
-
-            return false;
-        }
-
-        public bool IsPreparerCodeVaild(string code)
-        {
-            return Enum.GetNames(typeof(PreparerCodeEnum)).Any(enumValue => enumValue == code);
-        }
-
-        public bool IsKindOfEmployerValid(string kind)
-        {
-            return Enum.GetNames(typeof(KindOfEmployerEnum)).Any(enumValue => enumValue == kind);
-        }
-
-        public bool IsAgentIndicatorValid(string indicator)
-        {
-            return Enum.IsDefined(typeof(AgentIndicatorCodeEnum), indicator);
         }
 
         protected bool IsCorrectFieldProvided()

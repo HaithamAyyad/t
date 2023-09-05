@@ -1,5 +1,6 @@
 ﻿using System;
-using EFW2C.Common.Enum;
+using EFW2C.Common.Enums;
+using EFW2C.Common.Helper;
 using EFW2C.Extensions;
 using EFW2C.Records;
 
@@ -24,7 +25,7 @@ namespace EFW2C.Fields
 
             var code = DataInRecordBuffer();
 
-            if (!IsPreparerCodeVaild(code))
+            if (!EnumHelper.IsPreparerCodeVaild(code))
                 throw new Exception($"{ClassName}: {code} is not a valid preparer code.");
 
             return true;

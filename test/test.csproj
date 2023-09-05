@@ -72,6 +72,7 @@
     <Compile Include="RecordEFW2C\BaseClasses\Info\ZIPCodeExtensionBase.cs" />
     <Compile Include="RecordEFW2C\BaseClasses\Info\ZIPCodeBase.cs" />
     <Compile Include="RecordEFW2C\BaseClasses\Info\StateAbbreviationBase.cs" />
+    <Compile Include="RecordEFW2C\Helpper\EnumHelper.cs" />
     <Compile Include="RecordEFW2C\Records\RCERecord\RCEFields\RceThirdPartySickPayCorrect.cs" />
     <Compile Include="RecordEFW2C\Records\RCERecord\RCEFields\RceThirdPartySickPayOriginal.cs" />
     <Compile Include="RecordEFW2C\Records\RCERecord\RCEFields\RceEmploymentCode.cs" />

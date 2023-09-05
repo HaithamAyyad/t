@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EFW2C.Common.Enum
+namespace EFW2C.Common.Enums
 {
     public enum RecordNameEnum
     {

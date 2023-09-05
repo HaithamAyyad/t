@@ -1,5 +1,6 @@
 ﻿using System;
-using EFW2C.Common.Enum;
+using EFW2C.Common.Enums;
+using EFW2C.Common.Helper;
 using EFW2C.Extensions;
 using EFW2C.Records;
 
@@ -24,7 +25,7 @@ namespace EFW2C.Fields
 
             var indicator = DataInRecordBuffer();
 
-            if (char.IsWhiteSpace(indicator[0]) || !IsAgentIndicatorValid(indicator))
+            if (char.IsWhiteSpace(indicator[0]) || !EnumHelper.IsAgentIndicatorValid(indicator))
                 throw new Exception($"{ClassName} is not correct");
 
             return true;

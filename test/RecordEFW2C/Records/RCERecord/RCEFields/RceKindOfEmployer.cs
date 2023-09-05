@@ -1,5 +1,6 @@
 ﻿using System;
-using EFW2C.Common.Enum;
+using EFW2C.Common.Enums;
+using EFW2C.Common.Helper;
 using EFW2C.Extensions;
 using EFW2C.Records;
 
@@ -23,7 +24,7 @@ namespace EFW2C.Fields
                 return false;
 
             var localData = DataInRecordBuffer();
-            if (!IsKindOfEmployerValid(localData))
+            if (!EnumHelper.IsKindOfEmployerValid(localData))
                 throw new Exception($"{ClassName} : {localData} is not one of Employer Kind");
 
             return true;

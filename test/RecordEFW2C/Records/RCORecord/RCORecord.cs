@@ -1,4 +1,4 @@
-﻿using EFW2C.Common.Enum;
+﻿using EFW2C.Common.Enums;
 using EFW2C.Fields;
 using EFW2C.Manager;
 using System;

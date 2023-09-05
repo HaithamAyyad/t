@@ -1,5 +1,5 @@
 ﻿using System;
-using EFW2C.Common.Enum;
+using EFW2C.Common.Enums;
 using EFW2C.Extensions;
 using EFW2C.Records;
 

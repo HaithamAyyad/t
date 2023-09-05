@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using EFW2C.Common.Enum;
+using EFW2C.Common.Enums;
 using EFW2C.Records;
 
 namespace EFW2C.Manager
