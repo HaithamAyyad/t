@@ -189,7 +189,7 @@ namespace EFW2C.Fields
 
             var originalfield = _record.GetFields(originalName);
 
-            return string.IsNullOrWhiteSpace(originalfield.DataInRecordBuffer());
+            return originalfield == null ? false : string.IsNullOrWhiteSpace(originalfield.DataInRecordBuffer());
         }
 
         public abstract bool IsRequired();

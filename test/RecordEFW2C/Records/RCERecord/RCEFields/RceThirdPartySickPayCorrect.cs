@@ -8,7 +8,7 @@ namespace EFW2C.Fields
     //Created by : HSA 9-5-2023
     //Reviewed by : 
 
-    public class RceThirdPartySickPayCorrect : FieldBase
+    public class RceThirdPartySickPayCorrect : FieldCorrect
     {
         public RceThirdPartySickPayCorrect(RecordBase record, string data)
             : base(record, data)
@@ -22,7 +22,7 @@ namespace EFW2C.Fields
             if (!base.Verify())
                 return false;
 
-            if(!IsOriginalNullOrWhiteSpace())
+            if (!IsOriginalNullOrWhiteSpace())
             {
                 switch(DataInRecordBuffer())
                 {
@@ -35,16 +35,6 @@ namespace EFW2C.Fields
             }
 
             return true;
-        }
-
-        protected override FieldTypeEnum GetFieldType()
-        {
-            return FieldTypeEnum.UpperCase_LeftJustify_Blank;
-        }
-
-        public override bool IsRequired()
-        {
-            return !IsOriginalNullOrWhiteSpace();
         }
     }
 }

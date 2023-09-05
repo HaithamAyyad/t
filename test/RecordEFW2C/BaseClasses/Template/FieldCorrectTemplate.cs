@@ -8,13 +8,13 @@ namespace EFW2C.Fields
     //Created by : HSA 9-5-2023
     //Reviewed by : 
 
-    public class RceThirdPartySickPayOriginal : FieldOriginal
+    public class FieldCorrectTemplate : FieldBase
     {
-        public RceThirdPartySickPayOriginal(RecordBase record, string data)
+        public FieldCorrectTemplate(RecordBase record, string data)
             : base(record, data)
         {
-            _pos = 223;
-            _length = 1;
+            _pos = -1;
+            _length = -1;
         }
 
         public override bool Verify()
