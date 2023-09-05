@@ -75,9 +75,11 @@
     <Compile Include="RecordEFW2C\BaseClasses\Template\CorrectFieldTemplate.cs" />
     <Compile Include="RecordEFW2C\BaseClasses\Template\OriginalFeildTemplate.cs" />
     <Compile Include="RecordEFW2C\Helpper\EnumHelper.cs" />
+    <Compile Include="RecordEFW2C\Records\RCERecord\RCEFields\RceEmploymentCodeOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCERecord\RCEFields\RceEmployerName.cs" />
     <Compile Include="RecordEFW2C\Records\RCERecord\RCEFields\RceThirdPartySickPayCorrect.cs" />
     <Compile Include="RecordEFW2C\Records\RCERecord\RCEFields\RceThirdPartySickPayOriginal.cs" />
-    <Compile Include="RecordEFW2C\Records\RCERecord\RCEFields\RceEmploymentCode.cs" />
+    <Compile Include="RecordEFW2C\Records\RCERecord\RCEFields\RceEmploymentCodeCorrect.cs" />
     <Compile Include="RecordEFW2C\Records\RCURecord\RCUFields\Info\RcuIdentifierField.cs" />
     <Compile Include="RecordEFW2C\Records\RCURecord\RCURecord.cs" />
     <Compile Include="RecordEFW2C\Records\RCORecord\RCORecord.cs" />

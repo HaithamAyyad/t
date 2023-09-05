@@ -391,4 +391,15 @@ namespace EFW2C.Common.Enums
         Two = 2,
         Three = 3,
     }
+
+    public enum EmploymentCodeEnum
+    {
+        A,
+        H,
+        M,
+        Q,
+        X,
+        F,
+        R,
+    }
 }

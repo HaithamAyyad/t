@@ -89,5 +89,10 @@ namespace EFW2C.Common.Helper
         {
             return Enum.IsDefined(typeof(AgentIndicatorCodeEnum), indicator);
         }
+
+        public static bool IsEmploymentCodeValid(string code)
+        {
+            return Enum.IsDefined(typeof(AgentIndicatorCodeEnum), code);
+        }
     }
 }

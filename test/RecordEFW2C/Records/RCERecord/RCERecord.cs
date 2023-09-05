@@ -30,7 +30,7 @@ namespace EFW2C.Records
             {
                 new RceIdentifierField(this),
                 new RceTaxYear(this, "dummy"),
-                new RceKindOfEmployer(this, "dummy")
+                new RceKindOfEmployer(this, "dummy"),
             };
         }
     }
