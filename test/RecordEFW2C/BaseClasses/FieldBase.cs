@@ -170,7 +170,7 @@ namespace EFW2C.Fields
             return true;
         }
 
-        protected bool IsCorrectFieldProvided()
+        protected bool IsCorrectionFieldProvided()
         {
             if (!ClassName.Contains(Constants.OriginalStr))
                 throw new Exception($"{ClassName} this function only used for {Constants.OriginalStr} class");
