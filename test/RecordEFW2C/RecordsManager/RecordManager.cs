@@ -9,6 +9,8 @@ namespace EFW2C.Manager
     public class RecordManager
     {
         private bool _reSubmitted;
+        private int _taxYear;
+        public int TaxYear { get { return _taxYear; } set { _taxYear = value; } }
 
         List<RecordBase> _records;
         public RecordManager()

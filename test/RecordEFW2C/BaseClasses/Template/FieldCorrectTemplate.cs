@@ -5,10 +5,10 @@ using EFW2C.Records;
 
 namespace EFW2C.Fields
 {
-    //Created by : HSA 9-5-2023
+    //Created by : 
     //Reviewed by : 
 
-    public class FieldCorrectTemplate : FieldBase
+    public class FieldCorrectTemplate : FieldCorrect
     {
         public FieldCorrectTemplate(RecordBase record, string data)
             : base(record, data)

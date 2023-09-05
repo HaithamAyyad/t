@@ -192,6 +192,10 @@ namespace EFW2C.Fields
             return originalfield == null ? false : string.IsNullOrWhiteSpace(originalfield.DataInRecordBuffer());
         }
 
+        protected int GetTaxYear()
+        {
+            return _record.Manager.TaxYear;
+        }
         public abstract bool IsRequired();
         protected abstract FieldTypeEnum GetFieldType();
     }

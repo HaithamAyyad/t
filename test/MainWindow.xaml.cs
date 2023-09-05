@@ -21,6 +21,7 @@ namespace test
             {
                 var manager = new RecordManager();
                 manager.SetSubmitter(true);
+                manager.TaxYear = 2000;
 
                 manager.AddRecord(CreateRcaRecord(manager));
                 manager.AddRecord(CreateRceRecord(manager));
