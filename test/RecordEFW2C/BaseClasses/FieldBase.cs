@@ -180,6 +180,7 @@ namespace EFW2C.Fields
             var correctField = _record.GetFields(correctClassName);
             return correctField != null;
         }
+
         protected bool IsOriginalNullOrWhiteSpace()
         {
             if(!ClassName.Contains(Constants.CorrectStr))

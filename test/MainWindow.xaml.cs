@@ -27,6 +27,7 @@ namespace test
                 manager.AddRecord(CreateRceRecord(manager));
                 manager.AddRecord(CreateRcvRecord(manager));
                 manager.AddRecord(CreateRcoRecord(manager));
+                manager.AddRecord(CreateRcoRecord2(manager));
                 manager.AddRecord(CreateRcuRecord(manager));
                 manager.AddRecord(CreateRcwRecord(manager));
                 manager.AddRecord(CreateRcfRecord(manager));
@@ -81,6 +82,18 @@ namespace test
             var rcoRecord = new RcoRecord(manager);
 
             rcoRecord.AddField(new RcoIdentifierField(rcoRecord));
+            rcoRecord.AddField(new RcoAllocatedTipsCorrect(rcoRecord, "10"));
+            rcoRecord.AddField(new RcoAllocatedTipsOriginal(rcoRecord, "10"));
+           
+            return rcoRecord;
+        }
+        private RecordBase CreateRcoRecord2(RecordManager manager)
+        {
+            var rcoRecord = new RcoRecord(manager);
+
+            rcoRecord.AddField(new RcoIdentifierField(rcoRecord));
+            rcoRecord.AddField(new RcoAllocatedTipsCorrect(rcoRecord, "3"));
+            rcoRecord.AddField(new RcoAllocatedTipsOriginal(rcoRecord, "1"));
            
             return rcoRecord;
         }
