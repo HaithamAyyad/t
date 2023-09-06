@@ -57,7 +57,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="RecordEFW2C\BaseClasses\Common\EinFieldBase.cs" />
+    <Compile Include="RecordEFW2C\BaseClasses\Common\SumFieldCorrect.cs" />
     <Compile Include="RecordEFW2C\BaseClasses\Common\FieldCorrect.cs" />
+    <Compile Include="RecordEFW2C\BaseClasses\Common\SumFieldOriginal.cs" />
     <Compile Include="RecordEFW2C\BaseClasses\Common\MoneyCorrect.cs" />
     <Compile Include="RecordEFW2C\BaseClasses\Common\FieldOriginal.cs" />
     <Compile Include="RecordEFW2C\BaseClasses\Common\MoneyOriginal.cs" />
@@ -81,6 +83,8 @@
     <Compile Include="RecordEFW2C\BaseClasses\Template\FieldOriginalTemplate.cs" />
     <Compile Include="RecordEFW2C\BaseClasses\Template\MoneyCorrectTemplate.cs" />
     <Compile Include="RecordEFW2C\BaseClasses\Template\MoneyOriginalTemplate.cs" />
+    <Compile Include="RecordEFW2C\BaseClasses\Template\SumFieldCorrectTemplate.cs" />
+    <Compile Include="RecordEFW2C\BaseClasses\Template\SumFieldOriginalTemplate.cs" />
     <Compile Include="RecordEFW2C\Helpper\EnumHelper.cs" />
     <Compile Include="RecordEFW2C\Records\RCERecord\RCEFields\RceEmploymentCodeOriginal.cs" />
     <Compile Include="RecordEFW2C\Records\RCERecord\RCEFields\RceEmployerName.cs" />

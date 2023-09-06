@@ -6,16 +6,16 @@ using EFW2C.Records;
 
 namespace EFW2C.Fields
 {
-    //Created by : HSA 9-6-2023
+    //Created by : 
     //Reviewed by : 
 
-    public class RcuTotalAllocatedTipsCorrect : SumFieldCorrect
+    public class SumFieldOriginalTemplate : SumFieldOriginal
     {
-        public RcuTotalAllocatedTipsCorrect(RecordBase record)
+        public SumFieldOriginalTemplate(RecordBase record)
             : base(record, Constants.WhiteSpaceString)
         {
-            _pos = 25;
-            _length = 15;
+            _pos = -1;
+            _length = -1;
         }
     }
 }

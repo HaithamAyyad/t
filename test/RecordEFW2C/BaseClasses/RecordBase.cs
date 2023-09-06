@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using EFW2C.Common.Constants;
+using EFW2C.Common.Enums;
 using EFW2C.Fields;
 using EFW2C.Manager;
 
@@ -21,6 +22,7 @@ namespace EFW2C.Records
         public RecordManager Manager { get { return _manager; } }
         public string RecordName { get; set; }
         public string ClassName { get; set; }
+        public string LinkName { get; set; }
 
         public RecordBase(RecordManager recordManager)
         {
@@ -49,6 +51,11 @@ namespace EFW2C.Records
 
         public FieldBase GetFields(string fieldClassName)
         {
+
+            if (fieldClassName.Contains("."))
+            { 
+
+            }
             var validField = _childClassFields.FirstOrDefault(field => field.ClassName == fieldClassName);
 
             if (validField == null)

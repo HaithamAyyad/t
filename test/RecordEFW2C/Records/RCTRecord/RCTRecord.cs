@@ -12,6 +12,7 @@ namespace EFW2C.Records
             : base(recordManager)
         {
             RecordName = RecordNameEnum.RCT.ToString();
+            LinkName = RecordNameEnum.RCW.ToString();
         }
 
         protected override List<(int, int)> CreateBlankList()
