@@ -98,7 +98,6 @@ namespace test
             var rcvRecord = new RCVRecord(manager);
             rcvRecord.AddField(new RcvIdentifierField(rcvRecord)); ;
             rcvRecord.AddField(new RcvSupplementalData(rcvRecord," this is data from user"));
-
             return rcvRecord;
         }
 
