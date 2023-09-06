@@ -46,7 +46,7 @@ namespace test
 
         private RecordBase CreateRcuRecord(RecordManager manager)
         {
-            var rcuRecord = new RCURecord(manager);
+            var rcuRecord = new RcuRecord(manager);
 
             rcuRecord.AddField(new RcuIdentifierField(rcuRecord));
             rcuRecord.AddField(new RcuNumberOfRCORecord(rcuRecord));
@@ -61,7 +61,7 @@ namespace test
 
         private RecordBase CreateRcwRecord(RecordManager manager)
         {
-            var rcwRecord = new RCWRecord(manager);
+            var rcwRecord = new RcwRecord(manager);
 
             rcwRecord.AddField(new RcwIdentifierField(rcwRecord));
             rcwRecord.AddField(new RcwZIPCode(rcwRecord, "11118"));
@@ -78,7 +78,7 @@ namespace test
 
         private RecordBase CreateRcoRecord(RecordManager manager)
         {
-            var rcoRecord = new RCORecord(manager);
+            var rcoRecord = new RcoRecord(manager);
 
             rcoRecord.AddField(new RcoIdentifierField(rcoRecord));
            
@@ -87,7 +87,7 @@ namespace test
 
         private RecordBase CreateRcfRecord(RecordManager manager)
         {
-            var rcfRecord = new RCFRecord(manager);
+            var rcfRecord = new RcfRecord(manager);
             rcfRecord.AddField(new RcfIdentifierField(rcfRecord));
             rcfRecord.AddField(new RcfNumberOfRCWRecord(rcfRecord));
             return rcfRecord;
@@ -95,7 +95,7 @@ namespace test
 
         private RecordBase CreateRcvRecord(RecordManager manager)
         {
-            var rcvRecord = new RCVRecord(manager);
+            var rcvRecord = new RcvRecord(manager);
             rcvRecord.AddField(new RcvIdentifierField(rcvRecord)); ;
             rcvRecord.AddField(new RcvSupplementalData(rcvRecord," this is data from user"));
             return rcvRecord;
@@ -103,18 +103,22 @@ namespace test
 
         private RecordBase CreateRceRecord(RecordManager manager)
         {
-            var rceRecord = new RCERecord(manager);
+            var rceRecord = new RceRecord(manager);
 
             rceRecord.AddField(new RceIdentifierField(rceRecord));
             rceRecord.AddField(new RceTaxYear(rceRecord, "1960"));
             rceRecord.AddField(new RceKindOfEmployer(rceRecord, "S"));
+            rceRecord.AddField(new RceAgentIndicator(rceRecord, "1"));
+            rceRecord.AddField(new RceEinAgentFederal(rceRecord, "123456789"));
+            rceRecord.AddField(new RceEinAgent(rceRecord, "123456789"));
+            rceRecord.AddField(new RceEmployerName(rceRecord, "employer1"));
 
             return rceRecord;
         }
 
         private RecordBase CreateRcaRecord(RecordManager manager)
         {
-            var rcaRecord = new RCARecord(manager);
+            var rcaRecord = new RcaRecord(manager);
             rcaRecord.SetForeignAddress(true);
             rcaRecord.AddField(new RcaIdentifierField(rcaRecord));
             rcaRecord.AddField(new RcaEinSubmitterField(rcaRecord, "773456789"));

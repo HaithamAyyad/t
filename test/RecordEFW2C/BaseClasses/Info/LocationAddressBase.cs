@@ -24,23 +24,6 @@ namespace EFW2C.Fields
 
             return true;
         }
-        public override void Write()
-        {
-            var data = _data;
-
-            if (string.IsNullOrWhiteSpace(_data))
-            {
-                var rcaDeliveryAddress = _record.GetFields(typeof(RcaDeliveryAddress).Name);
-                if (rcaDeliveryAddress != null)
-                    _data = rcaDeliveryAddress.Data;
-            }
-
-            base.Write();
-
-            _data = data;
-
-        }
-
 
         protected override FieldTypeEnum GetFieldType()
         {
@@ -49,7 +32,7 @@ namespace EFW2C.Fields
 
         public override bool IsRequired()
         {
-            return true;
+            return false;
         }
     }
 }

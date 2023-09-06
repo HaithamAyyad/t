@@ -17,5 +17,21 @@ namespace EFW2C.Fields
             _pos = 16;
             _length = 9;
         }
+        public override bool IsRequired()
+        {
+            var rceAgentIndicator = _record.GetFields(typeof(RceAgentIndicator).Name);
+            if (rceAgentIndicator != null)
+            {
+                var localData = rceAgentIndicator.DataInRecordBuffer();
+
+                foreach(var agentCode in Enum.GetValues(typeof(AgentIndicatorCodeEnum)))
+                {
+                    if( localData == ((int)agentCode).ToString())
+                        return true;
+                }
+            }
+
+            return false;
+        }
     }
 }

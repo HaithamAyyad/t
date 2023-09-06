@@ -6,12 +6,12 @@ using System.Collections.Generic;
 
 namespace EFW2C.Records
 {
-    public class RCARecord : RecordBase
+    public class RcaRecord : RecordBase
     {
-        public RCARecord(RecordManager recordManager)
+        public RcaRecord(RecordManager recordManager)
             : base(recordManager)
         {
-            RecordName = RecordNameEnum.RCA.ToString();
+            RecordName = RecordNameEnum.Rca.ToString();
         }
 
         protected override List<(int, int)> CreateBlankList()

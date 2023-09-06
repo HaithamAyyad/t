@@ -45,5 +45,19 @@ namespace EFW2C.Fields
 
             return true;
         }
+
+        public override bool IsRequired()
+        {
+            var rceAgentIndicator = _record.GetFields(typeof(RceAgentIndicator).Name);
+            if (rceAgentIndicator != null)
+            {
+                if (rceAgentIndicator.DataInRecordBuffer() == ((int)AgentIndicatorCodeEnum.One).ToString())
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
     }
 }

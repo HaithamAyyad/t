@@ -1,0 +1,6 @@
+1- Is all EIN must not strat with 
+                "07", "08", "09", "17", "18", "19", "28", "29",
+                "49", "69", "70", "78", "79", "89"
+for example, Agent For Ein in RCE record, page 84.
+
+

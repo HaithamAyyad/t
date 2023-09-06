@@ -20,13 +20,15 @@ namespace EFW2C.Fields
 
         public override void Write()
         {
-            var rcaStateAbbreviation = _record.GetFields(typeof(RcaStateAbbreviation).Name);
-            if (rcaStateAbbreviation != null)
+            var fieldClassName = $"{_record.ClassName.Substring(0, 3)}StateAbbreviation";
+            var stateAbbreviation = _record.GetFields(fieldClassName);
+            if (stateAbbreviation != null)
             {
-                if (!EnumHelper.IsStateTerritoriseMiltary(rcaStateAbbreviation.DataInRecordBuffer()))
+                if (!EnumHelper.IsStateTerritoriseMiltary(stateAbbreviation.DataInRecordBuffer()))
                     base.Write();
             }
         }
+
         public override bool Verify()
         {
             if (!base.Verify())

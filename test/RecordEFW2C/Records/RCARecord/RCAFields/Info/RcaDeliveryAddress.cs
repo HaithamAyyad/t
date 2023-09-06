@@ -14,5 +14,10 @@ namespace EFW2C.Fields
             _pos = 110;
             _length = 22;
         }
+
+        public override bool IsRequired()
+        {
+            return true;
+        }
     }
 }

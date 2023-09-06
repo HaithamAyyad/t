@@ -16,26 +16,5 @@ namespace EFW2C.Fields
             _pos = 0;
             _length = 3;
         }
-
-        public override bool Verify()
-        {
-            if (!base.Verify())
-                return false;
-
-            if (DataInRecordBuffer() != _record.RecordName)
-                throw new Exception($"{ClassName} Field must be {_record.RecordName}");
-
-            return true;
-        }
-
-        protected override FieldTypeEnum GetFieldType()
-        {
-            return FieldTypeEnum.UpperCase_LeftJustify_Blank;
-        }
-
-        public override bool IsRequired()
-        {
-            return true;
-        }
     }
 }

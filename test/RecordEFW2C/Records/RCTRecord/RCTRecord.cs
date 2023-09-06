@@ -6,13 +6,13 @@ using System.Collections.Generic;
 
 namespace EFW2C.Records
 {
-    public class RCTRecord : RecordBase
+    public class RctRecord : RecordBase
     {
-        public RCTRecord(RecordManager recordManager)
+        public RctRecord(RecordManager recordManager)
             : base(recordManager)
         {
-            RecordName = RecordNameEnum.RCT.ToString();
-            LinkName = RecordNameEnum.RCW.ToString();
+            RecordName = RecordNameEnum.Rct.ToString();
+            SumRecordClassName = RecordNameEnum.Rcw.ToString();
         }
 
         protected override List<(int, int)> CreateBlankList()

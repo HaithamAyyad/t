@@ -43,7 +43,7 @@ namespace EFW2C.Fields
 
         public override bool IsRequired()
         {
-            return IsOriginalNullOrWhiteSpace();
+            return !IsOriginalNullOrWhiteSpace();
         }
     }
 }

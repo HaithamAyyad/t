@@ -25,7 +25,7 @@ namespace EFW2C.Fields
 
             var indicator = DataInRecordBuffer();
 
-            if (char.IsWhiteSpace(indicator[0]) || !EnumHelper.IsAgentIndicatorValid(indicator))
+            if (string.IsNullOrWhiteSpace(indicator) || !EnumHelper.IsAgentIndicatorValid(indicator))
                 throw new Exception($"{ClassName} is not correct");
 
             return true;

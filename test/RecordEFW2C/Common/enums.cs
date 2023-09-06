@@ -8,15 +8,15 @@ namespace EFW2C.Common.Enums
 {
     public enum RecordNameEnum
     {
-        RCA,
-        RCE,
-        RCW,
-        RCO,
-        RCS,
-        RCT,
-        RCU,
-        RCV,
-        RCF,
+        Rca,
+        Rce,
+        Rcw,
+        Rco,
+        Rcs,
+        Rct,
+        Rcu,
+        Rcv,
+        Rcf,
     }
 
     public enum FieldTypeEnum

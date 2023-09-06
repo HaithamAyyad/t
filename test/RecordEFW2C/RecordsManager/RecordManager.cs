@@ -48,7 +48,7 @@ namespace EFW2C.Manager
 
             foreach (var record in _records)
             {
-                if (record.RecordName == RecordNameEnum.RCW.ToString())
+                if (record.RecordName == RecordNameEnum.Rcw.ToString())
                     count++;
             }
 
@@ -61,7 +61,7 @@ namespace EFW2C.Manager
             {
                 foreach (var field in record.Fields)
                 {
-                    if (record.ClassName.Substring(0, 3) != field.ClassName.Substring(0, 3).ToUpper())
+                    if (record.ClassName.Substring(0, 3) != field.ClassName.Substring(0, 3))
                         throw new Exception($"{field.ClassName} doesn't belong to {record.ClassName}");
                 }
             }
@@ -139,7 +139,10 @@ namespace EFW2C.Manager
 
             foreach (var record in recordList)
             {
-                var field = record.GetFields(fieldClassName.Replace(Constants.TotalStr, ""));
+                var matchClassName = fieldClassName.Replace(Constants.TotalStr, "");
+                matchClassName = record.ClassName.Substring(0, 3) + matchClassName.Substring(3);
+                var field = record.GetFields(matchClassName);
+
                 if (field != null)
                 {
                     Int32.TryParse(field.DataInRecordBuffer(), out int value);
@@ -153,7 +156,7 @@ namespace EFW2C.Manager
 
         public int GetRecordsFeildsSum(string fieldClassName, RecordBase record, string summationRecordName)
         {
-            var rceRecord = GetPrecedRecord(record, RecordNameEnum.RCE.ToString());
+            var rceRecord = GetPrecedRecord(record, RecordNameEnum.Rce.ToString());
 
             if (rceRecord != null)
             {

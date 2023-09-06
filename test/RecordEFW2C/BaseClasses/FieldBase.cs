@@ -189,7 +189,7 @@ namespace EFW2C.Fields
 
             var originalfield = _record.GetFields(originalName);
 
-            return originalfield == null ? false : string.IsNullOrWhiteSpace(originalfield.DataInRecordBuffer());
+            return originalfield == null ? true : string.IsNullOrWhiteSpace(originalfield.DataInRecordBuffer());
         }
 
         protected int GetTaxYear()

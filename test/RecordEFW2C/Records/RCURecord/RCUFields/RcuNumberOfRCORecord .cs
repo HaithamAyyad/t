@@ -19,11 +19,11 @@ namespace EFW2C.Fields
 
         public override void Write()
         {
-            var precedRce = _record.Manager.GetPrecedRecord(_record, RecordNameEnum.RCE.ToString());
+            var precedRce = _record.Manager.GetPrecedRecord(_record, RecordNameEnum.Rce.ToString());
 
             if (precedRce != null)
             {
-                _data = _record.Manager.GetRecordsBetween(_record, precedRce, RecordNameEnum.RCO.ToString())?.Count.ToString();
+                _data = _record.Manager.GetRecordsBetween(_record, precedRce, RecordNameEnum.Rco.ToString())?.Count.ToString();
                 base.Write();
             }
 
@@ -35,11 +35,11 @@ namespace EFW2C.Fields
 
             var count = -1;
 
-            var precedRce = _record.Manager.GetPrecedRecord(_record, RecordNameEnum.RCE.ToString());
+            var precedRce = _record.Manager.GetPrecedRecord(_record, RecordNameEnum.Rce.ToString());
 
             if (precedRce != null)
             {
-                var list = _record.Manager.GetRecordsBetween(_record, precedRce, RecordNameEnum.RCO.ToString());
+                var list = _record.Manager.GetRecordsBetween(_record, precedRce, RecordNameEnum.Rco.ToString());
                 if(list!= null)
                     count = list.Count;
             }

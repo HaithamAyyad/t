@@ -22,7 +22,7 @@ namespace EFW2C.Records
         public RecordManager Manager { get { return _manager; } }
         public string RecordName { get; set; }
         public string ClassName { get; set; }
-        public string LinkName { get; set; }
+        public string SumRecordClassName { get; set; }
 
         public RecordBase(RecordManager recordManager)
         {
@@ -44,22 +44,17 @@ namespace EFW2C.Records
         {
             foreach (var field in childClassFields)
             {
-                if (ClassName.Substring(0, 3).ToUpper() != field.ClassName.Substring(0, 3).ToUpper())
+                if (ClassName.Substring(0, 3) != field.ClassName.Substring(0, 3))
                     throw new Exception($"{field.ClassName} doesn't belong to {ClassName} in child fields list");
             }
         }
 
         public FieldBase GetFields(string fieldClassName)
         {
-
-            if (fieldClassName.Contains("."))
-            { 
-
-            }
             var validField = _childClassFields.FirstOrDefault(field => field.ClassName == fieldClassName);
 
             if (validField == null)
-                throw new Exception($" you are tying to get invalid class : {fieldClassName}");
+                throw new Exception($" GetFields : you are trying to get invalid class : {fieldClassName}");
 
             return _fields.FirstOrDefault(field => field.ClassName == fieldClassName);
         }
@@ -137,6 +132,7 @@ namespace EFW2C.Records
                     throw new Exception($"{reqField.ClassName} : Field is required");
                 }
             }
+
             return true;
         }
 
