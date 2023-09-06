@@ -111,8 +111,8 @@
     <Compile Include="RecordEFW2C\Records\RCORecord\RCOFields\RcoUncollectedSocialSecurityOrRRTATaxCodeMOriginal.cs" />
     <Compile Include="RecordEFW2C\Records\RCURecord\RCUFields\Info\RcuIdentifierField.cs" />
     <Compile Include="RecordEFW2C\Records\RCURecord\RCUFields\RcuNumberOfRCORecord .cs" />
-    <Compile Include="RecordEFW2C\Records\RCURecord\RCUFields\RcuTotalReportedAllocatedCorrect.cs" />
-    <Compile Include="RecordEFW2C\Records\RCURecord\RCUFields\RcuTotalReportedAllocatedOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCURecord\RCUFields\RcuTotalAllocatedTipsCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCURecord\RCUFields\RcuTotalAllocatedTipsOriginal.cs" />
     <Compile Include="RecordEFW2C\Records\RCURecord\RCURecord.cs" />
     <Compile Include="RecordEFW2C\Records\RCORecord\RCORecord.cs" />
     <Compile Include="RecordEFW2C\Records\RCSRecord\RCSRecord.cs" />

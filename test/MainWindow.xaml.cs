@@ -23,22 +23,15 @@ namespace test
                 manager.SetSubmitter(true);
                 manager.TaxYear = 2000;
 
-                var rcu = CreateRcuRecord(manager);
                 manager.AddRecord(CreateRcaRecord(manager));
                 manager.AddRecord(CreateRceRecord(manager));
                 manager.AddRecord(CreateRcvRecord(manager));
                 manager.AddRecord(CreateRcoRecord(manager));
-                manager.AddRecord(rcu);
+                manager.AddRecord(CreateRcuRecord(manager));
                 manager.AddRecord(CreateRcwRecord(manager));
                 manager.AddRecord(CreateRcfRecord(manager));
 
                 manager.write();
-
-                new RcuIdentifierField(rcu).VerifcationTestOnly();
-                new RcuNumberOfRCORecord(rcu).VerifcationTestOnly();
-                new RcuTotalReportedAllocatedOriginal(rcu).VerifcationTestOnly();
-                new RcuTotalReportedAllocatedCorrect(rcu).VerifcationTestOnly();
-
 
                 if (!manager.Verify())
                     MessageBox.Show("Error");
@@ -57,8 +50,8 @@ namespace test
 
             rcuRecord.AddField(new RcuIdentifierField(rcuRecord));
             rcuRecord.AddField(new RcuNumberOfRCORecord(rcuRecord));
-            rcuRecord.AddField(new RcuTotalReportedAllocatedOriginal(rcuRecord));
-            rcuRecord.AddField(new RcuTotalReportedAllocatedCorrect(rcuRecord));
+            rcuRecord.AddField(new RcuTotalAllocatedTipsOriginal(rcuRecord));
+            rcuRecord.AddField(new RcuTotalAllocatedTipsCorrect(rcuRecord));
 
             return rcuRecord;
 

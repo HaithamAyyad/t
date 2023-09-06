@@ -31,7 +31,7 @@ namespace EFW2C.Manager
 
         public bool Verify()
         {
-            if (!IsFeildsBelogToClass())
+            if (!IsFeildsBelongToClass())
                 return true;
 
             foreach (var record in _records)
@@ -56,14 +56,14 @@ namespace EFW2C.Manager
             return count;
         }
 
-        private bool IsFeildsBelogToClass()
+        private bool IsFeildsBelongToClass()
         {
             foreach (var record in _records)
             {
                 foreach (var field in record.Fields)
                 {
                     if (record.ClassName.Substring(0, 3) != field.ClassName.Substring(0, 3).ToUpper())
-                        throw new Exception($"{field.ClassName} doesn't belog to {record.ClassName}");
+                        throw new Exception($"{field.ClassName} doesn't belong to {record.ClassName}");
                 }
             }
 
