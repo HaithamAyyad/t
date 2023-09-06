@@ -47,14 +47,9 @@ namespace EFW2C.Records
             }
         }
 
-        public FieldBase GetFields(string fieldClassName)
+        public FieldBase GetFields(string className)
         {
-            var validField = _childClassFields.FirstOrDefault(field => field.ClassName == fieldClassName);
-
-            if (validField == null)
-                throw new Exception($" you are tying to get invalid class : {fieldClassName}");
-
-            return _fields.FirstOrDefault(field => field.ClassName == fieldClassName);
+            return _fields.FirstOrDefault(field => field.ClassName == className);
         }
         public void AddField(FieldBase field)
         {

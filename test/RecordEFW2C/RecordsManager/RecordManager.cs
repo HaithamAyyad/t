@@ -151,13 +151,13 @@ namespace EFW2C.Manager
             return sum;
         }
 
-        public int GetRcoRecordsFeildsSum(string fieldClassName, RecordBase record)
+        public int GetRecordsFeildsSum(string fieldClassName, RecordBase record, string summationRecordName)
         {
             var rceRecord = GetPrecedRecord(record, RecordNameEnum.RCE.ToString());
 
             if (rceRecord != null)
             {
-                return GetTotal(fieldClassName, record, rceRecord, RecordNameEnum.RCO.ToString());
+                return GetTotal(fieldClassName, record, rceRecord, summationRecordName);
             }
 
             return 0;
