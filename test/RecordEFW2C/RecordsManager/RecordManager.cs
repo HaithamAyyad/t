@@ -8,7 +8,6 @@ using EFW2C.Records;
 
 namespace EFW2C.Manager
 {
-
     public class RecordManager
     {
         private bool _reSubmitted;

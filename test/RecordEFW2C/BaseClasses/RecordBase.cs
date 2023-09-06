@@ -13,7 +13,7 @@ namespace EFW2C.Records
         public char[] RecordBuffer;
 
         protected List<FieldBase> _fields;
-        private List<FieldBase> _requiredFields;
+        private List<FieldBase> _childClassFields;
         private List<(int, int)> _blankFields;
         protected bool _isForeignAddres;
 
@@ -31,8 +31,20 @@ namespace EFW2C.Records
 
             RecordName = "";
 
-            _requiredFields = CreateRequiredFields();
+            _childClassFields = CreateChildClassFields();
+
+            CheckFieldsBelongToRecord(_childClassFields);
+
             _blankFields = CreateBlankList();
+        }
+
+        private void CheckFieldsBelongToRecord(List<FieldBase> childClassFields)
+        {
+            foreach (var field in childClassFields)
+            {
+                if (ClassName.Substring(0, 3).ToUpper() != field.ClassName.Substring(0, 3).ToUpper())
+                    throw new Exception($"{field.ClassName} doesn't belong to {ClassName} in child fields list");
+            }
         }
 
         public FieldBase GetFields(string className)
@@ -106,7 +118,7 @@ namespace EFW2C.Records
 
         private bool CheckRequiredFields()
         {
-            foreach (var reqField in _requiredFields)
+            foreach (var reqField in _childClassFields)
             {
                 if (reqField.IsRequired() && !IsFieldExists(reqField))
                 {
@@ -139,7 +151,7 @@ namespace EFW2C.Records
         {
             return _isForeignAddres;
         }
-        protected abstract List<FieldBase> CreateRequiredFields();
+        protected abstract List<FieldBase> CreateChildClassFields();
         protected abstract List<(int, int)> CreateBlankList();
 
     }

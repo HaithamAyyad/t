@@ -25,19 +25,20 @@ namespace EFW2C.Records
             };
         }
 
-        protected override List<FieldBase> CreateRequiredFields()
+        protected override List<FieldBase> CreateChildClassFields()
         {
             return new List<FieldBase>
             {
-                new RcsIdentifierField(this),
-                new RcsLocationAddress(this, "dummy"),
-                new RcsDeliveryAddress(this, "dummy"),
                 new RcsCity(this, "dummy"),
-                new RcsStateAbbreviation(this, "dummy"),
-                new RcsZIPCode(this, "dummy"),
+                new RcsCountryCode(this, "dummy"),
+                new RcsDeliveryAddress(this, "dummy"),
                 new RcsForeignPostalCode(this, "dummy"),
                 new RcsForeignStateProvince(this, "dummy"),
-                new RcsCountryCode(this, "dummy")
+                new RcsIdentifierField(this),
+                new RcsLocationAddress(this, "dummy"),
+                new RcsStateAbbreviation(this, "dummy"),
+                new RcsZIPCode(this, "dummy"),
+                new RcsZIPCodeExtension(this, "dummy"),
             };
         }
     }

@@ -27,28 +27,33 @@ namespace EFW2C.Records
             };
         }
 
-        protected override List<FieldBase> CreateRequiredFields()
+        protected override List<FieldBase> CreateChildClassFields()
         {
             return new List<FieldBase>
             {
-                new RcaIdentifierField(this),
-                new RcaEinSubmitterField(this, "dummy"),
-                new RcaUserIdentification(this, "dummy"),
-                new RcaSubmitterName(this, "dummy"),
-                new RcaContactName(this, "dummy"),
-                new RcaLocationAddress(this, "dummy"),
-                new RcaDeliveryAddress(this, "dummy"),
                 new RcaCity(this, "dummy"),
-                new RcaStateAbbreviation(this, "dummy"),
-                new RcaZIPCode(this, "dummy"),
+                new RcaContactEMailInternet(this, "dummy"),
+                new RcaContactFax(this, "dummy"),
+                new RcaContactName(this, "dummy"),
+                new RcaContactPhone(this, "dummy"),
+                new RcaContactPhoneExtension(this, "dummy"),
+                new RcaCountryCode(this, "dummy"),
+                new RcaDeliveryAddress(this, "dummy"),
                 new RcaForeignPostalCode(this, "dummy"),
                 new RcaForeignStateProvince(this, "dummy"),
-                new RcaCountryCode(this, "dummy"),
-                new RcaSoftwareVendorCode(this, "dummy"),
-                new RcaContactPhone(this, "dummy"),
-                new RcaContactEMailInternet(this, "dummy"),
-                new RcaResubIndicator(this, "dummy"),
-                new RcaResubWageFile(this, "dummy")
+                new RcaIdentifierField(this),
+                new RcaLocationAddress(this, "dummy"),
+                new RcaStateAbbreviation(this, "dummy"),
+                new RcaZIPCode(this, "dummy"),
+                new RcaZIPCodeExtension(this, "dummy"),
+                new RcaEinSubmitterField(this, "dummy"),
+                new RcaPreparerCode(this, "dummy"),
+                new RcaResubIndicator (this, "dummy"),
+                new RcaResubWageFile (this, "dummy"),
+                new RcaSoftwareCode (this, "dummy"),
+                new RcaSoftwareVendorCode (this, "dummy"),
+                new RcaSubmitterName (this, "dummy"),
+                new RcaUserIdentification (this, "dummy"),
             };
         }
     }

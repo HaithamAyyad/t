@@ -23,11 +23,14 @@ namespace EFW2C.Records
             };
         }
 
-        protected override List<FieldBase> CreateRequiredFields()
+        protected override List<FieldBase> CreateChildClassFields()
         {
             return new List<FieldBase>
             {
-                new RcuIdentifierField(this)
+                new RcuIdentifierField(this),
+                new RcuNumberOfRCORecord(this),
+                new RcuTotalAllocatedTipsCorrect(this),
+                new RcuTotalAllocatedTipsOriginal(this),
             };
         }
     }

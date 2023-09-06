@@ -182,12 +182,12 @@
     <Compile Include="RecordEFW2C\Helpper\Extensions.cs" />
     <Compile Include="RecordEFW2C\BaseClasses\RecordBase.cs" />
     <Compile Include="RecordEFW2C\Records\RCFRecord\RCFFields\RcfNumberOfRCWRecord .cs" />
-    <Compile Include="RecordEFW2C\Records\RCFRecord\RCFFields\RcfRecordIdentifier.cs" />
+    <Compile Include="RecordEFW2C\Records\RCFRecord\RCFFields\RcfIdentifierField.cs" />
     <Compile Include="RecordEFW2C\Records\RCFRecord\RCFRecord.cs" />
     <Compile Include="RecordEFW2C\Records\RCTRecord\RCTFields\Info\RctIdentifierField.cs" />
     <Compile Include="RecordEFW2C\Records\RCTRecord\RCTRecord.cs" />
     <Compile Include="RecordEFW2C\Records\RCVRecord\RCVFields\RcvSupplementalData.cs" />
-    <Compile Include="RecordEFW2C\Records\RCVRecord\RCVFields\RcvRecordIdentifier.cs" />
+    <Compile Include="RecordEFW2C\Records\RCVRecord\RCVFields\RcvIdentifierField.cs" />
     <Compile Include="RecordEFW2C\Records\RCVRecord\RCVRecord.cs" />
     <Compile Include="RecordEFW2C\Records\RCORecord\RCOFields\Info\RcoIdentifierField.cs" />
     <Compile Include="RecordEFW2C\Records\RCWRecord\RCWRecord.cs" />

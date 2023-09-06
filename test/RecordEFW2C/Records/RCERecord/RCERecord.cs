@@ -24,13 +24,38 @@ namespace EFW2C.Records
             };
         }
 
-        protected override List<FieldBase> CreateRequiredFields()
+        protected override List<FieldBase> CreateChildClassFields()
         {
             return new List<FieldBase>
             {
+                new RceAgentIndicator(this,"dummy"),
+                new RceCity(this, "dummy"),
+                new RceContactEMailInternet(this, "dummy"),
+                new RceContactFax(this, "dummy"),
+                new RceContactName(this, "dummy"),
+                new RceContactPhone(this, "dummy"),
+                new RceContactPhoneExtension(this, "dummy"),
+                new RceCountryCode(this, "dummy"),
+                new RceDeliveryAddress(this, "dummy"),
+                new RceEinAgent(this, "dummy"),
+                new RceEinAgentFederal(this, "dummy"),
+                new RceEinAgentFederalOriginal(this, "dummy"),
+                new RceEmployerName(this, "dummy"),
+                new RceEmploymentCodeCorrect(this, "dummy"),
+                new RceEmploymentCodeOriginal(this, "dummy"),
+                new RceEstablishmentNumberCorrect(this, "dummy"),
+                new RceEstablishmentNumberOriginal(this, "dummy"),
+                new RceForeignPostalCode(this, "dummy"),
+                new RceForeignStateProvince(this, "dummy"),
                 new RceIdentifierField(this),
-                new RceTaxYear(this, "dummy"),
                 new RceKindOfEmployer(this, "dummy"),
+                new RceLocationAddress(this, "dummy"),
+                new RceStateAbbreviation(this, "dummy"),
+                new RceTaxYear(this, "dummy"),
+                new RceThirdPartySickPayCorrect(this, "dummy"),
+                new RceThirdPartySickPayOriginal(this, "dummy"),
+                new RceZIPCode(this, "dummy"),
+                new RceZIPCodeExtension(this, "dummy"),
             };
         }
     }

@@ -21,11 +21,12 @@ namespace EFW2C.Records
             return new List<(int, int)>();
         }
 
-        protected override List<FieldBase> CreateRequiredFields()
+        protected override List<FieldBase> CreateChildClassFields()
         {
             return new List<FieldBase>
             {
-                new RcvRecordIdentifier(this)
+                new RcvIdentifierField (this),
+                new RcvSupplementalData(this, "dummy"),
             };
         }
     }
