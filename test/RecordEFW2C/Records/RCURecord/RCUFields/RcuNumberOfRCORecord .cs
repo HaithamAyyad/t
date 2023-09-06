@@ -15,31 +15,37 @@ namespace EFW2C.Fields
         {
             _pos = 3;
             _length = 7;
+        }
 
+        public override void Write()
+        {
             var precedRce = _record.Manager.GetPrecedRecord(_record, RecordNameEnum.RCE.ToString());
 
             if (precedRce != null)
             {
                 _data = _record.Manager.GetRecordsBetween(_record, precedRce, RecordNameEnum.RCO.ToString())?.Count.ToString();
+                base.Write();
             }
+
         }
-        
         public override bool Verify()
         {
             if (!base.Verify())
                 return false;
 
-            var count = "-1";
+            var count = -1;
 
             var precedRce = _record.Manager.GetPrecedRecord(_record, RecordNameEnum.RCE.ToString());
 
             if (precedRce != null)
             {
-                count = _record.Manager.GetRecordsBetween(_record, precedRce, RecordNameEnum.RCO.ToString())?.Count.ToString();
-
+                var list = _record.Manager.GetRecordsBetween(_record, precedRce, RecordNameEnum.RCO.ToString());
+                if(list!= null)
+                    count = list.Count;
             }
 
-            if (DataInRecordBuffer() != count)
+            Int32.TryParse(DataInRecordBuffer(), out int value);
+            if (value != count)
                 throw new Exception($"{ClassName} number of RCO is not correct");
 
             return true;

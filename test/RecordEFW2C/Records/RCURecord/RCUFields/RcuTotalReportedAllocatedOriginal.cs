@@ -1,4 +1,5 @@
 ﻿using System;
+using EFW2C.Common.Constants;
 using EFW2C.Common.Enums;
 using EFW2C.Extensions;
 using EFW2C.Records;
@@ -10,11 +11,22 @@ namespace EFW2C.Fields
 
     public class RcuTotalReportedAllocatedOriginal : FieldOriginal
     {
-        public RcuTotalReportedAllocatedOriginal(RecordBase record, string data)
-            : base(record, data)
+        public RcuTotalReportedAllocatedOriginal(RecordBase record)
+            : base(record, Constants.WhiteSpaceString)
         {
             _pos = 10;
             _length = 15;
+        }
+
+        public override void Write()
+        {
+            var sum = _record.Manager.GetRcoRecordsFeildsSum(ClassName, _record);
+
+            if (sum > 0)
+            {
+                _data = sum.ToString();
+                base.Write();
+            }
         }
 
         public override bool Verify()

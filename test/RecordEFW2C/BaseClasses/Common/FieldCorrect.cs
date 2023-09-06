@@ -25,7 +25,7 @@ namespace EFW2C.Fields
             if(!IsOriginalNullOrWhiteSpace())
             {
                 if(string.IsNullOrWhiteSpace(DataInRecordBuffer()))
-                    throw new Exception($"{ClassName} Field must filled");
+                    throw new Exception($"{ClassName}: since you provide the original field then must fill {ClassName}");
             }
 
             return true;

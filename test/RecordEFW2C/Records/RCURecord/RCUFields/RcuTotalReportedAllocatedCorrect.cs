@@ -16,12 +16,16 @@ namespace EFW2C.Fields
         {
             _pos = 25;
             _length = 15;
+        }
 
+        public override void Write()
+        {
             var sum = _record.Manager.GetRcoRecordsFeildsSum(ClassName, _record);
 
             if (sum > 0)
             {
                 _data = sum.ToString();
+                base.Write();
             }
         }
 
@@ -30,8 +34,12 @@ namespace EFW2C.Fields
             if (!base.Verify())
                 return false;
 
-            if (_data != _record.Manager.GetRcoRecordsFeildsSum(ClassName, _record).ToString())
-                throw new Exception($"{ClassName} Postion is not set");
+            var localData = DataInRecordBuffer();
+            var sum = _record.Manager.GetRcoRecordsFeildsSum(ClassName, _record);
+            Int32.TryParse(localData, out int value);
+
+            if(sum != value)
+                throw new Exception($"Total of {ClassName} is not correct");
 
             return true;
         }

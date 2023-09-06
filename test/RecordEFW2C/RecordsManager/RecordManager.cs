@@ -119,11 +119,13 @@ namespace EFW2C.Manager
                 secondIndex = temp;
             }
 
-            var recordsBetween = _records
-                .Skip(firstIndex + 1)
-                .Take(secondIndex - firstIndex - 1)
-                .Where(record => record.ClassName == recordName)
-                .ToList();
+            var recordsBetween = new List<RecordBase>();
+
+            for(var i = firstIndex + 1; i < secondIndex; i++)
+            {
+                if (_records[i].RecordName == recordName)
+                    recordsBetween.Add(_records[i]);
+            }
 
             return recordsBetween;
         }
@@ -156,7 +158,6 @@ namespace EFW2C.Manager
 
             if (rceRecord != null)
             {
-
                 return GetTotal(fieldClassName, record, rceRecord, RecordNameEnum.RCO.ToString());
             }
 
