@@ -12,6 +12,7 @@ namespace EFW2C.Fields
 {
     public abstract class FieldBase
     {
+        //test
         protected RecordBase _record;
         protected int _pos;
         protected int _length;
