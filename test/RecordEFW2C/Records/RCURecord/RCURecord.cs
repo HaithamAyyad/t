@@ -30,8 +30,28 @@ namespace EFW2C.Records
             {
                 new RcuIdentifierField(this),
                 new RcuNumberOfRCORecord(this),
+                new RcuTotalAggregateDeferralsCodeHHCorrect(this),
+                new RcuTotalAggregateDeferralsCodeHHOriginal(this),
                 new RcuTotalAllocatedTipsCorrect(this),
                 new RcuTotalAllocatedTipsOriginal(this),
+                new RcuTotalDesignatedRothContributionsCodeEECorrect(this),
+                new RcuTotalDesignatedRothContributionsCodeEEOriginal(this),
+                new RcuTotalIncomeFromQualifiedEquityCodeGGCorrect(this),
+                new RcuTotalIncomeFromQualifiedEquityCodeGGOriginal(this),
+                new RcuTotalIncomeUnderANonqualifiedDeferredCompensationPlanCodeZCorrect(this),
+                new RcuTotalIncomeUnderANonqualifiedDeferredCompensationPlanCodeZOriginal(this),
+                new RcuTotalMedicalSavingsAccountCodeRCorrect(this),
+                new RcuTotalMedicalSavingsAccountCodeROriginal(this),
+                new RcuTotalQualifiedAdoptionExpensesCodeTCorrect(this),
+                new RcuTotalQualifiedAdoptionExpensesCodeTOriginal(this),
+                new RcuTotalSimpleRetirementAccountCodeSCorrect(this),
+                new RcuTotalSimpleRetirementAccountCodeSOriginal(this),
+                new RcuTotalUncollectedEmployeeTaxOnTipsCodesABCorrect(this),
+                new RcuTotalUncollectedEmployeeTaxOnTipsCodesABOriginal(this),
+                new RcuTotalUncollectedMedicareTaxCodeNCorrect(this),
+                new RcuTotalUncollectedMedicareTaxCodeNOriginal(this),
+                new RcuTotalUncollectedSocialSecurityOrRRTATaxCodeMCorrect(this),
+                new RcuTotalUncollectedSocialSecurityOrRRTATaxCodeMOriginal(this),
             };
         }
     }

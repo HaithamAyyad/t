@@ -8,9 +8,9 @@ namespace EFW2C.Fields
     //Created by : HSA 9-5-2023
     //Reviewed by : 
 
-    public class RcoUncollectedEmployeeTaxonTipsCodesABOriginal : FieldOriginal
+    public class RcoUncollectedEmployeeTaxOnTipsCodesABOriginal : FieldOriginal
     {
-        public RcoUncollectedEmployeeTaxonTipsCodesABOriginal(RecordBase record, string data)
+        public RcoUncollectedEmployeeTaxOnTipsCodesABOriginal(RecordBase record, string data)
             : base(record, data)
         {
             _pos = 34;

@@ -5,15 +5,15 @@ using EFW2C.Records;
 
 namespace EFW2C.Fields
 {
-    //Created by : HSA 9-5-2023
+    //Created by : 
     //Reviewed by : 
 
-    public class RcoUncollectedEmployeeTaxOnTipsCodesABCorrect : FieldCorrect
+    public class RcoIncomeUnderANonQualifiedDeferredCompensationPlanCodeZCorrect : FieldCorrect
     {
-        public RcoUncollectedEmployeeTaxOnTipsCodesABCorrect(RecordBase record, string data)
+        public RcoIncomeUnderANonQualifiedDeferredCompensationPlanCodeZCorrect(RecordBase record, string data)
             : base(record, data)
         {
-            _pos = 45;
+            _pos = 177;
             _length = 11;
         }
 
