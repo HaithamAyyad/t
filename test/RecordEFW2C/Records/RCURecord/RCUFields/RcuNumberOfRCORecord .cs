@@ -23,7 +23,7 @@ namespace EFW2C.Fields
 
             if (precedRce != null)
             {
-                _data = _record.Manager.GetRecordsBetween(_record, precedRce, RecordNameEnum.Rco.ToString())?.Count.ToString();
+                _data = _record.Manager.GetRecordsBetween(_record, precedRce, _record.SumRecordClassName)?.Count.ToString();
                 base.Write();
             }
 
@@ -39,7 +39,7 @@ namespace EFW2C.Fields
 
             if (precedRce != null)
             {
-                var list = _record.Manager.GetRecordsBetween(_record, precedRce, RecordNameEnum.Rco.ToString());
+                var list = _record.Manager.GetRecordsBetween(_record, precedRce, _record.SumRecordClassName);
                 if(list!= null)
                     count = list.Count;
             }

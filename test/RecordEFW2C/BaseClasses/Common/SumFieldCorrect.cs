@@ -19,7 +19,7 @@ namespace EFW2C.Fields
 
         public override void Write()
         {
-            var sum = _record.Manager.GetRecordsFeildsSum(ClassName, _record, RecordNameEnum.Rco.ToString());
+            var sum = _record.Manager.GetRecordsFeildsSum(ClassName, _record, _record.SumRecordClassName);
 
             if (sum > 0)
             {
@@ -34,7 +34,7 @@ namespace EFW2C.Fields
                 return false;
 
             var localData = DataInRecordBuffer();
-            var sum = _record.Manager.GetRecordsFeildsSum(ClassName, _record, RecordNameEnum.Rco.ToString());
+            var sum = _record.Manager.GetRecordsFeildsSum(ClassName, _record, _record.SumRecordClassName);
             Int32.TryParse(localData, out int value);
 
             if (sum != value)
