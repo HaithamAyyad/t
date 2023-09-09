@@ -12,6 +12,7 @@ namespace EFW2C.Manager
     {
         private bool _reSubmitted;
         private int _taxYear;
+        private bool _unemployment;
 
         public int TaxYear { get { return _taxYear; } set { _taxYear = value; } }
 
@@ -79,12 +80,21 @@ namespace EFW2C.Manager
             _reSubmitted = value;
         }
 
+        public void SetUnEmployment(bool value)
+        {
+            _unemployment = value;
+        }
+
         public bool IsSubmitter()
         {
             return _reSubmitted;
         }
 
-
+        public bool IsUnEmployment()
+        {
+            return _unemployment;
+        }
+        
         public RecordBase GetPrecedRecord(RecordBase sourceRecord, string recordName)
         {
             var pos = _records.Select((record, index) => new { Record = record, Index = index })

@@ -42,9 +42,9 @@ namespace EFW2C.Common.Helper
 
         public static bool IsUsaState(string state)
         {
-            foreach (var zipCode in Enum.GetValues(typeof(ZipCodeEnum)))
+            foreach (var stateCode in Enum.GetValues(typeof(StateCodeEnum)))
             {
-                if (zipCode.ToString() == state)
+                if (stateCode.ToString() == state)
                     return true;
             }
 
@@ -58,16 +58,16 @@ namespace EFW2C.Common.Helper
 
         public static bool IsValidStateCode(string state, bool value = false)
         {
-            foreach (var zipCode in Enum.GetValues(typeof(ZipCodeEnum)))
+            foreach (var stateCode in Enum.GetValues(typeof(StateCodeEnum)))
             {
                 if (value)
                 {
-                    if (((int)zipCode).ToString("D2") == state)
+                    if (((int)stateCode).ToString("D2") == state)
                         return true;
                 }
                 else
                 {
-                    if (zipCode.ToString() == state)
+                    if (stateCode.ToString() == state)
                         return true;
                 }
             }
@@ -92,7 +92,12 @@ namespace EFW2C.Common.Helper
 
         public static bool IsEmploymentCodeValid(string code)
         {
-            return Enum.IsDefined(typeof(AgentIndicatorCodeEnum), code);
+            return Enum.IsDefined(typeof(EmploymentCodeEnum), code);
+        }
+
+        public static bool IsTaxTypeCodeValid(string taxTypeCode)
+        {
+            return Enum.IsDefined(typeof(TaxTypeCodeEnum), taxTypeCode);
         }
     }
 }
