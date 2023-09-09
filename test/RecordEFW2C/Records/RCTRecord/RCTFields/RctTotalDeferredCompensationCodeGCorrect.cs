@@ -9,9 +9,9 @@ namespace EFW2C.Fields
     //Created by : HSA 9-8-2023
     //Reviewed by : 
 
-    public class RctTotalDeferredCompensationContributionsCodeGCorrect : SumFieldCorrect
+    public class RctTotalDeferredCompensationCodeGCorrect : SumFieldCorrect
     {
-        public RctTotalDeferredCompensationContributionsCodeGCorrect(RecordBase record)
+        public RctTotalDeferredCompensationCodeGCorrect(RecordBase record)
             : base(record, Constants.WhiteSpaceString)
         {
             _pos = 385;

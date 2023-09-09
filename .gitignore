@@ -2,3 +2,4 @@ test/bin/
 test/obj/Debug/.NETFramework,Version=v4.8.1.AssemblyAttributes.cs
 test/obj/Debug/.NETFramework,Version=v4.8.AssemblyAttributes.cs
 test/obj/
+.vs/
