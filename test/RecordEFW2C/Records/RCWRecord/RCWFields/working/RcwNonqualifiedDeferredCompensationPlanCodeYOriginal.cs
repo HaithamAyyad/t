@@ -11,8 +11,8 @@ namespace EFW2C.Fields
 
     public class RcwNonqualifiedDeferredCompensationPlanCodeYOriginal : MoneyOriginal
     {
-        public RcwNonqualifiedDeferredCompensationPlanCodeYOriginal(RecordBase record)
-            : base(record, Constants.WhiteSpaceString)
+        public RcwNonqualifiedDeferredCompensationPlanCodeYOriginal(RecordBase record, string data)
+            : base(record, data)
         {
             _pos = 749;
             _length = 11;

@@ -11,8 +11,8 @@ namespace EFW2C.Fields
 
     public class RcwDeferredCompensationCodeGCorrect : MoneyCorrect
     {
-        public RcwDeferredCompensationCodeGCorrect(RecordBase record)
-            : base(record, Constants.WhiteSpaceString)
+        public RcwDeferredCompensationCodeGCorrect(RecordBase record, string data)
+            : base(record, data)
         {
             _pos = 518;
             _length = 11;

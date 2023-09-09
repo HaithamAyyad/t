@@ -11,8 +11,8 @@ namespace EFW2C.Fields
 
     public class RcwIncomeFromTheExerciseOfNonstatutoryStockOptionsCodeVCorrect : MoneyCorrect
     {
-        public RcwIncomeFromTheExerciseOfNonstatutoryStockOptionsCodeVCorrect(RecordBase record)
-            : base(record, Constants.WhiteSpaceString)
+        public RcwIncomeFromTheExerciseOfNonstatutoryStockOptionsCodeVCorrect(RecordBase record, string data)
+            : base(record, data)
         {
             _pos = 738;
             _length = 11;

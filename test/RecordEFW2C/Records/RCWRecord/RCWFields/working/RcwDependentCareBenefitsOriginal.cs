@@ -11,8 +11,8 @@ namespace EFW2C.Fields
 
     public class RcwDependentCareBenefitsOriginal : MoneyOriginal
     {
-        public RcwDependentCareBenefitsOriginal(RecordBase record)
-            : base(record, Constants.WhiteSpaceString)
+        public RcwDependentCareBenefitsOriginal(RecordBase record, string data)
+            : base(record, data)
         {
             _pos = 419;
             _length = 11;

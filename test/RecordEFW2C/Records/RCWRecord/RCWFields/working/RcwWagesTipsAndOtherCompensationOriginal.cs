@@ -11,8 +11,8 @@ namespace EFW2C.Fields
 
     public class RcwWagesTipsAndOtherCompensationOriginal : MoneyOriginal
     {
-        public RcwWagesTipsAndOtherCompensationOriginal(RecordBase record)
-            : base(record, Constants.WhiteSpaceString)
+        public RcwWagesTipsAndOtherCompensationOriginal(RecordBase record, string data)
+            : base(record, data)
         {
             _pos = 243;
             _length = 11;

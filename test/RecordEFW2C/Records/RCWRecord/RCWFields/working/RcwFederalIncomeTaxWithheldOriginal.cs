@@ -11,8 +11,8 @@ namespace EFW2C.Fields
 
     public class RcwFederalIncomeTaxWithheldOriginal : MoneyOriginal
     {
-        public RcwFederalIncomeTaxWithheldOriginal(RecordBase record)
-            : base(record, Constants.WhiteSpaceString)
+        public RcwFederalIncomeTaxWithheldOriginal(RecordBase record, string data)
+            : base(record, data)
         {
             _pos = 265;
             _length = 11;

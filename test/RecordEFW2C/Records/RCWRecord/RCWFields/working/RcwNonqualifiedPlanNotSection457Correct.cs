@@ -11,8 +11,8 @@ namespace EFW2C.Fields
 
     public class RcwNonqualifiedPlanNotSection457Correct : MoneyCorrect
     {
-        public RcwNonqualifiedPlanNotSection457Correct(RecordBase record)
-            : base(record, Constants.WhiteSpaceString)
+        public RcwNonqualifiedPlanNotSection457Correct(RecordBase record, string data)
+            : base(record, data)
         {
             _pos = 650;
             _length = 11;

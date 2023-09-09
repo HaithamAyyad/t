@@ -11,8 +11,8 @@ namespace EFW2C.Fields
 
     public class RcwTotalDeferredCompensationContributionsOriginal : MoneyOriginal
     {
-        public RcwTotalDeferredCompensationContributionsOriginal(RecordBase record)
-            : base(record, Constants.WhiteSpaceString)
+        public RcwTotalDeferredCompensationContributionsOriginal(RecordBase record, string data)
+            : base(record, data)
         {
             _pos = 251;
             _length = 11;

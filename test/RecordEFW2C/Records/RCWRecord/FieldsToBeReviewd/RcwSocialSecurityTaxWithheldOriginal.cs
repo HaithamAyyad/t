@@ -11,8 +11,8 @@ namespace EFW2C.Fields
 
     public class RcwSocialSecurityTaxWithheldOriginal : MoneyOriginal
     {
-        public RcwSocialSecurityTaxWithheldOriginal(RecordBase record)
-            : base(record, Constants.WhiteSpaceString)
+        public RcwSocialSecurityTaxWithheldOriginal(RecordBase record, string data)
+            : base(record, data)
         {
             _pos = 309;
             _length = 11;

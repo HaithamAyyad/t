@@ -11,8 +11,8 @@ namespace EFW2C.Fields
 
     public class RcwPermittedBenefitsUnderAQSEHRACodeFFCorrect : MoneyCorrect
     {
-        public RcwPermittedBenefitsUnderAQSEHRACodeFFCorrect(RecordBase record)
-            : base(record, Constants.WhiteSpaceString)
+        public RcwPermittedBenefitsUnderAQSEHRACodeFFCorrect(RecordBase record, string data)
+            : base(record, data)
         {
             _pos = 848;
             _length = 11;

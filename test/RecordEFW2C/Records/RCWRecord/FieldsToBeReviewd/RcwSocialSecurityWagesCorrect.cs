@@ -11,8 +11,8 @@ namespace EFW2C.Fields
 
     public class RcwSocialSecurityWagesCorrect : MoneyCorrect
     {
-        public RcwSocialSecurityWagesCorrect(RecordBase record)
-            : base(record, Constants.WhiteSpaceString)
+        public RcwSocialSecurityWagesCorrect(RecordBase record, string data)
+            : base(record, data)
         {
             _pos = 287;
             _length = 11;

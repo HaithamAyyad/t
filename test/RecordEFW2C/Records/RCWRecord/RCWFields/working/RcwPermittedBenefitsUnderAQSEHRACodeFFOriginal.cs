@@ -11,8 +11,8 @@ namespace EFW2C.Fields
 
     public class RcwPermittedBenefitsUnderAQSEHRACodeFFOriginal : MoneyOriginal
     {
-        public RcwPermittedBenefitsUnderAQSEHRACodeFFOriginal(RecordBase record)
-            : base(record, Constants.WhiteSpaceString)
+        public RcwPermittedBenefitsUnderAQSEHRACodeFFOriginal(RecordBase record, string data)
+            : base(record, data)
         {
             _pos = 837;
             _length = 11;

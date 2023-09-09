@@ -11,8 +11,8 @@ namespace EFW2C.Fields
 
     public class RcwDesignatedRothCodeAACorrect : MoneyCorrect
     {
-        public RcwDesignatedRothCodeAACorrect(RecordBase record)
-            : base(record, Constants.WhiteSpaceString)
+        public RcwDesignatedRothCodeAACorrect(RecordBase record, string data)
+            : base(record, data)
         {
             _pos = 782;
             _length = 11;

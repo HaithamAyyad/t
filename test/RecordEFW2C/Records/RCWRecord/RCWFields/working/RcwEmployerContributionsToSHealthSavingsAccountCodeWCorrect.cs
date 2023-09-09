@@ -11,8 +11,8 @@ namespace EFW2C.Fields
 
     public class RcwEmployerContributionsToSHealthSavingsAccountCodeWCorrect : MoneyCorrect
     {
-        public RcwEmployerContributionsToSHealthSavingsAccountCodeWCorrect(RecordBase record)
-            : base(record, Constants.WhiteSpaceString)
+        public RcwEmployerContributionsToSHealthSavingsAccountCodeWCorrect(RecordBase record, string data)
+            : base(record, data)
         {
             _pos = 628;
             _length = 11;

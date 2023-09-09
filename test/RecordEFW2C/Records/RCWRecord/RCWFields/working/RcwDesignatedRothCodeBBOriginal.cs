@@ -11,8 +11,8 @@ namespace EFW2C.Fields
 
     public class RcwDesignatedRothCodeBBOriginal : MoneyOriginal
     {
-        public RcwDesignatedRothCodeBBOriginal(RecordBase record)
-            : base(record, Constants.WhiteSpaceString)
+        public RcwDesignatedRothCodeBBOriginal(RecordBase record, string data)
+            : base(record, data)
         {
             _pos = 793;
             _length = 11;

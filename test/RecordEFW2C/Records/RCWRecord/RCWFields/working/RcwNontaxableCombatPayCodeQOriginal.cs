@@ -11,8 +11,8 @@ namespace EFW2C.Fields
 
     public class RcwNontaxableCombatPayCodeQOriginal : MoneyOriginal
     {
-        public RcwNontaxableCombatPayCodeQOriginal(RecordBase record)
-            : base(record, Constants.WhiteSpaceString)
+        public RcwNontaxableCombatPayCodeQOriginal(RecordBase record, string data)
+            : base(record, data)
         {
             _pos = 661;
             _length = 11;

@@ -11,8 +11,8 @@ namespace EFW2C.Fields
 
     public class RcwCostOfEmployerSponsoredHealthCoverageCodeDDCorrect : MoneyCorrect
     {
-        public RcwCostOfEmployerSponsoredHealthCoverageCodeDDCorrect(RecordBase record)
-            : base(record, Constants.WhiteSpaceString)
+        public RcwCostOfEmployerSponsoredHealthCoverageCodeDDCorrect(RecordBase record, string data)
+            : base(record, data)
         {
             _pos = 826;
             _length = 11;

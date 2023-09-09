@@ -11,8 +11,8 @@ namespace EFW2C.Fields
 
     public class RcwSocialSecurityTipsOriginal : MoneyOriginal
     {
-        public RcwSocialSecurityTipsOriginal(RecordBase record)
-            : base(record, Constants.WhiteSpaceString)
+        public RcwSocialSecurityTipsOriginal(RecordBase record, string data)
+            : base(record, data)
         {
             _pos = 386;
             _length = 11;

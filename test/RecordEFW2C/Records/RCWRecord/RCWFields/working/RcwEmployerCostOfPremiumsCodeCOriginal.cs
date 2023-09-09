@@ -11,8 +11,8 @@ namespace EFW2C.Fields
 
     public class RcwEmployerCostOfPremiumsCodeCOriginal : MoneyOriginal
     {
-        public RcwEmployerCostOfPremiumsCodeCOriginal(RecordBase record)
-            : base(record, Constants.WhiteSpaceString)
+        public RcwEmployerCostOfPremiumsCodeCOriginal(RecordBase record, string data)
+            : base(record, data)
         {
             _pos = 705;
             _length = 11;

@@ -11,8 +11,8 @@ namespace EFW2C.Fields
 
     public class RcwDependentCareBenefitsCorrect : MoneyCorrect
     {
-        public RcwDependentCareBenefitsCorrect(RecordBase record)
-            : base(record, Constants.WhiteSpaceString)
+        public RcwDependentCareBenefitsCorrect(RecordBase record, string data)
+            : base(record, data)
         {
             _pos = 430;
             _length = 11;
