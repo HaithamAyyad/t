@@ -9,14 +9,13 @@ namespace EFW2C.Fields
     //Created by : HSA 9-8-2023
     //Reviewed by : 
 
-    public class RctTotalDeferralsNonqualifiedDeferredCompensationPlanCodeYCorrect : SumFieldCorrect
+    public class RctTotalNonqualifiedDeferredCompensationPlanCodeYOriginal : SumFieldOriginal
     {
-        public RctTotalDeferralsNonqualifiedDeferredCompensationPlanCodeYCorrect(RecordBase record)
+        public RctTotalNonqualifiedDeferredCompensationPlanCodeYOriginal(RecordBase record)
             : base(record, Constants.WhiteSpaceString)
         {
-            _pos = 715;
+            _pos = 700;
             _length = 15;
         }
     }
 }
-

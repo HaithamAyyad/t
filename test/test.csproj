@@ -154,8 +154,8 @@
     <Compile Include="RecordEFW2C\Records\RctRecord\RctFields\RctTotalEmployerCostOfPremiumsCodeCCorrect.cs" />
     <Compile Include="RecordEFW2C\Records\RctRecord\RctFields\RctTotalIncomeFromTheExerciseOfNonstatutoryStockOptionsCodeVOriginal.cs" />
     <Compile Include="RecordEFW2C\Records\RctRecord\RctFields\RctTotalIncomeFromTheExerciseOfNonstatutoryStockOptionsCodeVCorrect.cs" />
-    <Compile Include="RecordEFW2C\Records\RctRecord\RctFields\RctTotalDeferralsNonqualifiedDeferredCompensationPlanCodeYOriginal.cs" />
-    <Compile Include="RecordEFW2C\Records\RctRecord\RctFields\RctTotalDeferralsNonqualifiedDeferredCompensationPlanCodeYCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RctRecord\RctFields\RctTotalNonqualifiedDeferredCompensationPlanCodeYOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RctRecord\RctFields\RctTotalNonqualifiedDeferredCompensationPlanCodeYCorrect.cs" />
     <Compile Include="RecordEFW2C\Records\RctRecord\RctFields\RctTotalDesignatedRothCodeAAOriginal.cs" />
     <Compile Include="RecordEFW2C\Records\RctRecord\RctFields\RctTotalDesignatedRothCodeAACorrect.cs" />
     <Compile Include="RecordEFW2C\Records\RctRecord\RctFields\RctTotalDesignatedRothCodeBBOriginal.cs" />
