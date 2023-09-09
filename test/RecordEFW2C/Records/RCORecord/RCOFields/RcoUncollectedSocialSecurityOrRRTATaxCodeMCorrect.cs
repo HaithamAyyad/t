@@ -8,7 +8,7 @@ namespace EFW2C.Fields
     //Created by : 
     //Reviewed by : 
 
-    public class RcoUncollectedSocialSecurityOrRRTATaxCodeMCorrect : FieldCorrect
+    public class RcoUncollectedSocialSecurityOrRRTATaxCodeMCorrect : MoneyCorrect
     {
         public RcoUncollectedSocialSecurityOrRRTATaxCodeMCorrect(RecordBase record, string data)
             : base(record, data)

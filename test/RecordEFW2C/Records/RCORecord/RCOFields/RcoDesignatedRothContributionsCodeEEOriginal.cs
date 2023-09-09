@@ -8,7 +8,7 @@ namespace EFW2C.Fields
     //Created by : 
     //Reviewed by : 
 
-    public class RcoDesignatedRothContributionsCodeEEOriginal : FieldOriginal
+    public class RcoDesignatedRothContributionsCodeEEOriginal : MoneyOriginal
     {
         public RcoDesignatedRothContributionsCodeEEOriginal(RecordBase record, string data)
             : base(record, data)

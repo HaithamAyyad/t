@@ -8,7 +8,7 @@ namespace EFW2C.Fields
     //Created by : HSA 9-6-2023
     //Reviewed by : 
 
-    public class RcoIncomeFromQualifiedEquityCodeGGOriginal : FieldOriginal
+    public class RcoIncomeFromQualifiedEquityCodeGGOriginal : MoneyOriginal
     {
         public RcoIncomeFromQualifiedEquityCodeGGOriginal(RecordBase record, string data)
             : base(record, data)

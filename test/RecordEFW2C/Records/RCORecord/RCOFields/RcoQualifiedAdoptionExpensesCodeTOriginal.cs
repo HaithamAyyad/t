@@ -8,7 +8,7 @@ namespace EFW2C.Fields
     //Created by : 
     //Reviewed by : 
 
-    public class RcoQualifiedAdoptionExpensesCodeTOriginal : FieldOriginal
+    public class RcoQualifiedAdoptionExpensesCodeTOriginal : MoneyOriginal
     {
         public RcoQualifiedAdoptionExpensesCodeTOriginal(RecordBase record, string data)
             : base(record, data)

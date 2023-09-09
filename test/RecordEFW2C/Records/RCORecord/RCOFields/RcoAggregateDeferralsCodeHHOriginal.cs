@@ -8,7 +8,7 @@ namespace EFW2C.Fields
     //Created by : 
     //Reviewed by : 
 
-    public class RcoAggregateDeferralsCodeHHOriginal : FieldOriginal
+    public class RcoAggregateDeferralsCodeHHOriginal : MoneyOriginal
     {
         public RcoAggregateDeferralsCodeHHOriginal(RecordBase record, string data)
             : base(record, data)
