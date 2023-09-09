@@ -24,7 +24,7 @@ namespace EFW2C.Records
                 (850, 174)
             };
         }
-
+        
         protected override List<FieldBase> CreateChildClassFields()
         {
             return new List<FieldBase>
