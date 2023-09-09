@@ -5,16 +5,16 @@ using EFW2C.Records;
 
 namespace EFW2C.Fields
 {
-    //Created by : 
+    //Created by : 9-9-2023
     //Reviewed by : 
 
-    public class MoneyOriginalTemplate : MoneyOriginal
+    public class RcwSocialSecurityNumberCorrect : FieldCorrect
     {
-        public MoneyOriginalTemplate(RecordBase record, string data)
+        public RcwSocialSecurityNumberCorrect(RecordBase record, string data)
             : base(record, data)
         {
-            _pos = -1;
-            _length = -1;
+            _pos = 12;
+            _length = 9;
         }
 
         public override bool Verify()
