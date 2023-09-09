@@ -29,6 +29,25 @@ namespace EFW2C.Records
         {
             return new List<FieldBase>
             {
+
+
+
+                new RctTotalMedicareTaxWithheldCorrect(this),
+                new RctTotalMedicareTaxWithheldOriginal(this),
+                new RctTotalMedicareWagesAndTipsCorrect(this),
+                new RctTotalMedicareWagesAndTipsOriginal(this),
+                new RctTotalSocialSecurityTaxWithheldCorrect(this),
+                new RctTotalSocialSecurityTaxWithheldOriginal(this),
+                new RctTotalSocialSecurityTipsCorrect(this),
+                new RctTotalSocialSecurityTipsOriginal(this),
+                new RctTotalSocialSecurityWagesCorrect(this),
+                new RctTotalSocialSecurityWagesOriginal(this),
+                new RctTotalTotalDeferredCompensationContributionsCorrect(this),
+                new RctTotalTotalDeferredCompensationContributionsOriginal(this),
+
+
+
+
                 new RctIdentifierField(this),
                 new RctNumberOfRCWRecords(this),
                 new RctTotalCostOfEmployerSponsoredHealthCoverageCodeDDCorrect(this),
