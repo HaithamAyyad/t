@@ -277,6 +277,12 @@
     <Compile Include="RecordEFW2C\Records\RcwRecord\FieldsToBeReviewd\RcwSocialSecurityWagesOriginal.cs" />
     <Compile Include="RecordEFW2C\Records\RcwRecord\FieldsToBeReviewd\RcwTotalDeferredCompensationContributionsCorrect.cs" />
     <Compile Include="RecordEFW2C\Records\RcwRecord\FieldsToBeReviewd\RcwTotalDeferredCompensationContributionsOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RcwRecord\RcwFields\RcwThirdPartySickPayndicatorCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RcwRecord\RcwFields\RcwThirdPartySickPayndicatorOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RcwRecord\RcwFields\RcwRetirementPlanIndicatorCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RcwRecord\RcwFields\RcwRetirementPlanIndicatorOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RcwRecord\RcwFields\RcwStatutoryEmployeeIndicatorCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RcwRecord\RcwFields\RcwStatutoryEmployeeIndicatorOriginal.cs" />
     <Compile Include="RecordEFW2C\Records\RcwRecord\RcwFields\RcwMiddleNameEmployeeCorrect.cs" />
     <Compile Include="RecordEFW2C\Records\RcwRecord\RcwFields\RcwEmployeeLastNameCorrect.cs" />
     <Compile Include="RecordEFW2C\Records\RcwRecord\RcwFields\RcwEmployeeLastNameOriginal.cs" />
