@@ -9,12 +9,13 @@ namespace EFW2C.Fields
     //Created by : HSA 9-9-2023
     //Reviewed by : 
 
+    //testing only to see difference on source tree.
     public class RcwTotalDeferredCompensationContributionsOriginal : MoneyOriginal
     {
         public RcwTotalDeferredCompensationContributionsOriginal(RecordBase record, string data)
             : base(record, data)
         {
-            _pos = 251;
+            _pos = 551;
             _length = 11;
         }
     }
