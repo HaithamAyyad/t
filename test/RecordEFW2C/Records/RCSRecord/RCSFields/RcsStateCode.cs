@@ -9,9 +9,9 @@ namespace EFW2C.Fields
     //Created by : HSA 9-9-2023
     //Reviewed by : 
 
-    public class StateCode : FieldBase
+    public class RcsStateCode : FieldBase
     {
-        public StateCode(RecordBase record, string data)
+        public RcsStateCode(RecordBase record, string data)
             : base(record, data)
         {
             _pos = 3;
