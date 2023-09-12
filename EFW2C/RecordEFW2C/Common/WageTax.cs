@@ -6,17 +6,23 @@ using System.Threading.Tasks;
 
 namespace test.RecordEFW2C.Common
 {
-    public class WageTaxMembers
+    public class WageTaxData
     {
-        public double EmployerAndEmployeeTaxRate { get; set; }
+        public double TaxRate { get; set; }
         public double MaxTaxedEarnings { get; set; }
         public double EmployeeMaxAnnualTax { get; set; }
-        public double HouseHoldMinCoveredWages { get; set; }
+        public double MinHouseHoldCoveredWages { get; set; }
+    }
+
+    public class  WageTaxPerson
+    {
+        public WageTaxData SocialSecurity { get; set; }
+        public WageTaxData MediCare { get; set; }
     }
 
     public class  WageTax
     {
-        public WageTaxMembers SocialSecurity { get; set; }
-        public WageTaxMembers MediCare { get; set; }
+        public WageTaxPerson Employer { get; set; }
+        public WageTaxPerson Employee { get; set; }
     }
 }

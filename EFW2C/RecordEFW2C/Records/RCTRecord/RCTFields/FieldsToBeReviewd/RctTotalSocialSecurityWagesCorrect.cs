@@ -48,7 +48,7 @@ namespace EFW2C.Fields
 
                     double.TryParse(localData, out var value);
 
-                    if (!(value == 0 || value >= _record.Manager.WageTaxTable[taxYear].SocialSecurity.HouseHoldMinCoveredWages))
+                    if (!(value == 0 || value >= _record.Manager.WageTaxTable[taxYear].Employee.SocialSecurity.MinHouseHoldCoveredWages))
                         throw new Exception($"{ClassName} : must be zero or equal to or greater than the annual Household minimum for the tax year being reported");
                 }
             }

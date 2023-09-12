@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows.Forms;
+using System.Xml;
+using System.Xml.Linq;
 using EFW2C.Common.Constants;
 using EFW2C.Common.Enums;
 using EFW2C.Records;
@@ -31,52 +34,87 @@ namespace EFW2C.Manager
 
         private Dictionary<int, WageTax> CreateWageTaxTable()
         {
-
             var table = new Dictionary<int, WageTax>();
+            
+            var tableName = "MaximumWagesAndTaxTable.xml";
 
-            var wagetax = new WageTax()
+            try
             {
-                SocialSecurity = new WageTaxMembers
-                {
-                    HouseHoldMinCoveredWages = 0,
-                    EmployeeMaxAnnualTax = 0,
-                    EmployerAndEmployeeTaxRate = 0,
-                    MaxTaxedEarnings = 0,
-                },
+                var xDocument = XDocument.Load(tableName);
 
-                MediCare = new WageTaxMembers
-                {
-                    EmployeeMaxAnnualTax = 0,
-                    EmployerAndEmployeeTaxRate = 0,
-                    MaxTaxedEarnings = 0,
+                var tableElm = xDocument.Element("Table");
+                var yearsElms = tableElm.Elements("Years");
+                var yearElmList = yearsElms.Elements("Year") as IEnumerable<XElement>;
+
+                foreach(var yearElm in yearElmList) 
+                { 
+                    var yearStr = yearElm.Attribute("value").Value;
+                    var bothStr = yearElm.Attribute("both").Value;
+
+                    var employee = null as WageTaxPerson;
+                    var employer = null as WageTaxPerson;
+
+
+                    if (bool.Parse(bothStr))
+                    {
+                        employee = employer = GetWageTaxPerson(yearElm);
+                    }
+                    else
+                    {
+                        var employerEml = yearElm.Element("Employer");
+                        employer = GetWageTaxPerson(employerEml);
+                        var employeeEml = yearElm.Element("Employee");
+                        employee = GetWageTaxPerson(employeeEml);
+                    }
+
+                    var wageTax = new WageTax()
+                    {
+                        Employer = employer,
+                        Employee = employee,
+                    };
+
+                    table.Add(int.Parse(yearStr), wageTax);
                 }
-            };
-
-            table.Add(1995, wagetax);
-
-            wagetax = new WageTax()
+            }
+            catch(Exception ex )
             {
-                SocialSecurity = new WageTaxMembers
-                {
-                    HouseHoldMinCoveredWages = 0,
-                    EmployeeMaxAnnualTax = 0,
-                    EmployerAndEmployeeTaxRate = 0,
-                    MaxTaxedEarnings = 0,
-                },
-
-                MediCare = new WageTaxMembers
-                {
-                    EmployeeMaxAnnualTax = 0,
-                    EmployerAndEmployeeTaxRate = 0,
-                    MaxTaxedEarnings = 0,
-                }
-            };
-
-            table.Add(1996, wagetax);
+                MessageBox.Show($"Can't open {tableName} {ex.Message}");
+            }
 
             return table;
         }
 
+        private WageTaxPerson GetWageTaxPerson(XElement element)
+        {
+            var socialSecurityElm = element.Element("SocialSecurity");
+            var taxRate = socialSecurityElm.Attribute("TaxRate").Value;
+            var maxTaxedEarning = socialSecurityElm.Attribute("MaxTaxedEarning").Value;
+            var employeeMaxAnnualTax = socialSecurityElm.Attribute("EmployeeMaxAnnualTax").Value;
+            var minHouseHoldCoveredWages = socialSecurityElm.Attribute("MinHouseHoldCoveredWages").Value;
+
+            var socialSecurityData = new WageTaxData()
+            {
+                TaxRate = double.Parse(taxRate),
+                MaxTaxedEarnings = double.Parse(maxTaxedEarning),
+                EmployeeMaxAnnualTax = double.Parse(employeeMaxAnnualTax),
+                MinHouseHoldCoveredWages = double.Parse(minHouseHoldCoveredWages)
+            };
+
+
+            var medicareElm = element.Element("Medicare");
+            taxRate = medicareElm.Attribute("TaxRate").Value;
+            maxTaxedEarning = medicareElm.Attribute("MaxTaxedEarning").Value;
+            employeeMaxAnnualTax = medicareElm.Attribute("EmployeeMaxAnnualTax").Value;
+
+            var medicareData = new WageTaxData()
+            {
+                TaxRate = double.Parse(taxRate),
+                MaxTaxedEarnings = double.Parse(maxTaxedEarning),
+                EmployeeMaxAnnualTax = double.Parse(employeeMaxAnnualTax),
+            };
+
+            return new WageTaxPerson() { SocialSecurity = socialSecurityData, MediCare = medicareData};
+        }
 
         public void write()
         {
