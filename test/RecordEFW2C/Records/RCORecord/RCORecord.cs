@@ -39,7 +39,6 @@ namespace EFW2C.Records
                 new RcoIncomeFromQualifiedEquityCodeGGOriginal(this, "dummy"),
                 new RcoMedicalSavingsAccountCodeRCorrect(this, "dummy"),
                 new RcoMedicalSavingsAccountCodeROriginal(this, "dummy"),
-                new RcoMedicalSavingsAccountCodeROriginal(this, "dummy"),
                 new RcoIncomeUnderANonQualifiedDeferredCompensationPlanCodeZCorrect(this, "dummy"),
                 new RcoIncomeUnderANonQualifiedDeferredCompensationPlanCodeZOriginal(this, "dummy"),
                 new RcoQualifiedAdoptionExpensesCodeTCorrect(this, "dummy"),

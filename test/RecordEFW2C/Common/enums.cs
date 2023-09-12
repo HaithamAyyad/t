@@ -28,7 +28,7 @@ namespace EFW2C.Common.Enums
         CaseSensitive_LeftJustify,
     }
 
-    public enum ZipCodeEnum
+    public enum StateCodeEnum
     {
         AL = 01,
         AK = 02,
@@ -98,6 +98,7 @@ namespace EFW2C.Common.Enums
         AE,
         AA,
     }
+
     public enum CountryCode
     {
         AF,
@@ -385,6 +386,7 @@ namespace EFW2C.Common.Enums
         Y,
         N,
     }
+
     public enum AgentIndicatorCodeEnum
     {
         One = 1,
@@ -401,5 +403,13 @@ namespace EFW2C.Common.Enums
         X,
         F,
         R,
+    }
+
+    public enum TaxTypeCodeEnum 
+    {
+        C,
+        D,
+        E,
+        F,
     }
 }

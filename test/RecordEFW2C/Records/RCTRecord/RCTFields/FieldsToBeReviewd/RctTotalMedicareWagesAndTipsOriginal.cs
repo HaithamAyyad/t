@@ -17,5 +17,44 @@ namespace EFW2C.Fields
             _pos = 130;
             _length = 15;
         }
+
+        public override bool Verify()
+        {
+            if (!base.Verify())
+                return false;
+
+            var precedeRce = _record.Manager.GetPrecedRecord(_record, RecordNameEnum.Rce.ToString());
+
+            if (precedeRce == null)
+                throw new Exception($"{ClassName} : RCE record is not provided");
+
+            var employmentCode = precedeRce.GetFields(typeof(RceEmploymentCodeCorrect).Name);
+
+            var taxYear = _record.Manager.TaxYear;
+
+            var localData = DataInRecordBuffer();
+
+            if (employmentCode != null)
+            {
+                if (employmentCode.DataInRecordBuffer() == "H" && taxYear >= 1994)
+                {
+                    if (!_record.Manager.WageTaxTable.ContainsKey(taxYear))
+                        throw new Exception($"{ClassName} : Wages and Tax table missing year {taxYear} info ");
+                    
+                    double.TryParse(localData, out var value);
+
+                    if (!(value == 0 || value >= _record.Manager.WageTaxTable[taxYear].SocialSecurity.HouseHoldMinCoveredWages))
+                        throw new Exception($"{ClassName} : must be zero or equal to or greater than the annual Household minimum for the tax year being reported");
+                }
+
+                if (employmentCode.DataInRecordBuffer() == "X" && taxYear >= 1983)
+                {
+                    if (!string.IsNullOrWhiteSpace(localData))
+                        throw new Exception($"{ClassName} : must be blank becuase tax year is 1983 and employment code is X");
+                }
+            }
+
+            return true;
+        }
     }
 }
