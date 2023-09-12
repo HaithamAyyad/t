@@ -89,6 +89,7 @@
     <Compile Include="RecordEFW2C\BaseClasses\Template\MoneyOriginalTemplate.cs" />
     <Compile Include="RecordEFW2C\BaseClasses\Template\SumFieldCorrectTemplate.cs" />
     <Compile Include="RecordEFW2C\BaseClasses\Template\SumFieldOriginalTemplate.cs" />
+    <Compile Include="RecordEFW2C\Common\WageTax.cs" />
     <Compile Include="RecordEFW2C\Helpper\EnumHelper.cs" />
     <Compile Include="RecordEFW2C\Records\RceRecord\RceFields\RceEmploymentCodeOriginal.cs" />
     <Compile Include="RecordEFW2C\Records\RceRecord\RceFields\RceEmployerName.cs" />

@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
 using System.Windows.Documents;
 using EFW2C.Common.Constants;
 using EFW2C.Common.Enums;
 using EFW2C.Records;
+using test.RecordEFW2C.Common;
 
 namespace EFW2C.Manager
 {
@@ -14,6 +16,9 @@ namespace EFW2C.Manager
         private int _taxYear;
         private bool _unemployment;
 
+        public Dictionary<int, WageTax> _wageTaxTable;
+        public Dictionary<int, WageTax> WageTaxTable { get { return _wageTaxTable; } }
+
         public int TaxYear { get { return _taxYear; } set { _taxYear = value; } }
 
         List<RecordBase> _records;
@@ -21,7 +26,59 @@ namespace EFW2C.Manager
         public RecordManager()
         {
             _records = new List<RecordBase>();
+
+            _wageTaxTable = CreateWageTaxTable();
+
         }
+
+        private Dictionary<int, WageTax> CreateWageTaxTable()
+        {
+
+            var table = new Dictionary<int, WageTax>();
+
+            var wagetax = new WageTax()
+            {
+                SocialSecurity = new WageTaxMembers
+                {
+                    HouseHoldMinCoveredWages = 0,
+                    EmployeeMaxAnnualTax = 0,
+                    EmployerAndEmployeeTaxRate = 0,
+                    MaxTaxedEarnings = 0,
+                },
+
+                MediCare = new WageTaxMembers
+                {
+                    EmployeeMaxAnnualTax = 0,
+                    EmployerAndEmployeeTaxRate = 0,
+                    MaxTaxedEarnings = 0,
+                }
+            };
+
+            table.Add(1995, wagetax);
+
+            wagetax = new WageTax()
+            {
+                SocialSecurity = new WageTaxMembers
+                {
+                    HouseHoldMinCoveredWages = 0,
+                    EmployeeMaxAnnualTax = 0,
+                    EmployerAndEmployeeTaxRate = 0,
+                    MaxTaxedEarnings = 0,
+                },
+
+                MediCare = new WageTaxMembers
+                {
+                    EmployeeMaxAnnualTax = 0,
+                    EmployerAndEmployeeTaxRate = 0,
+                    MaxTaxedEarnings = 0,
+                }
+            };
+
+            table.Add(1996, wagetax);
+
+            return table;
+        }
+
 
         public void write()
         {
