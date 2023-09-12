@@ -1,0 +1,375 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E22CD467-28C5-404E-83FC-E20B5A07C699}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EFW2C</RootNamespace>
+    <AssemblyName>EFW2C</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RecordEFW2C\BaseClasses\Common\EinFieldBase.cs" />
+    <Compile Include="RecordEFW2C\BaseClasses\Common\FieldCorrect.cs" />
+    <Compile Include="RecordEFW2C\BaseClasses\Common\FieldOriginal.cs" />
+    <Compile Include="RecordEFW2C\BaseClasses\Common\MoneyCorrect.cs" />
+    <Compile Include="RecordEFW2C\BaseClasses\Common\MoneyOriginal.cs" />
+    <Compile Include="RecordEFW2C\BaseClasses\Common\SumFieldCorrect.cs" />
+    <Compile Include="RecordEFW2C\BaseClasses\Common\SumFieldOriginal.cs" />
+    <Compile Include="RecordEFW2C\BaseClasses\Common\UnEmploymentReportingCorrect.cs" />
+    <Compile Include="RecordEFW2C\BaseClasses\Common\UnEmploymentReportingOriginal.cs" />
+    <Compile Include="RecordEFW2C\BaseClasses\FieldBase.cs" />
+    <Compile Include="RecordEFW2C\BaseClasses\Info\CityBase.cs" />
+    <Compile Include="RecordEFW2C\BaseClasses\Info\ContactEMailInternetBase.cs" />
+    <Compile Include="RecordEFW2C\BaseClasses\Info\ContactFaxBase.cs" />
+    <Compile Include="RecordEFW2C\BaseClasses\Info\ContactNameBase.cs" />
+    <Compile Include="RecordEFW2C\BaseClasses\Info\ContactPhoneBase.cs" />
+    <Compile Include="RecordEFW2C\BaseClasses\Info\ContactPhoneExtensionBase.cs" />
+    <Compile Include="RecordEFW2C\BaseClasses\Info\CountryCodeBase.cs" />
+    <Compile Include="RecordEFW2C\BaseClasses\Info\DeliveryAddressBase.cs" />
+    <Compile Include="RecordEFW2C\BaseClasses\Info\ForeignPostalCodeBase.cs" />
+    <Compile Include="RecordEFW2C\BaseClasses\Info\ForeignStateProvinceBase.cs" />
+    <Compile Include="RecordEFW2C\BaseClasses\Info\IdentifierFieldBase.cs" />
+    <Compile Include="RecordEFW2C\BaseClasses\Info\LocationAddressBase.cs" />
+    <Compile Include="RecordEFW2C\BaseClasses\Info\StateAbbreviationBase.cs" />
+    <Compile Include="RecordEFW2C\BaseClasses\Info\ZIPCodeBase.cs" />
+    <Compile Include="RecordEFW2C\BaseClasses\Info\ZIPCodeExtensionBase.cs" />
+    <Compile Include="RecordEFW2C\BaseClasses\RecordBase.cs" />
+    <Compile Include="RecordEFW2C\BaseClasses\Template\FieldCorrectTemplate.cs" />
+    <Compile Include="RecordEFW2C\BaseClasses\Template\FieldOriginalTemplate.cs" />
+    <Compile Include="RecordEFW2C\BaseClasses\Template\MoneyCorrectTemplate.cs" />
+    <Compile Include="RecordEFW2C\BaseClasses\Template\MoneyOriginalTemplate.cs" />
+    <Compile Include="RecordEFW2C\BaseClasses\Template\RecordTemplate.cs" />
+    <Compile Include="RecordEFW2C\BaseClasses\Template\SumFieldCorrectTemplate.cs" />
+    <Compile Include="RecordEFW2C\BaseClasses\Template\SumFieldOriginalTemplate.cs" />
+    <Compile Include="RecordEFW2C\BaseClasses\Template\UnEmploymentReportingCorrectTemplate.cs" />
+    <Compile Include="RecordEFW2C\BaseClasses\Template\UnEmploymentReportingOriginalTemplate.cs" />
+    <Compile Include="RecordEFW2C\Common\Constants.cs" />
+    <Compile Include="RecordEFW2C\Common\enums.cs" />
+    <Compile Include="RecordEFW2C\Common\WageTax.cs" />
+    <Compile Include="RecordEFW2C\Helpper\EnumHelper.cs" />
+    <Compile Include="RecordEFW2C\Helpper\Extensions.cs" />
+    <Compile Include="RecordEFW2C\RecordsManager\RecordManager.cs" />
+    <Compile Include="RecordEFW2C\Records\FieldTemplate.cs" />
+    <Compile Include="RecordEFW2C\Records\RCARecord\RCAFields\Info\RcaCity.cs" />
+    <Compile Include="RecordEFW2C\Records\RCARecord\RCAFields\Info\RcaContactEMailInternet.cs" />
+    <Compile Include="RecordEFW2C\Records\RCARecord\RCAFields\Info\RcaContactFax.cs" />
+    <Compile Include="RecordEFW2C\Records\RCARecord\RCAFields\Info\RcaContactName.cs" />
+    <Compile Include="RecordEFW2C\Records\RCARecord\RCAFields\Info\RcaContactPhone.cs" />
+    <Compile Include="RecordEFW2C\Records\RCARecord\RCAFields\Info\RcaContactPhoneExtension.cs" />
+    <Compile Include="RecordEFW2C\Records\RCARecord\RCAFields\Info\RcaCountryCode.cs" />
+    <Compile Include="RecordEFW2C\Records\RCARecord\RCAFields\Info\RcaDeliveryAddress.cs" />
+    <Compile Include="RecordEFW2C\Records\RCARecord\RCAFields\Info\RcaForeignPostalCode.cs" />
+    <Compile Include="RecordEFW2C\Records\RCARecord\RCAFields\Info\RcaForeignStateProvince.cs" />
+    <Compile Include="RecordEFW2C\Records\RCARecord\RCAFields\Info\RcaIdentifierField.cs" />
+    <Compile Include="RecordEFW2C\Records\RCARecord\RCAFields\Info\RcaLocationAddress.cs" />
+    <Compile Include="RecordEFW2C\Records\RCARecord\RCAFields\Info\RcaStateAbbreviation.cs" />
+    <Compile Include="RecordEFW2C\Records\RCARecord\RCAFields\Info\RcaZIPCode .cs" />
+    <Compile Include="RecordEFW2C\Records\RCARecord\RCAFields\Info\RcaZIPCodeExtension.cs" />
+    <Compile Include="RecordEFW2C\Records\RCARecord\RCAFields\RcaEinSubmitterField.cs" />
+    <Compile Include="RecordEFW2C\Records\RCARecord\RCAFields\RcaPreparerCode.cs" />
+    <Compile Include="RecordEFW2C\Records\RCARecord\RCAFields\RcaResubIndicator.cs" />
+    <Compile Include="RecordEFW2C\Records\RCARecord\RCAFields\RcaResubWageFile.cs" />
+    <Compile Include="RecordEFW2C\Records\RCARecord\RCAFields\RcaSoftwareCode.cs" />
+    <Compile Include="RecordEFW2C\Records\RCARecord\RCAFields\RcaSoftwareVendorCode.cs" />
+    <Compile Include="RecordEFW2C\Records\RCARecord\RCAFields\RcaSubmitterName.cs" />
+    <Compile Include="RecordEFW2C\Records\RCARecord\RCAFields\RcaUserIdentification .cs" />
+    <Compile Include="RecordEFW2C\Records\RCARecord\RCARecord.cs" />
+    <Compile Include="RecordEFW2C\Records\RCERecord\RCEFields\Info\RceCity.cs" />
+    <Compile Include="RecordEFW2C\Records\RCERecord\RCEFields\Info\RceContactEMailInternet.cs" />
+    <Compile Include="RecordEFW2C\Records\RCERecord\RCEFields\Info\RceContactFax.cs" />
+    <Compile Include="RecordEFW2C\Records\RCERecord\RCEFields\Info\RceContactName.cs" />
+    <Compile Include="RecordEFW2C\Records\RCERecord\RCEFields\Info\RceContactPhone.cs" />
+    <Compile Include="RecordEFW2C\Records\RCERecord\RCEFields\Info\RceContactPhoneExtension.cs" />
+    <Compile Include="RecordEFW2C\Records\RCERecord\RCEFields\Info\RceCountryCode.cs" />
+    <Compile Include="RecordEFW2C\Records\RCERecord\RCEFields\Info\RceDeliveryAddress.cs" />
+    <Compile Include="RecordEFW2C\Records\RCERecord\RCEFields\Info\RceForeignPostalCode.cs" />
+    <Compile Include="RecordEFW2C\Records\RCERecord\RCEFields\Info\RceForeignStateProvince.cs" />
+    <Compile Include="RecordEFW2C\Records\RCERecord\RCEFields\Info\RceIdentifierField.cs" />
+    <Compile Include="RecordEFW2C\Records\RCERecord\RCEFields\Info\RceLocationAddress.cs" />
+    <Compile Include="RecordEFW2C\Records\RCERecord\RCEFields\Info\RceStateAbbreviation.cs" />
+    <Compile Include="RecordEFW2C\Records\RCERecord\RCEFields\Info\RceZIPCode .cs" />
+    <Compile Include="RecordEFW2C\Records\RCERecord\RCEFields\Info\RceZIPCodeExtension.cs" />
+    <Compile Include="RecordEFW2C\Records\RCERecord\RCEFields\RceAgentIndicator.cs" />
+    <Compile Include="RecordEFW2C\Records\RCERecord\RCEFields\RceEinAgent.cs" />
+    <Compile Include="RecordEFW2C\Records\RCERecord\RCEFields\RceEinAgentFederal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCERecord\RCEFields\RceEinAgentFederalOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCERecord\RCEFields\RceEmployerName.cs" />
+    <Compile Include="RecordEFW2C\Records\RCERecord\RCEFields\RceEmploymentCodeCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCERecord\RCEFields\RceEmploymentCodeOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCERecord\RCEFields\RceEstablishmentNumberCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCERecord\RCEFields\RceEstablishmentNumberOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCERecord\RCEFields\RceKindOfEmployer.cs" />
+    <Compile Include="RecordEFW2C\Records\RCERecord\RCEFields\RceTaxYear.cs" />
+    <Compile Include="RecordEFW2C\Records\RCERecord\RCEFields\RceThirdPartySickPayCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCERecord\RCEFields\RceThirdPartySickPayOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCERecord\RCERecord.cs" />
+    <Compile Include="RecordEFW2C\Records\RCFRecord\RCFFields\RcfIdentifierField.cs" />
+    <Compile Include="RecordEFW2C\Records\RCFRecord\RCFFields\RcfNumberOfRCWRecord .cs" />
+    <Compile Include="RecordEFW2C\Records\RCFRecord\RCFRecord.cs" />
+    <Compile Include="RecordEFW2C\Records\RCORecord\RCOFields\Info\RcoIdentifierField.cs" />
+    <Compile Include="RecordEFW2C\Records\RCORecord\RCOFields\RcoAggregateDeferralsCodeHHCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCORecord\RCOFields\RcoAggregateDeferralsCodeHHOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCORecord\RCOFields\RcoAllocatedTipsCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCORecord\RCOFields\RcoAllocatedTipsOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCORecord\RCOFields\RcoDesignatedRothContributionsCodeEECorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCORecord\RCOFields\RcoDesignatedRothContributionsCodeEEOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCORecord\RCOFields\RcoIncomeFromQualifiedEquityCodeGGCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCORecord\RCOFields\RcoIncomeFromQualifiedEquityCodeGGOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCORecord\RCOFields\RcoIncomeUnderANonQualifiedDeferredCompensationPlanCodeZCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCORecord\RCOFields\RcoIncomeUnderANonQualifiedDeferredCompensationPlanCodeZOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCORecord\RCOFields\RcoMedicalSavingsAccountCodeRCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCORecord\RCOFields\RcoMedicalSavingsAccountCodeROriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCORecord\RCOFields\RcoQualifiedAdoptionExpensesCodeTCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCORecord\RCOFields\RcoQualifiedAdoptionExpensesCodeTOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCORecord\RCOFields\RcoSimpleRetirementAccountCodeSCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCORecord\RCOFields\RcoSimpleRetirementAccountCodeSOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCORecord\RCOFields\RcoUncollectedEmployeeTaxonTipsCodesABCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCORecord\RCOFields\RcoUncollectedEmployeeTaxonTipsCodesABOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCORecord\RCOFields\RcoUncollectedMedicareTaxCodeNCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCORecord\RCOFields\RcoUncollectedMedicareTaxCodeNOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCORecord\RCOFields\RcoUncollectedSocialSecurityOrRRTATaxCodeMCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCORecord\RCOFields\RcoUncollectedSocialSecurityOrRRTATaxCodeMOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCORecord\RCORecord.cs" />
+    <Compile Include="RecordEFW2C\Records\RCSRecord\RCSFields\Info\RcsCity.cs" />
+    <Compile Include="RecordEFW2C\Records\RCSRecord\RCSFields\Info\RcsCountryCode.cs" />
+    <Compile Include="RecordEFW2C\Records\RCSRecord\RCSFields\Info\RcsDeliveryAddress.cs" />
+    <Compile Include="RecordEFW2C\Records\RCSRecord\RCSFields\Info\RcsForeignPostalCode.cs" />
+    <Compile Include="RecordEFW2C\Records\RCSRecord\RCSFields\Info\RcsForeignStateProvince.cs" />
+    <Compile Include="RecordEFW2C\Records\RCSRecord\RCSFields\Info\RcsIdentifierField.cs" />
+    <Compile Include="RecordEFW2C\Records\RCSRecord\RCSFields\Info\RcsLocationAddress.cs" />
+    <Compile Include="RecordEFW2C\Records\RCSRecord\RCSFields\Info\RcsStateAbbreviation.cs" />
+    <Compile Include="RecordEFW2C\Records\RCSRecord\RCSFields\Info\RcsZIPCode .cs" />
+    <Compile Include="RecordEFW2C\Records\RCSRecord\RCSFields\Info\RcsZIPCodeExtension.cs" />
+    <Compile Include="RecordEFW2C\Records\RCSRecord\RCSFields\RcsDateFirstEmployedCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCSRecord\RCSFields\RcsDateFirstEmployedOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCSRecord\RCSFields\RcsDateOfSeparationCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCSRecord\RCSFields\RcsDateOfSeparationOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCSRecord\RCSFields\RcsEmployeeFirstNameCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCSRecord\RCSFields\RcsEmployeeFirstNameOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCSRecord\RCSFields\RcsEmployeeLastNameCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCSRecord\RCSFields\RcsEmployeeLastNameOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCSRecord\RCSFields\RcsEmployeeMiddleNameCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCSRecord\RCSFields\RcsEmployeeMiddleNameOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCSRecord\RCSFields\RcsLocalTaxableWagesCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCSRecord\RCSFields\RcsLocalTaxableWagesOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCSRecord\RCSFields\RcsNumberOfWeeksWorkedCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCSRecord\RCSFields\RcsNumberOfWeeksWorkedOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCSRecord\RCSFields\RcsOptionalCode.cs" />
+    <Compile Include="RecordEFW2C\Records\RCSRecord\RCSFields\RcsOtherStateData.cs" />
+    <Compile Include="RecordEFW2C\Records\RCSRecord\RCSFields\RcsReportingPeriodCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCSRecord\RCSFields\RcsReportingPeriodOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCSRecord\RCSFields\RcsSocialSecurityNumberCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCSRecord\RCSFields\RcsSocialSecurityNumberOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCSRecord\RCSFields\RcsStateCode.cs" />
+    <Compile Include="RecordEFW2C\Records\RCSRecord\RCSFields\RcsStateCodeIncomeTax.cs" />
+    <Compile Include="RecordEFW2C\Records\RCSRecord\RCSFields\RcsStateControlNumberCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCSRecord\RCSFields\RcsStateControlNumberOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCSRecord\RCSFields\RcsStateEmployerAccountNumberCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCSRecord\RCSFields\RcsStateEmployerAccountNumberOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCSRecord\RCSFields\RcsStateIncomeTaxWithheldCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCSRecord\RCSFields\RcsStateIncomeTaxWithheldOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCSRecord\RCSFields\RcsStateQuarterlyUnemploymentInsuranceTotalWagesCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCSRecord\RCSFields\RcsStateQuarterlyUnemploymentInsuranceTotalWagesOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCSRecord\RCSFields\RcsStateTaxableWagesCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCSRecord\RCSFields\RcsStateTaxableWagesOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCSRecord\RCSFields\RcsSupplementalData1.cs" />
+    <Compile Include="RecordEFW2C\Records\RCSRecord\RCSFields\RcsSupplementalData2.cs" />
+    <Compile Include="RecordEFW2C\Records\RCSRecord\RCSFields\RcsTaxingEntityCodeCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCSRecord\RCSFields\RcsTaxingEntityCodeOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCSRecord\RCSFields\RcsTaxTypeCodeCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCSRecord\RCSFields\RcsTaxTypeCodeOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCSRecord\RCSRecord.cs" />
+    <Compile Include="RecordEFW2C\Records\RCTRecord\RCTFields\FieldsToBeReviewd\RctTotalMedicareTaxWithheldCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCTRecord\RCTFields\FieldsToBeReviewd\RctTotalMedicareTaxWithheldOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCTRecord\RCTFields\FieldsToBeReviewd\RctTotalMedicareWagesAndTipsCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCTRecord\RCTFields\FieldsToBeReviewd\RctTotalMedicareWagesAndTipsOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCTRecord\RCTFields\FieldsToBeReviewd\RctTotalSocialSecurityTaxWithheldCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCTRecord\RCTFields\FieldsToBeReviewd\RctTotalSocialSecurityTaxWithheldOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCTRecord\RCTFields\FieldsToBeReviewd\RctTotalSocialSecurityTipsCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCTRecord\RCTFields\FieldsToBeReviewd\RctTotalSocialSecurityTipsOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCTRecord\RCTFields\FieldsToBeReviewd\RctTotalSocialSecurityWagesCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCTRecord\RCTFields\FieldsToBeReviewd\RctTotalSocialSecurityWagesOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCTRecord\RCTFields\FieldsToBeReviewd\RctTotalTotalDeferredCompensationContributionsCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCTRecord\RCTFields\FieldsToBeReviewd\RctTotalTotalDeferredCompensationContributionsOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCTRecord\RCTFields\Info\RctIdentifierField.cs" />
+    <Compile Include="RecordEFW2C\Records\RCTRecord\RCTFields\RctNumberOfRCWRecords.cs.cs" />
+    <Compile Include="RecordEFW2C\Records\RCTRecord\RCTFields\RctTotalCostOfEmployerSponsoredHealthCoverageCodeDDCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCTRecord\RCTFields\RctTotalCostOfEmployerSponsoredHealthCoverageCodeDDOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCTRecord\RCTFields\RctTotalDeferredCompensationCodeDCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCTRecord\RCTFields\RctTotalDeferredCompensationCodeDOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCTRecord\RCTFields\RctTotalDeferredCompensationCodeECorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCTRecord\RCTFields\RctTotalDeferredCompensationCodeEOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCTRecord\RCTFields\RctTotalDeferredCompensationCodeFCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCTRecord\RCTFields\RctTotalDeferredCompensationCodeFOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCTRecord\RCTFields\RctTotalDeferredCompensationCodeGCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCTRecord\RCTFields\RctTotalDeferredCompensationCodeGOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCTRecord\RCTFields\RctTotalDeferredCompensationCodeHCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCTRecord\RCTFields\RctTotalDeferredCompensationCodeHOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCTRecord\RCTFields\RctTotalDependentCareBenefitsCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCTRecord\RCTFields\RctTotalDependentCareBenefitsOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCTRecord\RCTFields\RctTotalDesignatedRothCodeAACorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCTRecord\RCTFields\RctTotalDesignatedRothCodeAAOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCTRecord\RCTFields\RctTotalDesignatedRothCodeBBCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCTRecord\RCTFields\RctTotalDesignatedRothCodeBBOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCTRecord\RCTFields\RctTotalEmployerContributionsToSHealthSavingsAccountCodeWCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCTRecord\RCTFields\RctTotalEmployerContributionsToSHealthSavingsAccountCodeWOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCTRecord\RCTFields\RctTotalEmployerCostOfPremiumsCodeCCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCTRecord\RCTFields\RctTotalEmployerCostOfPremiumsCodeCOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCTRecord\RCTFields\RctTotalFederalIncomeTaxWithheldCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCTRecord\RCTFields\RctTotalFederalIncomeTaxWithheldOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCTRecord\RCTFields\RctTotalIncomeFromTheExerciseOfNonstatutoryStockOptionsCodeVCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCTRecord\RCTFields\RctTotalIncomeFromTheExerciseOfNonstatutoryStockOptionsCodeVOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCTRecord\RCTFields\RctTotalNonqualifiedDeferredCompensationPlanCodeYCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCTRecord\RCTFields\RctTotalNonqualifiedDeferredCompensationPlanCodeYOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCTRecord\RCTFields\RctTotalNonqualifiedPlanNotSection457Correct.cs" />
+    <Compile Include="RecordEFW2C\Records\RCTRecord\RCTFields\RctTotalNonqualifiedPlanNotSection457Original.cs" />
+    <Compile Include="RecordEFW2C\Records\RCTRecord\RCTFields\RctTotalNonqualifiedPlanSection457Correct.cs" />
+    <Compile Include="RecordEFW2C\Records\RCTRecord\RCTFields\RctTotalNonqualifiedPlanSection457Original.cs" />
+    <Compile Include="RecordEFW2C\Records\RCTRecord\RCTFields\RctTotalNontaxableCombatPayCodeQCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCTRecord\RCTFields\RctTotalNontaxableCombatPayCodeQOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCTRecord\RCTFields\RctTotalPermittedBenefitsUnderAQSEHRACodeFFCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCTRecord\RCTFields\RctTotalPermittedBenefitsUnderAQSEHRACodeFFOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCTRecord\RCTFields\RctTotalWagesTipsAndOtherCompensationCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCTRecord\RCTFields\RctTotalWagesTipsAndOtherCompensationOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCTRecord\RCTRecord.cs" />
+    <Compile Include="RecordEFW2C\Records\RCURecord\RCUFields\Info\RcuIdentifierField.cs" />
+    <Compile Include="RecordEFW2C\Records\RCURecord\RCUFields\RcuNumberOfRCORecord .cs" />
+    <Compile Include="RecordEFW2C\Records\RCURecord\RCUFields\RcuTotalAggregateDeferralsCodeHHCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCURecord\RCUFields\RcuTotalAggregateDeferralsCodeHHOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCURecord\RCUFields\RcuTotalAllocatedTipsCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCURecord\RCUFields\RcuTotalAllocatedTipsOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCURecord\RCUFields\RcuTotalDesignatedRothContributionsCodeEECorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCURecord\RCUFields\RcuTotalDesignatedRothContributionsCodeEEOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCURecord\RCUFields\RcuTotalIncomeFromQualifiedEquityCodeGGCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCURecord\RCUFields\RcuTotalIncomeFromQualifiedEquityCodeGGOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCURecord\RCUFields\RcuTotalIncomeUnderANonqualifiedDeferredCompensationPlanCodeZCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCURecord\RCUFields\RcuTotalIncomeUnderANonqualifiedDeferredCompensationPlanCodeZOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCURecord\RCUFields\RcuTotalMedicalSavingsAccountCodeRCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCURecord\RCUFields\RcuTotalMedicalSavingsAccountCodeROriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCURecord\RCUFields\RcuTotalQualifiedAdoptionExpensesCodeTCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCURecord\RCUFields\RcuTotalQualifiedAdoptionExpensesCodeTOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCURecord\RCUFields\RcuTotalSimpleRetirementAccountCodeSCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCURecord\RCUFields\RcuTotalSimpleRetirementAccountCodeSOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCURecord\RCUFields\RcuTotalUncollectedEmployeeTaxOnTipsCodesABCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCURecord\RCUFields\RcuTotalUncollectedEmployeeTaxOnTipsCodesABOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCURecord\RCUFields\RcuTotalUncollectedMedicareTaxCodeNCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCURecord\RCUFields\RcuTotalUncollectedMedicareTaxCodeNOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCURecord\RCUFields\RcuTotalUncollectedSocialSecurityOrRRTATaxCodeMCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCURecord\RCUFields\RcuTotalUncollectedSocialSecurityOrRRTATaxCodeMOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCURecord\RCURecord.cs" />
+    <Compile Include="RecordEFW2C\Records\RCVRecord\RCVFields\RcvIdentifierField.cs" />
+    <Compile Include="RecordEFW2C\Records\RCVRecord\RCVFields\RcvSupplementalData.cs" />
+    <Compile Include="RecordEFW2C\Records\RCVRecord\RCVRecord.cs" />
+    <Compile Include="RecordEFW2C\Records\RCWRecord\FieldsToBeReviewd\RcwMedicareTaxWithheldCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCWRecord\FieldsToBeReviewd\RcwMedicareTaxWithheldOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCWRecord\FieldsToBeReviewd\RcwMedicareWagesAndTipsCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCWRecord\FieldsToBeReviewd\RcwMedicareWagesAndTipsOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCWRecord\FieldsToBeReviewd\RcwSocialSecurityTaxWithheldCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCWRecord\FieldsToBeReviewd\RcwSocialSecurityTaxWithheldOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCWRecord\FieldsToBeReviewd\RcwSocialSecurityTipsCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCWRecord\FieldsToBeReviewd\RcwSocialSecurityTipsOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCWRecord\FieldsToBeReviewd\RcwSocialSecurityWagesCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCWRecord\FieldsToBeReviewd\RcwSocialSecurityWagesOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCWRecord\FieldsToBeReviewd\RcwTotalDeferredCompensationContributionsCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCWRecord\FieldsToBeReviewd\RcwTotalDeferredCompensationContributionsOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\Info\RcwCity.cs" />
+    <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\Info\RcwCountryCode.cs" />
+    <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\Info\RcwDeliveryAddress.cs" />
+    <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\Info\RcwForeignPostalCode.cs" />
+    <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\Info\RcwForeignStateProvince.cs" />
+    <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\Info\RcwIdentifierField.cs" />
+    <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\Info\RcwLocationAddress.cs" />
+    <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\Info\RcwStateAbbreviation.cs" />
+    <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\Info\RcwZIPCode .cs" />
+    <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\Info\RcwZIPCodeExtension.cs" />
+    <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\RcwEmployeeFirstNameCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\RcwEmployeeFirstNameOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\RcwEmployeeLastNameCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\RcwEmployeeLastNameOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\RcwMiddleNameEmployeeCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\RcwMiddleNameEmployeeOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\RcwRetirementPlanIndicatorCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\RcwRetirementPlanIndicatorOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\RcwSocialSecurityNumberCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\RcwSocialSecurityNumberOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\RcwStatutoryEmployeeIndicatorCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\RcwStatutoryEmployeeIndicatorOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\RcwThirdPartySickPayndicatorCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\RcwThirdPartySickPayndicatorOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\working\RcwCostOfEmployerSponsoredHealthCoverageCodeDDCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\working\RcwCostOfEmployerSponsoredHealthCoverageCodeDDOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\working\RcwDeferredCompensationCodeDCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\working\RcwDeferredCompensationCodeDOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\working\RcwDeferredCompensationCodeECorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\working\RcwDeferredCompensationCodeEOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\working\RcwDeferredCompensationCodeFCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\working\RcwDeferredCompensationCodeFOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\working\RcwDeferredCompensationCodeGCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\working\RcwDeferredCompensationCodeGOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\working\RcwDeferredCompensationCodeHCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\working\RcwDeferredCompensationCodeHOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\working\RcwDependentCareBenefitsCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\working\RcwDependentCareBenefitsOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\working\RcwDesignatedRothCodeAACorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\working\RcwDesignatedRothCodeAAOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\working\RcwDesignatedRothCodeBBCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\working\RcwDesignatedRothCodeBBOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\working\RcwEmployerContributionsToSHealthSavingsAccountCodeWCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\working\RcwEmployerContributionsToSHealthSavingsAccountCodeWOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\working\RcwEmployerCostOfPremiumsCodeCCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\working\RcwEmployerCostOfPremiumsCodeCOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\working\RcwFederalIncomeTaxWithheldCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\working\RcwFederalIncomeTaxWithheldOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\working\RcwIncomeFromTheExerciseOfNonstatutoryStockOptionsCodeVCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\working\RcwIncomeFromTheExerciseOfNonstatutoryStockOptionsCodeVOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\working\RcwNonqualifiedDeferredCompensationPlanCodeYCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\working\RcwNonqualifiedDeferredCompensationPlanCodeYOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\working\RcwNonqualifiedPlanNotSection457Correct.cs" />
+    <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\working\RcwNonqualifiedPlanNotSection457Original.cs" />
+    <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\working\RcwNonqualifiedPlanSection457Correct.cs" />
+    <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\working\RcwNonqualifiedPlanSection457Original.cs" />
+    <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\working\RcwNontaxableCombatPayCodeQCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\working\RcwNontaxableCombatPayCodeQOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\working\RcwPermittedBenefitsUnderAQSEHRACodeFFCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\working\RcwPermittedBenefitsUnderAQSEHRACodeFFOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\working\RcwWagesTipsAndOtherCompensationCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\working\RcwWagesTipsAndOtherCompensationOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCWRecord\RCWRecord.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

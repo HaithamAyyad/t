@@ -4,3 +4,5 @@ test/obj/Debug/.NETFramework,Version=v4.8.AssemblyAttributes.cs
 test/obj/
 .vs/
 test/test.csproj.user
+EFW2C/bin/
+EFW2C/obj/

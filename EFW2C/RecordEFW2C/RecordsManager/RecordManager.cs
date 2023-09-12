@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Dynamic;
 using System.Linq;
-using System.Windows.Documents;
 using EFW2C.Common.Constants;
 using EFW2C.Common.Enums;
 using EFW2C.Records;
