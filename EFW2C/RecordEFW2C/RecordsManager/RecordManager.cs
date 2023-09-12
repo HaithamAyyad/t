@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Linq;
@@ -40,7 +41,7 @@ namespace EFW2C.Manager
 
             try
             {
-                var xDocument = XDocument.Load(tableName);
+                var xDocument = XDocument.Load(Assembly.GetExecutingAssembly().GetManifestResourceStream($"EFW2C.Resources.{tableName}"));
 
                 var tableElm = xDocument.Element("Table");
                 var yearsElms = tableElm.Elements("Years");

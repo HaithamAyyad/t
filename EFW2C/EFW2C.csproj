@@ -371,5 +371,8 @@
     <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\working\RcwWagesTipsAndOtherCompensationOriginal.cs" />
     <Compile Include="RecordEFW2C\Records\RCWRecord\RCWRecord.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\MaximumWagesAndTaxTable.xml" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
