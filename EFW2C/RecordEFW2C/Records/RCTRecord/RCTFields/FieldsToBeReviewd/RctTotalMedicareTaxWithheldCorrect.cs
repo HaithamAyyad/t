@@ -23,12 +23,12 @@ namespace EFW2C.Fields
             if (!base.Verify())
                 return false;
 
-            var precedeRce = _record.Manager.GetPrecedRecord(_record, RecordNameEnum.Rce.ToString());
+            var precedRce = _record.Manager.GetPrecedRecord(_record, RecordNameEnum.Rce.ToString());
 
-            if (precedeRce == null)
+            if (precedRce == null)
                 throw new Exception($"{ClassName} : RCE record is not provided");
 
-            var employmentCode = precedeRce.GetFields(typeof(RceEmploymentCodeCorrect).Name);
+            var employmentCode = precedRce.GetFields(typeof(RceEmploymentCodeCorrect).Name);
 
             var taxYear = _record.Manager.TaxYear;
 
