@@ -17,6 +17,18 @@ namespace EFW2C.Fields
             _pos = 342;
             _length = 11;
         }
+
+        public override bool Verify()
+        {
+            if (!base.Verify())
+                return false;
+
+            var emoploymentCode = GetEmoploymentCode();
+            if (emoploymentCode == EmploymentCodeEnum.X.ToString())
+                throw new Exception($"{ClassName} : since employment code is {emoploymentCode}, this feild must not be provided");
+
+            return true;
+        }
     }
 }
 
