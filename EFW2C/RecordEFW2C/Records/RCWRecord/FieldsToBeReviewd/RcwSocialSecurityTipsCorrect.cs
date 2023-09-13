@@ -17,6 +17,30 @@ namespace EFW2C.Fields
             _pos = 386;
             _length = 11;
         }
+
+        public override bool Verify()
+        {
+
+            if (!base.Verify())
+                return false;
+
+            var precedRce = _record.Manager.GetPrecedRecord(_record, RecordNameEnum.Rce.ToString());
+
+            if (precedRce == null)
+                throw new Exception($"{ClassName} : RCE record is not provided");
+
+            var employmentCodeField = precedRce.GetFields(typeof(RceEmploymentCodeCorrect).Name);
+            if (employmentCodeField != null)
+            {
+                var employmentCodeData = employmentCodeField.DataInRecordBuffer();
+                if (employmentCodeData == EmploymentCodeEnum.Q.ToString())
+                {
+                    throw new Exception($"{ClassName} : since employment code is Q, this feild must not be provided");
+                }
+            }
+
+            return true;
+        }
     }
 }
 
