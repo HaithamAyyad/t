@@ -38,7 +38,7 @@ namespace EFW2C.Fields
 
         public override bool IsRequired()
         {
-            return true;
+            return false;
         }
     }
 }

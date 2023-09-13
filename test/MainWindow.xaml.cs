@@ -74,6 +74,10 @@ namespace test
             rcwRecord.AddField(new RcwForeignStateProvince(rcwRecord, "KKK"));
             rcwRecord.AddField(new RcwForeignPostalCode(rcwRecord, "BOX 300"));
             rcwRecord.AddField(new RcwCountryCode(rcwRecord, "UK"));
+            rcwRecord.AddField(new RcwSocialSecurityNumberCorrect(rcwRecord, "123456789"));
+            rcwRecord.AddField(new RcwSocialSecurityNumberOriginal(rcwRecord, "122456789"));
+            rcwRecord.AddField(new RcwSocialSecurityTaxWithheldCorrect(rcwRecord, "5656"));
+            rcwRecord.AddField(new RcwSocialSecurityTaxWithheldOriginal(rcwRecord, "5656"));
             return rcwRecord;
         }
 

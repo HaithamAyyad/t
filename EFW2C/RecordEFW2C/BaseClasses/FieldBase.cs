@@ -171,29 +171,6 @@ namespace EFW2C.Fields
             return true;
         }
 
-        protected bool IsCorrectionFieldProvided()
-        {
-            if (!ClassName.Contains(Constants.OriginalStr))
-                throw new Exception($"{ClassName} this function only used for {Constants.OriginalStr} class");
-
-            var correctClassName = ClassName.Replace(Constants.OriginalStr, Constants.CorrectStr);
-
-            var correctField = _record.GetFields(correctClassName);
-            return correctField != null;
-        }
-
-        protected bool IsOriginalNullOrWhiteSpace()
-        {
-            if(!ClassName.Contains(Constants.CorrectStr))
-                throw new Exception($"{ClassName} this function only used for {Constants.CorrectStr} class");
-
-            var originalName = ClassName.Replace(Constants.CorrectStr, Constants.OriginalStr);
-
-            var originalfield = _record.GetFields(originalName);
-
-            return originalfield == null ? true : string.IsNullOrWhiteSpace(originalfield.DataInRecordBuffer());
-        }
-
         protected int GetTaxYear()
         {
             return _record.Manager.TaxYear;

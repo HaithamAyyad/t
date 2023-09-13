@@ -1,4 +1,5 @@
 ﻿using System;
+using EFW2C.Common.Constants;
 using EFW2C.Common.Enums;
 using EFW2C.Extensions;
 using EFW2C.Records;
@@ -35,6 +36,22 @@ namespace EFW2C.Fields
         {
             return FieldTypeEnum.UpperCase_LeftJustify_Blank;
         }
+
+        protected bool IsCorrectionFieldProvided()
+        {
+            return GetCorrectField() != null;
+        }
+
+        private FieldCorrect GetCorrectField()
+        {
+            if (!ClassName.Contains(Constants.OriginalStr))
+                throw new Exception($"{ClassName} this function only used for {Constants.OriginalStr} class");
+
+            var correctClassName = ClassName.Replace(Constants.OriginalStr, Constants.CorrectStr);
+
+            return _record.GetFields(correctClassName) as FieldCorrect;
+        }
+
 
         public override bool IsRequired()
         {

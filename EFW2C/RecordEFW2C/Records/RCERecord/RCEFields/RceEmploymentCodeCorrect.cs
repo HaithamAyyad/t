@@ -9,7 +9,7 @@ namespace EFW2C.Fields
     //Created by : HSA 9-5-2023
     //Reviewed by : 
 
-    public class RceEmploymentCodeCorrect : FieldBase
+    public class RceEmploymentCodeCorrect : FieldCorrect
     {
         public RceEmploymentCodeCorrect(RecordBase record, string data)
             : base(record, data)
@@ -34,16 +34,6 @@ namespace EFW2C.Fields
             }
 
             return true;
-        }
-
-        protected override FieldTypeEnum GetFieldType()
-        {
-            return FieldTypeEnum.UpperCase_LeftJustify_Blank;
-        }
-
-        public override bool IsRequired()
-        {
-            return !IsOriginalNullOrWhiteSpace();
         }
     }
 }

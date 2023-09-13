@@ -40,8 +40,11 @@ namespace EFW2C.Records
                 new RcwStateAbbreviation(this, "dummy"),
                 new RcwZIPCode(this, "dummy"),
                 new RcwZIPCodeExtension(this, "dummy"),
-                
-            };
+                new RcwSocialSecurityNumberOriginal(this, "dummy"),
+                new RcwSocialSecurityNumberCorrect(this, "dummy"),
+                new RcwSocialSecurityTaxWithheldCorrect(this, "dummy"),
+                new RcwSocialSecurityTaxWithheldOriginal(this, "dummy"),
+        };
         }
     }
 }

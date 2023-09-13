@@ -27,15 +27,6 @@ namespace EFW2C.Fields
             if (!(localData == "1" || localData == "0"))
                 throw new Exception($"{ClassName}: data only can be zero or one");
 
-            if (_record.GetFields(typeof(RcwSocialSecurityNumberCorrect).Name) == null)
-                throw new Exception($"{ClassName}: social security field must be provided");
-
-            if (_record.GetFields(typeof(RcwEmployeeFirstNameCorrect).Name) == null)
-                throw new Exception($"{ClassName}: employee first name field must be provided");
-
-            if (_record.GetFields(typeof(RcwEmployeeLastNameCorrect).Name) == null)
-                throw new Exception($"{ClassName}: employee last name field must be provided");
-
             return true;
         }
     }
