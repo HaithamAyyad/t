@@ -13,8 +13,8 @@ namespace EFW2C.Fields
         public RcsStateTaxableWagesOriginal(RecordBase record, string data)
             : base(record, data)
         {
-            _pos = -397;
-            _length = 1;
+            _pos = 397;
+            _length = 11;
         }
 
         public override bool Verify()

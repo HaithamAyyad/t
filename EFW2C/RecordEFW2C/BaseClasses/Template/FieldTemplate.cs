@@ -1,5 +1,5 @@
 ﻿using System;
-using EFW2C.Common.Enum;
+using EFW2C.Common.Enums;
 using EFW2C.Extensions;
 using EFW2C.Records;
 
@@ -30,12 +30,12 @@ namespace EFW2C.Fields
         protected override FieldTypeEnum GetFieldType()
         {
             throw new NotImplementedException();
+            //return FieldTypeEnum.;
         }
 
         public override bool IsRequired()
         {
             throw new NotImplementedException();
-            //return FieldTypeEnum.;
         }
     }
 }

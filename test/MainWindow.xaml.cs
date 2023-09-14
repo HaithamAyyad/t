@@ -23,15 +23,14 @@ namespace test
                 manager.SetSubmitter(true);
                 manager.TaxYear = 2000;
 
-                manager.AddRecord(CreateRcwRecord(manager));
-
                 manager.AddRecord(CreateRcaRecord(manager));
                 manager.AddRecord(CreateRceRecord(manager));
-                manager.AddRecord(CreateRcvRecord(manager));
-                manager.AddRecord(CreateRcoRecord(manager));
-                manager.AddRecord(CreateRcoRecord2(manager));
-                manager.AddRecord(CreateRcuRecord(manager));
                 manager.AddRecord(CreateRcwRecord(manager));
+                manager.AddRecord(CreateRcoRecord(manager));
+                manager.AddRecord(CreateRcsRecord(manager));
+                manager.AddRecord(CreateRctRecord(manager));
+                manager.AddRecord(CreateRcuRecord(manager));
+                manager.AddRecord(CreateRcvRecord(manager));
                 manager.AddRecord(CreateRcfRecord(manager));
 
                 manager.write();
@@ -45,6 +44,20 @@ namespace test
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private RecordBase CreateRctRecord(RecordManager manager)
+        {
+            var rctRecord = new RctRecord(manager);
+
+            return rctRecord;
+        }
+
+        private RecordBase CreateRcsRecord(RecordManager manager)
+        {
+            var rcsRecord = new RcsRecord(manager);
+
+            return rcsRecord;
         }
 
         private RecordBase CreateRcuRecord(RecordManager manager)

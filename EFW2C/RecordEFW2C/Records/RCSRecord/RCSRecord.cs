@@ -20,6 +20,7 @@ namespace EFW2C.Records
             {
                 (210, 5),
                 (269, 6),
+                (333, 10),
                 (383, 12),
                 (799, 225)
             };
@@ -31,26 +32,23 @@ namespace EFW2C.Records
             {
                 new RcsCity(this, "dummy"),
                 new RcsCountryCode(this, "dummy"),
-                new RcsDeliveryAddress(this, "dummy"),
-                new RcsForeignPostalCode(this, "dummy"),
-                new RcsForeignStateProvince(this, "dummy"),
-                new RcsIdentifierField(this),
-                new RcsLocationAddress(this, "dummy"),
-                new RcsStateAbbreviation(this, "dummy"),
-                new RcsZIPCode(this, "dummy"),
-                new RcsZIPCodeExtension(this, "dummy"),
                 new RcsDateFirstEmployedCorrect(this, "dummy"),
                 new RcsDateFirstEmployedOriginal(this, "dummy"),
                 new RcsDateOfSeparationCorrect(this, "dummy"),
                 new RcsDateOfSeparationOriginal(this, "dummy"),
+                new RcsDeliveryAddress(this, "dummy"),
                 new RcsEmployeeFirstNameCorrect(this, "dummy"),
                 new RcsEmployeeFirstNameOriginal(this, "dummy"),
                 new RcsEmployeeLastNameCorrect(this, "dummy"),
                 new RcsEmployeeLastNameOriginal(this, "dummy"),
                 new RcsEmployeeMiddleNameCorrect(this, "dummy"),
                 new RcsEmployeeMiddleNameOriginal(this, "dummy"),
+                new RcsForeignPostalCode(this, "dummy"),
+                new RcsForeignStateProvince(this, "dummy"),
+                new RcsIdentifierField(this),
                 new RcsLocalTaxableWagesCorrect(this, "dummy"),
                 new RcsLocalTaxableWagesOriginal(this, "dummy"),
+                new RcsLocationAddress(this, "dummy"),
                 new RcsNumberOfWeeksWorkedCorrect(this, "dummy"),
                 new RcsNumberOfWeeksWorkedOriginal(this, "dummy"),
                 new RcsOptionalCode(this, "dummy"),
@@ -59,6 +57,7 @@ namespace EFW2C.Records
                 new RcsReportingPeriodOriginal(this, "dummy"),
                 new RcsSocialSecurityNumberCorrect(this, "dummy"),
                 new RcsSocialSecurityNumberOriginal(this, "dummy"),
+                new RcsStateAbbreviation(this, "dummy"),
                 new RcsStateCode(this, "dummy"),
                 new RcsStateCodeIncomeTax(this, "dummy"),
                 new RcsStateControlNumberCorrect(this, "dummy"),
@@ -77,6 +76,8 @@ namespace EFW2C.Records
                 new RcsTaxingEntityCodeOriginal(this, "dummy"),
                 new RcsTaxTypeCodeCorrect(this, "dummy"),
                 new RcsTaxTypeCodeOriginal(this, "dummy"),
+                new RcsZIPCode (this, "dummy"),
+                new RcsZIPCodeExtension(this, "dummy"),
             };
         }
     }

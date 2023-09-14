@@ -13,7 +13,7 @@ namespace EFW2C.Fields
         public RcsTaxTypeCodeOriginal(RecordBase record, string data)
             : base(record, data)
         {
-            _pos = 462;
+            _pos = 461;
             _length = 1;
         }
 
