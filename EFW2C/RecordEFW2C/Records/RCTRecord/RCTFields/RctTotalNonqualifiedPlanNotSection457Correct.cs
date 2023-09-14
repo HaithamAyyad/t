@@ -14,7 +14,7 @@ namespace EFW2C.Fields
         public RctTotalNonqualifiedPlanNotSection457Correct(RecordBase record)
             : base(record, Constants.WhiteSpaceString)
         {
-            _pos = 566;
+            _pos = 565;
             _length = 15;
         }
     }

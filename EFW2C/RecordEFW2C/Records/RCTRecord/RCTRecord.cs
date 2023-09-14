@@ -21,6 +21,7 @@ namespace EFW2C.Records
             {
                 (220, 30),
                 (460, 30),
+                (610, 30),
                 (850, 174)
             };
         }
@@ -29,31 +30,10 @@ namespace EFW2C.Records
         {
             return new List<FieldBase>
             {
-
-
-
-                new RctTotalMedicareTaxWithheldCorrect(this),
-                new RctTotalMedicareTaxWithheldOriginal(this),
-                new RctTotalMedicareWagesAndTipsCorrect(this),
-                new RctTotalMedicareWagesAndTipsOriginal(this),
-                new RctTotalSocialSecurityTaxWithheldCorrect(this),
-                new RctTotalSocialSecurityTaxWithheldOriginal(this),
-                new RctTotalSocialSecurityTipsCorrect(this),
-                new RctTotalSocialSecurityTipsOriginal(this),
-                new RctTotalSocialSecurityWagesCorrect(this),
-                new RctTotalSocialSecurityWagesOriginal(this),
-                new RctTotalTotalDeferredCompensationContributionsCorrect(this),
-                new RctTotalTotalDeferredCompensationContributionsOriginal(this),
-
-
-
-
                 new RctIdentifierField(this),
                 new RctNumberOfRCWRecords(this),
                 new RctTotalCostOfEmployerSponsoredHealthCoverageCodeDDCorrect(this),
                 new RctTotalCostOfEmployerSponsoredHealthCoverageCodeDDOriginal(this),
-                new RctTotalNonqualifiedDeferredCompensationPlanCodeYCorrect(this),
-                new RctTotalNonqualifiedDeferredCompensationPlanCodeYOriginal(this),
                 new RctTotalDeferredCompensationCodeDCorrect(this),
                 new RctTotalDeferredCompensationCodeDOriginal(this),
                 new RctTotalDeferredCompensationCodeECorrect(this),
@@ -78,6 +58,12 @@ namespace EFW2C.Records
                 new RctTotalFederalIncomeTaxWithheldOriginal(this),
                 new RctTotalIncomeFromTheExerciseOfNonstatutoryStockOptionsCodeVCorrect(this),
                 new RctTotalIncomeFromTheExerciseOfNonstatutoryStockOptionsCodeVOriginal(this),
+                new RctTotalMedicareTaxWithheldCorrect(this),
+                new RctTotalMedicareTaxWithheldOriginal(this),
+                new RctTotalMedicareWagesAndTipsCorrect(this),
+                new RctTotalMedicareWagesAndTipsOriginal(this),
+                new RctTotalNonqualifiedDeferredCompensationPlanCodeYCorrect(this),
+                new RctTotalNonqualifiedDeferredCompensationPlanCodeYOriginal(this),
                 new RctTotalNonqualifiedPlanNotSection457Correct(this),
                 new RctTotalNonqualifiedPlanNotSection457Original(this),
                 new RctTotalNonqualifiedPlanSection457Correct(this),
@@ -86,6 +72,14 @@ namespace EFW2C.Records
                 new RctTotalNontaxableCombatPayCodeQOriginal(this),
                 new RctTotalPermittedBenefitsUnderAQSEHRACodeFFCorrect(this),
                 new RctTotalPermittedBenefitsUnderAQSEHRACodeFFOriginal(this),
+                new RctTotalSocialSecurityTaxWithheldCorrect(this),
+                new RctTotalSocialSecurityTaxWithheldOriginal(this),
+                new RctTotalSocialSecurityTipsCorrect(this),
+                new RctTotalSocialSecurityTipsOriginal(this),
+                new RctTotalSocialSecurityWagesCorrect(this),
+                new RctTotalSocialSecurityWagesOriginal(this),
+                new RctTotalTotalDeferredCompensationContributionsCorrect(this),
+                new RctTotalTotalDeferredCompensationContributionsOriginal(this),
                 new RctTotalWagesTipsAndOtherCompensationCorrect(this),
                 new RctTotalWagesTipsAndOtherCompensationOriginal(this),
             };
