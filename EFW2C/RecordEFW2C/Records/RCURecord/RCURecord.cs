@@ -29,7 +29,7 @@ namespace EFW2C.Records
             return new List<FieldBase>
             {
                 new RcuIdentifierField(this),
-                new RcuNumberOfRCORecord(this),
+                new RcuNumberOfRCORecord (this),
                 new RcuTotalAggregateDeferralsCodeHHCorrect(this),
                 new RcuTotalAggregateDeferralsCodeHHOriginal(this),
                 new RcuTotalAllocatedTipsCorrect(this),
