@@ -23,6 +23,9 @@ namespace EFW2C.Fields
         public string ClassName { get; set; }
         public string Data { get { return _data; } }
 
+        public int Length { get { return _length; } }
+        public int Pos { get { return _pos; } }
+
         public FieldBase(RecordBase record, string data)
         {
             _pos = -1;

@@ -14,7 +14,7 @@ namespace EFW2C.Fields
         public RcwSocialSecurityTipsOriginal(RecordBase record, string data)
             : base(record, data)
         {
-            _pos = 386;
+            _pos = 375;
             _length = 11;
         }
     }

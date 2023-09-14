@@ -16,9 +16,7 @@ namespace EFW2C.Records
 
         protected override List<(int, int)> CreateBlankList()
         {
-            //no blank fields
-            //question
-            return new List<(int, int)>();
+            return null;
         }
 
         protected override List<FieldBase> CreateChildClassFields()

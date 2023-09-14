@@ -14,8 +14,8 @@ namespace EFW2C.Fields
         public RcuTotalAggregateDeferralsCodeHHOriginal(RecordBase record)
             : base(record, Constants.WhiteSpaceString)
         {
-            _pos = 240;
-            _length = -15;
+            _pos = 340;
+            _length = 15;
         }
     }
 }

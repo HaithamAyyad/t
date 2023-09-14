@@ -14,7 +14,7 @@ namespace EFW2C.Fields
         public RcwSocialSecurityWagesOriginal(RecordBase record, string data)
             : base(record, data)
         {
-            _pos = 276;
+            _pos = 287;
             _length = 11;
         }
     }

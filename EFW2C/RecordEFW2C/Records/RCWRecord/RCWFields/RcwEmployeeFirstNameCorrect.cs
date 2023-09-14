@@ -13,7 +13,7 @@ namespace EFW2C.Fields
         public RcwEmployeeFirstNameCorrect(RecordBase record, string data)
             : base(record, data)
         {
-            _pos = 86;
+            _pos = 71;
             _length = 15;
 
             IgnoreOriginalField = true;

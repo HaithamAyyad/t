@@ -33,11 +33,75 @@ namespace EFW2C.Records
 
             RecordName = "";
 
+            _blankFields = CreateBlankList();
+
             _childClassFields = CreateChildClassFields();
 
-            CheckFieldsBelongToRecord(_childClassFields);
+            VerifyChildFieldList();
 
-            _blankFields = CreateBlankList();
+            CheckFieldsBelongToRecord(_childClassFields);
+        }
+
+        private bool VerifyChildFieldList()
+        {
+            try
+            {
+                if (_childClassFields.Count == 0)
+                    throw new Exception($"{ClassName} : VerifyFieldsPos child list is empty");
+
+                var duplicateNames = _childClassFields.GroupBy(item => item.ClassName)
+                                                      .Where(group => group.Count() > 1)
+                                                      .Select(group => group.Key)
+                                                      .ToList();
+
+                if (duplicateNames.Any())
+                    throw new Exception($"{duplicateNames[0]} : this field is already added in child field list");
+
+                var pos = 0;
+
+                while (pos != 1024)
+                {
+                    var fieldList = _childClassFields.Where(item => item.Pos == pos).ToList();
+
+                    if (fieldList != null && fieldList.Count != 0)
+                    {
+                        if (fieldList.Count > 1)
+                        {
+                            var str = string.Join(", ", fieldList.Select(item => item.ClassName));
+                            throw new Exception($"{ClassName}: the following fileds are shared with same position : {str}");
+                        }
+
+                        pos = pos + fieldList[0].Length;
+                        continue;
+                    }
+
+                    if (_blankFields != null)
+                    {
+                        var blankList = _blankFields.Where(item => item.Item1 == pos).ToList();
+
+                        if (blankList != null && blankList.Count != 0)
+                        {
+                            if (blankList.Count > 1)
+                                throw new Exception($"{ClassName}: the {pos} position is added more than once in blank list");
+
+                            pos = pos + blankList[0].Item2;
+                            continue;
+                        }
+                    }
+
+                    break;
+                }
+
+                if (pos != 1024)
+                    throw new Exception($"{ClassName} : {pos + 1} : has no field or not added to blank list");
+
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+
+            return true;
         }
 
         private void CheckFieldsBelongToRecord(List<FieldBase> childClassFields)
@@ -109,15 +173,18 @@ namespace EFW2C.Records
 
         private bool CheckblankFields()
         {
-            foreach (var blankField in _blankFields)
+            if (_blankFields != null)
             {
-                int pos = blankField.Item1;
-                int length = blankField.Item2;
+                foreach (var blankField in _blankFields)
+                {
+                    int pos = blankField.Item1;
+                    int length = blankField.Item2;
 
-                var blankData = new string(RecordBuffer, pos, length);
+                    var blankData = new string(RecordBuffer, pos, length);
 
-                if (!string.IsNullOrWhiteSpace(blankData))
-                    throw new Exception($"{ClassName} : data from {pos} with length {length} must be blank");
+                    if (!string.IsNullOrWhiteSpace(blankData))
+                        throw new Exception($"{ClassName} : data from {pos} with length {length} must be blank");
+                }
             }
 
             return true;

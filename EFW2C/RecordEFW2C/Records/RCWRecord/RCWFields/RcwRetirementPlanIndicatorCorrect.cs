@@ -13,7 +13,7 @@ namespace EFW2C.Fields
         public RcwRetirementPlanIndicatorCorrect(RecordBase record, string data)
             : base(record, data)
         {
-            _pos = 105;
+            _pos = 1005;
             _length = 1;
         }
 

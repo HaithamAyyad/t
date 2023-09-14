@@ -13,7 +13,7 @@ namespace EFW2C.Fields
         public RceEmploymentCodeOriginal(RecordBase record, string data)
             : base(record, data)
         {
-            _pos = 21;
+            _pos = 221;
             _length = 1;
         }
 

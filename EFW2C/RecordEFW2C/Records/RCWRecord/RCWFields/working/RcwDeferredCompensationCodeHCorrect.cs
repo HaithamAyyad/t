@@ -15,7 +15,7 @@ namespace EFW2C.Fields
             : base(record, data)
         {
             _pos = 540;
-            _length = 15;
+            _length = 11;
         }
     }
 }

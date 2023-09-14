@@ -13,7 +13,7 @@ namespace EFW2C.Fields
         public RcaZIPCodeExtension(RecordBase record, string data)
             : base(record, data)
         {
-            _pos = 156;
+            _pos = 161;
             _length = 4;
         }
     }

@@ -13,7 +13,7 @@ namespace EFW2C.Fields
         public RcwMiddleNameEmployeeCorrect(RecordBase record, string data)
             : base(record, data)
         {
-            _pos = 36;
+            _pos = 86;
             _length = 15;
         }
 

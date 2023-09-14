@@ -23,6 +23,8 @@ namespace test
                 manager.SetSubmitter(true);
                 manager.TaxYear = 2000;
 
+                manager.AddRecord(CreateRcwRecord(manager));
+
                 manager.AddRecord(CreateRcaRecord(manager));
                 manager.AddRecord(CreateRceRecord(manager));
                 manager.AddRecord(CreateRcvRecord(manager));
