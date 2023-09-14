@@ -28,7 +28,7 @@ namespace EFW2C.Records
         {
             return new List<FieldBase>
             {
-                new RceAgentIndicator(this,"dummy"),
+                new RceAgentIndicator(this, "dummy"),
                 new RceCity(this, "dummy"),
                 new RceContactEMailInternet(this, "dummy"),
                 new RceContactFax(this, "dummy"),

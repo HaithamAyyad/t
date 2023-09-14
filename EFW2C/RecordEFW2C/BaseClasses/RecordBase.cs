@@ -37,9 +37,22 @@ namespace EFW2C.Records
 
             _childClassFields = CreateChildClassFields();
 
+            IsFeildsBelongToClass(_childClassFields);
+
             VerifyChildFieldList();
 
             CheckFieldsBelongToRecord(_childClassFields);
+        }
+
+        public bool IsFeildsBelongToClass(List<FieldBase> fields)
+        {
+            foreach (var field in fields)
+            {
+                if (ClassName.Substring(0, 3) != field.ClassName.Substring(0, 3))
+                    throw new Exception($"{field.ClassName} doesn't belong to {ClassName}");
+            }
+
+            return true;
         }
 
         private bool VerifyChildFieldList()

@@ -98,7 +98,7 @@
     <Compile Include="RecordEFW2C\Records\RCARecord\RCAFields\Info\RcaIdentifierField.cs" />
     <Compile Include="RecordEFW2C\Records\RCARecord\RCAFields\Info\RcaLocationAddress.cs" />
     <Compile Include="RecordEFW2C\Records\RCARecord\RCAFields\Info\RcaStateAbbreviation.cs" />
-    <Compile Include="RecordEFW2C\Records\RCARecord\RCAFields\Info\RcaZIPCode .cs" />
+    <Compile Include="RecordEFW2C\Records\RCARecord\RCAFields\Info\RcaZIPCode.cs" />
     <Compile Include="RecordEFW2C\Records\RCARecord\RCAFields\Info\RcaZIPCodeExtension.cs" />
     <Compile Include="RecordEFW2C\Records\RCARecord\RCAFields\RcaEinSubmitterField.cs" />
     <Compile Include="RecordEFW2C\Records\RCARecord\RCAFields\RcaPreparerCode.cs" />
@@ -107,7 +107,7 @@
     <Compile Include="RecordEFW2C\Records\RCARecord\RCAFields\RcaSoftwareCode.cs" />
     <Compile Include="RecordEFW2C\Records\RCARecord\RCAFields\RcaSoftwareVendorCode.cs" />
     <Compile Include="RecordEFW2C\Records\RCARecord\RCAFields\RcaSubmitterName.cs" />
-    <Compile Include="RecordEFW2C\Records\RCARecord\RCAFields\RcaUserIdentification .cs" />
+    <Compile Include="RecordEFW2C\Records\RCARecord\RCAFields\RcaUserIdentification.cs" />
     <Compile Include="RecordEFW2C\Records\RCARecord\RCARecord.cs" />
     <Compile Include="RecordEFW2C\Records\RCERecord\RCEFields\Info\RceCity.cs" />
     <Compile Include="RecordEFW2C\Records\RCERecord\RCEFields\Info\RceContactEMailInternet.cs" />
@@ -122,7 +122,7 @@
     <Compile Include="RecordEFW2C\Records\RCERecord\RCEFields\Info\RceIdentifierField.cs" />
     <Compile Include="RecordEFW2C\Records\RCERecord\RCEFields\Info\RceLocationAddress.cs" />
     <Compile Include="RecordEFW2C\Records\RCERecord\RCEFields\Info\RceStateAbbreviation.cs" />
-    <Compile Include="RecordEFW2C\Records\RCERecord\RCEFields\Info\RceZIPCode .cs" />
+    <Compile Include="RecordEFW2C\Records\RCERecord\RCEFields\Info\RceZIPCode.cs" />
     <Compile Include="RecordEFW2C\Records\RCERecord\RCEFields\Info\RceZIPCodeExtension.cs" />
     <Compile Include="RecordEFW2C\Records\RCERecord\RCEFields\RceAgentIndicator.cs" />
     <Compile Include="RecordEFW2C\Records\RCERecord\RCEFields\RceEinAgent.cs" />

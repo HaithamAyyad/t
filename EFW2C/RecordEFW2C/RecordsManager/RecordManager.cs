@@ -154,11 +154,8 @@ namespace EFW2C.Manager
         {
             foreach (var record in _records)
             {
-                foreach (var field in record.Fields)
-                {
-                    if (record.ClassName.Substring(0, 3) != field.ClassName.Substring(0, 3))
-                        throw new Exception($"{field.ClassName} doesn't belong to {record.ClassName}");
-                }
+                if (!record.IsFeildsBelongToClass(record.Fields))
+                    return false;
             }
 
             return true;
