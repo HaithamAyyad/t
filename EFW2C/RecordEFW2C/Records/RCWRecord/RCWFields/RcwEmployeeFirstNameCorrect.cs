@@ -24,9 +24,9 @@ namespace EFW2C.Fields
             if (!base.Verify())
                 return false;
 
-            if (_record.GetFields(typeof(RcwStatutoryEmployeeIndicatorCorrect).Name) == null &&
-                _record.GetFields(typeof(RcwThirdPartySickPayndicatorCorrect).Name) == null &&
-                _record.GetFields(typeof(RcwRetirementPlanIndicatorCorrect).Name) == null &&
+            if (_record.GetField(typeof(RcwStatutoryEmployeeIndicatorCorrect).Name) == null &&
+                _record.GetField(typeof(RcwThirdPartySickPayndicatorCorrect).Name) == null &&
+                _record.GetField(typeof(RcwRetirementPlanIndicatorCorrect).Name) == null &&
                  IsOriginalNullOrWhiteSpace() &&
                 !IsOneCorrectMoneyFieldProvided())
                 throw new Exception($"{ClassName}: you must provoide at least one indecator or the SSN original field or at least one correct money filed");
@@ -40,9 +40,9 @@ namespace EFW2C.Fields
             if (base.IsRequired())
                 return true;
 
-            if (_record.GetFields(typeof(RcwStatutoryEmployeeIndicatorCorrect).Name) != null
-                || _record.GetFields(typeof(RcwThirdPartySickPayndicatorCorrect).Name) != null
-                || _record.GetFields(typeof(RcwRetirementPlanIndicatorCorrect).Name) != null)
+            if (_record.GetField(typeof(RcwStatutoryEmployeeIndicatorCorrect).Name) != null
+                || _record.GetField(typeof(RcwThirdPartySickPayndicatorCorrect).Name) != null
+                || _record.GetField(typeof(RcwRetirementPlanIndicatorCorrect).Name) != null)
                 return true;
 
             if (IsOneCorrectMoneyFieldProvided())

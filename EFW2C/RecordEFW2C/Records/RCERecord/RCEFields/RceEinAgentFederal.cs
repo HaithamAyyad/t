@@ -19,7 +19,7 @@ namespace EFW2C.Fields
         }
         public override bool IsRequired()
         {
-            var rceAgentIndicator = _record.GetFields(typeof(RceAgentIndicator).Name);
+            var rceAgentIndicator = _record.GetField(typeof(RceAgentIndicator).Name);
             if (rceAgentIndicator != null)
             {
                 var localData = rceAgentIndicator.DataInRecordBuffer();

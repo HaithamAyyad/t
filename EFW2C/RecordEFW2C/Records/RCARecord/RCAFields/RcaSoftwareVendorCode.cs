@@ -20,7 +20,7 @@ namespace EFW2C.Fields
 
         public override void Write()
         {
-            var rcaSoftwareCode = _record.GetFields(typeof(RcaSoftwareCode).Name) as RcaSoftwareCode;
+            var rcaSoftwareCode = _record.GetField(typeof(RcaSoftwareCode).Name) as RcaSoftwareCode;
 
             if (rcaSoftwareCode != null && rcaSoftwareCode.OffShelfSoftware())
             {
@@ -36,7 +36,7 @@ namespace EFW2C.Fields
             if (!base.Verify())
                 return false;
 
-            var rcaSoftwareCode = _record.GetFields(typeof(RcaSoftwareCode).Name) as RcaSoftwareCode;
+            var rcaSoftwareCode = _record.GetField(typeof(RcaSoftwareCode).Name) as RcaSoftwareCode;
 
             if (rcaSoftwareCode != null && !rcaSoftwareCode.OffShelfSoftware())
             {
@@ -57,7 +57,7 @@ namespace EFW2C.Fields
 
         public override bool IsRequired()
         {
-            var rcaSoftwareCode = _record.GetFields(typeof(RcaSoftwareCode).Name);
+            var rcaSoftwareCode = _record.GetField(typeof(RcaSoftwareCode).Name);
             return rcaSoftwareCode != null;
         }
     }

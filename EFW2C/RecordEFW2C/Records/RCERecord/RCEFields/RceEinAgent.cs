@@ -20,7 +20,7 @@ namespace EFW2C.Fields
 
         public override void Write()
         {
-            var rceAgentIndicator = _record.GetFields(typeof(RceAgentIndicator).Name);
+            var rceAgentIndicator = _record.GetField(typeof(RceAgentIndicator).Name);
             if (rceAgentIndicator != null)
             {
                 if (rceAgentIndicator.DataInRecordBuffer() == ((int)AgentIndicatorCodeEnum.One).ToString())
@@ -33,7 +33,7 @@ namespace EFW2C.Fields
             if (!base.Verify())
                 return false;
 
-            var rceAgentIndicator = _record.GetFields(typeof(RceAgentIndicator).Name);
+            var rceAgentIndicator = _record.GetField(typeof(RceAgentIndicator).Name);
             if (rceAgentIndicator != null)
             {
                 if (rceAgentIndicator.DataInRecordBuffer() == ((int)AgentIndicatorCodeEnum.One).ToString())
@@ -48,7 +48,7 @@ namespace EFW2C.Fields
 
         public override bool IsRequired()
         {
-            var rceAgentIndicator = _record.GetFields(typeof(RceAgentIndicator).Name);
+            var rceAgentIndicator = _record.GetField(typeof(RceAgentIndicator).Name);
             if (rceAgentIndicator != null)
             {
                 if (rceAgentIndicator.DataInRecordBuffer() == ((int)AgentIndicatorCodeEnum.One).ToString())

@@ -161,7 +161,7 @@ namespace EFW2C.Manager
             {
                 var matchClassName = fieldClassName.Replace(Constants.TotalStr, "");
                 matchClassName = record.ClassName.Substring(0, 3) + matchClassName.Substring(3);
-                var field = record.GetFields(matchClassName);
+                var field = record.GetField(matchClassName);
 
                 if (field != null)
                 {

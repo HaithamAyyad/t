@@ -21,7 +21,7 @@ namespace EFW2C.Fields
         public override void Write()
         {
             var fieldClassName = $"{_record.ClassName.Substring(0, 3)}StateAbbreviation";
-            var stateAbbreviation = _record.GetFields(fieldClassName);
+            var stateAbbreviation = _record.GetField(fieldClassName);
             if (stateAbbreviation != null)
             {
                 if (!EnumHelper.IsStateTerritoriseMiltary(stateAbbreviation.DataInRecordBuffer()))

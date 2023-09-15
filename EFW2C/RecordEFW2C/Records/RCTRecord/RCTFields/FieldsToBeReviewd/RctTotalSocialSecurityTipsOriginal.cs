@@ -29,7 +29,7 @@ namespace EFW2C.Fields
             if (precedRce == null)
                 throw new Exception($"{ClassName} : RCE record is not provided");
 
-            var employmentCodeField = precedRce.GetFields(typeof(RceEmploymentCodeCorrect).Name);
+            var employmentCodeField = precedRce.GetField(typeof(RceEmploymentCodeCorrect).Name);
 
             var taxYear = _record.Manager.TaxYear;
 

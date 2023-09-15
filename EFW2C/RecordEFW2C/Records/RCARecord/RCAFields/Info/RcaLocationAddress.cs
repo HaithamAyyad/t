@@ -23,7 +23,7 @@ namespace EFW2C.Fields
 
             if (string.IsNullOrWhiteSpace(_data))
             {
-                var rcaDeliveryAddress = _record.GetFields(typeof(RcaDeliveryAddress).Name);
+                var rcaDeliveryAddress = _record.GetField(typeof(RcaDeliveryAddress).Name);
                 if (rcaDeliveryAddress != null)
                     _data = rcaDeliveryAddress.Data;
             }

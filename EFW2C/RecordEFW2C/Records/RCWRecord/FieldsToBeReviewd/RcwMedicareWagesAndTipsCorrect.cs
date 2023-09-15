@@ -60,12 +60,12 @@ namespace EFW2C.Fields
                                 throw new Exception($"{ClassName} : since year is between 1983- 1993, the value must not exceed MediCare MaxTaxedEarnings");
                         }
 
-                        var rcwSocialSecurityTipsCorrect = _record.GetFields(typeof(RcwSocialSecurityTipsCorrect).Name);
+                        var rcwSocialSecurityTipsCorrect = _record.GetField(typeof(RcwSocialSecurityTipsCorrect).Name);
 
                         if(rcwSocialSecurityTipsCorrect == null)
                             throw new Exception($"RcwSocialSecurityTipsCorrect : should be provided");
 
-                        var rcwSocialSecurityWagesCorrect = _record.GetFields(typeof(RcwSocialSecurityWagesCorrect).Name);
+                        var rcwSocialSecurityWagesCorrect = _record.GetField(typeof(RcwSocialSecurityWagesCorrect).Name);
                         if (rcwSocialSecurityWagesCorrect == null)
                             throw new Exception($"RcwSocialSecurityWagesCorrect : should be provided");
 

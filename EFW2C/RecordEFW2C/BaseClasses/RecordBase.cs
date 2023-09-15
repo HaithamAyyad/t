@@ -126,7 +126,7 @@ namespace EFW2C.Records
             }
         }
 
-        public FieldBase GetFields(string fieldClassName)
+        public FieldBase GetField(string fieldClassName)
         {
             var validField = _childClassFields.FirstOrDefault(field => field.ClassName == fieldClassName);
 

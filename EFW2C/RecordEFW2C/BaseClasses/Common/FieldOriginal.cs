@@ -49,7 +49,7 @@ namespace EFW2C.Fields
 
             var correctClassName = ClassName.Replace(Constants.OriginalStr, Constants.CorrectStr);
 
-            return _record.GetFields(correctClassName) as FieldCorrect;
+            return _record.GetField(correctClassName) as FieldCorrect;
         }
 
 
