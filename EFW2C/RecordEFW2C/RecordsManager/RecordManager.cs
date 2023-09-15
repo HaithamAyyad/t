@@ -20,6 +20,7 @@ namespace EFW2C.Manager
         private bool _unemployment;
 
         public int TaxYear { get { return _taxYear; } set { _taxYear = value; } }
+        public bool IsTIB { get; set; }
 
         List<RecordBase> _records;
 
@@ -38,6 +39,11 @@ namespace EFW2C.Manager
 
         public bool Verify()
         {
+            var wageTax = WageTaxHelper.GetWageTax(TaxYear);
+
+            if (wageTax == null)
+                throw new Exception($"Wages and Tax table missing year {TaxYear} info.");
+
             if (!IsFeildsBelongToClass())
                 return true;
 

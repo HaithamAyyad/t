@@ -40,8 +40,6 @@ namespace EFW2C.Fields
                 if (employmentCode.DataInRecordBuffer() == "H" && taxYear >= 1994)
                 {
                     var wageTax = WageTaxHelper.GetWageTax(taxYear);
-                    if (wageTax == null)
-                        throw new Exception($"{ClassName} : Wages and Tax table missing year {taxYear} info ");
                     
                     double.TryParse(localData, out var value);
 
