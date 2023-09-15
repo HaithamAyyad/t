@@ -29,16 +29,5 @@ namespace EFW2C.Fields
         {
             return FieldTypeEnum.Numerical_RightJustify_Zero;
         }
-
-        protected string GetEmoploymentCode()
-        {
-            var precedRce = _record.Manager.GetPrecedRecord(_record, RecordNameEnum.Rce.ToString());
-
-            if (precedRce == null)
-                throw new Exception($"{ClassName} : RCE record is not provided");
-
-            var employmentCodeField = precedRce.GetFields(typeof(RceEmploymentCodeCorrect).Name);
-            return employmentCodeField?.DataInRecordBuffer();
-        }
     }
 }
