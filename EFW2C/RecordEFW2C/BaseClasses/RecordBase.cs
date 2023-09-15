@@ -14,7 +14,7 @@ namespace EFW2C.Records
         public char[] RecordBuffer;
 
         protected List<FieldBase> _fields;
-        private List<FieldBase> _childClassFields;
+        private List<FieldBase> _verifyFieldsList;
         private List<(int, int)> _blankFields;
         protected bool _isForeignAddres;
 
@@ -35,13 +35,13 @@ namespace EFW2C.Records
 
             _blankFields = CreateBlankList();
 
-            _childClassFields = CreateChildClassFields();
+            _verifyFieldsList = CreateVerifyFieldsList();
 
-            IsFeildsBelongToClass(_childClassFields);
+            IsFeildsBelongToClass(_verifyFieldsList);
 
-            VerifyChildFieldList();
+            CheckVerifyFieldList();
 
-            CheckFieldsBelongToRecord(_childClassFields);
+            CheckFieldsBelongToRecord(_verifyFieldsList);
         }
 
         public bool IsFeildsBelongToClass(List<FieldBase> fields)
@@ -55,14 +55,14 @@ namespace EFW2C.Records
             return true;
         }
 
-        private bool VerifyChildFieldList()
+        private bool CheckVerifyFieldList()
         {
             try
             {
-                if (_childClassFields.Count == 0)
+                if (_verifyFieldsList.Count == 0)
                     throw new Exception($"{ClassName} : VerifyFieldsPos child list is empty");
 
-                var duplicateNames = _childClassFields.GroupBy(item => item.ClassName)
+                var duplicateNames = _verifyFieldsList.GroupBy(item => item.ClassName)
                                                       .Where(group => group.Count() > 1)
                                                       .Select(group => group.Key)
                                                       .ToList();
@@ -74,7 +74,7 @@ namespace EFW2C.Records
 
                 while (pos != 1024)
                 {
-                    var fieldList = _childClassFields.Where(item => item.Pos == pos).ToList();
+                    var fieldList = _verifyFieldsList.Where(item => item.Pos == pos).ToList();
 
                     if (fieldList != null && fieldList.Count != 0)
                     {
@@ -128,7 +128,7 @@ namespace EFW2C.Records
 
         public FieldBase GetField(string fieldClassName)
         {
-            var validField = _childClassFields.FirstOrDefault(field => field.ClassName == fieldClassName);
+            var validField = _verifyFieldsList.FirstOrDefault(field => field.ClassName == fieldClassName);
 
             if (validField == null)
                 throw new Exception($" GetFields : you are trying to get invalid class : {fieldClassName}");
@@ -205,7 +205,7 @@ namespace EFW2C.Records
 
         private bool CheckRequiredFields()
         {
-            foreach (var reqField in _childClassFields)
+            foreach (var reqField in _verifyFieldsList)
             {
                 if (reqField.IsRequired() && !IsFieldExists(reqField))
                 {
@@ -239,7 +239,7 @@ namespace EFW2C.Records
         {
             return _isForeignAddres;
         }
-        protected abstract List<FieldBase> CreateChildClassFields();
+        protected abstract List<FieldBase> CreateVerifyFieldsList();
         protected abstract List<(int, int)> CreateBlankList();
 
     }
