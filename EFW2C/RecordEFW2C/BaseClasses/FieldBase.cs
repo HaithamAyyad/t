@@ -174,7 +174,7 @@ namespace EFW2C.Fields
             return true;
         }
 
-        protected string GetEmoploymentCode()
+        protected string GetEmploymentCode()
         {
             var precedRce = _record.Manager.GetPrecedRecord(_record, RecordNameEnum.Rce.ToString());
 

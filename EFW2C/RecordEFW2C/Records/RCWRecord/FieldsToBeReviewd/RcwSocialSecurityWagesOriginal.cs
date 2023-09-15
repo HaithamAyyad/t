@@ -24,11 +24,11 @@ namespace EFW2C.Fields
             if (!base.Verify())
                 return false;
 
-            var emoploymentCode = GetEmoploymentCode();
+            var employmentCode = GetEmploymentCode();
             var taxYear = _record.Manager.TaxYear;
             var localData = DataInRecordBuffer();
 
-            if (emoploymentCode == EmploymentCodeEnum.H.ToString() && taxYear >= 1994)
+            if (employmentCode == EmploymentCodeEnum.H.ToString() && taxYear >= 1994)
             {
                 var value = double.Parse(localData);
                 var wageTax = WageTaxHelper.GetWageTax(taxYear);

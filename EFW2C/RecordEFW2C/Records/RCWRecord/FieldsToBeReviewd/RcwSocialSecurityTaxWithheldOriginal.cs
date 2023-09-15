@@ -23,9 +23,9 @@ namespace EFW2C.Fields
             if (!base.Verify())
                 return false;
 
-            var emoploymentCode = GetEmoploymentCode();
-            if (emoploymentCode == EmploymentCodeEnum.Q.ToString() || emoploymentCode == EmploymentCodeEnum.X.ToString())
-                throw new Exception($"{ClassName} : since employment code is {emoploymentCode}, this feild must not be provided");
+            var employmentCode = GetEmploymentCode();
+            if (employmentCode == EmploymentCodeEnum.Q.ToString() || employmentCode == EmploymentCodeEnum.X.ToString())
+                throw new Exception($"{ClassName} : since employment code is {employmentCode}, this feild must not be provided");
 
             return true;
         }

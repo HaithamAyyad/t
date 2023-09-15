@@ -24,11 +24,11 @@ namespace EFW2C.Fields
             if (!base.Verify())
                 return false;
 
-            var emoploymentCode = GetEmoploymentCode();
+            var employmentCode = GetEmploymentCode();
             var taxYear = _record.Manager.TaxYear;
             var localData = DataInRecordBuffer();
 
-            if (emoploymentCode == EmploymentCodeEnum.H.ToString() && taxYear >= 1994)
+            if (employmentCode == EmploymentCodeEnum.H.ToString() && taxYear >= 1994)
             {
                 var value = double.Parse(localData);
                 var wageTax = WageTaxHelper.GetWageTax(taxYear);
@@ -37,7 +37,7 @@ namespace EFW2C.Fields
                     throw new Exception($"{ClassName} : vlaue must be zero or equal or greater of MinHouseHold Covered Wages");
             }
 
-            if (emoploymentCode == EmploymentCodeEnum.X.ToString() && taxYear >= 1983)
+            if (employmentCode == EmploymentCodeEnum.X.ToString() && taxYear >= 1983)
             {
                 if (!string.IsNullOrWhiteSpace(localData))
                     throw new Exception($"{ClassName} : for year > 1983 and employees code 'X' field must be blank");

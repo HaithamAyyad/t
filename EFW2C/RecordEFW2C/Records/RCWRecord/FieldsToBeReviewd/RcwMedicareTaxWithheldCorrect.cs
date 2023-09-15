@@ -24,7 +24,7 @@ namespace EFW2C.Fields
             if (!base.Verify())
                 return false;
 
-            var emoploymentCode = GetEmoploymentCode();
+            var employmentCode = GetEmploymentCode();
 
             var localData = DataInRecordBuffer();
 
@@ -37,7 +37,7 @@ namespace EFW2C.Fields
             }
             else
             {
-                if (emoploymentCode != EmploymentCodeEnum.X.ToString())
+                if (employmentCode != EmploymentCodeEnum.X.ToString())
                 {
                     if (!string.IsNullOrWhiteSpace(localData))
                         throw new Exception($"{ClassName} : Employment code is 'X' amd year 1983, then this feild must be blank");

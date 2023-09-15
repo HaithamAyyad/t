@@ -28,9 +28,9 @@ namespace EFW2C.Fields
             if (taxYear < 1978)
                 throw new Exception($"{ClassName} : this field is only vaild from 1978 ot later");
 
-            var emoploymentCode = GetEmoploymentCode();
-            if (emoploymentCode == EmploymentCodeEnum.Q.ToString() || emoploymentCode == EmploymentCodeEnum.X.ToString())
-                throw new Exception($"{ClassName} : since employment code is {emoploymentCode}, this feild must not be provided");
+            var employmentCode = GetEmploymentCode();
+            if (employmentCode == EmploymentCodeEnum.Q.ToString() || employmentCode == EmploymentCodeEnum.X.ToString())
+                throw new Exception($"{ClassName} : since employment code is {employmentCode}, this feild must not be provided");
 
             if (taxYear == 2023)
             {
