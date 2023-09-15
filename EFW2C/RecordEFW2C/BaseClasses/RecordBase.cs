@@ -60,7 +60,7 @@ namespace EFW2C.Records
             try
             {
                 if (_verifyFieldsList.Count == 0)
-                    throw new Exception($"{ClassName} : VerifyFieldsPos child list is empty");
+                    throw new Exception($"{ClassName} : CheckVerifyFieldList() verify list is empty");
 
                 var duplicateNames = _verifyFieldsList.GroupBy(item => item.ClassName)
                                                       .Where(group => group.Count() > 1)
@@ -68,7 +68,7 @@ namespace EFW2C.Records
                                                       .ToList();
 
                 if (duplicateNames.Any())
-                    throw new Exception($"{duplicateNames[0]} : this field is already added in child field list");
+                    throw new Exception($"{duplicateNames[0]} : this field is already added in verfiy field list");
 
                 var pos = 0;
 
@@ -117,12 +117,12 @@ namespace EFW2C.Records
             return true;
         }
 
-        private void CheckFieldsBelongToRecord(List<FieldBase> childClassFields)
+        private void CheckFieldsBelongToRecord(List<FieldBase> fields)
         {
-            foreach (var field in childClassFields)
+            foreach (var field in fields)
             {
                 if (ClassName.Substring(0, 3) != field.ClassName.Substring(0, 3))
-                    throw new Exception($"{field.ClassName} doesn't belong to {ClassName} in child fields list");
+                    throw new Exception($"{field.ClassName} doesn't belong to {ClassName} in veryfy fields list");
             }
         }
 
