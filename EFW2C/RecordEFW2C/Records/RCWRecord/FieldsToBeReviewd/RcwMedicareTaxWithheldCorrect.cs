@@ -23,13 +23,25 @@ namespace EFW2C.Fields
             if (!base.Verify())
                 return false;
 
+            var localData = DataInRecordBuffer();
+
+            if (_record.Manager.TaxYear < 1983)
+            {
+                if(!string.IsNullOrWhiteSpace(localData))
+                    throw new Exception($"{ClassName} : Tax year is less than 1983, then this feild must blank");
+            }
+
             var emoploymentCode = GetEmoploymentCode();
             if (emoploymentCode == EmploymentCodeEnum.X.ToString())
             {
-                var localData = DataInRecordBuffer();
+                if (!string.IsNullOrWhiteSpace(localData))
+                    throw new Exception($"{ClassName} : Employment code is 'X', then this feild must blank");
+            }
 
-                if (Int32.Parse(localData) <= 0)
-                    throw new Exception($"{ClassName} : since employment code is {emoploymentCode}, this feild must be greater than zero");
+
+            if (emoploymentCode != EmploymentCodeEnum.X.ToString())
+            {
+
             }
 
             return true;

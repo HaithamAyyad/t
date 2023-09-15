@@ -1,6 +1,7 @@
 ﻿using System;
 using EFW2C.Common.Constants;
 using EFW2C.Common.Enums;
+using EFW2C.Common.Helper;
 using EFW2C.Extensions;
 using EFW2C.Records;
 using test.RecordEFW2C.Common;
@@ -39,12 +40,13 @@ namespace EFW2C.Fields
             {
                 if(employmentCode.DataInRecordBuffer() == "H" && taxYear >= 1994)
                 {
-                    if(!_record.Manager.WageTaxTable.ContainsKey(taxYear))
+                    var wageTax = WageTaxHelper.GetWageTax(taxYear);
+                    if (wageTax == null)
                         throw new Exception($"{ClassName} : Wages and Tax table missing year {taxYear} info ");
 
                     double.TryParse(localData, out var value);
 
-                    if (!(value == 0 || value >= _record.Manager.WageTaxTable[taxYear].Employee.SocialSecurity.MinHouseHoldCoveredWages))
+                    if (!(value == 0 || value >= wageTax.Employee.SocialSecurity.MinHouseHoldCoveredWages))
                         throw new Exception($"{ClassName} : must be zero or equal to or greater than the annual Household minimum for the tax year being reported");
                 }
             }
