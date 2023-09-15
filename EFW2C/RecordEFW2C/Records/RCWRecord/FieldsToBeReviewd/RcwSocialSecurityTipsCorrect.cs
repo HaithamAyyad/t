@@ -26,9 +26,6 @@ namespace EFW2C.Fields
 
             var taxYear = _record.Manager.TaxYear;
 
-            if (taxYear < 1978)
-                throw new Exception($"{ClassName} : this field is only vaild from 1978 or later");
-
             var employmentCode = GetEmploymentCode();
             if (employmentCode == EmploymentCodeEnum.Q.ToString() || employmentCode == EmploymentCodeEnum.X.ToString())
                 throw new Exception($"{ClassName} : since employment code is {employmentCode}, this feild must not be provided");
@@ -37,7 +34,7 @@ namespace EFW2C.Fields
             var value = double.Parse(localData);
             var wageTax = WageTaxHelper.GetWageTax(taxYear);
 
-            if (employmentCode == EmploymentCodeEnum.H.ToString() && taxYear >= 1994)
+            if (employmentCode == EmploymentCodeEnum.H.ToString())
             {
                 if (value != 0 || value < wageTax.Employee.SocialSecurity.MinHouseHoldCoveredWages)
                     throw new Exception($"{ClassName} : vlaue must be zero or equal or greater than MinHouseHold Covered Wages ({wageTax.Employee.SocialSecurity.MinHouseHoldCoveredWages})");

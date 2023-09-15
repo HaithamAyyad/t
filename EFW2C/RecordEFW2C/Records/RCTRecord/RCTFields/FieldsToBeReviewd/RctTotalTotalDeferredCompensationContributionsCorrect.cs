@@ -17,6 +17,17 @@ namespace EFW2C.Fields
             _pos = 445;
             _length = 15;
         }
+
+        public override bool Verify()
+        {
+            if (!base.Verify())
+                return false;
+
+            if (!_record.Manager.IsTIB)
+                throw new Exception($"{ClassName} : This filed only should be provided when TIB is set");
+
+            return true;
+        }
     }
 }
 

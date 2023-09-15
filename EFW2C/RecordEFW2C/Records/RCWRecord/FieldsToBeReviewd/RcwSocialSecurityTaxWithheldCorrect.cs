@@ -25,9 +25,6 @@ namespace EFW2C.Fields
 
             var taxYear = _record.Manager.TaxYear;
 
-            if (taxYear < 1978)
-                throw new Exception($"{ClassName} : this field is only vaild from 1978 or later");
-
             var employmentCode = GetEmploymentCode();
             if (employmentCode == EmploymentCodeEnum.Q.ToString() || employmentCode == EmploymentCodeEnum.X.ToString())
                 throw new Exception($"{ClassName} : since employment code is {employmentCode}, this feild must not be provided");
@@ -37,8 +34,7 @@ namespace EFW2C.Fields
                 var localData = DataInRecordBuffer();
                 var value = double.Parse(localData);
                 if(value > 9932.40)
-                    throw new Exception($"{ClassName} since year 2023 the value must not exceed $9,932.40");
-
+                    throw new Exception($"{ClassName} since year is 2023 the value must not exceed $9,932.40");
             }
 
 

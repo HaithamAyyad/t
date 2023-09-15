@@ -27,11 +27,6 @@ namespace EFW2C.Fields
             if(!_record.Manager.IsTIB)
                 throw new Exception($"{ClassName} : This filed only should provided when TIB is not set");
 
-            var taxYear = _record.Manager.TaxYear;
-
-            if (!(taxYear >= 1987 && taxYear <= 2005))
-                throw new Exception($"{ClassName} : This filed vaild between 1987-2005");
-
             return true;
         }
     }

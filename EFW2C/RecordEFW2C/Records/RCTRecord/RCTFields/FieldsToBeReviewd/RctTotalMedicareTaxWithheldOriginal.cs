@@ -25,14 +25,12 @@ namespace EFW2C.Fields
 
             var employmentCode = GetEmploymentCode();
 
-            var taxYear = _record.Manager.TaxYear;
-
             var localData = DataInRecordBuffer();
 
-            if (employmentCode == EmploymentCodeEnum.X.ToString() && taxYear >= 1983)
+            if (employmentCode == EmploymentCodeEnum.X.ToString())
             {
                 if (!string.IsNullOrWhiteSpace(localData))
-                    throw new Exception($"{ClassName} : must be blank because tax year is greater than 1983 and employment code is X");
+                    throw new Exception($"{ClassName} : must be blank because employment code is X");
             }
 
             return true;

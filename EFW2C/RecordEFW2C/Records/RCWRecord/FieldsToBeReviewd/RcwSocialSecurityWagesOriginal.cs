@@ -28,7 +28,7 @@ namespace EFW2C.Fields
             var taxYear = _record.Manager.TaxYear;
             var localData = DataInRecordBuffer();
 
-            if (employmentCode == EmploymentCodeEnum.H.ToString() && taxYear >= 1994)
+            if (employmentCode == EmploymentCodeEnum.H.ToString())
             {
                 var value = double.Parse(localData);
                 var wageTax = WageTaxHelper.GetWageTax(taxYear);

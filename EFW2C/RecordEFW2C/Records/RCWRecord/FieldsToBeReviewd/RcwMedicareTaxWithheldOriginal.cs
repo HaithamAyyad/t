@@ -17,23 +17,5 @@ namespace EFW2C.Fields
             _pos = 353;
             _length = 11;
         }
-
-        public override bool Verify()
-        {
-            if (!base.Verify())
-                return false;
-
-            var localData = DataInRecordBuffer();
-
-            var taxYear = _record.Manager.TaxYear;
-
-            if (taxYear < 1983)
-            {
-                if (!string.IsNullOrWhiteSpace(localData))
-                    throw new Exception($"{ClassName} : must be blank because tax year is less than 1983");
-            }
-
-            return true;
-        }
     }
 }

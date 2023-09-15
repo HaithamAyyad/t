@@ -28,31 +28,10 @@ namespace EFW2C.Fields
 
             var localData = DataInRecordBuffer();
 
-            var taxYear = _record.Manager.TaxYear;
-
-            if (taxYear < 1983)
+            if (employmentCode != EmploymentCodeEnum.X.ToString())
             {
                 if (!string.IsNullOrWhiteSpace(localData))
-                    throw new Exception($"{ClassName} : must be blank because tax year is less than 1983");
-            }
-            else
-            {
-                if (employmentCode != EmploymentCodeEnum.X.ToString())
-                {
-                    if (!string.IsNullOrWhiteSpace(localData))
-                        throw new Exception($"{ClassName} : must be blank, because employment code is 'X' and year greater than 1983");
-                }
-                else
-                {
-                    if(taxYear >= 1991 && taxYear <= 1993)
-                    {
-                        var wageTax = WageTaxHelper.GetWageTax(taxYear);
-
-                        var value = double.Parse(localData);
-                        if(value > wageTax.Employee.MediCare.EmployeeMaxAnnualTax)
-                            throw new Exception($"{ClassName} : since year is 1991-1993, Wage tax should not exceed Max Annual Tax");
-                    }
-                }
+                    throw new Exception($"{ClassName} : must be blank, because employment code is 'X'");
             }
 
             return true;

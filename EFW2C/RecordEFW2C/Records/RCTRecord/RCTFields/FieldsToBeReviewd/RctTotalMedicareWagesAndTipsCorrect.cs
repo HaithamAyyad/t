@@ -24,36 +24,42 @@ namespace EFW2C.Fields
             if (!base.Verify())
                 return false;
 
+            var localData = DataInRecordBuffer();
+
             var employmentCode = GetEmploymentCode();
 
             var taxYear = _record.Manager.TaxYear;
 
-            var localData = DataInRecordBuffer();
+            var value = double.Parse(localData);
 
-            var RctTotalSocialSecurityTipsCorrectField = _record.GetField(typeof(RctTotalSocialSecurityTipsCorrect).Name);
-            var RctTotalSocialSecurityWagesCorrectField = _record.GetField(typeof(RctTotalSocialSecurityWagesCorrect).Name);
+            var rcwSocialSecurityTipsCorrect = _record.GetField(typeof(RcwSocialSecurityTipsCorrect).Name);
 
-            if (RctTotalSocialSecurityTipsCorrectField != null && RctTotalSocialSecurityWagesCorrectField != null)
-            {
-                //to continue HSA7
-            }
+            if (rcwSocialSecurityTipsCorrect == null)
+                throw new Exception($"{ClassName}: RcwSocialSecurityTipsCorrect must be provided");
 
-            if (employmentCode == EmploymentCodeEnum.H.ToString() && taxYear >= 1994)
+            var rcwSocialSecurityWagesCorrect = _record.GetField(typeof(RcwSocialSecurityWagesCorrect).Name);
+            if (rcwSocialSecurityWagesCorrect == null)
+                throw new Exception($"{ClassName}: RcwSocialSecurityWagesCorrect must be provided");
+
+            var rcwSocialSecurityTipsCorrectValue = double.Parse(rcwSocialSecurityTipsCorrect.DataInRecordBuffer());
+            var rcwSocialSecurityWagesCorrectValue = double.Parse(rcwSocialSecurityWagesCorrect.DataInRecordBuffer());
+
+            if (value < rcwSocialSecurityTipsCorrectValue + rcwSocialSecurityWagesCorrectValue)
+                throw new Exception($"Value must be equal the sum of Social Security Tips and Social Security Wages");
+
+            if (employmentCode == EmploymentCodeEnum.H.ToString())
             {
                 var wageTax = WageTaxHelper.GetWageTax(taxYear);
 
-                double.TryParse(localData, out var value);
-
-                if (!(value == 0 || value >= wageTax.Employee.SocialSecurity.MinHouseHoldCoveredWages))
+                if (value != 0 || value < wageTax.Employee.SocialSecurity.MinHouseHoldCoveredWages)
                     throw new Exception($"{ClassName} : must be zero or equal to or greater than the annual Household minimum for the tax year being reported");
             }
 
-            if (employmentCode == EmploymentCodeEnum.X.ToString() && taxYear >= 1983)
+            if (employmentCode == EmploymentCodeEnum.X.ToString())
             {
                 if (!string.IsNullOrWhiteSpace(localData))
-                    throw new Exception($"{ClassName} : must be blank because tax year is greater than 1983 and employment code is X");
+                    throw new Exception($"{ClassName} : must be blank because employment code is X");
             }
-
 
             return true;
         }

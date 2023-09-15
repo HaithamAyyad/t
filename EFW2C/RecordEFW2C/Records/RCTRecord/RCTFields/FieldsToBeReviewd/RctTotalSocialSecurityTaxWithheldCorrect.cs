@@ -23,11 +23,11 @@ namespace EFW2C.Fields
             if (!base.Verify())
                 return false;
 
+             var localData = DataInRecordBuffer();
+
             var employmentCode = GetEmploymentCode();
 
-            var localData = DataInRecordBuffer();
-
-            if (employmentCode == EmploymentCodeEnum.Q.ToString() || 
+            if (employmentCode == EmploymentCodeEnum.Q.ToString() ||
                 employmentCode == EmploymentCodeEnum.X.ToString())
             {
                 if (!string.IsNullOrWhiteSpace(localData))

@@ -24,11 +24,11 @@ namespace EFW2C.Fields
             if (!base.Verify())
                 return false;
 
-            var employmentCode = GetEmploymentCode();
-
             var taxYear = _record.Manager.TaxYear;
 
             var localData = DataInRecordBuffer();
+
+            var employmentCode = GetEmploymentCode();
 
             if (employmentCode == EmploymentCodeEnum.Q.ToString() ||
                 employmentCode == EmploymentCodeEnum.X.ToString())
@@ -37,13 +37,13 @@ namespace EFW2C.Fields
                     throw new Exception($"{ClassName} : must be blank for employment code X or Q");
             }
 
-            if (employmentCode == EmploymentCodeEnum.H.ToString() && taxYear >= 1994)
+            if (employmentCode == EmploymentCodeEnum.H.ToString())
             {
                 var wageTax = WageTaxHelper.GetWageTax(taxYear);
 
                 double.TryParse(localData, out var value);
 
-                if (!(value == 0 || value >= wageTax.Employee.SocialSecurity.MinHouseHoldCoveredWages))
+                if (value != 0 || value < wageTax.Employee.SocialSecurity.MinHouseHoldCoveredWages)
                     throw new Exception($"{ClassName} : must be zero or equal to or greater than the annual Household minimum for the tax year being reported");
             }
 

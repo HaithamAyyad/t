@@ -28,7 +28,7 @@ namespace EFW2C.Fields
             var taxYear = _record.Manager.TaxYear;
             var localData = DataInRecordBuffer();
 
-            if (employmentCode == EmploymentCodeEnum.H.ToString() && taxYear >= 1994)
+            if (employmentCode == EmploymentCodeEnum.H.ToString())
             {
                 var value = double.Parse(localData);
                 var wageTax = WageTaxHelper.GetWageTax(taxYear);
@@ -37,10 +37,10 @@ namespace EFW2C.Fields
                     throw new Exception($"{ClassName} : vlaue must be zero or equal or greater than MinHouseHold Covered Wages");
             }
 
-            if (employmentCode == EmploymentCodeEnum.X.ToString() && taxYear >= 1983)
+            if (employmentCode == EmploymentCodeEnum.X.ToString())
             {
                 if (!string.IsNullOrWhiteSpace(localData))
-                    throw new Exception($"{ClassName} : must be blank, because employment code is 'X' and year greater than 1983, then this feild ");
+                    throw new Exception($"{ClassName} : must be blank, because employment code is 'X'");
             }
 
             return true;
