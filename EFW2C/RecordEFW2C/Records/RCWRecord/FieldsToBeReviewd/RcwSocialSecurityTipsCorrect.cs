@@ -27,7 +27,7 @@ namespace EFW2C.Fields
             var taxYear = _record.Manager.TaxYear;
 
             if (taxYear < 1978)
-                throw new Exception($"{ClassName} : this field is only vaild from 1978 ot later");
+                throw new Exception($"{ClassName} : this field is only vaild from 1978 or later");
 
             var employmentCode = GetEmploymentCode();
             if (employmentCode == EmploymentCodeEnum.Q.ToString() || employmentCode == EmploymentCodeEnum.X.ToString())
@@ -44,7 +44,7 @@ namespace EFW2C.Fields
             }
 
             if(value > wageTax.Employee.SocialSecurity.MaxTaxedEarnings)
-                throw new Exception($"{ClassName} : vlaue must exceed SocialSecurity MaxTaxedEarnings ({wageTax.Employee.SocialSecurity.MaxTaxedEarnings})");
+                throw new Exception($"{ClassName} : vlaue must not exceed SocialSecurity MaxTaxedEarnings ({wageTax.Employee.SocialSecurity.MaxTaxedEarnings})");
 
             return true;
         }

@@ -26,7 +26,7 @@ namespace EFW2C.Fields
             var strValid1 = localData.Substring(0, 3);
             var strValid2 = localData.Substring(0, 1);
             if(strValid1 == "999" || strValid2 == "6")
-                throw new Exception($"{ClassName} : Correction SSN should not start with 999 or 6");
+                throw new Exception($"{ClassName} : SSN should not start with 999 or 6");
 
             return true;
         }

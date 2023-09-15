@@ -25,7 +25,7 @@ namespace EFW2C.Fields
             var localData = DataInRecordBuffer();
 
             if (!(localData == "1" || localData == "0"))
-                throw new Exception($"{ClassName}: data only can be zero or one");
+                throw new Exception($"{ClassName}: data only can be '0' or '1'");
 
             return true;
         }

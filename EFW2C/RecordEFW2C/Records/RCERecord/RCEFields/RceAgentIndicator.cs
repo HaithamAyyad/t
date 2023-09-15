@@ -23,12 +23,15 @@ namespace EFW2C.Fields
             if (!base.Verify())
                 return false;
 
-            var indicator = DataInRecordBuffer();
+            var localData = DataInRecordBuffer();
 
-            Int32.TryParse(indicator, out int indicatorValue);
+            if (!string.IsNullOrWhiteSpace(localData))
+            {
+                var value = Int32.Parse(localData);
 
-            if (!(string.IsNullOrWhiteSpace(indicator) || EnumHelper.IsAgentIndicatorValid(indicatorValue)))
-                throw new Exception($"{ClassName} is not correct");
+                if (!EnumHelper.IsAgentIndicatorValid(value))
+                    throw new Exception($"{ClassName} {value} is not correct");
+            }
 
             return true;
         }

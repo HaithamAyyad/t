@@ -24,7 +24,7 @@ namespace EFW2C.Fields
                 return false;
 
             if (!_record.Manager.IsTIB)
-                throw new Exception($"{ClassName} : This filed only should provided whe TIB is not set");
+                throw new Exception($"{ClassName} : This filed only should provided when TIB is not set");
 
             var taxYear = _record.Manager.TaxYear;
 

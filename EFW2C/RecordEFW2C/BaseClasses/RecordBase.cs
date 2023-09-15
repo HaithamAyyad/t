@@ -141,7 +141,7 @@ namespace EFW2C.Records
                 throw new Exception($"{ClassName}:{field.ClassName} Field name missing to assign Name property");
 
             if (IsFieldExists(field))
-                throw new Exception($"{field.ClassName} is already added");
+                throw new Exception($"{field.ClassName} is already added to {ClassName}");
 
             _fields.Add(field);
         }

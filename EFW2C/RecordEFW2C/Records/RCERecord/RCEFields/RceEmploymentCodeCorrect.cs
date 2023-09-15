@@ -30,7 +30,7 @@ namespace EFW2C.Fields
 
                 var employmentCode = DataInRecordBuffer();
                 if (!EnumHelper.IsEmploymentCodeValid(employmentCode))
-                    throw new Exception($"{ClassName}: {employmentCode} is not valid Employment Code");
+                    throw new Exception($"{ClassName}: {employmentCode} is not a valid Employment Code");
             }
 
             return true;

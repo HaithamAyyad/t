@@ -43,7 +43,7 @@ namespace EFW2C.Fields
                 for (int i = _pos; i < _pos + _length; i++)
                 {
                     if (!char.IsWhiteSpace(_record.RecordBuffer[i]))
-                        throw new Exception($"{ClassName} Field must be empty since software code is In-House Program");
+                        throw new Exception($"{ClassName} Field must be empty since software code marked as In-House Program");
                 }
             }
 

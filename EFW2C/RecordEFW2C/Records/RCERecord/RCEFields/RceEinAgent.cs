@@ -39,7 +39,7 @@ namespace EFW2C.Fields
                 if (rceAgentIndicator.DataInRecordBuffer() == ((int)AgentIndicatorCodeEnum.One).ToString())
                 {
                     if(string.IsNullOrEmpty(DataInRecordBuffer()))
-                        throw new Exception($"{ClassName} must not ne empty , sice the {rceAgentIndicator} set to 1" );
+                        throw new Exception($"{ClassName} must not be empty, since the {rceAgentIndicator} set to 1" );
                 }
             }
 

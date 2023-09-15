@@ -40,7 +40,7 @@ namespace EFW2C.Fields
                 if (employmentCode != EmploymentCodeEnum.X.ToString())
                 {
                     if (!string.IsNullOrWhiteSpace(localData))
-                        throw new Exception($"{ClassName} : must be blank, because employment code is 'X' and year greater than 1983, then this feild ");
+                        throw new Exception($"{ClassName} : must be blank, because employment code is 'X' and year greater than 1983");
                 }
                 else
                 {

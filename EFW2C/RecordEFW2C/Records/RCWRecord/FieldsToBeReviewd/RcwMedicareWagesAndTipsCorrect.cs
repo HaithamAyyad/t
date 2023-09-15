@@ -39,7 +39,7 @@ namespace EFW2C.Fields
                 if (employmentCode == EmploymentCodeEnum.X.ToString())
                 {
                     if (!string.IsNullOrWhiteSpace(localData))
-                        throw new Exception($"{ClassName} : must be blank, because employment code is 'X' and year greater than 1983, then this feild ");
+                        throw new Exception($"{ClassName} : must be blank, because employment code is 'X' and year greater than 1983");
                 }
                 else
                 {
@@ -63,11 +63,11 @@ namespace EFW2C.Fields
                         var rcwSocialSecurityTipsCorrect = _record.GetField(typeof(RcwSocialSecurityTipsCorrect).Name);
 
                         if(rcwSocialSecurityTipsCorrect == null)
-                            throw new Exception($"RcwSocialSecurityTipsCorrect : should be provided");
+                            throw new Exception($"{ClassName}: RcwSocialSecurityTipsCorrect must be provided");
 
                         var rcwSocialSecurityWagesCorrect = _record.GetField(typeof(RcwSocialSecurityWagesCorrect).Name);
                         if (rcwSocialSecurityWagesCorrect == null)
-                            throw new Exception($"RcwSocialSecurityWagesCorrect : should be provided");
+                            throw new Exception($"{ClassName}: RcwSocialSecurityWagesCorrect must be provided");
 
                         var rcwSocialSecurityTipsCorrectValue = double.Parse(rcwSocialSecurityTipsCorrect.DataInRecordBuffer());
                         var rcwSocialSecurityWagesCorrectValue = double.Parse(rcwSocialSecurityWagesCorrect.DataInRecordBuffer());
@@ -77,14 +77,14 @@ namespace EFW2C.Fields
                             if(value > 0)
                             {
                                 if(value != rcwSocialSecurityTipsCorrectValue + rcwSocialSecurityWagesCorrectValue)
-                                    throw new Exception($"Value should equal exacty the sum of Social Security Tips and Social Security Wages");
+                                    throw new Exception($"Value must be equal exacty the sum of Social Security Tips and Social Security Wages");
                             }
                         }
 
                         if (taxYear >= 1991)
                         {
                             if (value < rcwSocialSecurityTipsCorrectValue + rcwSocialSecurityWagesCorrectValue)
-                                throw new Exception($"Value should equal or gratewr to the sum of Social Security Tips and Social Security Wages");
+                                throw new Exception($"value must be equal or gratewr to the sum of Social Security Tips and Social Security Wages");
                         }
                     }
                 }

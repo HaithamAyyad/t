@@ -22,7 +22,7 @@ namespace EFW2C.Fields
             if (!base.Verify())
                 return false;
 
-            throw new Exception($"{ClassName} Field must be implement");
+            throw new Exception($"{ClassName} Field must be implemented");
 
             //return true;
         }
