@@ -40,7 +40,7 @@ namespace EFW2C.Fields
             if (employmentCode == EmploymentCodeEnum.H.ToString() && taxYear >= 1994)
             {
                 if (value != 0 || value < wageTax.Employee.SocialSecurity.MinHouseHoldCoveredWages)
-                    throw new Exception($"{ClassName} : vlaue must be zero or equal or greater of MinHouseHold Covered Wages ({wageTax.Employee.SocialSecurity.MinHouseHoldCoveredWages})");
+                    throw new Exception($"{ClassName} : vlaue must be zero or equal or greater than MinHouseHold Covered Wages ({wageTax.Employee.SocialSecurity.MinHouseHoldCoveredWages})");
             }
 
             if(value > wageTax.Employee.SocialSecurity.MaxTaxedEarnings)

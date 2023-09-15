@@ -24,35 +24,26 @@ namespace EFW2C.Fields
             if (!base.Verify())
                 return false;
 
-            var precedRce = _record.Manager.GetPrecedRecord(_record, RecordNameEnum.Rce.ToString());
-
-            if (precedRce == null)
-                throw new Exception($"{ClassName} : RCE record is not provided");
-
-            var employmentCode = precedRce.GetField(typeof(RceEmploymentCodeCorrect).Name);
+            var employmentCode = GetEmploymentCode();
 
             var taxYear = _record.Manager.TaxYear;
 
             var localData = DataInRecordBuffer();
 
-            if (employmentCode != null)
+            if (employmentCode == EmploymentCodeEnum.H.ToString() && taxYear >= 1994)
             {
-                if (employmentCode.DataInRecordBuffer() == "H" && taxYear >= 1994)
-                {
-                    var wageTax = WageTaxHelper.GetWageTax(taxYear);
-                    
-                    double.TryParse(localData, out var value);
+                var wageTax = WageTaxHelper.GetWageTax(taxYear);
 
-                    if (!(value == 0 || value >= wageTax.Employee.SocialSecurity.MinHouseHoldCoveredWages))
-                        throw new Exception($"{ClassName} : must be zero or equal to or greater than the annual Household minimum for the tax year being reported");
-                    
-                }
+                var value = double.Parse(localData);
 
-                if (employmentCode.DataInRecordBuffer() == "X" && taxYear >= 1983)
-                {
-                    if (!string.IsNullOrWhiteSpace(localData))
-                        throw new Exception($"{ClassName} : must be blank becuase tax year is 1983 and employment code is X");
-                }
+                if (value != 0 || value < wageTax.Employee.SocialSecurity.MinHouseHoldCoveredWages)
+                    throw new Exception($"{ClassName} : vlaue must be zero or equal or greater than MinHouseHold Covered Wages");
+            }
+
+            if (employmentCode == EmploymentCodeEnum.X.ToString() && taxYear >= 1983)
+            {
+                if (!string.IsNullOrWhiteSpace(localData))
+                    throw new Exception($"{ClassName} : must be blank because tax year is greater than 1983 and employment code is X");
             }
 
             return true;

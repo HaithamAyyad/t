@@ -24,12 +24,7 @@ namespace EFW2C.Fields
             if (!base.Verify())
                 return false;
 
-            var precedRce = _record.Manager.GetPrecedRecord(_record, RecordNameEnum.Rce.ToString());
-
-            if (precedRce == null)
-                throw new Exception($"{ClassName} : RCE record is not provided");
-
-            var employmentCodeField = precedRce.GetField(typeof(RceEmploymentCodeCorrect).Name);
+            var employmentCode = GetEmploymentCode();
 
             var taxYear = _record.Manager.TaxYear;
 
@@ -43,26 +38,22 @@ namespace EFW2C.Fields
                 //to continue HSA7
             }
 
-            if (employmentCodeField != null)
+            if (employmentCode == EmploymentCodeEnum.H.ToString() && taxYear >= 1994)
             {
-                var employmentCodeData = employmentCodeField.DataInRecordBuffer();
+                var wageTax = WageTaxHelper.GetWageTax(taxYear);
 
-                if (employmentCodeData == "H" && taxYear >= 1994)
-                {
-                    var wageTax = WageTaxHelper.GetWageTax(taxYear);
+                double.TryParse(localData, out var value);
 
-                    double.TryParse(localData, out var value);
-
-                    if (!(value == 0 || value >= wageTax.Employee.SocialSecurity.MinHouseHoldCoveredWages))
-                        throw new Exception($"{ClassName} : must be zero or equal to or greater than the annual Household minimum for the tax year being reported");
-                }
-
-                if (employmentCodeData == "X" && taxYear >= 1983)
-                {
-                    if (!string.IsNullOrWhiteSpace(localData))
-                        throw new Exception($"{ClassName} : must be blank becuase tax year is 1983 and employment code is X");
-                }
+                if (!(value == 0 || value >= wageTax.Employee.SocialSecurity.MinHouseHoldCoveredWages))
+                    throw new Exception($"{ClassName} : must be zero or equal to or greater than the annual Household minimum for the tax year being reported");
             }
+
+            if (employmentCode == EmploymentCodeEnum.X.ToString() && taxYear >= 1983)
+            {
+                if (!string.IsNullOrWhiteSpace(localData))
+                    throw new Exception($"{ClassName} : must be blank because tax year is greater than 1983 and employment code is X");
+            }
+
 
             return true;
         }

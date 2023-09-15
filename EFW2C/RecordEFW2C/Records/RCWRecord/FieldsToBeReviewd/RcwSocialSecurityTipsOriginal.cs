@@ -34,7 +34,7 @@ namespace EFW2C.Fields
                 var wageTax = WageTaxHelper.GetWageTax(taxYear);
 
                 if (value != 0 || value < wageTax.Employee.SocialSecurity.MinHouseHoldCoveredWages)
-                    throw new Exception($"{ClassName} : vlaue must be zero or equal or greater of MinHouseHold Covered Wages");
+                    throw new Exception($"{ClassName} : vlaue must be zero or equal or greater than MinHouseHold Covered Wages");
             }
             
             return true;

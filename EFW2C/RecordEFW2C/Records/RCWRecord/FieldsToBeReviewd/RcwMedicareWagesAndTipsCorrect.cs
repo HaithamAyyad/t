@@ -30,7 +30,7 @@ namespace EFW2C.Fields
             if (taxYear < 1983)
             {
                 if (!string.IsNullOrWhiteSpace(localData))
-                    throw new Exception($"{ClassName} : Tax year is less than 1983, then this feild must blank");
+                    throw new Exception($"{ClassName} : must be blank because tax year is less than 1983");
             }
             else
             {
@@ -39,7 +39,7 @@ namespace EFW2C.Fields
                 if (employmentCode == EmploymentCodeEnum.X.ToString())
                 {
                     if (!string.IsNullOrWhiteSpace(localData))
-                        throw new Exception($"{ClassName} : Tax year is greater than 1983 and employee code is 'X', then this feild must blank");
+                        throw new Exception($"{ClassName} : must be blank, because employment code is 'X' and year greater than 1983, then this feild ");
                 }
                 else
                 {
@@ -49,7 +49,7 @@ namespace EFW2C.Fields
                     if (employmentCode == EmploymentCodeEnum.H.ToString() && taxYear >= 1994)
                     {
                         if (value != 0 || value < wageTax.Employee.SocialSecurity.MinHouseHoldCoveredWages)
-                            throw new Exception($"{ClassName} : vlaue must be zero or equal or greater of MinHouseHold Covered Wages ({wageTax.Employee.SocialSecurity.MinHouseHoldCoveredWages})");
+                            throw new Exception($"{ClassName} : vlaue must be zero or equal or greater than MinHouseHold Covered Wages ({wageTax.Employee.SocialSecurity.MinHouseHoldCoveredWages})");
                     }
 
                     if (employmentCode != EmploymentCodeEnum.H.ToString())
@@ -57,7 +57,7 @@ namespace EFW2C.Fields
                         if (taxYear >= 1983 && taxYear <= 1993)
                         {
                             if (value > wageTax.Employee.MediCare.MaxTaxedEarnings)
-                                throw new Exception($"{ClassName} : since year is between 1983- 1993, the value must not exceed MediCare MaxTaxedEarnings");
+                                throw new Exception($"{ClassName} : since year is between 1983- 1993, the value must not exceed MediCare Max Taxed Earnings");
                         }
 
                         var rcwSocialSecurityTipsCorrect = _record.GetField(typeof(RcwSocialSecurityTipsCorrect).Name);

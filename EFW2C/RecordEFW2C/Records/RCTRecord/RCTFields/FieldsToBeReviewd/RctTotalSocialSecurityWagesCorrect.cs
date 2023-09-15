@@ -24,33 +24,27 @@ namespace EFW2C.Fields
             if (!base.Verify())
                 return false;
 
-            var precedRce = _record.Manager.GetPrecedRecord(_record, RecordNameEnum.Rce.ToString());
-
-            if (precedRce == null)
-                throw new Exception($"{ClassName} : RCE record is not provided");
-
-            var employmentCodeField = precedRce.GetField(typeof(RceEmploymentCodeCorrect).Name);
+            var employmentCode = GetEmploymentCode();
 
             var taxYear = _record.Manager.TaxYear;
 
             var localData = DataInRecordBuffer();
 
-            var employmentCode = employmentCodeField.DataInRecordBuffer();
-
-            if (employmentCodeField != null)
+            if (employmentCode == EmploymentCodeEnum.Q.ToString() ||
+                employmentCode == EmploymentCodeEnum.X.ToString())
             {
-                if ((employmentCode == "Q" || employmentCode == "X") && !string.IsNullOrWhiteSpace(localData))
-                    throw new Exception($"{ClassName} : must be blank");
+                if (!string.IsNullOrWhiteSpace(localData))
+                    throw new Exception($"{ClassName} : must be blank for employment code X or Q");
+            }
 
-                if (employmentCode == "H" && taxYear >= 1994)
-                {
-                    var wageTax = WageTaxHelper.GetWageTax(taxYear);
+            if (employmentCode == EmploymentCodeEnum.H.ToString() && taxYear >= 1994)
+            {
+                var wageTax = WageTaxHelper.GetWageTax(taxYear);
 
-                    double.TryParse(localData, out var value);
+                double.TryParse(localData, out var value);
 
-                    if (!(value == 0 || value >= wageTax.Employee.SocialSecurity.MinHouseHoldCoveredWages))
-                        throw new Exception($"{ClassName} : must be zero or equal to or greater than the annual Household minimum for the tax year being reported");
-                }
+                if (!(value == 0 || value >= wageTax.Employee.SocialSecurity.MinHouseHoldCoveredWages))
+                    throw new Exception($"{ClassName} : must be zero or equal to or greater than the annual Household minimum for the tax year being reported");
             }
 
             return true;

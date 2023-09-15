@@ -34,13 +34,13 @@ namespace EFW2C.Fields
                 var wageTax = WageTaxHelper.GetWageTax(taxYear);
 
                 if (value != 0 || value < wageTax.Employee.SocialSecurity.MinHouseHoldCoveredWages)
-                    throw new Exception($"{ClassName} : vlaue must be zero or equal or greater of MinHouseHold Covered Wages");
+                    throw new Exception($"{ClassName} : vlaue must be zero or equal or greater than MinHouseHold Covered Wages");
             }
 
             if (employmentCode == EmploymentCodeEnum.X.ToString() && taxYear >= 1983)
             {
                 if (!string.IsNullOrWhiteSpace(localData))
-                    throw new Exception($"{ClassName} : for year > 1983 and employees code 'X' field must be blank");
+                    throw new Exception($"{ClassName} : must be blank, because employment code is 'X' and year greater than 1983, then this feild ");
             }
 
             return true;

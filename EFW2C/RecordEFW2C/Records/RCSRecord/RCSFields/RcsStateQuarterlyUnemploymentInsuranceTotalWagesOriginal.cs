@@ -23,7 +23,7 @@ namespace EFW2C.Fields
                 return false;
 
             if (!_record.Manager.IsUnEmployment() && !string.IsNullOrWhiteSpace(DataInRecordBuffer()))
-                throw new Exception($"{ClassName} : This field only applies to unemployment reporting ");
+                throw new Exception($"{ClassName} : This field only applies to unemployment reporting");
 
             return true;
         }

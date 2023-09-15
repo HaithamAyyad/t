@@ -30,7 +30,7 @@ namespace EFW2C.Fields
             if (taxYear < 1983)
             {
                 if (!string.IsNullOrWhiteSpace(localData))
-                    throw new Exception($"{ClassName} : Tax year is less than 1983, then this feild must blank");
+                    throw new Exception($"{ClassName} : must be blank because tax year is less than 1983");
             }
 
             return true;

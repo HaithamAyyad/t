@@ -23,21 +23,15 @@ namespace EFW2C.Fields
             if (!base.Verify())
                 return false;
 
-            var precedRce = _record.Manager.GetPrecedRecord(_record, RecordNameEnum.Rce.ToString());
-
-            if (precedRce == null)
-                throw new Exception($"{ClassName} : RCE record is not provided");
-
-            var employmentCodeField = precedRce.GetField(typeof(RceEmploymentCodeCorrect).Name);
+            var employmentCode = GetEmploymentCode();
 
             var localData = DataInRecordBuffer();
 
-            var employmentCode = employmentCodeField.DataInRecordBuffer();
-
-            if (employmentCodeField != null)
+            if (employmentCode == EmploymentCodeEnum.Q.ToString() || 
+                employmentCode == EmploymentCodeEnum.X.ToString())
             {
-                if ((employmentCode == "Q" || employmentCode == "X") && !string.IsNullOrWhiteSpace(localData))
-                    throw new Exception($"{ClassName} : must be blank");
+                if (!string.IsNullOrWhiteSpace(localData))
+                    throw new Exception($"{ClassName} : must be blank for employment code X or Q");
             }
 
             return true;

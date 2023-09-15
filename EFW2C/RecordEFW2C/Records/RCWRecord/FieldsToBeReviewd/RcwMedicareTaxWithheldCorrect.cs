@@ -33,14 +33,14 @@ namespace EFW2C.Fields
             if (taxYear < 1983)
             {
                 if (!string.IsNullOrWhiteSpace(localData))
-                    throw new Exception($"{ClassName} : Tax year is less than 1983, then this feild must blank");
+                    throw new Exception($"{ClassName} : must be blank because tax year is less than 1983");
             }
             else
             {
                 if (employmentCode != EmploymentCodeEnum.X.ToString())
                 {
                     if (!string.IsNullOrWhiteSpace(localData))
-                        throw new Exception($"{ClassName} : Employment code is 'X' amd year 1983, then this feild must be blank");
+                        throw new Exception($"{ClassName} : must be blank, because employment code is 'X' and year greater than 1983, then this feild ");
                 }
                 else
                 {
@@ -50,7 +50,7 @@ namespace EFW2C.Fields
 
                         var value = double.Parse(localData);
                         if(value > wageTax.Employee.MediCare.EmployeeMaxAnnualTax)
-                            throw new Exception($"{ClassName} : Since year is 1991-1993, Wage tax should not exceed Max Annual Tax");
+                            throw new Exception($"{ClassName} : since year is 1991-1993, Wage tax should not exceed Max Annual Tax");
                     }
                 }
             }
