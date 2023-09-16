@@ -41,8 +41,8 @@ namespace EFW2C.Fields
 
                 if (employmentCode == EmploymentCodeEnum.H.ToString())
                 {
-                    if (value != 0 || value < wageTax.Employee.SocialSecurity.MinHouseHoldCoveredWages)
-                        throw new Exception($"{ClassName} : vlaue must be zero or equal or greater than MinHouseHold Covered Wages ({wageTax.Employee.SocialSecurity.MinHouseHoldCoveredWages})");
+                    if (value != 0 || value < wageTax.SocialSecurity.MinHouseHoldCoveredWages)
+                        throw new Exception($"{ClassName} : vlaue must be zero or equal or greater than MinHouseHold Covered Wages ({wageTax.SocialSecurity.MinHouseHoldCoveredWages})");
                 }
 
                 if (employmentCode != EmploymentCodeEnum.H.ToString())

@@ -14,15 +14,9 @@ namespace test.RecordEFW2C.Common
         public double MinHouseHoldCoveredWages { get; set; }
     }
 
-    public class  WageTaxPerson
+    public class  WageTax
     {
         public WageTaxData SocialSecurity { get; set; }
         public WageTaxData MediCare { get; set; }
-    }
-
-    public class  WageTax
-    {
-        public WageTaxPerson Employer { get; set; }
-        public WageTaxPerson Employee { get; set; }
     }
 }

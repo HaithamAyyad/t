@@ -36,30 +36,8 @@ namespace EFW2C.Common.Helper
                 foreach (var yearElm in yearElmList)
                 {
                     var yearStr = yearElm.Attribute("value").Value;
-                    var bothStr = yearElm.Attribute("both").Value;
 
-                    var employee = null as WageTaxPerson;
-                    var employer = null as WageTaxPerson;
-
-                    if (bool.Parse(bothStr))
-                    {
-                        employee = employer = GetWageTaxPerson(yearElm);
-                    }
-                    else
-                    {
-                        var employerEml = yearElm.Element("Employer");
-                        employer = GetWageTaxPerson(employerEml);
-                        var employeeEml = yearElm.Element("Employee");
-                        employee = GetWageTaxPerson(employeeEml);
-                    }
-
-                    var wageTax = new WageTax()
-                    {
-                        Employer = employer,
-                        Employee = employee,
-                    };
-
-                    table.Add(int.Parse(yearStr), wageTax);
+                    table.Add(int.Parse(yearStr), GetWageTax(yearElm));
                 }
             }
             catch (Exception ex)
@@ -70,7 +48,7 @@ namespace EFW2C.Common.Helper
             _wageTaxTable = table;
         }
 
-        private static WageTaxPerson GetWageTaxPerson(XElement element)
+        private static WageTax GetWageTax(XElement element)
         {
             var socialSecurityElm = element.Element("SocialSecurity");
             var taxRate = socialSecurityElm.Attribute("TaxRate").Value;
@@ -98,7 +76,7 @@ namespace EFW2C.Common.Helper
                 EmployeeMaxAnnualTax = double.Parse(employeeMaxAnnualTax),
             };
 
-            return new WageTaxPerson() { SocialSecurity = socialSecurityData, MediCare = medicareData };
+            return new WageTax() { SocialSecurity = socialSecurityData, MediCare = medicareData };
         }
 
         public static WageTax GetWageTax(int year)

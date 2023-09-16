@@ -33,7 +33,7 @@ namespace EFW2C.Fields
                 var value = double.Parse(localData);
                 var wageTax = WageTaxHelper.GetWageTax(taxYear);
 
-                if (value != 0 || value < wageTax.Employee.SocialSecurity.MinHouseHoldCoveredWages)
+                if (value != 0 || value < wageTax.SocialSecurity.MinHouseHoldCoveredWages)
                     throw new Exception($"{ClassName} : vlaue must be zero or equal or greater than MinHouseHold Covered Wages");
             }
             

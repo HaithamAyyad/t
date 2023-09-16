@@ -37,7 +37,7 @@ namespace EFW2C.Fields
 
                 double.TryParse(localData, out var value);
 
-                if (value != 0 || value < wageTax.Employee.SocialSecurity.MinHouseHoldCoveredWages)
+                if (value != 0 || value < wageTax.SocialSecurity.MinHouseHoldCoveredWages)
                     throw new Exception($"{ClassName} : must be zero or equal to or greater than the annual Household minimum for the tax year being reported");
             }
 

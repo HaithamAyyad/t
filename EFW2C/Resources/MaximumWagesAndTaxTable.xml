@@ -1,27 +1,12 @@
 <Table>
 	<Years>
-		<Year value="2023" both="true">
+		<Year value="2023">
 			<SocialSecurity TaxRate="6.200" MaxTaxedEarning="160,200.00" EmployeeMaxAnnualTax="9,932.40" MinHouseHoldCoveredWages="2,600.00"/>
 			<Medicare       TaxRate="1.450" MaxTaxedEarning="-1" EmployeeMaxAnnualTax="-1"/>
 		</Year> />
-		<Year value="2022" both="true">
+		<Year value="2022">
 			<SocialSecurity TaxRate="6.200" MaxTaxedEarning="147,000.00" EmployeeMaxAnnualTax="9,114.00" MinHouseHoldCoveredWages="2,400.00"/>
 			<Medicare       TaxRate="1.450" MaxTaxedEarning="-1" EmployeeMaxAnnualTax="-1"/>
-		</Year> />
-		
-		
-		
-		
-		<Year value="2012" both="false">
-			<Employer>
-				<SocialSecurity TaxRate="6.200" MaxTaxedEarning="110,100.00" EmployeeMaxAnnualTax="6,826.20" MinHouseHoldCoveredWages="1,800.00"/>
-				<Medicare       TaxRate="1.450" MaxTaxedEarning="-1" EmployeeMaxAnnualTax="-1"/>
-			</Employer>
-			<Employee>
-				<SocialSecurity TaxRate="4.200" MaxTaxedEarning="110,100.00" EmployeeMaxAnnualTax="4,624.20" MinHouseHoldCoveredWages="1,800.00"/>
-				<Medicare       TaxRate="1.450" MaxTaxedEarning="-1" EmployeeMaxAnnualTax="-1"/>
-			</Employee>
-			
 		</Year> />
 	</Years>
 </Table>
