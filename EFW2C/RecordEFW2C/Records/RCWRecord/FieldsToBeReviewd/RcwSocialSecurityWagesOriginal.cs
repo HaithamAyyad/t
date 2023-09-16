@@ -25,7 +25,7 @@ namespace EFW2C.Fields
                 return false;
 
             var employmentCode = GetEmploymentCode();
-            var taxYear = _record.Manager.TaxYear;
+            var taxYear = GetTaxYear();
             var localData = DataInRecordBuffer();
 
             if (employmentCode == EmploymentCodeEnum.H.ToString())

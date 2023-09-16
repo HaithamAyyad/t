@@ -28,7 +28,7 @@ namespace EFW2C.Fields
 
             var employmentCode = GetEmploymentCode();
 
-            var taxYear = _record.Manager.TaxYear;
+            var taxYear = GetTaxYear();
 
             var value = double.Parse(localData);
 

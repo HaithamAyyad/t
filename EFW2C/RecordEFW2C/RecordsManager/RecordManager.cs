@@ -1,25 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
-using System.Windows.Forms;
-using System.Xml;
-using System.Xml.Linq;
 using EFW2C.Common.Constants;
 using EFW2C.Common.Enums;
 using EFW2C.Common.Helper;
 using EFW2C.Records;
-using test.RecordEFW2C.Common;
 
 namespace EFW2C.Manager
 {
     public class RecordManager
     {
         private bool _reSubmitted;
-        private int _taxYear;
         private bool _unemployment;
 
-        public int TaxYear { get { return _taxYear; } set { _taxYear = value; } }
         public bool IsTIB { get; set; }
 
         List<RecordBase> _records;
@@ -39,11 +32,6 @@ namespace EFW2C.Manager
 
         public bool Verify()
         {
-            var wageTax = WageTaxHelper.GetWageTax(TaxYear);
-
-            if (wageTax == null)
-                throw new Exception($"Wages and Tax table missing year {TaxYear} info.");
-
             if (!IsFeildsBelongToClass())
                 return true;
 
@@ -184,6 +172,16 @@ namespace EFW2C.Manager
             }
 
             return 0;
+        }
+
+        public int GetTaxYear(RecordBase record)
+        {
+            var rceRecord = GetPrecedRecord(record, RecordNameEnum.Rce.ToString()) as RceRecord;
+
+            if (rceRecord == null)
+                throw new Exception($"Rce Record is not provided");
+
+            return rceRecord.GetTaxYear();
         }
     }
 

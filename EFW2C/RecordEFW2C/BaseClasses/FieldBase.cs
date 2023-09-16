@@ -187,7 +187,7 @@ namespace EFW2C.Fields
 
         protected int GetTaxYear()
         {
-            return _record.Manager.TaxYear;
+            return _record.Manager.GetTaxYear(_record);
         }
         public abstract bool IsRequired();
         protected abstract FieldTypeEnum GetFieldType();

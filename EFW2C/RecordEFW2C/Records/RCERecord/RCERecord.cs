@@ -58,5 +58,20 @@ namespace EFW2C.Records
                 new RceZIPCodeExtension(this, "dummy"),
             };
         }
+
+        public int GetTaxYear()
+        {
+            var taxYearField = GetField(typeof(RceTaxYear).Name);
+
+            if (taxYearField == null)
+                throw new Exception($"{ClassName}: tax year field is not provided");
+
+            var taxYearData = taxYearField.DataInRecordBuffer();
+
+            if (string.IsNullOrWhiteSpace(taxYearData))
+                throw new Exception($"{ClassName}: tax year is not provided");
+
+            return Int32.Parse(taxYearData);
+        }
     }
 }

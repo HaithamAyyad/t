@@ -24,7 +24,7 @@ namespace EFW2C.Fields
             if (!base.Verify())
                 return false;
 
-            var taxYear = _record.Manager.TaxYear;
+            var taxYear = GetTaxYear();
 
             var localData = DataInRecordBuffer();
 

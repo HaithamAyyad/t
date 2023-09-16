@@ -23,7 +23,7 @@ namespace EFW2C.Fields
             if (!base.Verify())
                 return false;
 
-            var taxYear = _record.Manager.TaxYear;
+            var taxYear = GetTaxYear();
 
             var employmentCode = GetEmploymentCode();
             if (employmentCode == EmploymentCodeEnum.Q.ToString() || employmentCode == EmploymentCodeEnum.X.ToString())
