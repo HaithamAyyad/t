@@ -18,32 +18,26 @@ namespace EFW2C.Fields
             _length = 4;
         }
 
-        public override void Write()
-        {
-            var rcaSoftwareCode = _record.GetField(typeof(RcaSoftwareCode).Name) as RcaSoftwareCode;
-
-            if (rcaSoftwareCode != null && rcaSoftwareCode.OffShelfSoftware())
-            {
-                base.Write();
-            }
-            else
-            {
-                _excludeFromWriting = true;
-            }    
-        }
         public override bool Verify()
         {
             if (!base.Verify())
                 return false;
 
             var rcaSoftwareCode = _record.GetField(typeof(RcaSoftwareCode).Name) as RcaSoftwareCode;
-
-            if (rcaSoftwareCode != null && !rcaSoftwareCode.OffShelfSoftware())
+            if (rcaSoftwareCode != null)
             {
-                for (int i = _pos; i < _pos + _length; i++)
+                var softwareCode = rcaSoftwareCode.DataInRecordBuffer();
+
+                if (softwareCode == ((int)SoftwareCodeEnum.Code_99).ToString())
                 {
-                    if (!char.IsWhiteSpace(_record.RecordBuffer[i]))
-                        throw new Exception($"{ClassName} Field must be empty since software code marked as In-House Program");
+                    if (string.IsNullOrWhiteSpace(DataInRecordBuffer()))
+                        throw new Exception($"{ClassName} Field must not be empty, since software code marked as Off-the-ShelfSoftware");
+                }
+                else
+                {
+                    if (!string.IsNullOrWhiteSpace(DataInRecordBuffer()))
+                        throw new Exception($"{ClassName} Field must be empty, since software code not marked as Off-the-ShelfSoftware");
+
                 }
             }
 

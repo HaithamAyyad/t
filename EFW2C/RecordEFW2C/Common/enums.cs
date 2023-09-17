@@ -412,4 +412,10 @@ namespace EFW2C.Common.Enums
         E,
         F,
     }
+
+    public enum SoftwareCodeEnum 
+    {
+        Code_98 = 98,
+        Code_99 = 99,
+    }
 }

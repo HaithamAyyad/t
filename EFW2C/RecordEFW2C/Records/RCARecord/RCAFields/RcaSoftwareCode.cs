@@ -22,18 +22,12 @@ namespace EFW2C.Fields
             if (!base.Verify())
                 return false;
 
-            if (!(_data == "98" || _data == "99"))
+            var localData = DataInRecordBuffer();
+
+            if (!(localData == ((int)SoftwareCodeEnum.Code_98).ToString() || localData == ((int)SoftwareCodeEnum.Code_99).ToString()))
                 throw new Exception($"{ClassName} must be either 98 or 99");
 
             return true;
-        }
-
-        public bool OffShelfSoftware()
-        {
-            if (_data == "99")
-                return true;
-
-            return false;
         }
 
         protected override FieldTypeEnum GetFieldType()

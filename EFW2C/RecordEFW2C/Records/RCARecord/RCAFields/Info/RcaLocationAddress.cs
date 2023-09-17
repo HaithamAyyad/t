@@ -17,22 +17,6 @@ namespace EFW2C.Fields
             _length = 22;
         }
 
-        public override void Write()
-        {
-            var data = _data;
-
-            if (string.IsNullOrWhiteSpace(_data))
-            {
-                var rcaDeliveryAddress = _record.GetField(typeof(RcaDeliveryAddress).Name);
-                if (rcaDeliveryAddress != null)
-                    _data = rcaDeliveryAddress.Data;
-            }
-
-            base.Write();
-
-            _data = data;
-        }
-
         public override bool IsRequired()
         {
             return true;
