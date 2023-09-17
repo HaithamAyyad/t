@@ -32,19 +32,19 @@ namespace EFW2C.Fields
 
             var value = double.Parse(localData);
 
-            var rcwSocialSecurityTipsCorrect = _record.GetField(typeof(RcwSocialSecurityTipsCorrect).Name);
+            var rctSocialSecurityTipsCorrect = _record.GetField(typeof(RctTotalSocialSecurityTipsCorrect).Name);
 
-            if (rcwSocialSecurityTipsCorrect == null)
-                throw new Exception($"{ClassName}: RcwSocialSecurityTipsCorrect must be provided");
+            if (rctSocialSecurityTipsCorrect == null)
+                throw new Exception($"{ClassName}: RctSocialSecurityTipsCorrect must be provided");
 
-            var rcwSocialSecurityWagesCorrect = _record.GetField(typeof(RcwSocialSecurityWagesCorrect).Name);
-            if (rcwSocialSecurityWagesCorrect == null)
-                throw new Exception($"{ClassName}: RcwSocialSecurityWagesCorrect must be provided");
+            var rctSocialSecurityWagesCorrect = _record.GetField(typeof(RctTotalSocialSecurityWagesCorrect).Name);
+            if (rctSocialSecurityWagesCorrect == null)
+                throw new Exception($"{ClassName}: RctSocialSecurityWagesCorrect must be provided");
 
-            var rcwSocialSecurityTipsCorrectValue = double.Parse(rcwSocialSecurityTipsCorrect.DataInRecordBuffer());
-            var rcwSocialSecurityWagesCorrectValue = double.Parse(rcwSocialSecurityWagesCorrect.DataInRecordBuffer());
+            var rctSocialSecurityTipsCorrectValue = double.Parse(rctSocialSecurityTipsCorrect.DataInRecordBuffer());
+            var rctSocialSecurityWagesCorrectValue = double.Parse(rctSocialSecurityWagesCorrect.DataInRecordBuffer());
 
-            if (value < rcwSocialSecurityTipsCorrectValue + rcwSocialSecurityWagesCorrectValue)
+            if (value < rctSocialSecurityTipsCorrectValue + rctSocialSecurityWagesCorrectValue)
                 throw new Exception($"Value must be equal the sum of Social Security Tips and Social Security Wages");
 
             if (employmentCode == EmploymentCodeEnum.H.ToString())
