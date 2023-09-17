@@ -33,7 +33,13 @@ namespace EFW2C.Fields
                 var value = double.Parse(localData);
                 var wageTax = WageTaxHelper.GetWageTax(taxYear);
 
-                if (value != 0 || value < wageTax.SocialSecurity.MinHouseHoldCoveredWages)
+                var rcwSocialSecurityWagesOriginal = _record.GetField(typeof(RcwSocialSecurityWagesOriginal).Name);
+                if (rcwSocialSecurityWagesOriginal == null)
+                    throw new Exception($"{ClassName}: RcwSocialSecurityWagesOriginal must be provided");
+
+                var rcwSocialSecurityWagesOriginalValue = double.Parse(rcwSocialSecurityWagesOriginal.DataInRecordBuffer());
+
+                if (value != 0 || value + rcwSocialSecurityWagesOriginalValue < wageTax.SocialSecurity.MinHouseHoldCoveredWages)
                     throw new Exception($"{ClassName} : vlaue must be zero or equal or greater than MinHouseHold Covered Wages");
             }
             

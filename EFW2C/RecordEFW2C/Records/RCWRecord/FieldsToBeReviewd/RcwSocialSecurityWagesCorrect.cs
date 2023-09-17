@@ -35,18 +35,18 @@ namespace EFW2C.Fields
             
             var wageTax = WageTaxHelper.GetWageTax(taxYear);
 
-            if (employmentCode == EmploymentCodeEnum.H.ToString())
-            {
-                if (value != 0 || value < wageTax.SocialSecurity.MinHouseHoldCoveredWages)
-                    throw new Exception($"{ClassName} : vlaue must be zero or equal or greater than MinHouseHold Covered Wages ({wageTax.SocialSecurity.MinHouseHoldCoveredWages})");
-            }
-
             var rcwSocialSecurityTipsCorrect = _record.GetField(typeof(RcwSocialSecurityTipsCorrect).Name);
 
             if (rcwSocialSecurityTipsCorrect == null)
                 throw new Exception($"{ClassName}: RcwSocialSecurityTipsCorrect must be provided");
 
             var socialSecurityTipsCorrectValue = double.Parse(rcwSocialSecurityTipsCorrect.DataInRecordBuffer());
+
+            if (employmentCode == EmploymentCodeEnum.H.ToString())
+            {
+                if (value != 0 || value + socialSecurityTipsCorrectValue < wageTax.SocialSecurity.MinHouseHoldCoveredWages)
+                    throw new Exception($"{ClassName} : vlaue must be zero or equal or greater than MinHouseHold Covered Wages ({wageTax.SocialSecurity.MinHouseHoldCoveredWages})");
+            }
 
             if (value + socialSecurityTipsCorrectValue > wageTax.SocialSecurity.MaxTaxedEarnings)
                 throw new Exception($"{ClassName} : vlaue must not exceed SocialSecurity MaxTaxedEarnings");
