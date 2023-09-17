@@ -40,8 +40,14 @@ namespace EFW2C.Fields
                     throw new Exception($"{ClassName} : vlaue must be zero or equal or greater than MinHouseHold Covered Wages ({wageTax.SocialSecurity.MinHouseHoldCoveredWages})");
             }
 
-            if(value > wageTax.SocialSecurity.MaxTaxedEarnings)
-                throw new Exception($"{ClassName} : vlaue must not exceed SocialSecurity MaxTaxedEarnings ({wageTax.SocialSecurity.MaxTaxedEarnings})");
+            var rcwSocialSecurityWagesCorrect = _record.GetField(typeof(RcwSocialSecurityWagesCorrect).Name);
+            if (rcwSocialSecurityWagesCorrect == null)
+                throw new Exception($"{ClassName}: RcwSocialSecurityWagesCorrect must be provided");
+
+            var rcwSocialSecurityWagesCorrectValue = double.Parse(rcwSocialSecurityWagesCorrect.DataInRecordBuffer());
+
+            if (value + rcwSocialSecurityWagesCorrectValue > wageTax.SocialSecurity.MaxTaxedEarnings)
+                throw new Exception($"{ClassName} : vlaue must not exceed SocialSecurity MaxTaxedEarnings");
 
             return true;
         }
