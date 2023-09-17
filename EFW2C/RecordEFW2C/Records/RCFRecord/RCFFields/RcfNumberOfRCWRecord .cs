@@ -19,7 +19,7 @@ namespace EFW2C.Fields
 
         public override void Write()
         {
-            _data = _record.Manager.GetRcwRecordsCount().ToString();
+            _data = _record.Manager.GetRecordsCount(RecordNameEnum.Rcw).ToString();
             base.Write();
         }
         public override bool Verify()
@@ -27,7 +27,7 @@ namespace EFW2C.Fields
             if (!base.Verify())
                 return false;
 
-            var RcwCount = _record.Manager.GetRcwRecordsCount();
+            var RcwCount = _record.Manager.GetRecordsCount(RecordNameEnum.Rcw);
 
             if (Int32.Parse(DataInRecordBuffer()) != RcwCount)
                 throw new Exception($"{ClassName} number of RCW records is not correct");

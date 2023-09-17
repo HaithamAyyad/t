@@ -13,5 +13,7 @@ namespace EFW2C.Common.Constants
         public static string WhiteSpaceString = " ";
         public static string CorrectStr = "Correct";
         public static string OriginalStr = "Original";
+        public static int MaxRcwRecordsNumber = 500000;
+        public static int MaxRceRecordsNumber = 25000;
     }
 }

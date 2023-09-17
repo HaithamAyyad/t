@@ -41,20 +41,18 @@ namespace EFW2C.Manager
                     return false;
             }
 
+            if(GetRecordsCount(RecordNameEnum.Rcw) > Constants.MaxRcwRecordsNumber)
+                throw new Exception($"Rcw records should not exceed {Constants.MaxRcwRecordsNumber}");
+
+            if(GetRecordsCount(RecordNameEnum.Rce) > Constants.MaxRceRecordsNumber)
+                throw new Exception($"Rce records should not exceed {Constants.MaxRceRecordsNumber}");
+
             return true;
         }
 
-        public int GetRcwRecordsCount()
+        public int GetRecordsCount(RecordNameEnum recordName)
         {
-            var count = 0;
-
-            foreach (var record in _records)
-            {
-                if (record.RecordName == RecordNameEnum.Rcw.ToString())
-                    count++;
-            }
-
-            return count;
+            return _records.Count(item => item.RecordName == recordName.ToString());
         }
 
         private bool IsFeildsBelongToClass()
