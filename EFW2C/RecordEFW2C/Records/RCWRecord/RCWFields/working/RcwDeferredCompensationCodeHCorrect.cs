@@ -7,9 +7,9 @@ using EFW2C.Records;
 namespace EFW2C.Fields
 {
     //Created by : HSA 9-9-2023
-    //Reviewed by : 
+    //Reviewed by : HSA 9-17-2023
 
-    public class RcwDeferredCompensationCodeHCorrect : MoneyCorrect
+    internal class RcwDeferredCompensationCodeHCorrect : MoneyCorrect
     {
         public RcwDeferredCompensationCodeHCorrect(RecordBase record, string data)
             : base(record, data)
