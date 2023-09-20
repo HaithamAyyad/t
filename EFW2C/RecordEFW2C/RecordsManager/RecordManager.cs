@@ -21,7 +21,7 @@ namespace EFW2C.Manager
         {
             _records = new List<RecordBase>();
 
-            WageTaxHelper.CreateWageTaxTable();
+            WageTaxHelper.CreateWageTaxTabel();
         }
 
         public void write()

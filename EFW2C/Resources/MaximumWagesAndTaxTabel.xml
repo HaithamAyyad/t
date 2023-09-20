@@ -1,4 +1,4 @@
-<Table>
+<Tabel>
 	<Years>
 		<Year value="2023">
 			<SocialSecurity TaxRate="6.200" MaxTaxedEarning="160,200.00" EmployeeMaxAnnualTax="9,932.40" MinHouseHoldCoveredWages="2,600.00"/>
@@ -9,4 +9,4 @@
 			<Medicare       TaxRate="1.450" MaxTaxedEarning="-1" EmployeeMaxAnnualTax="-1"/>
 		</Year> />
 	</Years>
-</Table>
+</Tabel>

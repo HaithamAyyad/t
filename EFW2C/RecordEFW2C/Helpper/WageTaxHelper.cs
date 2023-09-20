@@ -12,40 +12,40 @@ namespace EFW2C.Common.Helper
 {
     public class WageTaxHelper
     {
-        public static Dictionary<int, WageTax> _wageTaxTable;
+        public static Dictionary<int, WageTax> _wageTaxTabel;
         
-        //public static Dictionary<int, WageTax> WageTaxTable { get { return _wageTaxTable; } }
+        //public static Dictionary<int, WageTax> WageTaxTabel { get { return _wageTaxTabel; } }
 
-        public static void CreateWageTaxTable()
+        public static void CreateWageTaxTabel()
         {
-            if (_wageTaxTable != null)
+            if (_wageTaxTabel != null)
                 return;
 
-            var table = new Dictionary<int, WageTax>();
+            var tabel = new Dictionary<int, WageTax>();
 
-            var tableName = "MaximumWagesAndTaxTable.xml";
+            var tabelName = "MaximumWagesAndTaxTabel.xml";
 
             try
             {
-                var xDocument = XDocument.Load(Assembly.GetExecutingAssembly().GetManifestResourceStream($"EFW2C.Resources.{tableName}"));
+                var xDocument = XDocument.Load(Assembly.GetExecutingAssembly().GetManifestResourceStream($"EFW2C.Resources.{tabelName}"));
 
-                var tableElm = xDocument.Element("Table");
-                var yearsElms = tableElm.Elements("Years");
+                var tabelElm = xDocument.Element("Tabel");
+                var yearsElms = tabelElm.Elements("Years");
                 var yearElmList = yearsElms.Elements("Year") as IEnumerable<XElement>;
 
                 foreach (var yearElm in yearElmList)
                 {
                     var yearStr = yearElm.Attribute("value").Value;
 
-                    table.Add(int.Parse(yearStr), GetWageTax(yearElm));
+                    tabel.Add(int.Parse(yearStr), GetWageTax(yearElm));
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Can't open {tableName} {ex.Message}");
+                MessageBox.Show($"Can't open {tabelName} {ex.Message}");
             }
 
-            _wageTaxTable = table;
+            _wageTaxTabel = tabel;
         }
 
         private static WageTax GetWageTax(XElement element)
@@ -82,9 +82,9 @@ namespace EFW2C.Common.Helper
         public static WageTax GetWageTax(int year)
         {
             var wageTax = null as WageTax;
-            if (_wageTaxTable != null)
-                if(_wageTaxTable.ContainsKey(year))
-                    wageTax = _wageTaxTable[year];
+            if (_wageTaxTabel != null)
+                if(_wageTaxTabel.ContainsKey(year))
+                    wageTax = _wageTaxTabel[year];
 
             if (wageTax == null)
                 throw new Exception($"Tax year {year} is not set in the tabel");
