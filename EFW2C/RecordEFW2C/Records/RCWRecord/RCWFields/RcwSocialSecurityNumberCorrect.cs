@@ -23,6 +23,11 @@ namespace EFW2C.Fields
             if (!base.Verify())
                 return false;
 
+            var lacalData = DataInRecordBuffer();
+
+            if(lacalData.Substring(0, 3) == "666" || lacalData.Substring(0, 1) == "9")
+                throw new Exception($"{ClassName}: Social Security Number, should not start with '666' or '9'");
+
             if (_record.GetField(typeof(RcwStatutoryEmployeeIndicatorCorrect).Name) == null &&
                 _record.GetField(typeof(RcwThirdPartySickPayndicatorCorrect).Name) == null  &&
                 _record.GetField(typeof(RcwRetirementPlanIndicatorCorrect).Name) == null    &&
