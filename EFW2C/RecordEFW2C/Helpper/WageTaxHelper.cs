@@ -81,11 +81,15 @@ namespace EFW2C.Common.Helper
 
         public static WageTax GetWageTax(int year)
         {
+            var wageTax = null as WageTax;
             if (_wageTaxTable != null)
                 if(_wageTaxTable.ContainsKey(year))
-                    return _wageTaxTable[year];
+                    wageTax = _wageTaxTable[year];
 
-            return null;
+            if (wageTax == null)
+                throw new Exception($"Tax year {year} is not set in the tabel");
+
+            return wageTax;
         }
 
     }
