@@ -83,6 +83,7 @@
     <Compile Include="RecordEFW2C\Common\WageTax.cs" />
     <Compile Include="RecordEFW2C\Helpper\EnumHelper.cs" />
     <Compile Include="RecordEFW2C\Helpper\Extensions.cs" />
+    <Compile Include="RecordEFW2C\Helpper\RecordOrders.cs" />
     <Compile Include="RecordEFW2C\Helpper\WageTaxHelper.cs" />
     <Compile Include="RecordEFW2C\RecordsManager\RecordManager.cs" />
     <Compile Include="RecordEFW2C\Records\FieldTemplate.cs" />

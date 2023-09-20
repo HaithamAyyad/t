@@ -1,4 +1,5 @@
 ﻿using EFW2C.Common.Enums;
+using EFW2C.Common.Helper;
 using EFW2C.Fields;
 using EFW2C.Manager;
 using EFW2C.Records;
@@ -23,6 +24,13 @@ namespace test
                 manager.SetSubmitter(true);
 
                 manager.AddRecord(CreateRcaRecord(manager));
+
+                manager.AddRecord(CreateRceRecord(manager));
+                manager.AddRecord(CreateRcwRecord(manager));
+                manager.AddRecord(CreateRcoRecord(manager));
+                manager.AddRecord(CreateRctRecord(manager));
+                manager.AddRecord(CreateRcuRecord(manager));
+
                 manager.AddRecord(CreateRceRecord(manager));
                 manager.AddRecord(CreateRcwRecord(manager));
                 manager.AddRecord(CreateRcoRecord(manager));
@@ -30,7 +38,11 @@ namespace test
                 manager.AddRecord(CreateRctRecord(manager));
                 manager.AddRecord(CreateRcuRecord(manager));
                 manager.AddRecord(CreateRcvRecord(manager));
+
+
                 manager.AddRecord(CreateRcfRecord(manager));
+
+                RecordsOrderHelper.VerifyRecordsOrder(manager.Records);
 
                 manager.write();
 

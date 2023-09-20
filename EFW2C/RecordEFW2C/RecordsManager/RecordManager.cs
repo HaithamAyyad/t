@@ -15,7 +15,9 @@ namespace EFW2C.Manager
 
         public bool IsTIB { get; set; }
 
-        List<RecordBase> _records;
+        private List<RecordBase> _records;
+
+        public List<RecordBase> Records { get { return _records; } }
 
         public RecordManager()
         {
