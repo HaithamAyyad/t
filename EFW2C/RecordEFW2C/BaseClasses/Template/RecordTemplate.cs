@@ -14,6 +14,10 @@ namespace EFW2C.Records
             RecordName = null;
         }
 
+        public override RecordBase Clone(RecordManager manager)
+        {
+            return null;
+        }
         protected override List<(int, int)> CreateBlankList()
         {
             return new List<(int, int)>()

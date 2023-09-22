@@ -16,6 +16,12 @@ namespace EFW2C.Fields
             _pos = 253;
             _length = 2;
         }
+
+        public override FieldBase Clone(RecordBase record)
+        {
+            return new RcsOptionalCode(record, _data);
+        }
+
         public override bool Verify()
         {
             if (!base.Verify())

@@ -9,7 +9,7 @@ namespace EFW2C.Fields
     //Created by : HSA 9-5-2023
     //Reviewed by : 
 
-    public class FieldCorrect : FieldBase
+    public abstract class FieldCorrect : FieldBase
     {
         public bool IgnoreOriginalField { get; set; }
         public FieldCorrect(RecordBase record, string data)
@@ -18,6 +18,8 @@ namespace EFW2C.Fields
             _pos = -1;
             _length = -1;
         }
+
+        public override abstract FieldBase Clone(RecordBase record);
 
         public override bool Verify()
         {

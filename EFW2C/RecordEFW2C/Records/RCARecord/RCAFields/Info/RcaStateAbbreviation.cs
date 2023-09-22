@@ -16,6 +16,12 @@ namespace EFW2C.Fields
             _pos = 154;
             _length = 2;
         }
+
+        public override FieldBase Clone(RecordBase record)
+        {
+            return new RcaStateAbbreviation(record, _data);
+        }
+
         public override bool IsRequired()
         {
             return true;

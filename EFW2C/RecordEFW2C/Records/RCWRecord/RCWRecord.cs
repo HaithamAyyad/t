@@ -20,6 +20,15 @@ namespace EFW2C.Records
             RecordName = RecordNameEnum.Rcw.ToString();
         }
 
+        public override RecordBase Clone(RecordManager manager)
+        {
+            var rcwRecord = new RcwRecord(manager);
+
+            CloneData(rcwRecord, manager);
+
+            return rcwRecord;
+        }
+
         protected override List<(int, int)> CreateBlankList()
         {
             return new List<(int, int)>
@@ -65,7 +74,7 @@ namespace EFW2C.Records
                 new RcwEmployerContributionsToSHealthSavingsAccountCodeWCorrect(this, "dummy"),
                 new RcwEmployerContributionsToSHealthSavingsAccountCodeWOriginal(this, "dummy"),
                 new RcwEmployerCostOfPremiumsCodeCCorrect(this, "dummy"),
-                new RcwEmployerCostOfPremiumsCodeCOriginal(this, "dummy"),
+                new RcwEmployerCostOfPremiumsCodeCCOriginal(this, "dummy"),
                 new RcwFederalIncomeTaxWithheldCorrect(this, "dummy"),
                 new RcwFederalIncomeTaxWithheldOriginal(this, "dummy"),
                 new RcwForeignPostalCode(this, "dummy"),

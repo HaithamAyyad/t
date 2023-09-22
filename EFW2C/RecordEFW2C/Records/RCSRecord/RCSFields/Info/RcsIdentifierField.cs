@@ -16,5 +16,10 @@ namespace EFW2C.Fields
             _pos = 0;
             _length = 3;
         }
+
+        public override FieldBase Clone(RecordBase record)
+        {
+            return new RcsIdentifierField(record);
+        }
     }
 }

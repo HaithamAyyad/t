@@ -251,7 +251,7 @@
     <Compile Include="RecordEFW2C\Records\RCTRecord\RCTFields\RctTotalEmployerContributionsToSHealthSavingsAccountCodeWCorrect.cs" />
     <Compile Include="RecordEFW2C\Records\RCTRecord\RCTFields\RctTotalEmployerContributionsToSHealthSavingsAccountCodeWOriginal.cs" />
     <Compile Include="RecordEFW2C\Records\RCTRecord\RCTFields\RctTotalEmployerCostOfPremiumsCodeCCorrect.cs" />
-    <Compile Include="RecordEFW2C\Records\RCTRecord\RCTFields\RctTotalEmployerCostOfPremiumsCodeCOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCTRecord\RCTFields\RctTotalEmployerCostOfPremiumsCodeCCOriginal.cs" />
     <Compile Include="RecordEFW2C\Records\RCTRecord\RCTFields\RctTotalFederalIncomeTaxWithheldCorrect.cs" />
     <Compile Include="RecordEFW2C\Records\RCTRecord\RCTFields\RctTotalFederalIncomeTaxWithheldOriginal.cs" />
     <Compile Include="RecordEFW2C\Records\RCTRecord\RCTFields\RctTotalIncomeFromTheExerciseOfNonstatutoryStockOptionsCodeVCorrect.cs" />
@@ -354,7 +354,7 @@
     <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\working\RcwEmployerContributionsToSHealthSavingsAccountCodeWCorrect.cs" />
     <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\working\RcwEmployerContributionsToSHealthSavingsAccountCodeWOriginal.cs" />
     <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\working\RcwEmployerCostOfPremiumsCodeCCorrect.cs" />
-    <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\working\RcwEmployerCostOfPremiumsCodeCOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\working\RcwEmployerCostOfPremiumsCodeCCOriginal.cs" />
     <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\working\RcwFederalIncomeTaxWithheldCorrect.cs" />
     <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\working\RcwFederalIncomeTaxWithheldOriginal.cs" />
     <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\working\RcwIncomeFromTheExerciseOfNonstatutoryStockOptionsCodeVCorrect.cs" />

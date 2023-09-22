@@ -47,8 +47,13 @@ namespace test
 
                 manager.write();
 
+                var manager3 =  manager.Clone();
+
                 var fileName1 = @"C:\\one\1.txt";
                 var fileName2 = @"C:\\one\2.txt";
+                var fileName3 = @"C:\\one\3.txt";
+
+                manager3.WriteToFile(fileName3);
 
                 manager.WriteToFile(fileName1);
 
@@ -60,6 +65,9 @@ namespace test
                 managerRead.WriteToFile(fileName2);
 
                 if(!AreFilesIdentical(fileName1, fileName2))
+                    throw new Exception($"for testing {fileName1} is not equal to {fileName2}");
+
+                if(!AreFilesIdentical(fileName1, fileName3))
                     throw new Exception($"for testing {fileName1} is not equal to {fileName2}");
 
 

@@ -17,6 +17,11 @@ namespace EFW2C.Fields
             _pos = 276;
             _length = 11;
         }
+
+        public override FieldBase Clone(RecordBase record)
+        {
+            return new RcwFederalIncomeTaxWithheldCorrect(record, _data);
+        }
     }
 }
 

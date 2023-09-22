@@ -8,7 +8,7 @@ namespace EFW2C.Fields
     //Created by : HSA 9-3-1023
     //Reviewed by : 
 
-    public class ForeignStateProvinceBase : FieldBase
+    public abstract class ForeignStateProvinceBase : FieldBase
     {
         public ForeignStateProvinceBase(RecordBase record, string data)
             : base(record, data)
@@ -16,7 +16,9 @@ namespace EFW2C.Fields
             _pos = -1;
             _length = -1;
         }
-        
+
+        public override abstract FieldBase Clone(RecordBase record);
+
         public override void Write()
         {
             if (!_record.IsForeign())

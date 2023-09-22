@@ -16,6 +16,12 @@ namespace EFW2C.Fields
             _pos = 156;
             _length = 5;
         }
+
+        public override FieldBase Clone(RecordBase record)
+        {
+            return new RcaZIPCode(record, _data);
+        }
+
         public override bool IsRequired()
         {
             return true;

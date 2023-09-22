@@ -16,6 +16,11 @@ namespace EFW2C.Fields
             _pos = 265;
             _length = 11;
         }
+        public override FieldBase Clone(RecordBase record)
+        {
+            return new RcoAggregateDeferralsCodeHHCorrect(record, _data);
+        }
+
 
         public override bool Verify()
         {

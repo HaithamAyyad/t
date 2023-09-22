@@ -16,5 +16,10 @@ namespace EFW2C.Fields
             _pos = 309;
             _length = 8;
         }
+
+        public override FieldBase Clone(RecordBase record)
+        {
+            return new RcsDateFirstEmployedCorrect(record, _data);
+        }
     }
 }

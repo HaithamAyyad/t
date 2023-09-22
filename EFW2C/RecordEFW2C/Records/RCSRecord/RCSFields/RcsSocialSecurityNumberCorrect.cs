@@ -17,6 +17,11 @@ namespace EFW2C.Fields
             _length = 9;
         }
 
+        public override FieldBase Clone(RecordBase record)
+        {
+            return new RcsSocialSecurityNumberCorrect(record, _data);
+        }
+
         public override bool Verify()
         {
             if (!base.Verify())

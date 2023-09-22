@@ -16,5 +16,10 @@ namespace EFW2C.Fields
             _pos = 343;
             _length = 20;
         }
+
+        public override FieldBase Clone(RecordBase record)
+        {
+            return new RcsStateEmployerAccountNumberOriginal(record, _data);
+        }
     }
 }

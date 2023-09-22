@@ -12,7 +12,7 @@ namespace EFW2C.Records
     public abstract class RecordBase
     {
         private RecordManager _manager;
-        public char[] RecordBuffer { get; }
+        public char[] RecordBuffer { get; private set; }
 
         protected List<FieldBase> _fields;
         private List<FieldBase> _verifyFieldsList;
@@ -112,7 +112,7 @@ namespace EFW2C.Records
                     throw new Exception($"{ClassName} : {pos + 1} : has no field or not added to blank list");
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw ex;
             }
@@ -173,7 +173,7 @@ namespace EFW2C.Records
 
             if (!CheckRequiredFields())
                 return false;
-            
+
             if (!CheckblankFields())
                 return false;
 
@@ -243,8 +243,16 @@ namespace EFW2C.Records
             return _isForeignAddres;
         }
 
+        protected void CloneData(RecordBase record, RecordManager manager)
+        {
+            record.RecordBuffer = (char[])RecordBuffer.Clone();
+
+            foreach (var field in _fields)
+                record._fields.Add(field.Clone(record));
+        }
+
         protected abstract List<FieldBase> CreateVerifyFieldsList();
         protected abstract List<(int, int)> CreateBlankList();
-
+        public abstract RecordBase Clone(RecordManager manager);
     }
 }

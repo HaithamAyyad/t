@@ -16,5 +16,10 @@ namespace EFW2C.Fields
             _pos = -1;
             _length = -1;
         }
+
+        public override FieldBase Clone(RecordBase record)
+        {
+            return new UnEmploymentReportingCorrectTemplate(record, _data);
+        }
     }
 }

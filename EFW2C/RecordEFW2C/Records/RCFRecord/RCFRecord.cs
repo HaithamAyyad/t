@@ -20,6 +20,15 @@ namespace EFW2C.Records
             RecordName = RecordNameEnum.Rcf.ToString();
         }
 
+        public override RecordBase Clone(RecordManager manager)
+        {
+            var rcfRecord = new RcfRecord(manager);
+
+            CloneData(rcfRecord, manager);
+
+            return rcfRecord;
+        }
+
         protected override List<(int, int)> CreateBlankList()
         {
             return new List<(int, int)>

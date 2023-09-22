@@ -18,6 +18,11 @@ namespace EFW2C.Fields
             IgnoreOriginalField = true;
         }
 
+        public override FieldBase Clone(RecordBase record)
+        {
+            return new RcwSocialSecurityNumberCorrect(record, _data);
+        }
+
         public override bool Verify()
         {
             if (!base.Verify())

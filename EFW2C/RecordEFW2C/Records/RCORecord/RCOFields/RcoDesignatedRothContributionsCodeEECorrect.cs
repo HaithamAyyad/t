@@ -16,6 +16,10 @@ namespace EFW2C.Fields
             _pos = 221;
             _length = 11;
         }
+        public override FieldBase Clone(RecordBase record)
+        {
+            return new RcoDesignatedRothContributionsCodeEECorrect(record, _data);
+        }
 
         public override bool Verify()
         {

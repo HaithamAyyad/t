@@ -18,6 +18,11 @@ namespace EFW2C.Fields
             _length = 9;
         }
 
+        public override FieldBase Clone(RecordBase record)
+        {
+            return new RceEinAgent(record, _data);
+        }
+
         public override void Write()
         {
             var rceAgentIndicator = _record.GetField(typeof(RceAgentIndicator).Name);

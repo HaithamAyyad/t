@@ -21,6 +21,15 @@ namespace EFW2C.Records
             RecordName = RecordNameEnum.Rct.ToString();
         }
 
+        public override RecordBase Clone(RecordManager manager)
+        {
+            var rctRecord = new RctRecord(manager);
+
+            CloneData(rctRecord, manager);
+
+            return rctRecord;
+        }
+
         protected override List<(int, int)> CreateBlankList()
         {
             return new List<(int, int)>
@@ -59,7 +68,7 @@ namespace EFW2C.Records
                 new RctTotalEmployerContributionsToSHealthSavingsAccountCodeWCorrect(this),
                 new RctTotalEmployerContributionsToSHealthSavingsAccountCodeWOriginal(this),
                 new RctTotalEmployerCostOfPremiumsCodeCCorrect(this),
-                new RctTotalEmployerCostOfPremiumsCodeCOriginal(this),
+                new RctTotalEmployerCostOfPremiumsCodeCCOriginal(this),
                 new RctTotalFederalIncomeTaxWithheldCorrect(this),
                 new RctTotalFederalIncomeTaxWithheldOriginal(this),
                 new RctTotalIncomeFromTheExerciseOfNonstatutoryStockOptionsCodeVCorrect(this),

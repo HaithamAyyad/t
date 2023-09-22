@@ -8,7 +8,7 @@ namespace EFW2C.Fields
     //Created by  : HSA on 9-1-2023
     //Reviewed by : HSA on ........
 
-    public class IdentifierFieldBase : FieldBase
+    public abstract class IdentifierFieldBase : FieldBase
     {
         public IdentifierFieldBase(RecordBase record,string data)
             : base(record, data)
@@ -16,6 +16,8 @@ namespace EFW2C.Fields
             _pos = -1;
             _length = -1;
         }
+
+        public override abstract FieldBase Clone(RecordBase record);
 
         public override bool Verify()
         {

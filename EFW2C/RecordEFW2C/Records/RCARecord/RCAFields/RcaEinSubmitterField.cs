@@ -17,5 +17,10 @@ namespace EFW2C.Fields
             _pos = 3;
             _length = 9;
         }
+
+        public override FieldBase Clone(RecordBase record)
+        {
+            return new RcaEinSubmitterField(record, _data);
+        }
     }
 }

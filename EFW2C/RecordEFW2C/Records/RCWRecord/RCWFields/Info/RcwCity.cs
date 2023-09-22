@@ -16,5 +16,10 @@ namespace EFW2C.Fields
             _pos = 165;
             _length = 22;
         }
+
+        public override FieldBase Clone(RecordBase record)
+        {
+            return new RcwCity(record, _data);
+        }
     }
 }

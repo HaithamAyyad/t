@@ -20,6 +20,10 @@ namespace EFW2C.Fields
             _pos = 3;
             _length = 7;
         }
+        public override FieldBase Clone(RecordBase record)
+        {
+            return new RctNumberOfRCWRecords(record);
+        }
 
         public override void Write()
         {

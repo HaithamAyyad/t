@@ -16,6 +16,10 @@ namespace EFW2C.Fields
             _pos = -1;
             _length = -1;
         }
+        public override FieldBase Clone(RecordBase record)
+        {
+            return new FieldTemplate(record, _data);
+        }
 
         public override bool Verify()
         {

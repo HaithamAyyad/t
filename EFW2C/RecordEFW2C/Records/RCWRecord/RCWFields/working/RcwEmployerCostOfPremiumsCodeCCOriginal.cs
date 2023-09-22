@@ -7,21 +7,20 @@ using EFW2C.Records;
 namespace EFW2C.Fields
 {
     //Created by : HSA 9-9-2023
-    //Reviewed by : HSA 9-17-2023
+    //Reviewed by : 
 
-    internal class RcwDeferredCompensationCodeHCorrect : MoneyCorrect
+    public class RcwEmployerCostOfPremiumsCodeCCOriginal : MoneyOriginal
     {
-        public RcwDeferredCompensationCodeHCorrect(RecordBase record, string data)
+        public RcwEmployerCostOfPremiumsCodeCCOriginal(RecordBase record, string data)
             : base(record, data)
         {
-            _pos = 540;
+            _pos = 705;
             _length = 11;
         }
 
         public override FieldBase Clone(RecordBase record)
         {
-            return new RcwDeferredCompensationCodeHCorrect(record, _data);
+            return new RcwEmployerCostOfPremiumsCodeCCOriginal(record, _data);
         }
     }
 }
-

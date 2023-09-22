@@ -8,7 +8,7 @@ namespace EFW2C.Fields
     //Created by : 
     //Reviewed by : 
 
-    public class UnEmploymentReportingOriginal : FieldOriginal
+    public abstract class UnEmploymentReportingOriginal : FieldOriginal
     {
         public UnEmploymentReportingOriginal(RecordBase record, string data)
             : base(record, data)
@@ -16,6 +16,8 @@ namespace EFW2C.Fields
             _pos = -1;
             _length = -1;
         }
+
+        public override abstract FieldBase Clone(RecordBase record);
 
         public override bool Verify()
         {

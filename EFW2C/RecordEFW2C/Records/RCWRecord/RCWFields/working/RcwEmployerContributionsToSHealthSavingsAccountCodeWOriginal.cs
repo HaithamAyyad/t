@@ -17,5 +17,10 @@ namespace EFW2C.Fields
             _pos = 617;
             _length = 11;
         }
+
+        public override FieldBase Clone(RecordBase record)
+        {
+            return new RcwEmployerContributionsToSHealthSavingsAccountCodeWOriginal(record, _data);
+        }
     }
 }

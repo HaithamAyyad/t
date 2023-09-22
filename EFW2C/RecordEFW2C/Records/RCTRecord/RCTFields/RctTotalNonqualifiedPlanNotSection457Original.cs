@@ -17,5 +17,10 @@ namespace EFW2C.Fields
             _pos = 550;
             _length = 15;
         }
+
+        public override FieldBase Clone(RecordBase record)
+        {
+            return new RctTotalNonqualifiedPlanNotSection457Original(record);
+        }
     }
 }

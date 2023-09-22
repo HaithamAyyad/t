@@ -17,6 +17,11 @@ namespace EFW2C.Fields
             _length = 22;
         }
 
+        public override FieldBase Clone(RecordBase record)
+        {
+            return new RcaCity(record, _data);
+        }
+
         public override bool IsRequired()
         {
             return true;

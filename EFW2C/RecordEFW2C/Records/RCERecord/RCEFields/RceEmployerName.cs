@@ -16,6 +16,10 @@ namespace EFW2C.Fields
             _pos = 43;
             _length = 57;
         }
+        public override FieldBase Clone(RecordBase record)
+        {
+            return new RceEmployerName(record, _data);
+        }
 
         public override bool Verify()
         {

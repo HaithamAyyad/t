@@ -8,7 +8,7 @@ namespace EFW2C.Fields
     //Created by : hsa 9-3-2023
     //Reviewed by : 
 
-    public class ContactFaxBase : FieldBase
+    public abstract class ContactFaxBase : FieldBase
     {
         public ContactFaxBase(RecordBase record, string data)
             : base(record, data)
@@ -16,6 +16,8 @@ namespace EFW2C.Fields
             _pos = -1;
             _length = -1;
         }
+
+        public override abstract FieldBase Clone(RecordBase record);
 
         public override bool Verify()
         {

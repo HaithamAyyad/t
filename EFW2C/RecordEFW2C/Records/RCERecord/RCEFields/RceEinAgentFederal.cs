@@ -17,6 +17,11 @@ namespace EFW2C.Fields
             _pos = 16;
             _length = 9;
         }
+
+        public override FieldBase Clone(RecordBase record)
+        {
+            return new RceEinAgentFederal(record, _data);
+        }
         public override bool IsRequired()
         {
             var rceAgentIndicator = _record.GetField(typeof(RceAgentIndicator).Name);

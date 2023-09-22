@@ -9,7 +9,7 @@ namespace EFW2C.Fields
     //Created by : HSA 9-1-2023
     //Reviewed by : HSA on ........
 
-    public class EinFieldBase : FieldBase
+    public abstract class EinFieldBase : FieldBase
     {
         public EinFieldBase(RecordBase record, string data)
             : base(record, data)
@@ -18,6 +18,7 @@ namespace EFW2C.Fields
             _length = -1;
         }
 
+        public abstract override FieldBase Clone(RecordBase record);
         public override bool Verify()
         {
             if (!base.Verify())

@@ -16,6 +16,11 @@ namespace EFW2C.Fields
             _pos = 5;
             _length = 5;
         }
+        public override FieldBase Clone(RecordBase record)
+        {
+            return new RcsTaxingEntityCodeOriginal(record, _data);
+        }
+
 
         public override bool Verify()
         {

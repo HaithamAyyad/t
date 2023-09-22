@@ -17,5 +17,10 @@ namespace EFW2C.Fields
             _pos = 340;
             _length = 15;
         }
+
+        public override FieldBase Clone(RecordBase record)
+        {
+            return new RcuTotalAggregateDeferralsCodeHHOriginal(record);
+        }
     }
 }

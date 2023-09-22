@@ -17,6 +17,11 @@ namespace EFW2C.Fields
             _pos = 738;
             _length = 11;
         }
+
+        public override FieldBase Clone(RecordBase record)
+        {
+            return new RcwIncomeFromTheExerciseOfNonstatutoryStockOptionsCodeVCorrect(record, _data);
+        }
     }
 }
 

@@ -1,7 +1,4 @@
-﻿using System;
-using EFW2C.Common.Enums;
-using EFW2C.Extensions;
-using EFW2C.Records;
+﻿using EFW2C.Records;
 
 namespace EFW2C.Fields
 {
@@ -15,6 +12,11 @@ namespace EFW2C.Fields
         {
             _pos = 284;
             _length = 40;
+        }
+
+        public override FieldBase Clone(RecordBase record)
+        {
+            return new RceContactEMailInternet(record, _data);
         }
     }
 }

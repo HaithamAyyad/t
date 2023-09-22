@@ -17,6 +17,11 @@ namespace EFW2C.Fields
             _length = 15;
         }
 
+        public override FieldBase Clone(RecordBase record)
+        {
+            return new RcwMiddleNameEmployeeCorrect(record, _data);
+        }
+
         public override bool Verify()
         {
             if (!base.Verify())

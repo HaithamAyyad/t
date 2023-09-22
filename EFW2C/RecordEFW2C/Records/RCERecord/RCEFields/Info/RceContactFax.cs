@@ -16,5 +16,10 @@ namespace EFW2C.Fields
             _pos = 274;
             _length = 10;
         }
+
+        public override FieldBase Clone(RecordBase record)
+        {
+            return new RceContactFax(record, _data);
+        }
     }
 }

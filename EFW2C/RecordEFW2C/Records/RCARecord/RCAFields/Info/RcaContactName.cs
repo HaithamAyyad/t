@@ -16,6 +16,12 @@ namespace EFW2C.Fields
             _pos = 211;
             _length = 27;
         }
+
+        public override FieldBase Clone(RecordBase record)
+        {
+            return new RcaContactName(record, _data);
+        }
+
         public override bool IsRequired()
         {
             return true;

@@ -16,5 +16,10 @@ namespace EFW2C.Fields
             _pos = 168;
             _length = 5;
         }
+
+        public override FieldBase Clone(RecordBase record)
+        {
+            return new RceZIPCode(record, _data);
+        }
     }
 }

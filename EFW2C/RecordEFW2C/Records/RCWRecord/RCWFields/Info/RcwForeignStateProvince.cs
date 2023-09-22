@@ -16,5 +16,10 @@ namespace EFW2C.Fields
             _pos = 203;
             _length = 23;
         }
+
+        public override FieldBase Clone(RecordBase record)
+        {
+            return new RcwForeignStateProvince(record, _data);
+        }
     }
 }

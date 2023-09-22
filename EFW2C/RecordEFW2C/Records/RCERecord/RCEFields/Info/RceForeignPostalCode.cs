@@ -16,5 +16,10 @@ namespace EFW2C.Fields
             _pos = 204;
             _length = 15;
         }
+
+        public override FieldBase Clone(RecordBase record)
+        {
+            return new RceForeignPostalCode(record, _data);
+        }
     }
 }

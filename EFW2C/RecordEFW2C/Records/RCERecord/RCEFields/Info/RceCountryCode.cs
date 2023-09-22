@@ -16,5 +16,10 @@ namespace EFW2C.Fields
             _pos = 219;
             _length = 2;
         }
+
+        public override FieldBase Clone(RecordBase record)
+        {
+            return new RceCountryCode(record, _data);
+        }
     }
 }

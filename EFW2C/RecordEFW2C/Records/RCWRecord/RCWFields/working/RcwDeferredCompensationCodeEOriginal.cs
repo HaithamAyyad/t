@@ -17,5 +17,10 @@ namespace EFW2C.Fields
             _pos = 463;
             _length = 11;
         }
+
+        public override FieldBase Clone(RecordBase record)
+        {
+            return new RcwDeferredCompensationCodeEOriginal(record, _data);
+        }
     }
 }

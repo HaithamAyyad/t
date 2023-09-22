@@ -17,6 +17,11 @@ namespace EFW2C.Fields
             _pos = 175;
             _length = 15;
         }
+        public override FieldBase Clone(RecordBase record)
+        {
+            return new RctTotalMedicareTaxWithheldCorrect(record);
+        }
+
 
         public override bool Verify()
         {

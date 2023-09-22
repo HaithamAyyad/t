@@ -17,5 +17,10 @@ namespace EFW2C.Fields
             _pos = 243;
             _length = 11;
         }
+
+        public override FieldBase Clone(RecordBase record)
+        {
+            return new RcwWagesTipsAndOtherCompensationOriginal(record, _data);
+        }
     }
 }

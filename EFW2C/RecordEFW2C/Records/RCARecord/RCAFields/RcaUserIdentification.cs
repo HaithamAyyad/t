@@ -17,6 +17,11 @@ namespace EFW2C.Fields
             _length = 8;
         }
 
+        public override FieldBase Clone(RecordBase record)
+        {
+            return new RcaUserIdentification(record, _data);
+        }
+
         public override bool Verify()
         {
             if (!base.Verify())

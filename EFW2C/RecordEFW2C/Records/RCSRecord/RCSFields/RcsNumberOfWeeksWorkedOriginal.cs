@@ -16,5 +16,10 @@ namespace EFW2C.Fields
             _pos = 297;
             _length = 2;
         }
+
+        public override FieldBase Clone(RecordBase record)
+        {
+            return new RcsNumberOfWeeksWorkedOriginal(record, _data);
+        }
     }
 }

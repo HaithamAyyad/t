@@ -17,6 +17,11 @@ namespace EFW2C.Fields
             _length = 40;
         }
 
+        public override FieldBase Clone(RecordBase record)
+        {
+            return new RcaContactEMailInternet(record, _data);
+        }
+
         public override bool IsRequired()
         {
             return true;

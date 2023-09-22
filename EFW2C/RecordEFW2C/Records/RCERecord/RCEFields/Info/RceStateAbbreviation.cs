@@ -16,5 +16,10 @@ namespace EFW2C.Fields
             _pos = 166;
             _length = 2;
         }
+
+        public override FieldBase Clone(RecordBase record)
+        {
+            return new RceStateAbbreviation(record, _data);
+        }
     }
 }

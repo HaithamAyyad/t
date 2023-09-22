@@ -14,5 +14,10 @@ namespace EFW2C.Fields
             _pos = 155;
             _length = 22;
         }
+
+        public override FieldBase Clone(RecordBase record)
+        {
+            return new RcsDeliveryAddress(record, _data);
+        }
     }
 }

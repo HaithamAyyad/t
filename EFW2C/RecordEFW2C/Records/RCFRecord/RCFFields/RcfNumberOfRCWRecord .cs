@@ -17,6 +17,11 @@ namespace EFW2C.Fields
             _length = 9;
         }
 
+        public override FieldBase Clone(RecordBase record)
+        {
+            return new RcfNumberOfRCWRecord(record);
+        }
+
         public override void Write()
         {
             _data = _record.Manager.GetRecordsCount(RecordNameEnum.Rcw).ToString();

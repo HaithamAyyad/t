@@ -17,6 +17,11 @@ namespace EFW2C.Fields
             _pos = 85;
             _length = 15;   
         }
+
+        public override FieldBase Clone(RecordBase record)
+        {
+            return new RcuTotalMedicalSavingsAccountCodeRCorrect(record);
+        }
     }
 }
 

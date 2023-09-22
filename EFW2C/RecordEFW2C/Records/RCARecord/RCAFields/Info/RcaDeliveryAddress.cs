@@ -15,6 +15,11 @@ namespace EFW2C.Fields
             _length = 22;
         }
 
+
+        public override FieldBase Clone(RecordBase record)
+        {
+            return new RcaDeliveryAddress(record, _data);
+        }
         public override bool IsRequired()
         {
             return true;

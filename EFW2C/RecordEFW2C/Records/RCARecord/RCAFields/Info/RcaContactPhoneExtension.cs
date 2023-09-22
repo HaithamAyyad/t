@@ -16,5 +16,10 @@ namespace EFW2C.Fields
             _pos = 253;
             _length = 5;
         }
+
+        public override FieldBase Clone(RecordBase record)
+        {
+            return new RcaContactPhoneExtension(record, _data);
+        }
     }
 }

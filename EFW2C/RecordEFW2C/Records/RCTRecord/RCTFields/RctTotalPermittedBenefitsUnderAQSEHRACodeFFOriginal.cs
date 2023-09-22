@@ -17,5 +17,10 @@ namespace EFW2C.Fields
             _pos = 820;
             _length = 15;
         }
+
+        public override FieldBase Clone(RecordBase record)
+        {
+            return new RctTotalPermittedBenefitsUnderAQSEHRACodeFFOriginal(record);
+        }
     }
 }

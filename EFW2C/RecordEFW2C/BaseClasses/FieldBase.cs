@@ -1,12 +1,7 @@
-﻿
-using EFW2C.Common.Constants;
-using EFW2C.Common.Enums;
+﻿using EFW2C.Common.Enums;
 using EFW2C.Extensions;
 using EFW2C.Records;
 using System;
-using System.Linq;
-using System.Text.RegularExpressions;
-using System.Windows;
 using System.Windows.Forms;
 
 namespace EFW2C.Fields
@@ -185,6 +180,7 @@ namespace EFW2C.Fields
         }
         public abstract bool IsRequired();
         protected abstract FieldTypeEnum GetFieldType();
+        public abstract FieldBase Clone(RecordBase record);
     }
 }
 

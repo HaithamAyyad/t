@@ -16,5 +16,10 @@ namespace EFW2C.Fields
             _pos = 257;
             _length = 6;
         }
+
+        public override FieldBase Clone(RecordBase record)
+        {
+            return new RcsReportingPeriodOriginal(record, _data);
+        }
     }
 }

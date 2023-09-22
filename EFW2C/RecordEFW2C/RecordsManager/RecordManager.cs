@@ -58,6 +58,21 @@ namespace EFW2C.Manager
             return _records.Count(item => item.RecordName == recordName.ToString());
         }
 
+        public RecordManager Clone()
+        {
+            var manager = new RecordManager()
+            {
+                _reSubmitted = _reSubmitted,
+                _unemployment = _unemployment,
+                IsTIB = IsTIB,
+            };
+
+            foreach (var record in _records)
+                record.Clone(manager);
+
+            return manager;
+        }
+
         private bool IsFeildsBelongToClass()
         {
             foreach (var record in _records)

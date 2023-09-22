@@ -17,6 +17,11 @@ namespace EFW2C.Fields
             _length = 6;
         }
 
+        public override FieldBase Clone(RecordBase record)
+        {
+            return new RcaResubWageFile(record, _data);
+        }
+
         public override void Write()
         {
             var rcaResubIndicator = _record.GetField(typeof(RcaResubIndicator).Name);
