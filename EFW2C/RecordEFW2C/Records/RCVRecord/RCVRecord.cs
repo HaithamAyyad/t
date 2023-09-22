@@ -13,6 +13,11 @@ namespace EFW2C.Records
         {
             RecordName = RecordNameEnum.Rcv.ToString();
         }
+        public RcvRecord(RecordManager recordManager, char[] buffer)
+            : base(recordManager, buffer)
+        {
+            RecordName = RecordNameEnum.Rcv.ToString();
+        }
 
         protected override List<(int, int)> CreateBlankList()
         {

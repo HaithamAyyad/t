@@ -14,6 +14,11 @@ namespace EFW2C.Records
             RecordName = RecordNameEnum.Rcu.ToString();
             SumRecordClassName = RecordNameEnum.Rco.ToString();
         }
+        public RcuRecord(RecordManager recordManager, char[] buffer)
+            : base(recordManager, buffer)
+        {
+            RecordName = RecordNameEnum.Rcu.ToString();
+        }
 
         protected override List<(int, int)> CreateBlankList()
         {

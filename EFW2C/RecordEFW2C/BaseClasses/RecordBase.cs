@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using EFW2C.Common.Constants;
 using EFW2C.Common.Enums;
@@ -11,7 +12,7 @@ namespace EFW2C.Records
     public abstract class RecordBase
     {
         private RecordManager _manager;
-        public char[] RecordBuffer;
+        public char[] RecordBuffer { get; }
 
         protected List<FieldBase> _fields;
         private List<FieldBase> _verifyFieldsList;
@@ -24,10 +25,12 @@ namespace EFW2C.Records
         public string ClassName { get; set; }
         public string SumRecordClassName { get; set; }
 
-        public RecordBase(RecordManager recordManager)
+        public RecordBase(RecordManager recordManager, char[] buffer = null)
         {
             _manager = recordManager;
-            RecordBuffer = new string(' ', Constants.RecordLength).ToCharArray();
+
+            RecordBuffer = (buffer != null) ? buffer : new string(' ', Constants.RecordLength).ToCharArray();
+
             _fields = new List<FieldBase>();
             ClassName = GetType().Name;
 
@@ -239,6 +242,7 @@ namespace EFW2C.Records
         {
             return _isForeignAddres;
         }
+
         protected abstract List<FieldBase> CreateVerifyFieldsList();
         protected abstract List<(int, int)> CreateBlankList();
 

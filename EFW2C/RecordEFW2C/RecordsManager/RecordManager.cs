@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using EFW2C.Common.Constants;
 using EFW2C.Common.Enums;
@@ -182,6 +183,80 @@ namespace EFW2C.Manager
                 throw new Exception($"Rce Record is not provided");
 
             return rceRecord.GetTaxYear();
+        }
+
+        public void WriteToFile(string fileName)
+        {
+            using (StreamWriter writer = new StreamWriter(fileName))
+            {
+                foreach (var record in _records)
+                {
+                    writer.Write(new string(record.RecordBuffer));
+                }
+            }
+        }
+
+        public List<string> ReadFromFile(string fileName)
+        {
+            var bufferList = new List<string>();
+
+            using (StreamReader reader = new StreamReader(fileName))
+            {
+
+                var buffer = reader.ReadToEnd();
+                if(buffer.Length % Constants.RecordLength != 0 )
+                    throw new Exception($"file is not correct :{fileName} ");
+
+                for (int i = 0; i < buffer.Length; i += Constants.RecordLength)
+                {
+                    bufferList.Add(buffer.Substring(i, Constants.RecordLength));
+                }
+            }
+
+            return bufferList;
+        }
+
+        public static RecordManager CreateManager(List<string> recordBufferList)
+        {
+            var manager = new RecordManager();
+
+            foreach (var recordBuffer in recordBufferList)
+            {
+                var recordName = recordBuffer.Substring(0, 1) + recordBuffer.Substring(1, 2).ToLower() + recordBuffer.Substring(3).ToLower();
+                Enum.TryParse(recordName, out RecordNameEnum recordNameEnum);
+
+                switch (recordNameEnum)
+                {
+                    case RecordNameEnum.Rca:
+                        manager.AddRecord(new RcaRecord(manager, recordBuffer.ToCharArray()));
+                        break;
+                    case RecordNameEnum.Rce:
+                        manager.AddRecord(new RceRecord(manager, recordBuffer.ToCharArray()));
+                        break;
+                    case RecordNameEnum.Rcw:
+                        manager.AddRecord(new RcwRecord(manager, recordBuffer.ToCharArray()));
+                        break;
+                    case RecordNameEnum.Rco:
+                        manager.AddRecord(new RcoRecord(manager, recordBuffer.ToCharArray()));
+                        break;
+                    case RecordNameEnum.Rcs:
+                        manager.AddRecord(new RcsRecord(manager, recordBuffer.ToCharArray()));
+                        break;
+                    case RecordNameEnum.Rct:
+                        manager.AddRecord(new RctRecord(manager, recordBuffer.ToCharArray()));
+                        break;
+                    case RecordNameEnum.Rcu:
+                        manager.AddRecord(new RcuRecord(manager, recordBuffer.ToCharArray()));
+                        break;
+                    case RecordNameEnum.Rcv:
+                        manager.AddRecord(new RcvRecord(manager, recordBuffer.ToCharArray()));
+                        break;
+                    case RecordNameEnum.Rcf:
+                        manager.AddRecord(new RcfRecord(manager, recordBuffer.ToCharArray()));
+                        break;
+                }
+            }
+            return manager; 
         }
     }
 

@@ -4,6 +4,7 @@ using EFW2C.Fields;
 using EFW2C.Manager;
 using EFW2C.Records;
 using System;
+using System.IO;
 using System.Windows;
 
 
@@ -46,6 +47,23 @@ namespace test
 
                 manager.write();
 
+                var fileName1 = @"C:\\one\1.txt";
+                var fileName2 = @"C:\\one\2.txt";
+
+                manager.WriteToFile(fileName1);
+
+                var recordBufferList = manager.ReadFromFile(fileName1);
+
+                RecordManager managerRead = RecordManager.CreateManager(recordBufferList);
+                managerRead.write();
+
+                managerRead.WriteToFile(fileName2);
+
+                if(!AreFilesIdentical(fileName1, fileName2))
+                    throw new Exception($"for testing {fileName1} is not equal to {fileName2}");
+
+
+
                 if (!manager.Verify())
                     MessageBox.Show("Error");
                 else
@@ -55,6 +73,29 @@ namespace test
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        static bool AreFilesIdentical(string filePath1, string filePath2)
+        {
+
+            byte[] fileBytes1 = File.ReadAllBytes(filePath1);
+            byte[] fileBytes2 = File.ReadAllBytes(filePath2);
+
+
+            if (fileBytes1.Length != fileBytes2.Length)
+            {
+                return false; 
+            }
+
+            for (int i = 0; i < fileBytes1.Length; i++)
+            {
+                if (fileBytes1[i] != fileBytes2[i])
+                {
+                    return false; 
+                }
+            }
+
+            return true; 
         }
 
         private RecordBase CreateRctRecord(RecordManager manager)
@@ -90,7 +131,7 @@ namespace test
         {
             var rcwRecord = new RcwRecord(manager);
 
-            rcwRecord.AddField(new RcwIdentifierField(rcwRecord));
+            rcwRecord.AddField(new RcwIdentifierField(rcwRecord)) ;
             rcwRecord.AddField(new RcwZIPCode(rcwRecord, "11118"));
             rcwRecord.AddField(new RcwZIPCodeExtension(rcwRecord, "1117"));
             rcwRecord.AddField(new RcwStateAbbreviation(rcwRecord, "AL"));
@@ -173,7 +214,7 @@ namespace test
             rcaRecord.AddField(new RcaZIPCode(rcaRecord, "11118"));
             rcaRecord.AddField(new RcaZIPCodeExtension(rcaRecord, "1117"));
             rcaRecord.AddField(new RcaStateAbbreviation(rcaRecord, "AL"));
-            rcaRecord.AddField(new RcaLocationAddress(rcaRecord, ""));
+            rcaRecord.AddField(new RcaLocationAddress(rcaRecord, "dfd"));
             rcaRecord.AddField(new RcaDeliveryAddress(rcaRecord, "Alask box 444 0"));
             rcaRecord.AddField(new RcaCity(rcaRecord, "City1"));
             rcaRecord.AddField(new RcaForeignStateProvince(rcaRecord, "KKK"));
