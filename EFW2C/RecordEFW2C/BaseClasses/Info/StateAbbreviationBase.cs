@@ -22,7 +22,7 @@ namespace EFW2C.Fields
 
         public override void Write()
         {
-            if (!_record.IsForeign())
+            if (!_record.ForeignAddress)
                 base.Write();
         }
         public override bool Verify()
@@ -30,7 +30,7 @@ namespace EFW2C.Fields
             if (!base.Verify())
                 return false;
 
-            if (!_record.IsForeign())
+            if (!_record.ForeignAddress)
             {
                 if (!EnumHelper.IsValidStateCode(DataInRecordBuffer()))
                     throw new Exception($"{ClassName} State code is not valid");

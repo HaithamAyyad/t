@@ -44,14 +44,16 @@ namespace test
                 manager.AddRecord(CreateRcfRecord(manager));
 
                 RecordsOrderHelper.VerifyRecordsOrder(manager.Records);
-
+                
                 manager.write();
 
                 var manager3 =  manager.Clone();
 
-                var fileName1 = @"C:\\one\1.txt";
-                var fileName2 = @"C:\\one\2.txt";
-                var fileName3 = @"C:\\one\3.txt";
+                var fileName1 = @"C:\\1\1.txt";
+                var fileName2 = @"C:\\1\2.txt";
+                var fileName3 = @"C:\\1\3.txt";
+
+                manager3.write();
 
                 manager3.WriteToFile(fileName3);
 
@@ -68,7 +70,7 @@ namespace test
                     throw new Exception($"for testing {fileName1} is not equal to {fileName2}");
 
                 if(!AreFilesIdentical(fileName1, fileName3))
-                    throw new Exception($"for testing {fileName1} is not equal to {fileName2}");
+                    throw new Exception($"for testing {fileName1} is not equal to {fileName3}");
 
 
 
@@ -211,7 +213,7 @@ namespace test
         private RecordBase CreateRcaRecord(RecordManager manager)
         {
             var rcaRecord = new RcaRecord(manager);
-            rcaRecord.SetForeignAddress(true);
+            rcaRecord.ForeignAddress = true;
             rcaRecord.AddField(new RcaIdentifierField(rcaRecord));
             rcaRecord.AddField(new RcaEinSubmitterField(rcaRecord, "773456789"));
             rcaRecord.AddField(new RcaSoftwareCode(rcaRecord, "98"));

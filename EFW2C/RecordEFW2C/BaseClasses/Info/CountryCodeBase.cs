@@ -36,7 +36,7 @@ namespace EFW2C.Fields
             if (!base.Verify())
                 return false;
 
-            if (_record.IsForeign())
+            if (_record.ForeignAddress)
             {
                 if (!EnumHelper.IsCountryCodeValid(DataInRecordBuffer()))
                     throw new Exception($"{ClassName} country code is not correct");
@@ -53,7 +53,7 @@ namespace EFW2C.Fields
 
         public override bool IsRequired()
         {
-            return _record.IsForeign();
+            return _record.ForeignAddress;
         }
     }
 }

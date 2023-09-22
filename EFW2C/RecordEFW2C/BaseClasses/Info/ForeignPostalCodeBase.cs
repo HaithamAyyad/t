@@ -21,7 +21,7 @@ namespace EFW2C.Fields
 
         public override void Write()
         {
-            if (!_record.IsForeign())
+            if (!_record.ForeignAddress)
                 base.Write();
         }
         public override bool Verify()
@@ -39,7 +39,7 @@ namespace EFW2C.Fields
 
         public override bool IsRequired()
         {
-            return _record.IsForeign();
+            return _record.ForeignAddress;
         }
     }
 }

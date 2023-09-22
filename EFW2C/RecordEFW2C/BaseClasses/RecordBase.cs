@@ -17,7 +17,9 @@ namespace EFW2C.Records
         protected List<FieldBase> _fields;
         private List<FieldBase> _verifyFieldsList;
         private List<(int, int)> _blankFields;
-        protected bool _isForeignAddres;
+        protected bool _isForeignAddress;
+
+        public bool ForeignAddress { get { return _isForeignAddress; } set { _isForeignAddress = value; } }
 
         public List<FieldBase> Fields { get { return _fields; } }
         public RecordManager Manager { get { return _manager; } }
@@ -233,19 +235,10 @@ namespace EFW2C.Records
             return true;
         }
 
-        public void SetForeignAddress(bool value)
-        {
-            _isForeignAddres = value;
-        }
-
-        public bool IsForeign()
-        {
-            return _isForeignAddres;
-        }
-
         protected void CloneData(RecordBase record, RecordManager manager)
         {
             record.RecordBuffer = (char[])RecordBuffer.Clone();
+            record.ForeignAddress = ForeignAddress;
 
             foreach (var field in _fields)
                 record._fields.Add(field.Clone(record));

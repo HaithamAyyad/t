@@ -68,7 +68,7 @@ namespace EFW2C.Manager
             };
 
             foreach (var record in _records)
-                record.Clone(manager);
+                manager.AddRecord(record.Clone(manager));
 
             return manager;
         }
