@@ -32,7 +32,7 @@ namespace EFW2C.Fields
 
             var employmentCode = GetEmploymentCode();
             if (employmentCode == EmploymentCodeEnum.Q.ToString() || employmentCode == EmploymentCodeEnum.X.ToString())
-                throw new Exception($"{ClassName} : since employment code is {employmentCode}, this feild must not be provided");
+                throw new Exception($"{ClassName} : since employment code is {employmentCode}, this field must not be provided");
 
             if (taxYear == 2023)
             {

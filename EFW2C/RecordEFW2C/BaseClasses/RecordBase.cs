@@ -17,10 +17,6 @@ namespace EFW2C.Records
         protected List<FieldBase> _fields;
         private List<FieldBase> _verifyFieldsList;
         private List<(int, int)> _blankFields;
-        protected bool _isForeignAddress;
-
-        public bool ForeignAddress { get { return _isForeignAddress; } set { _isForeignAddress = value; } }
-
         public List<FieldBase> Fields { get { return _fields; } }
         public RecordManager Manager { get { return _manager; } }
         public string RecordName { get; set; }
@@ -51,14 +47,14 @@ namespace EFW2C.Records
 
             _verifyFieldsList = CreateVerifyFieldsList();
 
-            IsFeildsBelongToClass(_verifyFieldsList);
+            IsFieldsBelongToClass(_verifyFieldsList);
 
             CheckVerifyFieldList();
 
             CheckFieldsBelongToRecord(_verifyFieldsList);
         }
 
-        public bool IsFeildsBelongToClass(List<FieldBase> fields)
+        public bool IsFieldsBelongToClass(List<FieldBase> fields)
         {
             foreach (var field in fields)
             {
@@ -246,7 +242,7 @@ namespace EFW2C.Records
             return true;
         }
 
-        public void CreateFeildsFromRecordBuffer()
+        public void CreateFieldsFromRecordBuffer()
         {
             _fields.Clear();
 
@@ -270,7 +266,6 @@ namespace EFW2C.Records
         protected void CloneData(RecordBase record, RecordManager manager)
         {
             record.RecordBuffer = (char[])RecordBuffer.Clone();
-            record.ForeignAddress = ForeignAddress;
 
             foreach (var field in _fields)
                 record._fields.Add(field.Clone(record));

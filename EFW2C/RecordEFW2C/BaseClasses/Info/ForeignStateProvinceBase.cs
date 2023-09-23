@@ -19,16 +19,17 @@ namespace EFW2C.Fields
 
         public override abstract FieldBase Clone(RecordBase record);
 
-        public override void Write()
-        {
-            if (!_record.ForeignAddress)
-                base.Write();
-        }
-
         public override bool Verify()
         {
             if (!base.Verify())
                 return false;
+
+            if (!string.IsNullOrWhiteSpace(DataInRecordBuffer()))
+            {
+                var stateAbbreviationClassName = $"{_record.ClassName.Substring(0, 3)}StateAbbreviation";
+                if (!IsFieldNullOrWhiteSpace(_record.GetField(stateAbbreviationClassName)))
+                    throw new Exception($"{ClassName} can't provid this filed and {stateAbbreviationClassName} at the sametime");
+            }
 
             return true;
         }
@@ -40,7 +41,7 @@ namespace EFW2C.Fields
 
         public override bool IsRequired()
         {
-            return _record.ForeignAddress;
+            return false;
         }
     }
 }

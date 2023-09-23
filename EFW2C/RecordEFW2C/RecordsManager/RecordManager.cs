@@ -5,6 +5,7 @@ using System.Linq;
 using EFW2C.Common.Constants;
 using EFW2C.Common.Enums;
 using EFW2C.Common.Helper;
+using EFW2C.Fields;
 using EFW2C.Records;
 
 namespace EFW2C.Manager
@@ -65,7 +66,7 @@ namespace EFW2C.Manager
             if (!VerifyOrder())
                 return false;
 
-            if (!IsFeildsBelongToClass())
+            if (!IsFieldsBelongToClass())
                 return true;
 
             foreach (var record in _records)
@@ -110,11 +111,11 @@ namespace EFW2C.Manager
             return manager;
         }
 
-        private bool IsFeildsBelongToClass()
+        private bool IsFieldsBelongToClass()
         {
             foreach (var record in _records)
             {
-                if (!record.IsFeildsBelongToClass(record.Fields))
+                if (!record.IsFieldsBelongToClass(record.Fields))
                     return false;
             }
 
@@ -227,7 +228,7 @@ namespace EFW2C.Manager
             return sum;
         }
 
-        public int GetRecordsFeildsSum(string fieldClassName, RecordBase record, string summationRecordName)
+        public int GetRecordsFieldsSum(string fieldClassName, RecordBase record, string summationRecordName)
         {
             var rceRecord = GetPrecedRecord(record, RecordNameEnum.Rce.ToString());
 
@@ -335,9 +336,24 @@ namespace EFW2C.Manager
                     if (record != null)
                     {
                         manager.AddRecord(record);
-                        record.CreateFeildsFromRecordBuffer();
+                        record.CreateFieldsFromRecordBuffer();
+
+                        if (record is RcaRecord rcaRecord)
+                        {
+                            var rcaResubIndicator = record.GetField(typeof(RcaResubIndicator).Name);
+
+                            if (!FieldBase.IsFieldNullOrWhiteSpace(rcaResubIndicator))
+                                manager.SetSubmitter(rcaResubIndicator.DataInRecordBuffer() == "1");
+                        }
+
                     }
                 }
+
+                manager.Lock(true);
+                manager.Verify();
+                manager.Lock(false);
+
+
 
                 return manager;
             }

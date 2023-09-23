@@ -116,8 +116,8 @@ namespace EFW2C.Records
                 new RcwTotalDeferredCompensationContributionsOriginal(this, "dummy"),
                 new RcwWagesTipsAndOtherCompensationCorrect(this, "dummy"),
                 new RcwWagesTipsAndOtherCompensationOriginal(this, "dummy"),
-                new RcwZIPCode (this, "dummy"),
-                new RcwZIPCodeExtension(this, "dummy"),
+                new RcwZipCode (this, "dummy"),
+                new RcwZipCodeExtension(this, "dummy"),
             };
         }
     }

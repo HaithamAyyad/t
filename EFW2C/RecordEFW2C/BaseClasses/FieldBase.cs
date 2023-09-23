@@ -33,6 +33,11 @@ namespace EFW2C.Fields
             ClassName = GetType().Name;
         }
 
+        public static bool IsFieldNullOrWhiteSpace(FieldBase field)
+        {
+            return field == null || string.IsNullOrWhiteSpace(field.DataInRecordBuffer());
+        }
+
         public FieldBase Clone(RecordBase record, string data)
         {
             var field = Clone(record);

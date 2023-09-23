@@ -8,9 +8,9 @@ namespace EFW2C.Fields
     //Created by : hsa 9-2-2023
     //Reviewed by : 
 
-    public class RcaZIPCodeExtension : ZIPCodeExtensionBase
+    public class RcaZipCodeExtension : ZipCodeExtensionBase
     {
-        public RcaZIPCodeExtension(RecordBase record, string data)
+        public RcaZipCodeExtension(RecordBase record, string data)
             : base(record, data)
         {
             _pos = 161;
@@ -19,7 +19,7 @@ namespace EFW2C.Fields
 
         public override FieldBase Clone(RecordBase record)
         {
-            return new RcaZIPCodeExtension(record, _data);
+            return new RcaZipCodeExtension(record, _data);
         }
     }
 }

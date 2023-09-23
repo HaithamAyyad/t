@@ -65,8 +65,8 @@ namespace EFW2C.Records
                 new RcaStateAbbreviation(this, "dummy"),
                 new RcaSubmitterName(this, "dummy"),
                 new RcaUserIdentification(this, "dummy"),
-                new RcaZIPCode(this, "dummy"),
-                new RcaZIPCodeExtension(this, "dummy"),
+                new RcaZipCode(this, "dummy"),
+                new RcaZipCodeExtension(this, "dummy"),
             };
         }
     }

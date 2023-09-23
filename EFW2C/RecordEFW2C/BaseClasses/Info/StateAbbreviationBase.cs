@@ -20,21 +20,20 @@ namespace EFW2C.Fields
 
         public override abstract FieldBase Clone(RecordBase record);
 
-        public override void Write()
-        {
-            if (!_record.ForeignAddress)
-                base.Write();
-        }
         public override bool Verify()
         {
             if (!base.Verify())
                 return false;
 
-            if (!_record.ForeignAddress)
+            if (!string.IsNullOrWhiteSpace(DataInRecordBuffer()))
             {
-                if (!EnumHelper.IsValidStateCode(DataInRecordBuffer()))
-                    throw new Exception($"{ClassName} State code is not valid");
+                var foreignStateProvinceClassName = $"{_record.ClassName.Substring(0, 3)}ForeignStateProvince";
+                if (!IsFieldNullOrWhiteSpace(_record.GetField(foreignStateProvinceClassName)))
+                    throw new Exception($"{ClassName} can't provid this filed and {foreignStateProvinceClassName} at the sametime");
             }
+
+            if (!EnumHelper.IsValidStateCode(DataInRecordBuffer()))
+                throw new Exception($"{ClassName} State code is not valid");
 
             return true;
         }

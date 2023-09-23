@@ -22,13 +22,7 @@ namespace EFW2C.Fields
 
         public override void Write()
         {
-            var fieldClassName = $"{_record.ClassName.Substring(0, 3)}StateAbbreviation";
-            var stateAbbreviation = _record.GetField(fieldClassName);
-            if (stateAbbreviation != null)
-            {
-                if (!EnumHelper.IsStateTerritoriseMiltary(stateAbbreviation.DataInRecordBuffer()))
-                    base.Write();
-            }
+            base.Write();
         }
 
         public override bool Verify()
@@ -36,11 +30,22 @@ namespace EFW2C.Fields
             if (!base.Verify())
                 return false;
 
-            if (_record.ForeignAddress)
-            {
-                if (!EnumHelper.IsCountryCodeValid(DataInRecordBuffer()))
-                    throw new Exception($"{ClassName} country code is not correct");
 
+            var localData = DataInRecordBuffer();
+
+            if (!string.IsNullOrWhiteSpace(localData))
+            {
+                var stateAbbreviationClassName = $"{_record.ClassName.Substring(0, 3)}StateAbbreviation";
+                var stateAbbreviationField = _record.GetField(stateAbbreviationClassName);
+
+                if (!IsFieldNullOrWhiteSpace(stateAbbreviationField))
+                {
+                    if (EnumHelper.IsStateTerritoriseMiltary(stateAbbreviationField.DataInRecordBuffer()))
+                        throw new Exception($"{ClassName} should not be provieded, since {stateAbbreviationField} is provided");
+                }
+
+                if (!EnumHelper.IsCountryCodeValid(localData))
+                    throw new Exception($"{ClassName} country code is not correct");
             }
 
             return true;
@@ -53,7 +58,7 @@ namespace EFW2C.Fields
 
         public override bool IsRequired()
         {
-            return _record.ForeignAddress;
+            return false;
         }
     }
 }

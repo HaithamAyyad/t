@@ -67,8 +67,8 @@ namespace EFW2C.Records
                 new RceTaxYear(this, "dummy"),
                 new RceThirdPartySickPayCorrect(this, "dummy"),
                 new RceThirdPartySickPayOriginal(this, "dummy"),
-                new RceZIPCode(this, "dummy"),
-                new RceZIPCodeExtension(this, "dummy"),
+                new RceZipCode(this, "dummy"),
+                new RceZipCodeExtension(this, "dummy"),
             };
         }
 

@@ -88,8 +88,8 @@ namespace EFW2C.Records
                 new RcsTaxingEntityCodeOriginal(this, "dummy"),
                 new RcsTaxTypeCodeCorrect(this, "dummy"),
                 new RcsTaxTypeCodeOriginal(this, "dummy"),
-                new RcsZIPCode (this, "dummy"),
-                new RcsZIPCodeExtension(this, "dummy"),
+                new RcsZipCode (this, "dummy"),
+                new RcsZipCodeExtension(this, "dummy"),
             };
         }
     }

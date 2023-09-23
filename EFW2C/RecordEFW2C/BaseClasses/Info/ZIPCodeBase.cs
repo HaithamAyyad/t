@@ -8,9 +8,9 @@ namespace EFW2C.Fields
     //Created by : hsa 9-2-2023
     //Reviewed by : 
 
-    public abstract class ZIPCodeBase : FieldBase
+    public abstract class ZipCodeBase : FieldBase
     {
-        public ZIPCodeBase(RecordBase record, string data)
+        public ZipCodeBase(RecordBase record, string data)
             : base(record, data)
         {
             _pos = -1;
@@ -23,6 +23,14 @@ namespace EFW2C.Fields
         {
             if (!base.Verify())
                 return false;
+
+            if (!string.IsNullOrWhiteSpace(DataInRecordBuffer()))
+            {
+                var stateAbbreviationClassName = $"{_record.ClassName.Substring(0, 3)}StateAbbreviation";
+
+                if (IsFieldNullOrWhiteSpace(_record.GetField(stateAbbreviationClassName)))
+                    throw new Exception($"{ClassName} can't provid this filed since {stateAbbreviationClassName} is not provided");
+            }
 
             return true;
         }
