@@ -12,7 +12,7 @@ using test.RecordEFW2C.Common;
 
 namespace EFW2C.Common.Helper
 {
-    public class RecordsOrderHelper
+    internal class RecordsOrderHelper
     {
         public static bool VerifyRecordsOrder(List<RecordBase> records)
         {

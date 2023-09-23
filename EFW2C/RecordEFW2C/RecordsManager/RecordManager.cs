@@ -13,8 +13,12 @@ namespace EFW2C.Manager
     {
         private bool _reSubmitted;
         private bool _unemployment;
+        private bool _lock;
+        private bool _isTIB;
 
-        public bool IsTIB { get; set; }
+        public bool Islock { get { return _lock; } }
+
+        public bool IsTIB { get { return _isTIB; } }
 
         private List<RecordBase> _records;
 
@@ -27,6 +31,28 @@ namespace EFW2C.Manager
             WageTaxHelper.CreateWageTaxTabel();
         }
 
+
+        public bool Lock(bool lockManager = true)
+        {
+            if (lockManager)
+            {
+                if (!Verify())
+                    return false;
+            }
+
+            _lock = lockManager;
+
+            return true;
+        }
+        private void CheckLock(bool check)
+        {
+            if(check && !_lock)
+                throw new Exception($"Manager is unlocked");
+
+            if(!check && _lock)
+                throw new Exception($"Manager is locked");
+        }
+
         public void write()
         {
             foreach (var record in _records)
@@ -35,6 +61,10 @@ namespace EFW2C.Manager
 
         public bool Verify()
         {
+
+            if (!VerifyOrder())
+                return false;
+
             if (!IsFeildsBelongToClass())
                 return true;
 
@@ -53,6 +83,11 @@ namespace EFW2C.Manager
             return true;
         }
 
+        public bool VerifyOrder()
+        {
+            return RecordsOrderHelper.VerifyRecordsOrder(_records);
+        }
+
         public int GetRecordsCount(RecordNameEnum recordName)
         {
             return _records.Count(item => item.RecordName == recordName.ToString());
@@ -60,11 +95,13 @@ namespace EFW2C.Manager
 
         public RecordManager Clone()
         {
+            CheckLock(true);
+
             var manager = new RecordManager()
             {
                 _reSubmitted = _reSubmitted,
                 _unemployment = _unemployment,
-                IsTIB = IsTIB,
+                _isTIB = _isTIB,
             };
 
             foreach (var record in _records)
@@ -86,17 +123,29 @@ namespace EFW2C.Manager
 
         public void AddRecord(RecordBase record)
         {
+            CheckLock(false);
+
             _records.Add(record);
         }
 
         public void SetSubmitter(bool value)
         {
+            CheckLock(false);
             _reSubmitted = value;
         }
 
         public void SetUnEmployment(bool value)
         {
+            CheckLock(false);
+
             _unemployment = value;
+        }
+
+        public void SetUnTIB(bool value)
+        {
+            CheckLock(false);
+
+            _isTIB = value;
         }
 
         public bool IsSubmitter()
@@ -202,6 +251,8 @@ namespace EFW2C.Manager
 
         public void WriteToFile(string fileName)
         {
+            CheckLock(true);
+
             using (StreamWriter writer = new StreamWriter(fileName))
             {
                 foreach (var record in _records)
@@ -213,11 +264,12 @@ namespace EFW2C.Manager
 
         public List<string> ReadFromFile(string fileName)
         {
+            CheckLock(false);
+
             var bufferList = new List<string>();
 
             using (StreamReader reader = new StreamReader(fileName))
             {
-
                 var buffer = reader.ReadToEnd();
                 if(buffer.Length % Constants.RecordLength != 0 )
                     throw new Exception($"file is not correct :{fileName} ");
@@ -231,48 +283,68 @@ namespace EFW2C.Manager
             return bufferList;
         }
 
-        public static RecordManager CreateManager(List<string> recordBufferList)
+        public static RecordManager CreateManager(string fileName)
         {
-            var manager = new RecordManager();
-
-            foreach (var recordBuffer in recordBufferList)
+            try
             {
-                var recordName = recordBuffer.Substring(0, 1) + recordBuffer.Substring(1, 2).ToLower() + recordBuffer.Substring(3).ToLower();
-                Enum.TryParse(recordName, out RecordNameEnum recordNameEnum);
+                if (!File.Exists(fileName))
+                    throw new Exception($"File {fileName} is not exists");
 
-                switch (recordNameEnum)
+                var manager = new RecordManager();
+
+                var recordBufferList = manager.ReadFromFile(fileName);
+
+                foreach (var recordBuffer in recordBufferList)
                 {
-                    case RecordNameEnum.Rca:
-                        manager.AddRecord(new RcaRecord(manager, recordBuffer.ToCharArray()));
-                        break;
-                    case RecordNameEnum.Rce:
-                        manager.AddRecord(new RceRecord(manager, recordBuffer.ToCharArray()));
-                        break;
-                    case RecordNameEnum.Rcw:
-                        manager.AddRecord(new RcwRecord(manager, recordBuffer.ToCharArray()));
-                        break;
-                    case RecordNameEnum.Rco:
-                        manager.AddRecord(new RcoRecord(manager, recordBuffer.ToCharArray()));
-                        break;
-                    case RecordNameEnum.Rcs:
-                        manager.AddRecord(new RcsRecord(manager, recordBuffer.ToCharArray()));
-                        break;
-                    case RecordNameEnum.Rct:
-                        manager.AddRecord(new RctRecord(manager, recordBuffer.ToCharArray()));
-                        break;
-                    case RecordNameEnum.Rcu:
-                        manager.AddRecord(new RcuRecord(manager, recordBuffer.ToCharArray()));
-                        break;
-                    case RecordNameEnum.Rcv:
-                        manager.AddRecord(new RcvRecord(manager, recordBuffer.ToCharArray()));
-                        break;
-                    case RecordNameEnum.Rcf:
-                        manager.AddRecord(new RcfRecord(manager, recordBuffer.ToCharArray()));
-                        break;
+                    var recordName = recordBuffer.Substring(0, 1) + recordBuffer.Substring(1, 2).ToLower();
+                    var recordNameEnum = Enum.Parse(typeof(RecordNameEnum), recordName);
+
+                    var record = null as RecordBase;
+
+                    switch (recordNameEnum)
+                    {
+                        case RecordNameEnum.Rca:
+                            record = new RcaRecord(manager, recordBuffer.ToCharArray());
+                            break;
+                        case RecordNameEnum.Rce:
+                            record = new RceRecord(manager, recordBuffer.ToCharArray());
+                            break;
+                        case RecordNameEnum.Rcw:
+                            record = new RcwRecord(manager, recordBuffer.ToCharArray());
+                            break;
+                        case RecordNameEnum.Rco:
+                            record = new RcoRecord(manager, recordBuffer.ToCharArray());
+                            break;
+                        case RecordNameEnum.Rcs:
+                            record = new RcsRecord(manager, recordBuffer.ToCharArray());
+                            break;
+                        case RecordNameEnum.Rct:
+                            record = new RctRecord(manager, recordBuffer.ToCharArray());
+                            break;
+                        case RecordNameEnum.Rcu:
+                            record = new RcuRecord(manager, recordBuffer.ToCharArray());
+                            break;
+                        case RecordNameEnum.Rcv:
+                            record = new RcvRecord(manager, recordBuffer.ToCharArray());
+                            break;
+                        case RecordNameEnum.Rcf:
+                            record = new RcfRecord(manager, recordBuffer.ToCharArray());
+                            break;
+                    }
+
+                    if (record != null)
+                    {
+                        manager.AddRecord(record);
+                        record.CreateFeildsFromRecordBuffer();
+                    }
                 }
+
+                return manager;
             }
-            return manager; 
+            catch (Exception ex)
+            {
+                throw new Exception($"Create Manager faild, {ex.Message}");
+            }
         }
     }
-
 }

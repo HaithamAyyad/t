@@ -246,6 +246,27 @@ namespace EFW2C.Records
             return true;
         }
 
+        public void CreateFeildsFromRecordBuffer()
+        {
+            _fields.Clear();
+
+            foreach(var field in _verifyFieldsList)
+            {
+                var data = new string(RecordBuffer, field.Pos, field.Length);
+
+                if (field.Pos == 3)
+                {
+
+                }
+                if (!string.IsNullOrWhiteSpace(data))
+                {
+                    var newField = field.Clone(this, data.TrimEnd());
+
+                    _fields.Add(newField);
+                }
+            }
+        }
+
         protected void CloneData(RecordBase record, RecordManager manager)
         {
             record.RecordBuffer = (char[])RecordBuffer.Clone();

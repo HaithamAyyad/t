@@ -17,6 +17,10 @@ namespace test
     {
         public MainWindow()
         {
+            var fileName1 = @"C:\1\1.txt";
+            var fileName2 = @"C:\1\2.txt";
+            var fileName3 = @"C:\1\3.txt";
+
             InitializeComponent();
 
             try
@@ -34,45 +38,44 @@ namespace test
 
                 manager.AddRecord(CreateRceRecord(manager));
                 manager.AddRecord(CreateRcwRecord(manager));
-                manager.AddRecord(CreateRcoRecord(manager));
+                manager.AddRecord(CreateRcoRecord2(manager));
                 manager.AddRecord(CreateRcsRecord(manager));
                 manager.AddRecord(CreateRctRecord(manager));
                 manager.AddRecord(CreateRcuRecord(manager));
                 manager.AddRecord(CreateRcvRecord(manager));
 
-
                 manager.AddRecord(CreateRcfRecord(manager));
 
-                RecordsOrderHelper.VerifyRecordsOrder(manager.Records);
+                manager.VerifyOrder();
                 
                 manager.write();
 
-                var manager3 =  manager.Clone();
-
-                var fileName1 = @"C:\\1\1.txt";
-                var fileName2 = @"C:\\1\2.txt";
-                var fileName3 = @"C:\\1\3.txt";
-
-                manager3.write();
-
-                manager3.WriteToFile(fileName3);
+                manager.Verify();
+                manager.Lock();
 
                 manager.WriteToFile(fileName1);
 
-                var recordBufferList = manager.ReadFromFile(fileName1);
+                RecordManager manager2 = RecordManager.CreateManager(fileName1);
 
-                RecordManager managerRead = RecordManager.CreateManager(recordBufferList);
-                managerRead.write();
+                manager2.write();
 
-                managerRead.WriteToFile(fileName2);
+                manager2.Verify();
+                manager2.Lock();
 
-                if(!AreFilesIdentical(fileName1, fileName2))
+                manager2.WriteToFile(fileName2);
+
+                if(!AreFilesIdentical_testfunction(fileName1, fileName2))
                     throw new Exception($"for testing {fileName1} is not equal to {fileName2}");
 
-                if(!AreFilesIdentical(fileName1, fileName3))
+                var manager3 = manager.Clone();
+                manager3.write();
+
+                manager3.Verify(); 
+                manager3.Lock();
+                manager3.WriteToFile(fileName3);
+
+                if (!AreFilesIdentical_testfunction(fileName1, fileName3))
                     throw new Exception($"for testing {fileName1} is not equal to {fileName3}");
-
-
 
                 if (!manager.Verify())
                     MessageBox.Show("Error");
@@ -85,7 +88,7 @@ namespace test
             }
         }
 
-        static bool AreFilesIdentical(string filePath1, string filePath2)
+        static bool AreFilesIdentical_testfunction(string filePath1, string filePath2)
         {
 
             byte[] fileBytes1 = File.ReadAllBytes(filePath1);
@@ -112,12 +115,16 @@ namespace test
         {
             var rctRecord = new RctRecord(manager);
 
+            rctRecord.AddField(new RctIdentifierField(rctRecord));
+
             return rctRecord;
         }
 
         private RecordBase CreateRcsRecord(RecordManager manager)
         {
             var rcsRecord = new RcsRecord(manager);
+
+            rcsRecord.AddField(new RcsIdentifierField(rcsRecord));
 
             return rcsRecord;
         }
@@ -155,6 +162,10 @@ namespace test
             rcwRecord.AddField(new RcwSocialSecurityNumberOriginal(rcwRecord, "122456789"));
             rcwRecord.AddField(new RcwSocialSecurityTaxWithheldCorrect(rcwRecord, "5656"));
             rcwRecord.AddField(new RcwSocialSecurityTaxWithheldOriginal(rcwRecord, "5656"));
+            rcwRecord.AddField(new RcwEmployeeFirstNameOriginal(rcwRecord, "John"));
+            rcwRecord.AddField(new RcwEmployeeFirstNameCorrect(rcwRecord, "John"));
+            rcwRecord.AddField(new RcwEmployeeLastNameCorrect(rcwRecord, "Smith"));
+            rcwRecord.AddField(new RcwEmployeeLastNameOriginal(rcwRecord, "Smith"));
             return rcwRecord;
         }
 
@@ -168,6 +179,7 @@ namespace test
            
             return rcoRecord;
         }
+
         private RecordBase CreateRcoRecord2(RecordManager manager)
         {
             var rcoRecord = new RcoRecord(manager);
@@ -213,10 +225,9 @@ namespace test
         private RecordBase CreateRcaRecord(RecordManager manager)
         {
             var rcaRecord = new RcaRecord(manager);
-            rcaRecord.ForeignAddress = true;
             rcaRecord.AddField(new RcaIdentifierField(rcaRecord));
             rcaRecord.AddField(new RcaEinSubmitterField(rcaRecord, "773456789"));
-            rcaRecord.AddField(new RcaSoftwareCode(rcaRecord, "98"));
+            rcaRecord.AddField(new RcaSoftwareCode(rcaRecord, "99"));
             rcaRecord.AddField(new RcaUserIdentification(rcaRecord, "12345678"));
             rcaRecord.AddField(new RcaSoftwareVendorCode(rcaRecord, "4444"));
             rcaRecord.AddField(new RcaSubmitterName(rcaRecord, "Adam"));
