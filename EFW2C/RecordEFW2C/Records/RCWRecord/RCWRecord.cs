@@ -74,7 +74,7 @@ namespace EFW2C.Records
                 new RcwEmployerContributionsToSHealthSavingsAccountCodeWCorrect(this, "dummy"),
                 new RcwEmployerContributionsToSHealthSavingsAccountCodeWOriginal(this, "dummy"),
                 new RcwEmployerCostOfPremiumsCodeCCorrect(this, "dummy"),
-                new RcwEmployerCostOfPremiumsCodeCCOriginal(this, "dummy"),
+                new RcwEmployerCostOfPremiumsCodeCOriginal(this, "dummy"),
                 new RcwFederalIncomeTaxWithheldCorrect(this, "dummy"),
                 new RcwFederalIncomeTaxWithheldOriginal(this, "dummy"),
                 new RcwForeignPostalCode(this, "dummy"),

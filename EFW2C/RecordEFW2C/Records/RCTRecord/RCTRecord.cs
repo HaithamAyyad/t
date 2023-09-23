@@ -68,7 +68,7 @@ namespace EFW2C.Records
                 new RctTotalEmployerContributionsToSHealthSavingsAccountCodeWCorrect(this),
                 new RctTotalEmployerContributionsToSHealthSavingsAccountCodeWOriginal(this),
                 new RctTotalEmployerCostOfPremiumsCodeCCorrect(this),
-                new RctTotalEmployerCostOfPremiumsCodeCCOriginal(this),
+                new RctTotalEmployerCostOfPremiumsCodeCOriginal(this),
                 new RctTotalFederalIncomeTaxWithheldCorrect(this),
                 new RctTotalFederalIncomeTaxWithheldOriginal(this),
                 new RctTotalIncomeFromTheExerciseOfNonstatutoryStockOptionsCodeVCorrect(this),

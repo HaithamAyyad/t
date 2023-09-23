@@ -9,9 +9,9 @@ namespace EFW2C.Fields
     //Created by : HSA 9-8-2023
     //Reviewed by : 
 
-    public class RctTotalEmployerCostOfPremiumsCodeCCOriginal : SumFieldOriginal
+    public class RctTotalEmployerCostOfPremiumsCodeCOriginal : SumFieldOriginal
     {
-        public RctTotalEmployerCostOfPremiumsCodeCCOriginal(RecordBase record)
+        public RctTotalEmployerCostOfPremiumsCodeCOriginal(RecordBase record)
             : base(record, Constants.WhiteSpaceString)
         {
             _pos = 640;
@@ -20,7 +20,7 @@ namespace EFW2C.Fields
 
         public override FieldBase Clone(RecordBase record)
         {
-            return new RctTotalEmployerCostOfPremiumsCodeCCOriginal(record);
+            return new RctTotalEmployerCostOfPremiumsCodeCOriginal(record);
         }
     }
 }

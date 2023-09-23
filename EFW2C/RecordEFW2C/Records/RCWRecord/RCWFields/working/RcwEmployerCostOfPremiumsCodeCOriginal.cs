@@ -9,9 +9,9 @@ namespace EFW2C.Fields
     //Created by : HSA 9-9-2023
     //Reviewed by : 
 
-    public class RcwEmployerCostOfPremiumsCodeCCOriginal : MoneyOriginal
+    public class RcwEmployerCostOfPremiumsCodeCOriginal : MoneyOriginal
     {
-        public RcwEmployerCostOfPremiumsCodeCCOriginal(RecordBase record, string data)
+        public RcwEmployerCostOfPremiumsCodeCOriginal(RecordBase record, string data)
             : base(record, data)
         {
             _pos = 705;
@@ -20,7 +20,7 @@ namespace EFW2C.Fields
 
         public override FieldBase Clone(RecordBase record)
         {
-            return new RcwEmployerCostOfPremiumsCodeCCOriginal(record, _data);
+            return new RcwEmployerCostOfPremiumsCodeCOriginal(record, _data);
         }
     }
 }
