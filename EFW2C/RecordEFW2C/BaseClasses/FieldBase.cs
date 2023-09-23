@@ -33,6 +33,15 @@ namespace EFW2C.Fields
             ClassName = GetType().Name;
         }
 
+        public FieldBase Clone(RecordBase record, string data)
+        {
+            var field = Clone(record);
+
+            field._data = data;
+
+            return field;
+        }
+
         public string DataInRecordBuffer()
         {
             return new string(_record.RecordBuffer, _pos, _length);
@@ -96,6 +105,7 @@ namespace EFW2C.Fields
         {
             if (!VerifyWrite())
                 return;
+
             switch (_fieldType)
             {
                 case FieldTypeEnum.Numerical_RightJustify_Zero:
@@ -178,6 +188,7 @@ namespace EFW2C.Fields
         {
             return _record.Manager.GetTaxYear(_record);
         }
+
         public abstract bool IsRequired();
         protected abstract FieldTypeEnum GetFieldType();
         public abstract FieldBase Clone(RecordBase record);

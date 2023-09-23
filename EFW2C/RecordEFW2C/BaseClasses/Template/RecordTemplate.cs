@@ -9,9 +9,8 @@ namespace EFW2C.Records
     public class RecordTemplate : RecordBase
     {
         public RecordTemplate(RecordManager recordManager)
-            : base(recordManager)
+            : base(recordManager, "")
         {
-            RecordName = null;
         }
 
         public override RecordBase Clone(RecordManager manager)

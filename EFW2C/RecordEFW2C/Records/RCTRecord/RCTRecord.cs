@@ -9,16 +9,15 @@ namespace EFW2C.Records
     public class RctRecord : RecordBase
     {
         public RctRecord(RecordManager recordManager)
-            : base(recordManager)
+            : base(recordManager, RecordNameEnum.Rct.ToString())
         {
-            RecordName = RecordNameEnum.Rct.ToString();
             SumRecordClassName = RecordNameEnum.Rcw.ToString();
         }
 
         public RctRecord(RecordManager recordManager, char[] buffer)
-            : base(recordManager, buffer)
+            : base(recordManager, RecordNameEnum.Rct.ToString(), buffer)
         {
-            RecordName = RecordNameEnum.Rct.ToString();
+            SumRecordClassName = RecordNameEnum.Rcw.ToString();
         }
 
         public override RecordBase Clone(RecordManager manager)

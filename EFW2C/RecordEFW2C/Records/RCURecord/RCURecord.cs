@@ -9,15 +9,14 @@ namespace EFW2C.Records
     public class RcuRecord : RecordBase
     {
         public RcuRecord(RecordManager recordManager)
-            : base(recordManager)
+            : base(recordManager, RecordNameEnum.Rcu.ToString())
         {
-            RecordName = RecordNameEnum.Rcu.ToString();
             SumRecordClassName = RecordNameEnum.Rco.ToString();
         }
         public RcuRecord(RecordManager recordManager, char[] buffer)
-            : base(recordManager, buffer)
+            : base(recordManager, RecordNameEnum.Rcu.ToString(), buffer)
         {
-            RecordName = RecordNameEnum.Rcu.ToString();
+            SumRecordClassName = RecordNameEnum.Rco.ToString();
         }
 
         public override RecordBase Clone(RecordManager manager)

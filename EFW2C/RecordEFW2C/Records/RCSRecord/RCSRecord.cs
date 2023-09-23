@@ -9,15 +9,13 @@ namespace EFW2C.Records
     public class RcsRecord : RecordBase
     {
         public RcsRecord(RecordManager recordManager)
-            : base(recordManager)
+            : base(recordManager, RecordNameEnum.Rcs.ToString())
         {
-            RecordName = RecordNameEnum.Rcs.ToString();
         }
 
         public RcsRecord(RecordManager recordManager, char[] buffer)
-            : base(recordManager, buffer)
+            : base(recordManager, RecordNameEnum.Rcs.ToString(), buffer)
         {
-            RecordName = RecordNameEnum.Rcs.ToString();
         }
 
         public override RecordBase Clone(RecordManager manager)

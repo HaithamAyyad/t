@@ -27,16 +27,25 @@ namespace EFW2C.Records
         public string ClassName { get; set; }
         public string SumRecordClassName { get; set; }
 
-        public RecordBase(RecordManager recordManager, char[] buffer = null)
+        public RecordBase(RecordManager recordManager, string recordName, char[] buffer = null)
         {
             _manager = recordManager;
 
-            RecordBuffer = (buffer != null) ? buffer : new string(' ', Constants.RecordLength).ToCharArray();
+            RecordName = recordName;
+
+            if (buffer != null)
+            {
+                RecordBuffer = buffer;
+            }
+            else
+            {
+                RecordBuffer = new string(' ', Constants.RecordLength).ToCharArray();
+                Array.Copy(RecordName.ToCharArray(), 0, RecordBuffer, 0, 3);
+            }
 
             _fields = new List<FieldBase>();
             ClassName = GetType().Name;
 
-            RecordName = "";
 
             _blankFields = CreateBlankList();
 
@@ -170,7 +179,9 @@ namespace EFW2C.Records
 
         public bool Verify()
         {
-            if (string.IsNullOrWhiteSpace(RecordName))
+            var recordName = new string(RecordBuffer, 0, 3);
+
+            if (string.IsNullOrWhiteSpace(recordName))
                 throw new Exception($"{ClassName} RecordName can't be empty.");
 
             if (!CheckRequiredFields())
