@@ -8,7 +8,7 @@ namespace EFW2C.Fields
     //Created by  : HSA on 9-4-2023
     //Reviewed by : HSA on ........
 
-    public class RcoIdentifierField : IdentifierFieldBase
+    internal class RcoIdentifierField : IdentifierFieldBase
     {
         public RcoIdentifierField(RecordBase record)
             : base(record, record.RecordName)

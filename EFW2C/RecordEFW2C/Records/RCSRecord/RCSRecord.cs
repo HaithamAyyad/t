@@ -11,11 +11,13 @@ namespace EFW2C.Records
         public RcsRecord(RecordManager recordManager)
             : base(recordManager, RecordNameEnum.Rcs.ToString())
         {
+            AddField(new RcsIdentifierField(this));
         }
 
         public RcsRecord(RecordManager recordManager, char[] buffer)
             : base(recordManager, RecordNameEnum.Rcs.ToString(), buffer)
         {
+            AddField(new RcsIdentifierField(this));
         }
 
         public override RecordBase Clone(RecordManager manager)

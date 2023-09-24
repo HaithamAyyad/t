@@ -8,7 +8,7 @@ namespace EFW2C.Fields
     //Created by : Has 9-3-2023
     //Reviewed by : 
 
-    public class RcfIdentifierField : IdentifierFieldBase
+    internal class RcfIdentifierField : IdentifierFieldBase
     {
         public RcfIdentifierField(RecordBase record)
             : base(record, record.RecordName)

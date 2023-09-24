@@ -11,11 +11,13 @@ namespace EFW2C.Records
         public RcoRecord(RecordManager recordManager)
             : base(recordManager, RecordNameEnum.Rco.ToString())
         {
+            AddField(new RcoIdentifierField(this));
         }
 
         public RcoRecord(RecordManager recordManager, char[] buffer)
             : base(recordManager, RecordNameEnum.Rco.ToString(), buffer)
         {
+            AddField(new RcoIdentifierField(this));
         }
 
         public override RecordBase Clone(RecordManager manager)

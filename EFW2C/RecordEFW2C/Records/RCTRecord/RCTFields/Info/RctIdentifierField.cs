@@ -8,7 +8,7 @@ namespace EFW2C.Fields
     //Created by  : HSA on 9-4-2023
     //Reviewed by : HSA on ........
 
-    public class RctIdentifierField : IdentifierFieldBase
+    internal class RctIdentifierField : IdentifierFieldBase
     {
         public RctIdentifierField(RecordBase record)
             : base(record, record.RecordName)

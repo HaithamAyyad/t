@@ -11,11 +11,13 @@ namespace EFW2C.Records
         public RcuRecord(RecordManager recordManager)
             : base(recordManager, RecordNameEnum.Rcu.ToString())
         {
+            AddField(new RcuIdentifierField(this));
             SumRecordClassName = RecordNameEnum.Rco.ToString();
         }
         public RcuRecord(RecordManager recordManager, char[] buffer)
             : base(recordManager, RecordNameEnum.Rcu.ToString(), buffer)
         {
+            AddField(new RcuIdentifierField(this));
             SumRecordClassName = RecordNameEnum.Rco.ToString();
         }
 

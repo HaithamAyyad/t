@@ -115,7 +115,6 @@ namespace test
         {
             var rctRecord = new RctRecord(manager);
 
-            rctRecord.AddField(new RctIdentifierField(rctRecord));
 
             return rctRecord;
         }
@@ -124,8 +123,6 @@ namespace test
         {
             var rcsRecord = new RcsRecord(manager);
 
-            rcsRecord.AddField(new RcsIdentifierField(rcsRecord));
-
             return rcsRecord;
         }
 
@@ -133,7 +130,6 @@ namespace test
         {
             var rcuRecord = new RcuRecord(manager);
 
-            rcuRecord.AddField(new RcuIdentifierField(rcuRecord));
             rcuRecord.AddField(new RcuNumberOfRCORecord(rcuRecord));
             rcuRecord.AddField(new RcuTotalAllocatedTipsOriginal(rcuRecord));
             rcuRecord.AddField(new RcuTotalAllocatedTipsCorrect(rcuRecord));
@@ -148,7 +144,6 @@ namespace test
         {
             var rcwRecord = new RcwRecord(manager);
 
-            rcwRecord.AddField(new RcwIdentifierField(rcwRecord)) ;
             rcwRecord.AddField(new RcwZipCode(rcwRecord, "11118"));
             rcwRecord.AddField(new RcwZipCodeExtension(rcwRecord, "1117"));
             rcwRecord.AddField(new RcwStateAbbreviation(rcwRecord, "AL"));
@@ -173,7 +168,6 @@ namespace test
         {
             var rcoRecord = new RcoRecord(manager);
 
-            rcoRecord.AddField(new RcoIdentifierField(rcoRecord));
             rcoRecord.AddField(new RcoAllocatedTipsCorrect(rcoRecord, "10"));
             rcoRecord.AddField(new RcoAllocatedTipsOriginal(rcoRecord, "10"));
            
@@ -184,7 +178,6 @@ namespace test
         {
             var rcoRecord = new RcoRecord(manager);
 
-            rcoRecord.AddField(new RcoIdentifierField(rcoRecord));
             rcoRecord.AddField(new RcoAllocatedTipsCorrect(rcoRecord, "3"));
             rcoRecord.AddField(new RcoAllocatedTipsOriginal(rcoRecord, "1"));
            
@@ -194,7 +187,6 @@ namespace test
         private RecordBase CreateRcfRecord(RecordManager manager)
         {
             var rcfRecord = new RcfRecord(manager);
-            rcfRecord.AddField(new RcfIdentifierField(rcfRecord));
             rcfRecord.AddField(new RcfNumberOfRCWRecord(rcfRecord));
             return rcfRecord;
         }
@@ -202,7 +194,6 @@ namespace test
         private RecordBase CreateRcvRecord(RecordManager manager)
         {
             var rcvRecord = new RcvRecord(manager);
-            rcvRecord.AddField(new RcvIdentifierField(rcvRecord)); ;
             rcvRecord.AddField(new RcvSupplementalData(rcvRecord," this is data from user"));
             return rcvRecord;
         }
@@ -211,7 +202,6 @@ namespace test
         {
             var rceRecord = new RceRecord(manager);
 
-            rceRecord.AddField(new RceIdentifierField(rceRecord));
             rceRecord.AddField(new RceTaxYear(rceRecord, "1960"));
             rceRecord.AddField(new RceKindOfEmployer(rceRecord, "S"));
             rceRecord.AddField(new RceAgentIndicator(rceRecord, "1"));
@@ -225,7 +215,6 @@ namespace test
         private RecordBase CreateRcaRecord(RecordManager manager)
         {
             var rcaRecord = new RcaRecord(manager);
-            rcaRecord.AddField(new RcaIdentifierField(rcaRecord));
             rcaRecord.AddField(new RcaEinSubmitterField(rcaRecord, "773456789"));
             rcaRecord.AddField(new RcaSoftwareCode(rcaRecord, "99"));
             rcaRecord.AddField(new RcaUserIdentification(rcaRecord, "12345678"));
