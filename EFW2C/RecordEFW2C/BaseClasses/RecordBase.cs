@@ -15,7 +15,7 @@ namespace EFW2C.Records
         public char[] RecordBuffer { get; private set; }
 
         protected List<FieldBase> _fields;
-        private List<FieldBase> _verifyFieldsList;
+        private List<FieldBase> _helperFieldsList;
         private List<(int, int)> _blankFields;
         public List<FieldBase> Fields { get { return _fields; } }
         public RecordManager Manager { get { return _manager; } }
@@ -45,46 +45,44 @@ namespace EFW2C.Records
 
             _blankFields = CreateBlankList();
 
-            _verifyFieldsList = CreateVerifyFieldsList();
+            _helperFieldsList = CreateHelperFieldsList();
 
-            IsFieldsBelongToClass(_verifyFieldsList);
+            AreFieldsBelongToRecord(this, _helperFieldsList);
 
-            CheckVerifyFieldList();
-
-            CheckFieldsBelongToRecord(_verifyFieldsList);
+            CheckHelperFieldsList();
         }
 
-        public bool IsFieldsBelongToClass(List<FieldBase> fields)
+        public static bool AreFieldsBelongToRecord(RecordBase record, List<FieldBase> fields)
         {
             foreach (var field in fields)
             {
-                if (ClassName.Substring(0, 3) != field.ClassName.Substring(0, 3))
-                    throw new Exception($"{field.ClassName} doesn't belong to {ClassName}");
+                if (record.ClassName.Substring(0, 3) != field.ClassName.Substring(0, 3))
+                    throw new Exception($"{field.ClassName} doesn't belong to {record.ClassName}");
             }
 
             return true;
         }
 
-        private bool CheckVerifyFieldList()
+        private bool CheckHelperFieldsList()
         {
             try
             {
-                if (_verifyFieldsList.Count == 0)
-                    throw new Exception($"{ClassName} : CheckVerifyFieldList() verify list is empty");
+                if (_helperFieldsList.Count == 0)
+                    throw new Exception($"{ClassName} : HelperFieldList() HelperFieldList is empty");
 
-                var duplicateNames = _verifyFieldsList.GroupBy(item => item.ClassName)
+                var duplicateNames = _helperFieldsList.GroupBy(item => item.ClassName)
                                                       .Where(group => group.Count() > 1)
                                                       .Select(group => group.Key)
                                                       .ToList();
 
                 if (duplicateNames.Any())
-                    throw new Exception($"{duplicateNames[0]} : this field is already added in verify field list");
+                    throw new Exception($"{duplicateNames[0]} : this field is already added in helperFieldList");
 
                 var pos = 0;
 
                 while (pos != 1024)
                 {
-                    var fieldList = _verifyFieldsList.Where(item => item.Pos == pos).ToList();
+                    var fieldList = _helperFieldsList.Where(item => item.Pos == pos).ToList();
 
                     if (fieldList != null && fieldList.Count != 0)
                     {
@@ -127,21 +125,12 @@ namespace EFW2C.Records
             return true;
         }
 
-        private void CheckFieldsBelongToRecord(List<FieldBase> fields)
-        {
-            foreach (var field in fields)
-            {
-                if (ClassName.Substring(0, 3) != field.ClassName.Substring(0, 3))
-                    throw new Exception($"{field.ClassName} doesn't belong to {ClassName} in veryfy fields list");
-            }
-        }
-
         public FieldBase GetField(string fieldClassName)
         {
-            var validField = _verifyFieldsList.FirstOrDefault(field => field.ClassName == fieldClassName);
+            var validField = _helperFieldsList.FirstOrDefault(field => field.ClassName == fieldClassName);
 
             if (validField == null)
-                throw new Exception($" GetFields : you are trying to get invalid class : {fieldClassName}");
+                throw new Exception($" GetField() : you are trying to get invalid class : {fieldClassName}");
 
             return _fields.FirstOrDefault(field => field.ClassName == fieldClassName);
         }
@@ -212,7 +201,7 @@ namespace EFW2C.Records
 
         private bool CheckRequiredFields()
         {
-            foreach (var reqField in _verifyFieldsList)
+            foreach (var reqField in _helperFieldsList)
             {
                 if (reqField.IsRequired() && !IsFieldExists(reqField))
                 {
@@ -241,7 +230,7 @@ namespace EFW2C.Records
         {
             _fields.Clear();
 
-            foreach(var field in _verifyFieldsList)
+            foreach(var field in _helperFieldsList)
             {
                 var data = new string(RecordBuffer, field.Pos, field.Length);
 
@@ -262,7 +251,7 @@ namespace EFW2C.Records
                 record._fields.Add(field.Clone(record));
         }
 
-        protected abstract List<FieldBase> CreateVerifyFieldsList();
+        protected abstract List<FieldBase> CreateHelperFieldsList();
         protected abstract List<(int, int)> CreateBlankList();
         public abstract RecordBase Clone(RecordManager manager);
     }

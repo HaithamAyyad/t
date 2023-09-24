@@ -40,33 +40,33 @@ namespace EFW2C.Records
             };
         }
 
-        protected override List<FieldBase> CreateVerifyFieldsList()
+        protected override List<FieldBase> CreateHelperFieldsList()
         {
             return new List<FieldBase>
             {
-                new RcaCity(this, "dummy"),
-                new RcaContactEMailInternet(this, "dummy"),
-                new RcaContactFax(this, "dummy"),
-                new RcaContactName(this, "dummy"),
-                new RcaContactPhone(this, "dummy"),
-                new RcaContactPhoneExtension(this, "dummy"),
-                new RcaCountryCode(this, "dummy"),
-                new RcaDeliveryAddress(this, "dummy"),
-                new RcaEinSubmitterField(this, "dummy"),
-                new RcaForeignPostalCode(this, "dummy"),
-                new RcaForeignStateProvince(this, "dummy"),
+                new RcaCity(this, "Helper"),
+                new RcaContactEMailInternet(this, "Helper"),
+                new RcaContactFax(this, "Helper"),
+                new RcaContactName(this, "Helper"),
+                new RcaContactPhone(this, "Helper"),
+                new RcaContactPhoneExtension(this, "Helper"),
+                new RcaCountryCode(this, "Helper"),
+                new RcaDeliveryAddress(this, "Helper"),
+                new RcaEinSubmitterField(this, "Helper"),
+                new RcaForeignPostalCode(this, "Helper"),
+                new RcaForeignStateProvince(this, "Helper"),
                 new RcaIdentifierField(this),
-                new RcaLocationAddress(this, "dummy"),
-                new RcaPreparerCode(this, "dummy"),
-                new RcaResubIndicator(this, "dummy"),
-                new RcaResubWageFile(this, "dummy"),
-                new RcaSoftwareCode(this, "dummy"),
-                new RcaSoftwareVendorCode(this, "dummy"),
-                new RcaStateAbbreviation(this, "dummy"),
-                new RcaSubmitterName(this, "dummy"),
-                new RcaUserIdentification(this, "dummy"),
-                new RcaZipCode(this, "dummy"),
-                new RcaZipCodeExtension(this, "dummy"),
+                new RcaLocationAddress(this, "Helper"),
+                new RcaPreparerCode(this, "Helper"),
+                new RcaResubIndicator(this, "Helper"),
+                new RcaResubWageFile(this, "Helper"),
+                new RcaSoftwareCode(this, "Helper"),
+                new RcaSoftwareVendorCode(this, "Helper"),
+                new RcaStateAbbreviation(this, "Helper"),
+                new RcaSubmitterName(this, "Helper"),
+                new RcaUserIdentification(this, "Helper"),
+                new RcaZipCode(this, "Helper"),
+                new RcaZipCodeExtension(this, "Helper"),
             };
         }
     }

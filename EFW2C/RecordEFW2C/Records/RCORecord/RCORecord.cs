@@ -37,33 +37,33 @@ namespace EFW2C.Records
             };
         }
 
-        protected override List<FieldBase> CreateVerifyFieldsList()
+        protected override List<FieldBase> CreateHelperFieldsList()
         {
             return new List<FieldBase>
             {
-                new RcoAggregateDeferralsCodeHHCorrect(this, "dummy"),
-                new RcoAggregateDeferralsCodeHHOriginal(this, "dummy"),
-                new RcoAllocatedTipsCorrect(this, "dummy"),
-                new RcoAllocatedTipsOriginal(this, "dummy"),
-                new RcoDesignatedRothContributionsCodeEECorrect(this, "dummy"),
-                new RcoDesignatedRothContributionsCodeEEOriginal(this, "dummy"),
+                new RcoAggregateDeferralsCodeHHCorrect(this, "Helper"),
+                new RcoAggregateDeferralsCodeHHOriginal(this, "Helper"),
+                new RcoAllocatedTipsCorrect(this, "Helper"),
+                new RcoAllocatedTipsOriginal(this, "Helper"),
+                new RcoDesignatedRothContributionsCodeEECorrect(this, "Helper"),
+                new RcoDesignatedRothContributionsCodeEEOriginal(this, "Helper"),
                 new RcoIdentifierField(this),
-                new RcoIncomeFromQualifiedEquityCodeGGCorrect(this, "dummy"),
-                new RcoIncomeFromQualifiedEquityCodeGGOriginal(this, "dummy"),
-                new RcoIncomeUnderANonQualifiedDeferredCompensationPlanCodeZCorrect(this, "dummy"),
-                new RcoIncomeUnderANonQualifiedDeferredCompensationPlanCodeZOriginal(this, "dummy"),
-                new RcoMedicalSavingsAccountCodeRCorrect(this, "dummy"),
-                new RcoMedicalSavingsAccountCodeROriginal(this, "dummy"),
-                new RcoQualifiedAdoptionExpensesCodeTCorrect(this, "dummy"),
-                new RcoQualifiedAdoptionExpensesCodeTOriginal(this, "dummy"),
-                new RcoSimpleRetirementAccountCodeSCorrect(this, "dummy"),
-                new RcoSimpleRetirementAccountCodeSOriginal(this, "dummy"),
-                new RcoUncollectedEmployeeTaxOnTipsCodesABCorrect(this, "dummy"),
-                new RcoUncollectedEmployeeTaxOnTipsCodesABOriginal(this, "dummy"),
-                new RcoUncollectedMedicareTaxCodeNCorrect(this, "dummy"),
-                new RcoUncollectedMedicareTaxCodeNOriginal(this, "dummy"),
-                new RcoUncollectedSocialSecurityOrRRTATaxCodeMCorrect(this, "dummy"),
-                new RcoUncollectedSocialSecurityOrRRTATaxCodeMOriginal(this, "dummy"),
+                new RcoIncomeFromQualifiedEquityCodeGGCorrect(this, "Helper"),
+                new RcoIncomeFromQualifiedEquityCodeGGOriginal(this, "Helper"),
+                new RcoIncomeUnderANonQualifiedDeferredCompensationPlanCodeZCorrect(this, "Helper"),
+                new RcoIncomeUnderANonQualifiedDeferredCompensationPlanCodeZOriginal(this, "Helper"),
+                new RcoMedicalSavingsAccountCodeRCorrect(this, "Helper"),
+                new RcoMedicalSavingsAccountCodeROriginal(this, "Helper"),
+                new RcoQualifiedAdoptionExpensesCodeTCorrect(this, "Helper"),
+                new RcoQualifiedAdoptionExpensesCodeTOriginal(this, "Helper"),
+                new RcoSimpleRetirementAccountCodeSCorrect(this, "Helper"),
+                new RcoSimpleRetirementAccountCodeSOriginal(this, "Helper"),
+                new RcoUncollectedEmployeeTaxOnTipsCodesABCorrect(this, "Helper"),
+                new RcoUncollectedEmployeeTaxOnTipsCodesABOriginal(this, "Helper"),
+                new RcoUncollectedMedicareTaxCodeNCorrect(this, "Helper"),
+                new RcoUncollectedMedicareTaxCodeNOriginal(this, "Helper"),
+                new RcoUncollectedSocialSecurityOrRRTATaxCodeMCorrect(this, "Helper"),
+                new RcoUncollectedSocialSecurityOrRRTATaxCodeMOriginal(this, "Helper"),
             };
         }
     }

@@ -30,12 +30,12 @@ namespace EFW2C.Records
             return null;
         }
 
-        protected override List<FieldBase> CreateVerifyFieldsList()
+        protected override List<FieldBase> CreateHelperFieldsList()
         {
             return new List<FieldBase>
             {
                 new RcvIdentifierField (this),
-                new RcvSupplementalData(this, "dummy"),
+                new RcvSupplementalData(this, "Helper"),
             };
         }
     }

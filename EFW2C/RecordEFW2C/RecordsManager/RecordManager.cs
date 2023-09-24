@@ -67,7 +67,7 @@ namespace EFW2C.Manager
             if (!VerifyOrder())
                 return false;
 
-            if (!IsFieldsBelongToClass())
+            if (!VerifyFieldsInRecords())
                 return true;
 
             foreach (var record in _records)
@@ -112,11 +112,11 @@ namespace EFW2C.Manager
             return manager;
         }
 
-        private bool IsFieldsBelongToClass()
+        private bool VerifyFieldsInRecords()
         {
             foreach (var record in _records)
             {
-                if (!record.IsFieldsBelongToClass(record.Fields))
+                if (!RecordBase.AreFieldsBelongToRecord(record, record.Fields))
                     return false;
             }
 
