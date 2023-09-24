@@ -52,9 +52,7 @@ namespace EFW2C.Fields
 
             var originalName = ClassName.Replace(Constants.CorrectStr, Constants.OriginalStr);
 
-            var originalfield = _record.GetField(originalName);
-
-            return originalfield == null ? true : string.IsNullOrWhiteSpace(originalfield.DataInRecordBuffer());
+            return IsFieldNullOrWhiteSpace(_record.GetField(originalName));
         }
 
         protected bool IsOneCorrectMoneyFieldProvided()

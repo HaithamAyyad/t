@@ -75,16 +75,10 @@ namespace EFW2C.Records
         public int GetTaxYear()
         {
             var taxYearField = GetField(typeof(RceTaxYear).Name);
-
-            if (taxYearField == null)
+            if (FieldBase.IsFieldNullOrWhiteSpace(taxYearField))
                 throw new Exception($"{ClassName}: tax year field is not provided");
 
-            var taxYearData = taxYearField.DataInRecordBuffer();
-
-            if (string.IsNullOrWhiteSpace(taxYearData))
-                throw new Exception($"{ClassName}: tax year is not provided");
-
-            return Int32.Parse(taxYearData);
+            return int.Parse(taxYearField.DataInRecordBuffer());
         }
     }
 }

@@ -45,6 +45,7 @@ namespace EFW2C.Manager
 
             return true;
         }
+
         private void CheckLock(bool check)
         {
             if(check && !_lock)
@@ -349,11 +350,7 @@ namespace EFW2C.Manager
                     }
                 }
 
-                manager.Lock(true);
                 manager.Verify();
-                manager.Lock(false);
-
-
 
                 return manager;
             }

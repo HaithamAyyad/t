@@ -147,9 +147,6 @@ namespace EFW2C.Records
         }
         public void AddField(FieldBase field)
         {
-            if (string.IsNullOrWhiteSpace(field.ClassName))
-                throw new Exception($"{ClassName}:{field.ClassName} Field name missing to assign Name property");
-
             if (IsFieldExists(field))
                 throw new Exception($"{field.ClassName} is already added to {ClassName}");
 
@@ -175,9 +172,7 @@ namespace EFW2C.Records
 
         public bool Verify()
         {
-            var recordName = new string(RecordBuffer, 0, 3);
-
-            if (string.IsNullOrWhiteSpace(recordName))
+            if (string.IsNullOrWhiteSpace(new string(RecordBuffer, 0, 3)))
                 throw new Exception($"{ClassName} RecordName can't be empty.");
 
             if (!CheckRequiredFields())
@@ -250,10 +245,6 @@ namespace EFW2C.Records
             {
                 var data = new string(RecordBuffer, field.Pos, field.Length);
 
-                if (field.Pos == 3)
-                {
-
-                }
                 if (!string.IsNullOrWhiteSpace(data))
                 {
                     var newField = field.Clone(this, data.TrimEnd());
