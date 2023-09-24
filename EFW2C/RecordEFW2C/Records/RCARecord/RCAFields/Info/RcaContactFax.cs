@@ -8,7 +8,7 @@ namespace EFW2C.Fields
     //Created by : hsa 9-3-2023
     //Reviewed by : 
 
-    public class RcaContactFax : ContactFaxBase
+    internal class RcaContactFax : ContactFaxBase
     {
         public RcaContactFax(RecordBase record, string data)
             : base(record, data)

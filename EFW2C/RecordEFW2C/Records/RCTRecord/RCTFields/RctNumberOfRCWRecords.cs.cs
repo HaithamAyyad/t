@@ -12,7 +12,7 @@ namespace EFW2C.Fields
     //Created by : HSA 9-8-2023
     //Reviewed by : 
 
-    public class RctNumberOfRCWRecords : FieldBase
+    internal class RctNumberOfRCWRecords : FieldBase
     {
         public RctNumberOfRCWRecords(RecordBase record)
             : base(record, "0")

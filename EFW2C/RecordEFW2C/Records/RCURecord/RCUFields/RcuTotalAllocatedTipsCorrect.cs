@@ -9,7 +9,7 @@ namespace EFW2C.Fields
     //Created by : HSA 9-6-2023
     //Reviewed by : 
 
-    public class RcuTotalAllocatedTipsCorrect : SumFieldCorrect
+    internal class RcuTotalAllocatedTipsCorrect : SumFieldCorrect
     {
         public RcuTotalAllocatedTipsCorrect(RecordBase record)
             : base(record, Constants.WhiteSpaceString)

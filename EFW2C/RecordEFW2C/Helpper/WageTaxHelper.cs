@@ -10,7 +10,7 @@ using test.RecordEFW2C.Common;
 
 namespace EFW2C.Common.Helper
 {
-    public class WageTaxHelper
+    internal class WageTaxHelper
     {
         public static Dictionary<int, WageTax> _wageTaxTabel;
         

@@ -8,7 +8,7 @@ namespace EFW2C.Fields
     //Created by : 
     //Reviewed by : 
 
-    public class RcoIncomeUnderANonQualifiedDeferredCompensationPlanCodeZCorrect : MoneyCorrect
+    internal class RcoIncomeUnderANonQualifiedDeferredCompensationPlanCodeZCorrect : MoneyCorrect
     {
         public RcoIncomeUnderANonQualifiedDeferredCompensationPlanCodeZCorrect(RecordBase record, string data)
             : base(record, data)

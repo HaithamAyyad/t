@@ -10,7 +10,7 @@ namespace EFW2C.Fields
     //Created by : HSA 9-9-2023
     //Reviewed by : 
 
-    public class RcwMedicareWagesAndTipsCorrect : MoneyCorrect
+    internal class RcwMedicareWagesAndTipsCorrect : MoneyCorrect
     {
         public RcwMedicareWagesAndTipsCorrect(RecordBase record, string data)
             : base(record, data)

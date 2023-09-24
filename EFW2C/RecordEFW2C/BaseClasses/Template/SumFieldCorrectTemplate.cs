@@ -9,7 +9,7 @@ namespace EFW2C.Fields
     //Created by : 
     //Reviewed by : 
 
-    public class SumFieldCorrectTemplate : SumFieldCorrect
+    internal class SumFieldCorrectTemplate : SumFieldCorrect
     {
         public SumFieldCorrectTemplate(RecordBase record)
             : base(record, Constants.WhiteSpaceString)

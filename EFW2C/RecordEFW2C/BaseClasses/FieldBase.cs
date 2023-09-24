@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace EFW2C.Fields
 {
-    public abstract class FieldBase
+    internal abstract class FieldBase
     {
         protected RecordBase _record;
         protected int _pos;

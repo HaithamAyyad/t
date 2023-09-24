@@ -8,7 +8,7 @@ namespace EFW2C.Fields
     //Created by : HSA 9-9-2023
     //Reviewed by : 
 
-    public class RcsReportingPeriodCorrect : UnEmploymentReportingCorrect
+    internal class RcsReportingPeriodCorrect : UnEmploymentReportingCorrect
     {
         public RcsReportingPeriodCorrect(RecordBase record, string data)
             : base(record, data)

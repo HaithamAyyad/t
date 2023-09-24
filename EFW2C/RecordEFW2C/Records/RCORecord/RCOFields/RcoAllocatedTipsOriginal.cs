@@ -8,7 +8,7 @@ namespace EFW2C.Fields
     //Created by : 
     //Reviewed by : 
 
-    public class RcoAllocatedTipsOriginal : MoneyOriginal
+    internal class RcoAllocatedTipsOriginal : MoneyOriginal
     {
         public RcoAllocatedTipsOriginal(RecordBase record, string data)
             : base(record, data)

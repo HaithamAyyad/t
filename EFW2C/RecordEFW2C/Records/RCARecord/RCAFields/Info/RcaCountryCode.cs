@@ -8,7 +8,7 @@ namespace EFW2C.Fields
     //Created by : hsa 9-2-2023
     //Reviewed by : 
 
-    public class RcaCountryCode : CountryCodeBase
+    internal class RcaCountryCode : CountryCodeBase
     {
         public RcaCountryCode(RecordBase record, string data)
             : base(record, data)

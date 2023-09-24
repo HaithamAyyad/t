@@ -9,7 +9,7 @@ namespace EFW2C.Fields
     //Created by : HSA 9-9-2023
     //Reviewed by : 
 
-    public class RcwWagesTipsAndOtherCompensationCorrect : MoneyCorrect
+    internal class RcwWagesTipsAndOtherCompensationCorrect : MoneyCorrect
     {
         public RcwWagesTipsAndOtherCompensationCorrect(RecordBase record, string data)
             : base(record, data)

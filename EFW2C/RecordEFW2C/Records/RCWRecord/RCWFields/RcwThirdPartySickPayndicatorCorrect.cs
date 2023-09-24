@@ -8,7 +8,7 @@ namespace EFW2C.Fields
     //Created by : 9-9-2023
     //Reviewed by : 
 
-    public class RcwThirdPartySickPayndicatorCorrect : FieldCorrect
+    internal class RcwThirdPartySickPayndicatorCorrect : FieldCorrect
     {
         public RcwThirdPartySickPayndicatorCorrect(RecordBase record, string data)
             : base(record, data)

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace test.RecordEFW2C.Common
 {
-    public class WageTaxData
+    internal class WageTaxData
     {
         public double TaxRate { get; set; }
         public double MaxTaxedEarnings { get; set; }
@@ -14,7 +14,7 @@ namespace test.RecordEFW2C.Common
         public double MinHouseHoldCoveredWages { get; set; }
     }
 
-    public class  WageTax
+    internal class  WageTax
     {
         public WageTaxData SocialSecurity { get; set; }
         public WageTaxData MediCare { get; set; }

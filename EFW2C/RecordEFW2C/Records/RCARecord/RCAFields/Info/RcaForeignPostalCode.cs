@@ -8,7 +8,7 @@ namespace EFW2C.Fields
     //Created by : hsa 9-2-2023
     //Reviewed by : 
 
-    public class RcaForeignPostalCode : ForeignPostalCodeBase
+    internal class RcaForeignPostalCode : ForeignPostalCodeBase
     {
         public RcaForeignPostalCode(RecordBase record, string data)
             : base(record, data)

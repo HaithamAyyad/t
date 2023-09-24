@@ -9,7 +9,7 @@ namespace EFW2C.Fields
     //Created by : HSA 9-5-2023
     //Reviewed by : 
 
-    public abstract class FieldOriginal : FieldBase
+    internal abstract class FieldOriginal : FieldBase
     {
         public FieldOriginal(RecordBase record, string data)
             : base(record, data)

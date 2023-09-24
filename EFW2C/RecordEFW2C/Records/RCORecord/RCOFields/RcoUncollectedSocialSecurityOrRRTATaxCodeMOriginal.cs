@@ -8,7 +8,7 @@ namespace EFW2C.Fields
     //Created by : 
     //Reviewed by : 
 
-    public class RcoUncollectedSocialSecurityOrRRTATaxCodeMOriginal : MoneyOriginal
+    internal class RcoUncollectedSocialSecurityOrRRTATaxCodeMOriginal : MoneyOriginal
     {
         public RcoUncollectedSocialSecurityOrRRTATaxCodeMOriginal(RecordBase record, string data)
             : base(record, data)

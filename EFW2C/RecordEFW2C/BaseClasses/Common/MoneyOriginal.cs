@@ -8,7 +8,7 @@ namespace EFW2C.Fields
     //Created by : HSA 9-5-2023
     //Reviewed by : 
 
-    public abstract class MoneyOriginal : FieldOriginal
+    internal abstract class MoneyOriginal : FieldOriginal
     {
         public MoneyOriginal(RecordBase record, string data)
             : base(record, data)

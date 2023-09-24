@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace EFW2C.Records
 {
-    public class RcuRecord : RecordBase
+    internal class RcuRecord : RecordBase
     {
         public RcuRecord(RecordManager recordManager)
             : base(recordManager, RecordNameEnum.Rcu.ToString())

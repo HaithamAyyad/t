@@ -9,7 +9,7 @@ namespace EFW2C.Fields
     //Created by : HSA 9-8-2023
     //Reviewed by : 
 
-    public class RctTotalDependentCareBenefitsOriginal : SumFieldOriginal
+    internal class RctTotalDependentCareBenefitsOriginal : SumFieldOriginal
     {
         public RctTotalDependentCareBenefitsOriginal(RecordBase record)
             : base(record, Constants.WhiteSpaceString)

@@ -9,7 +9,7 @@ namespace EFW2C.Fields
     //Created by : HSA 9-4-2023
     //Reviewed by : 
 
-    public class RceAgentIndicator : FieldBase
+    internal class RceAgentIndicator : FieldBase
     {
         public RceAgentIndicator(RecordBase record, string data)
             : base(record, data)

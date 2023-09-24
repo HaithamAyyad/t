@@ -8,7 +8,7 @@ namespace EFW2C.Fields
     //Created by  : HSA on 9-1-2023
     //Reviewed by : HSA on ........
 
-    public abstract class IdentifierFieldBase : FieldBase
+    internal abstract class IdentifierFieldBase : FieldBase
     {
         public IdentifierFieldBase(RecordBase record,string data)
             : base(record, data)

@@ -9,7 +9,7 @@ namespace EFW2C.Fields
     //Created by : HSA 9-8-2023
     //Reviewed by : 
 
-    public class RctTotalNontaxableCombatPayCodeQCorrect : SumFieldCorrect
+    internal class RctTotalNontaxableCombatPayCodeQCorrect : SumFieldCorrect
     {
         public RctTotalNontaxableCombatPayCodeQCorrect(RecordBase record)
             : base(record, Constants.WhiteSpaceString)

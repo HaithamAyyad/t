@@ -9,7 +9,7 @@ namespace EFW2C.Fields
     //Created by : Hsa 9-1-2023
     //Reviewed by : 
 
-    public class RcaSoftwareVendorCode : FieldBase
+    internal class RcaSoftwareVendorCode : FieldBase
     {
         public RcaSoftwareVendorCode(RecordBase record, string data)
             : base(record, data)

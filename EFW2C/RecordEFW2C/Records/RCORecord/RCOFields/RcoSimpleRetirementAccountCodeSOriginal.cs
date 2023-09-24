@@ -8,7 +8,7 @@ namespace EFW2C.Fields
     //Created by : 
     //Reviewed by : 
 
-    public class RcoSimpleRetirementAccountCodeSOriginal : MoneyOriginal
+    internal class RcoSimpleRetirementAccountCodeSOriginal : MoneyOriginal
     {
         public RcoSimpleRetirementAccountCodeSOriginal(RecordBase record, string data)
             : base(record, data)

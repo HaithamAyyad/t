@@ -8,7 +8,7 @@ namespace EFW2C.Fields
     //Created by : HSA 9-42023
     //Reviewed by : 
 
-    public class RcwForeignStateProvince : ForeignStateProvinceBase
+    internal class RcwForeignStateProvince : ForeignStateProvinceBase
     {
         public RcwForeignStateProvince(RecordBase record, string data)
             : base(record, data)

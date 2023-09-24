@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace EFW2C.Records
 {
-    public class RecordTemplate : RecordBase
+    internal class RecordTemplate : RecordBase
     {
         public RecordTemplate(RecordManager recordManager)
             : base(recordManager, "")

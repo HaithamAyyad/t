@@ -9,7 +9,7 @@ namespace EFW2C.Fields
     //Created by : HSA 9-8-2023
     //Reviewed by : 
 
-    public class RctTotalNonqualifiedPlanNotSection457Correct : SumFieldCorrect
+    internal class RctTotalNonqualifiedPlanNotSection457Correct : SumFieldCorrect
     {
         public RctTotalNonqualifiedPlanNotSection457Correct(RecordBase record)
             : base(record, Constants.WhiteSpaceString)

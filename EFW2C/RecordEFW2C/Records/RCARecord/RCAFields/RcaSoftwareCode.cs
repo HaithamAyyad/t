@@ -8,7 +8,7 @@ namespace EFW2C.Fields
     //Created by : 
     //Reviewed by : 
 
-    public class RcaSoftwareCode : FieldBase
+    internal class RcaSoftwareCode : FieldBase
     {
         public RcaSoftwareCode(RecordBase record, string data)
             : base(record, data)

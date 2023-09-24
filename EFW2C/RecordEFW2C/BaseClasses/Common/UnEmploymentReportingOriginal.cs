@@ -8,7 +8,7 @@ namespace EFW2C.Fields
     //Created by : 
     //Reviewed by : 
 
-    public abstract class UnEmploymentReportingOriginal : FieldOriginal
+    internal abstract class UnEmploymentReportingOriginal : FieldOriginal
     {
         public UnEmploymentReportingOriginal(RecordBase record, string data)
             : base(record, data)

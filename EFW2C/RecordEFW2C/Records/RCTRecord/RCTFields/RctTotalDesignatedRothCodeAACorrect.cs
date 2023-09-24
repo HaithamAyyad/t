@@ -9,7 +9,7 @@ namespace EFW2C.Fields
     //Created by : HSA 9-8-2023
     //Reviewed by : 
 
-    public class RctTotalDesignatedRothCodeAACorrect : SumFieldCorrect
+    internal class RctTotalDesignatedRothCodeAACorrect : SumFieldCorrect
     {
         public RctTotalDesignatedRothCodeAACorrect(RecordBase record)
             : base(record, Constants.WhiteSpaceString)

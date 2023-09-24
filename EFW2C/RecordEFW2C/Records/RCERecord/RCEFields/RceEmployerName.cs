@@ -8,7 +8,7 @@ namespace EFW2C.Fields
     //Created by : HSA 9-5-2013
     //Reviewed by : 
 
-    public class RceEmployerName : FieldBase
+    internal class RceEmployerName : FieldBase
     {
         public RceEmployerName(RecordBase record, string data)
             : base(record, data)

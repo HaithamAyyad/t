@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace EFW2C.Common.Helper
 {
-    public class EnumHelper
+    internal class EnumHelper
     {
         public static bool IsCountryCodeValid(string str)
         {

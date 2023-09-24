@@ -8,7 +8,7 @@ namespace EFW2C.Fields
     //Created by : HSA 9-9-2023
     //Reviewed by : 
 
-    public class RcsTaxingEntityCodeOriginal : FieldOriginal
+    internal class RcsTaxingEntityCodeOriginal : FieldOriginal
     {
         public RcsTaxingEntityCodeOriginal(RecordBase record, string data)
             : base(record, data)

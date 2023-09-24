@@ -9,7 +9,7 @@ namespace EFW2C.Fields
     //Created by : HSA 9-9-2023
     //Reviewed by : 
 
-    public class RcwCostOfEmployerSponsoredHealthCoverageCodeDDCorrect : MoneyCorrect
+    internal class RcwCostOfEmployerSponsoredHealthCoverageCodeDDCorrect : MoneyCorrect
     {
         public RcwCostOfEmployerSponsoredHealthCoverageCodeDDCorrect(RecordBase record, string data)
             : base(record, data)

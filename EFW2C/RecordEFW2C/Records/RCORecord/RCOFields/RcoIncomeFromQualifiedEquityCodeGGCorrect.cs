@@ -8,7 +8,7 @@ namespace EFW2C.Fields
     //Created by : 
     //Reviewed by : 
 
-    public class RcoIncomeFromQualifiedEquityCodeGGCorrect : MoneyCorrect
+    internal class RcoIncomeFromQualifiedEquityCodeGGCorrect : MoneyCorrect
     {
         public RcoIncomeFromQualifiedEquityCodeGGCorrect(RecordBase record, string data)
             : base(record, data)

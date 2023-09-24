@@ -8,7 +8,7 @@ namespace EFW2C.Fields
     //Created by : 9-9-2023
     //Reviewed by : 
 
-    public class RcwStatutoryEmployeeIndicatorCorrect : FieldCorrect
+    internal class RcwStatutoryEmployeeIndicatorCorrect : FieldCorrect
     {
         public RcwStatutoryEmployeeIndicatorCorrect(RecordBase record, string data)
             : base(record, data)

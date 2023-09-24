@@ -9,7 +9,7 @@ namespace EFW2C.Fields
     //Created by : HSA 9-1-2023
     //Reviewed by : HSA on ........
 
-    public abstract class EinFieldBase : FieldBase
+    internal abstract class EinFieldBase : FieldBase
     {
         public EinFieldBase(RecordBase record, string data)
             : base(record, data)

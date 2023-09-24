@@ -8,7 +8,7 @@ namespace EFW2C.Fields
     //Created by : 9-9-2023
     //Reviewed by : 
 
-    public class RcwRetirementPlanIndicatorOriginal : FieldOriginal
+    internal class RcwRetirementPlanIndicatorOriginal : FieldOriginal
     {
         public RcwRetirementPlanIndicatorOriginal(RecordBase record, string data)
             : base(record, data)

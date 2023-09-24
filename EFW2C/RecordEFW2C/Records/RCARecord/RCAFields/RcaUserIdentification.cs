@@ -8,7 +8,7 @@ namespace EFW2C.Fields
     //Created by : HSA 9-1-2023
     //Reviewed by : HSA on ........
 
-    public class RcaUserIdentification : FieldBase
+    internal class RcaUserIdentification : FieldBase
     {
         public RcaUserIdentification(RecordBase record, string data)
             : base(record, data)

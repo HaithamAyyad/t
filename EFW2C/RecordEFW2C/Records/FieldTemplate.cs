@@ -8,7 +8,7 @@ namespace EFW2C.Fields
     //Created by : 
     //Reviewed by : 
 
-    public class FieldTemplate : FieldBase
+    internal class FieldTemplate : FieldBase
     {
         public FieldTemplate(RecordBase record, string data)
             : base(record, data)

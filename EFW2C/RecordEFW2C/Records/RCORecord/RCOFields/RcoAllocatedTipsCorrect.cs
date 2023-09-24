@@ -8,7 +8,7 @@ namespace EFW2C.Fields
     //Created by : 
     //Reviewed by : 
 
-    public class RcoAllocatedTipsCorrect : MoneyCorrect
+    internal class RcoAllocatedTipsCorrect : MoneyCorrect
     {
         public RcoAllocatedTipsCorrect(RecordBase record, string data)
             : base(record, data)

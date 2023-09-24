@@ -8,7 +8,7 @@ namespace EFW2C.Fields
     //Created by : hsa 9-4-2023
     //Reviewed by : 
 
-    public class RcwStateAbbreviation : StateAbbreviationBase
+    internal class RcwStateAbbreviation : StateAbbreviationBase
     {
         public RcwStateAbbreviation(RecordBase record, string data)
             : base(record, data)

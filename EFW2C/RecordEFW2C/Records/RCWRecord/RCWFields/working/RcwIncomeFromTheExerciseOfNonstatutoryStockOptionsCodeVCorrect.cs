@@ -9,7 +9,7 @@ namespace EFW2C.Fields
     //Created by : HSA 9-9-2023
     //Reviewed by : 
 
-    public class RcwIncomeFromTheExerciseOfNonstatutoryStockOptionsCodeVCorrect : MoneyCorrect
+    internal class RcwIncomeFromTheExerciseOfNonstatutoryStockOptionsCodeVCorrect : MoneyCorrect
     {
         public RcwIncomeFromTheExerciseOfNonstatutoryStockOptionsCodeVCorrect(RecordBase record, string data)
             : base(record, data)

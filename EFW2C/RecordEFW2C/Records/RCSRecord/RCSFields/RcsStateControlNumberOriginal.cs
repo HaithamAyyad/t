@@ -8,7 +8,7 @@ namespace EFW2C.Fields
     //Created by : 9-9-2023
     //Reviewed by : 
 
-    public class RcsStateControlNumberOriginal : FieldOriginal
+    internal class RcsStateControlNumberOriginal : FieldOriginal
     {
         public RcsStateControlNumberOriginal(RecordBase record, string data)
             : base(record, data)

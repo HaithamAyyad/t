@@ -8,7 +8,7 @@ namespace EFW2C.Fields
     //Created by : 9-9-2023
     //Reviewed by : 
 
-    public class RcwThirdPartySickPayndicatorOriginal : FieldOriginal
+    internal class RcwThirdPartySickPayndicatorOriginal : FieldOriginal
     {
         public RcwThirdPartySickPayndicatorOriginal(RecordBase record, string data)
             : base(record, data)

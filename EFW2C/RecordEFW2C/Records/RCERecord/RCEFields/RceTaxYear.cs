@@ -8,7 +8,7 @@ namespace EFW2C.Fields
     //Created by : HSA 9-3-2023
     //Reviewed by : 
 
-    public class RceTaxYear : FieldBase
+    internal class RceTaxYear : FieldBase
     {
         public RceTaxYear(RecordBase record, string data)
             : base(record, data)

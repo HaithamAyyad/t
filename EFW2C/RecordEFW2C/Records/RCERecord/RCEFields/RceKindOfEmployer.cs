@@ -9,7 +9,7 @@ namespace EFW2C.Fields
     //Created by : HSA 9-4-2023
     //Reviewed by : 
 
-    public class RceKindOfEmployer : FieldBase
+    internal class RceKindOfEmployer : FieldBase
     {
         public RceKindOfEmployer(RecordBase record, string data)
             : base(record, data)

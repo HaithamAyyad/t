@@ -8,7 +8,7 @@ namespace EFW2C.Fields
     //Created by : 
     //Reviewed by : 
 
-    public class RcoAggregateDeferralsCodeHHCorrect : MoneyCorrect
+    internal class RcoAggregateDeferralsCodeHHCorrect : MoneyCorrect
     {
         public RcoAggregateDeferralsCodeHHCorrect(RecordBase record, string data)
             : base(record, data)

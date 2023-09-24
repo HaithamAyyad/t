@@ -9,7 +9,7 @@ namespace EFW2C.Fields
     //Created by : HSA 9-9-2023
     //Reviewed by : 
 
-    public class RctTotalMedicareTaxWithheldCorrect : SumFieldCorrect
+    internal class RctTotalMedicareTaxWithheldCorrect : SumFieldCorrect
     {
         public RctTotalMedicareTaxWithheldCorrect(RecordBase record)
             : base(record, Constants.WhiteSpaceString)

@@ -9,7 +9,7 @@ namespace EFW2C.Fields
     //Created by : 9-8-2023
     //Reviewed by : 
 
-    public class RcuTotalUncollectedSocialSecurityOrRRTATaxCodeMCorrect : SumFieldCorrect
+    internal class RcuTotalUncollectedSocialSecurityOrRRTATaxCodeMCorrect : SumFieldCorrect
     {
         public RcuTotalUncollectedSocialSecurityOrRRTATaxCodeMCorrect(RecordBase record)
             : base(record, Constants.WhiteSpaceString)

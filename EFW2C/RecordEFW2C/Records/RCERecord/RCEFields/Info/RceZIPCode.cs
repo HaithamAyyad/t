@@ -8,7 +8,7 @@ namespace EFW2C.Fields
     //Created by : hsa 9-2-2023
     //Reviewed by : 
 
-    public class RceZipCode : ZipCodeBase
+    internal class RceZipCode : ZipCodeBase
     {
         public RceZipCode(RecordBase record, string data)
             : base(record, data)

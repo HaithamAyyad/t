@@ -10,7 +10,7 @@ namespace EFW2C.Fields
     //Created by : HSA 9-9-2023
     //Reviewed by : 
 
-    public class RctTotalSocialSecurityTipsOriginal : SumFieldOriginal
+    internal class RctTotalSocialSecurityTipsOriginal : SumFieldOriginal
     {
         public RctTotalSocialSecurityTipsOriginal(RecordBase record)
             : base(record, Constants.WhiteSpaceString)

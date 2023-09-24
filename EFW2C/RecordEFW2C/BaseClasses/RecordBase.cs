@@ -9,7 +9,7 @@ using EFW2C.Manager;
 
 namespace EFW2C.Records
 {
-    public abstract class RecordBase
+    internal abstract class RecordBase
     {
         private RecordManager _manager;
         public char[] RecordBuffer { get; private set; }

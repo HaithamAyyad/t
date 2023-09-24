@@ -8,7 +8,7 @@ namespace EFW2C.Fields
     //Created by : HSA 9-5-2023
     //Reviewed by : 
 
-    public abstract class MoneyCorrect : FieldCorrect
+    internal abstract class MoneyCorrect : FieldCorrect
     {
         public MoneyCorrect(RecordBase record, string data)
             : base(record, data)

@@ -8,7 +8,7 @@ namespace EFW2C.Fields
     //Created by : 
     //Reviewed by : 
 
-    public class FieldOriginalTemplate : FieldOriginal
+    internal class FieldOriginalTemplate : FieldOriginal
     {
         public FieldOriginalTemplate(RecordBase record, string data)
             : base(record, data)

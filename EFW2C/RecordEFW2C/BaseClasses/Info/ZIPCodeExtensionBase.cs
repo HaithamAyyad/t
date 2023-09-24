@@ -8,7 +8,7 @@ namespace EFW2C.Fields
     //Created by : hsa 9-2-2023
     //Reviewed by : 
 
-    public abstract class ZipCodeExtensionBase : FieldBase
+    internal abstract class ZipCodeExtensionBase : FieldBase
     {
         public ZipCodeExtensionBase(RecordBase record, string data)
             : base(record, data)

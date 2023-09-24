@@ -8,7 +8,7 @@ namespace EFW2C.Fields
     //Created by : 
     //Reviewed by : 
 
-    public class RcoUncollectedMedicareTaxCodeNOriginal : MoneyOriginal
+    internal class RcoUncollectedMedicareTaxCodeNOriginal : MoneyOriginal
     {
         public RcoUncollectedMedicareTaxCodeNOriginal(RecordBase record, string data)
             : base(record, data)

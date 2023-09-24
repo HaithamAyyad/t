@@ -8,7 +8,7 @@ namespace EFW2C.Fields
     //Created by : HSA 9-9-2023
     //Reviewed by : 
 
-    public class RcsStateIncomeTaxWithheldOriginal : MoneyOriginal
+    internal class RcsStateIncomeTaxWithheldOriginal : MoneyOriginal
     {
         public RcsStateIncomeTaxWithheldOriginal(RecordBase record, string data)
             : base(record, data)

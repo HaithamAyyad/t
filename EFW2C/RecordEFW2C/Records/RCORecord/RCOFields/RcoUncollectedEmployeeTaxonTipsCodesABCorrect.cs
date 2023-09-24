@@ -8,7 +8,7 @@ namespace EFW2C.Fields
     //Created by : HSA 9-5-2023
     //Reviewed by : 
 
-    public class RcoUncollectedEmployeeTaxOnTipsCodesABCorrect : MoneyCorrect
+    internal class RcoUncollectedEmployeeTaxOnTipsCodesABCorrect : MoneyCorrect
     {
         public RcoUncollectedEmployeeTaxOnTipsCodesABCorrect(RecordBase record, string data)
             : base(record, data)

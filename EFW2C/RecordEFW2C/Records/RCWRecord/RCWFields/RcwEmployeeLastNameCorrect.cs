@@ -8,7 +8,7 @@ namespace EFW2C.Fields
     //Created by : 9-9-2023
     //Reviewed by : 
 
-    public class RcwEmployeeLastNameCorrect : FieldCorrect
+    internal class RcwEmployeeLastNameCorrect : FieldCorrect
     {
         public RcwEmployeeLastNameCorrect(RecordBase record, string data)
             : base(record, data)

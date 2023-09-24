@@ -8,7 +8,7 @@ namespace EFW2C.Fields
     //Created by : 
     //Reviewed by : 
 
-    public abstract class UnEmploymentReportingCorrect : FieldCorrect
+    internal abstract class UnEmploymentReportingCorrect : FieldCorrect
     {
         public UnEmploymentReportingCorrect(RecordBase record, string data)
             : base(record, data)

@@ -9,7 +9,7 @@ namespace EFW2C.Fields
     //Created by : HSA 9-4-2023
     //Reviewed by : HSA on ........
 
-    public class RceEinAgentFederal : EinFieldBase
+    internal class RceEinAgentFederal : EinFieldBase
     {
         public RceEinAgentFederal(RecordBase record, string data)
             : base(record, data)

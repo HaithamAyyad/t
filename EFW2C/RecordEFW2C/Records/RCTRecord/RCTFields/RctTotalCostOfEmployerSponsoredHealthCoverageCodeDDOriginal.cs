@@ -9,7 +9,7 @@ namespace EFW2C.Fields
     //Created by : HSA 9-8-2023
     //Reviewed by : 
 
-    public class RctTotalCostOfEmployerSponsoredHealthCoverageCodeDDOriginal : SumFieldOriginal
+    internal class RctTotalCostOfEmployerSponsoredHealthCoverageCodeDDOriginal : SumFieldOriginal
     {
         public RctTotalCostOfEmployerSponsoredHealthCoverageCodeDDOriginal(RecordBase record)
             : base(record, Constants.WhiteSpaceString)

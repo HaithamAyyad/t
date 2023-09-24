@@ -8,7 +8,7 @@ namespace EFW2C.Fields
     //Created by : hsa 9-2-2023
     //Reviewed by : 
 
-    public class RceLocationAddress : LocationAddressBase
+    internal class RceLocationAddress : LocationAddressBase
     {
         public RceLocationAddress(RecordBase record, string data)
             : base(record, data)

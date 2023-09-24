@@ -8,7 +8,7 @@ namespace EFW2C.Fields
     //Created by : HSA 9-3-1023
     //Reviewed by : 
 
-    public abstract class ForeignStateProvinceBase : FieldBase
+    internal abstract class ForeignStateProvinceBase : FieldBase
     {
         public ForeignStateProvinceBase(RecordBase record, string data)
             : base(record, data)

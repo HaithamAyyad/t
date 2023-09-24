@@ -8,7 +8,7 @@ namespace EFW2C.Fields
     //Created by : 
     //Reviewed by : 
 
-    public class MoneyCorrectTemplate : MoneyCorrect
+    internal class MoneyCorrectTemplate : MoneyCorrect
     {
         public MoneyCorrectTemplate(RecordBase record, string data)
             : base(record, data)

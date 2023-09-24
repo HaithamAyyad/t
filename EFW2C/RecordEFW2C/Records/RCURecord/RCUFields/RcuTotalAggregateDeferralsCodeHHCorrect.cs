@@ -9,7 +9,7 @@ namespace EFW2C.Fields
     //Created by : HSA 9-8-2023
     //Reviewed by : 
 
-    public class RcuTotalAggregateDeferralsCodeHHCorrect : SumFieldCorrect
+    internal class RcuTotalAggregateDeferralsCodeHHCorrect : SumFieldCorrect
     {
         public RcuTotalAggregateDeferralsCodeHHCorrect(RecordBase record)
             : base(record, Constants.WhiteSpaceString)

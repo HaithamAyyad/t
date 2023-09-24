@@ -9,7 +9,7 @@ namespace EFW2C.Fields
     //Created by : HSA 9-9-2023
     //Reviewed by : 
 
-    public class RcwNonqualifiedPlanSection457Original : MoneyOriginal
+    internal class RcwNonqualifiedPlanSection457Original : MoneyOriginal
     {
         public RcwNonqualifiedPlanSection457Original(RecordBase record, string data)
             : base(record, data)

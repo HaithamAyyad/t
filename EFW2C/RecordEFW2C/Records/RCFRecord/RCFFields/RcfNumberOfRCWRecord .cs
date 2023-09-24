@@ -8,7 +8,7 @@ namespace EFW2C.Fields
     //Created by : 
     //Reviewed by : 
 
-    public class RcfNumberOfRCWRecord : FieldBase
+    internal class RcfNumberOfRCWRecord : FieldBase
     {
         public RcfNumberOfRCWRecord(RecordBase record)
             : base(record, "0")

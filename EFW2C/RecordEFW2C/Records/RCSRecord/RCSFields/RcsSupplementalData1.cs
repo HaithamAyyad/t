@@ -8,7 +8,7 @@ namespace EFW2C.Fields
     //Created by : HSA 9-10-2023
     //Reviewed by : 
 
-    public class RcsSupplementalData1 : FieldBase
+    internal class RcsSupplementalData1 : FieldBase
     {
         public RcsSupplementalData1(RecordBase record, string data)
             : base(record, data)

@@ -8,7 +8,7 @@ namespace EFW2C.Fields
     //Created by : hsa 9-1-2023
     //Reviewed by : 
 
-    public class RceCity : CityBase
+    internal class RceCity : CityBase
     {
         public RceCity(RecordBase record, string data)
             : base(record, data)

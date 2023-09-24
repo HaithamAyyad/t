@@ -8,7 +8,7 @@ namespace EFW2C.Fields
     //Created by : hsa 9-1-2023
     //Reviewed by : 
 
-    public abstract class ContactNameBase : FieldBase
+    internal abstract class ContactNameBase : FieldBase
     {
         public ContactNameBase(RecordBase record, string data)
             : base(record, data)

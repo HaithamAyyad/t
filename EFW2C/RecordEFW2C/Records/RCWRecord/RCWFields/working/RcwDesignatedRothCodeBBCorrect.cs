@@ -9,7 +9,7 @@ namespace EFW2C.Fields
     //Created by : HSA 9-9-2023
     //Reviewed by : 
 
-    public class RcwDesignatedRothCodeBBCorrect : MoneyCorrect
+    internal class RcwDesignatedRothCodeBBCorrect : MoneyCorrect
     {
         public RcwDesignatedRothCodeBBCorrect(RecordBase record, string data)
             : base(record, data)

@@ -9,7 +9,7 @@ namespace EFW2C.Fields
     //Created by : HSA 9-8-2023
     //Reviewed by : 
 
-    public class RcuTotalDesignatedRothContributionsCodeEEOriginal : SumFieldOriginal
+    internal class RcuTotalDesignatedRothContributionsCodeEEOriginal : SumFieldOriginal
     {
         public RcuTotalDesignatedRothContributionsCodeEEOriginal(RecordBase record)
             : base(record, Constants.WhiteSpaceString)

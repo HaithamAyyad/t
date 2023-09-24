@@ -9,7 +9,7 @@ namespace EFW2C.Fields
     //Created by : HSA 9-5-2023
     //Reviewed by : 
 
-    public abstract class FieldCorrect : FieldBase
+    internal abstract class FieldCorrect : FieldBase
     {
         public bool IgnoreOriginalField { get; set; }
         public FieldCorrect(RecordBase record, string data)

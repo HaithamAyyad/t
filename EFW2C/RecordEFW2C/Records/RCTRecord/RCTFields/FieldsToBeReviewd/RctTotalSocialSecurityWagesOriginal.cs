@@ -11,7 +11,7 @@ namespace EFW2C.Fields
     //Created by : HSA 9-9-2023
     //Reviewed by : 
 
-    public class RctTotalSocialSecurityWagesOriginal : SumFieldOriginal
+    internal class RctTotalSocialSecurityWagesOriginal : SumFieldOriginal
     {
         public RctTotalSocialSecurityWagesOriginal(RecordBase record)
             : base(record, Constants.WhiteSpaceString)

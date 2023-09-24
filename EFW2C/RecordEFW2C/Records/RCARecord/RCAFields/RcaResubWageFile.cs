@@ -8,7 +8,7 @@ namespace EFW2C.Fields
     //Created by : hSa 9-3-2023
     //Reviewed by : 
 
-    public class RcaResubWageFile : FieldBase
+    internal class RcaResubWageFile : FieldBase
     {
         public RcaResubWageFile(RecordBase record, string data)
             : base(record, data)

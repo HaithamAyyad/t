@@ -9,7 +9,7 @@ namespace EFW2C.Fields
     //Created by : 9-8-2023
     //Reviewed by : 
 
-    public class RcuTotalSimpleRetirementAccountCodeSOriginal : SumFieldOriginal
+    internal class RcuTotalSimpleRetirementAccountCodeSOriginal : SumFieldOriginal
     {
         public RcuTotalSimpleRetirementAccountCodeSOriginal(RecordBase record)
             : base(record, Constants.WhiteSpaceString)

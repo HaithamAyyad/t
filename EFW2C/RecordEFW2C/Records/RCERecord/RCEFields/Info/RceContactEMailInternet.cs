@@ -5,7 +5,7 @@ namespace EFW2C.Fields
     //Created by : hsa 9-4-2023
     //Reviewed by : 
 
-    public class RceContactEMailInternet : ContactEMailInternetBase
+    internal class RceContactEMailInternet : ContactEMailInternetBase
     {
         public RceContactEMailInternet(RecordBase record, string data)
             : base(record, data)

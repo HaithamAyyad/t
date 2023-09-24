@@ -8,7 +8,7 @@ namespace EFW2C.Fields
     //Created by : HSA 4-9-2023
     //Reviewed by : 
 
-    public class RceEstablishmentNumberCorrect : FieldBase
+    internal class RceEstablishmentNumberCorrect : FieldBase
     {
         public RceEstablishmentNumberCorrect(RecordBase record, string data)
             : base(record, data)

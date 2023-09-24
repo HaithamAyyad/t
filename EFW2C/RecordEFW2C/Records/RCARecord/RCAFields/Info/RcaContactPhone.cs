@@ -8,7 +8,7 @@ namespace EFW2C.Fields
     //Created by : hsa 9-2-2013
     //Reviewed by : 
 
-    public class RcaContactPhone : ContactPhoneBase
+    internal class RcaContactPhone : ContactPhoneBase
     {
         public RcaContactPhone(RecordBase record, string data)
             : base(record, data)

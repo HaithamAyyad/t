@@ -8,7 +8,7 @@ namespace EFW2C.Fields
     //Created by : 9-9-2023
     //Reviewed by : 
 
-    public class RcsSocialSecurityNumberCorrect : FieldCorrect
+    internal class RcsSocialSecurityNumberCorrect : FieldCorrect
     {
         public RcsSocialSecurityNumberCorrect(RecordBase record, string data)
             : base(record, data)

@@ -372,6 +372,7 @@
     <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\working\RcwWagesTipsAndOtherCompensationCorrect.cs" />
     <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\working\RcwWagesTipsAndOtherCompensationOriginal.cs" />
     <Compile Include="RecordEFW2C\Records\RCWRecord\RCWRecord.cs" />
+    <Compile Include="RecordEFW2C\testing\test.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\MaximumWagesAndTaxTabel.xml" />

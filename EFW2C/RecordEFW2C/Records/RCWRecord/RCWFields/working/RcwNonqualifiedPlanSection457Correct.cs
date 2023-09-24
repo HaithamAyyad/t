@@ -9,7 +9,7 @@ namespace EFW2C.Fields
     //Created by : HSA 9-9-2023
     //Reviewed by : 
 
-    public class RcwNonqualifiedPlanSection457Correct : MoneyCorrect
+    internal class RcwNonqualifiedPlanSection457Correct : MoneyCorrect
     {
         public RcwNonqualifiedPlanSection457Correct(RecordBase record, string data)
             : base(record, data)
