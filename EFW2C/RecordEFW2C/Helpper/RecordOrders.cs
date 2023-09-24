@@ -39,7 +39,7 @@ namespace EFW2C.Common.Helper
 
                 var rceRecordGroup = FindRceGroup(records, index);
 
-                if (!VerfiyRceGroup(rceRecordGroup, index))
+                if (!VerifyRceGroup(rceRecordGroup, index))
                     throw new Exception($"index {index} is not valid {RecordNameEnum.Rce} group");
 
                 index += rceRecordGroup.Count + 1;
@@ -51,7 +51,7 @@ namespace EFW2C.Common.Helper
             return true;
         }
 
-        private static bool VerfiyRceGroup(List<RecordBase> rceRecordGroup , int mainIndex)
+        private static bool VerifyRceGroup(List<RecordBase> rceRecordGroup , int mainIndex)
         {
             if(rceRecordGroup != null && rceRecordGroup.Count > 1)
             {
@@ -73,7 +73,7 @@ namespace EFW2C.Common.Helper
                     {
                         var rcwRecordGroup = FindRcwGroup(rceRecordGroup, index);
 
-                        if (!VerfiyRcwGroup(rcwRecordGroup, index + mainIndex))
+                        if (!VerifyRcwGroup(rcwRecordGroup, index + mainIndex))
                             throw new Exception($"index {index + mainIndex + 1} is not valid {RecordNameEnum.Rcw} group");
 
                         index += rcwRecordGroup.Count + 1;
@@ -156,7 +156,7 @@ namespace EFW2C.Common.Helper
             return false;
         }
 
-        private static bool VerfiyRcwGroup(List<RecordBase> rcwRecordGroup, int mainIndex)
+        private static bool VerifyRcwGroup(List<RecordBase> rcwRecordGroup, int mainIndex)
         {
             if (rcwRecordGroup.Count == 0)
                 return true;

@@ -78,7 +78,7 @@ namespace EFW2C.Records
                                                       .ToList();
 
                 if (duplicateNames.Any())
-                    throw new Exception($"{duplicateNames[0]} : this field is already added in verfiy field list");
+                    throw new Exception($"{duplicateNames[0]} : this field is already added in verify field list");
 
                 var pos = 0;
 
