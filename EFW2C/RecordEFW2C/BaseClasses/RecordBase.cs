@@ -29,19 +29,10 @@ namespace EFW2C.Records
 
             RecordName = recordName;
 
-            if (buffer != null)
-            {
-                RecordBuffer = buffer;
-            }
-            else
-            {
-                RecordBuffer = new string(' ', Constants.RecordLength).ToCharArray();
-                Array.Copy(RecordName.ToCharArray(), 0, RecordBuffer, 0, 3);
-            }
+            RecordBuffer = buffer != null ? buffer : RecordBuffer = new string(' ', Constants.RecordLength).ToCharArray();
 
             _fields = new List<FieldBase>();
             ClassName = GetType().Name;
-
 
             _blankFields = CreateBlankList();
 
