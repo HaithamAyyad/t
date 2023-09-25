@@ -17,6 +17,7 @@ namespace EFW2C.Records
         {
             return null;
         }
+
         protected override List<(int, int)> CreateBlankList()
         {
             return new List<(int, int)>()

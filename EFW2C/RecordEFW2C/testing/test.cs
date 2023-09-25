@@ -9,8 +9,35 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace EFW2C.RecordEFW2C.testing
+namespace EFW2C.RecordEFW2C.W2cDocument
 {
+    public class ManagerSingleton
+    {
+        private static ManagerSingleton instance;
+
+        private RecordManager _recordManager;
+
+        private ManagerSingleton()
+        {
+            _recordManager = new RecordManager();
+        }
+
+        public static ManagerSingleton GetInstance()
+        {
+            if (instance == null)
+            {
+                instance = new ManagerSingleton();
+            }
+
+            return instance;
+        }
+
+        internal RecordManager GetRecordManager()
+        {
+            return _recordManager;
+        }
+    }
+
     public class TestClass
     {
         public void test()

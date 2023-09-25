@@ -43,6 +43,16 @@ namespace EFW2C.Records
             CheckHelperFieldsList();
         }
 
+        public FieldBase CreateField(RecordBase record, string fieldName, string data)
+        {
+            var field = _helperFieldsList.FirstOrDefault(item => item.ClassName == fieldName);
+
+            if(field == null)
+                throw new Exception($"CreateField() : you are trying to get invalid class : {fieldName}");
+
+            return field.Clone(record, data);
+        }
+
         public static bool AreFieldsBelongToRecord(RecordBase record, List<FieldBase> fields)
         {
             foreach (var field in fields)
@@ -118,10 +128,10 @@ namespace EFW2C.Records
 
         public FieldBase GetField(string fieldClassName)
         {
-            var validField = _helperFieldsList.FirstOrDefault(field => field.ClassName == fieldClassName);
+            var validField = _helperFieldsList.FirstOrDefault(item => item.ClassName == fieldClassName);
 
             if (validField == null)
-                throw new Exception($" GetField() : you are trying to get invalid class : {fieldClassName}");
+                throw new Exception($"GetField() : you are trying to get invalid class : {fieldClassName}");
 
             return _fields.FirstOrDefault(field => field.ClassName == fieldClassName);
         }
@@ -240,6 +250,16 @@ namespace EFW2C.Records
 
             foreach (var field in _fields)
                 record._fields.Add(field.Clone(record));
+        }
+
+        public void ResetFields()
+        {
+            _fields.Clear();
+
+            RecordBuffer = new string(' ', Constants.RecordLength).ToCharArray();
+
+            var identifierField = _helperFieldsList.FirstOrDefault(item => item.ClassName == "{RecordName}IdentifierField}");
+            AddField(identifierField.Clone(this));
         }
 
         protected abstract List<FieldBase> CreateHelperFieldsList();

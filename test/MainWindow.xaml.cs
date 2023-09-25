@@ -1,11 +1,5 @@
-﻿using EFW2C.Common.Enums;
-using EFW2C.Common.Helper;
-using EFW2C.Fields;
-using EFW2C.Manager;
-using EFW2C.RecordEFW2C.testing;
-using EFW2C.Records;
+﻿using EFW2C.RecordEFW2C.W2cDocument;
 using System;
-using System.IO;
 using System.Windows;
 
 
@@ -20,9 +14,27 @@ namespace test
         {
             InitializeComponent();
 
-            var test = new TestClass();
+            try
+            {
+                var document = new W2cDocument();
 
-            test.test();
+                var submitter = new W2cSubmitter(document);
+                submitter.Ein = "001001909";
+                submitter.UserID = "00000";
+
+                submitter.Lock(true);
+
+                document.SetSubmitter(submitter);
+
+                var test = new TestClass();
+
+                test.test();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
     }
 }

@@ -81,6 +81,9 @@
     <Compile Include="RecordEFW2C\Common\Constants.cs" />
     <Compile Include="RecordEFW2C\Common\enums.cs" />
     <Compile Include="RecordEFW2C\Common\WageTax.cs" />
+    <Compile Include="RecordEFW2C\W2cDocument\BaseClasses\DocumentPart.cs" />
+    <Compile Include="RecordEFW2C\W2cDocument\BaseClasses\DocumentBase.cs" />
+    <Compile Include="RecordEFW2C\W2cDocument\W2cDocument.cs" />
     <Compile Include="RecordEFW2C\Helpper\EnumHelper.cs" />
     <Compile Include="RecordEFW2C\Helpper\Extensions.cs" />
     <Compile Include="RecordEFW2C\Helpper\RecordOrders.cs" />
@@ -373,6 +376,12 @@
     <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\working\RcwWagesTipsAndOtherCompensationOriginal.cs" />
     <Compile Include="RecordEFW2C\Records\RCWRecord\RCWRecord.cs" />
     <Compile Include="RecordEFW2C\testing\test.cs" />
+    <Compile Include="RecordEFW2C\W2cDocument\W2cEmployee.cs" />
+    <Compile Include="RecordEFW2C\W2cDocument\W2cEmployeeOptional.cs" />
+    <Compile Include="RecordEFW2C\W2cDocument\W2cState.cs" />
+    <Compile Include="RecordEFW2C\W2cDocument\W2cStateTotal.cs" />
+    <Compile Include="RecordEFW2C\W2cDocument\W2cSubmitter.cs" />
+    <Compile Include="RecordEFW2C\W2cDocument\W2cEmployer.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\MaximumWagesAndTaxTabel.xml" />
