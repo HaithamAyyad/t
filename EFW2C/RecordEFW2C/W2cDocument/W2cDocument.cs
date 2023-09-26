@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EFW2C.Manager;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -11,9 +12,13 @@ namespace EFW2C.RecordEFW2C.W2cDocument
     {
         private W2cSubmitter _submitter;
         private List<W2cEmployer> _employerList;
+        RecordManager _manager;
+
+       internal RecordManager Manager { get { return _manager; } }
 
         public W2cDocument()
         {
+            _manager = new RecordManager();
             _employerList = new List<W2cEmployer>();
         }
 
@@ -64,7 +69,6 @@ namespace EFW2C.RecordEFW2C.W2cDocument
 
         public void SaveDocument(string fileName)
         {
-            ManagerSingleton.GetInstance().GetRecordManager().WriteToFile(fileName);
         }
     }
 }

@@ -178,22 +178,6 @@ namespace EFW2C.Fields
             return true;
         }
 
-        protected string GetEmploymentCode()
-        {
-            var precedRce = _record.Manager.GetPrecedRecord(_record, RecordNameEnum.Rce.ToString());
-
-            if (precedRce == null)
-                throw new Exception($"{ClassName} : RCE record is not provided");
-
-            var employmentCodeField = precedRce.GetField(typeof(RceEmploymentCodeCorrect).Name);
-            return employmentCodeField?.DataInRecordBuffer();
-        }
-
-        protected int GetTaxYear()
-        {
-            return _record.Manager.GetTaxYear(_record);
-        }
-
         public abstract bool IsRequired();
         protected abstract FieldTypeEnum GetFieldType();
         public abstract FieldBase Clone(RecordBase record);

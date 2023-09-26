@@ -8,6 +8,9 @@ namespace EFW2C.Records
 {
     internal class RcoRecord : RecordBase
     {
+        RcwRecord _rcwRecord;
+        public RcwRecord RcwRecord { get { return _rcwRecord; } }
+
         public RcoRecord(RecordManager recordManager)
             : base(recordManager, RecordNameEnum.Rco.ToString())
         {
@@ -20,11 +23,15 @@ namespace EFW2C.Records
             AddField(new RcoIdentifierField(this));
         }
 
+        public void SetRcwRecord(RcwRecord rcwRecord)
+        {
+            _rcwRecord = rcwRecord;
+        }
         public override RecordBase Clone(RecordManager manager)
         {
             var rcoRecord = new RcoRecord(manager);
 
-            CloneData(rcoRecord, manager);
+            CloneData(rcoRecord);
 
             return rcoRecord;
         }

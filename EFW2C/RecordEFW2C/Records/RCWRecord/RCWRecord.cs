@@ -8,6 +8,14 @@ namespace EFW2C.Records
 {
     internal class RcwRecord : RecordBase
     {
+        private RceRecord _rceRecord;
+        private RcoRecord _rcoRecord;
+        private RcsRecord _rcsRecord;
+
+        public RcoRecord RcoRecord { get { return _rcoRecord; } }
+        public RcsRecord RcsRecord { get { return _rcsRecord; } }
+        public RceRecord RceRecord { get { return _rceRecord; } }
+
         public RcwRecord(RecordManager recordManager)
             : base(recordManager, RecordNameEnum.Rcw.ToString())
         {
@@ -24,9 +32,53 @@ namespace EFW2C.Records
         {
             var rcwRecord = new RcwRecord(manager);
 
-            CloneData(rcwRecord, manager);
+            rcwRecord._rceRecord = _rceRecord;
+            rcwRecord._rcoRecord = _rcoRecord;
+            rcwRecord._rcsRecord = _rcsRecord;
+
+            CloneData(rcwRecord);
 
             return rcwRecord;
+        }
+
+        public void SetRceRecord(RceRecord rceRecord)
+        {
+            if (_isLocked)
+                throw new Exception($"Employee record is locked");
+
+            _rceRecord = rceRecord;
+        }
+
+        public void SetRcoRecord(RcoRecord rcoRecord)
+        {
+            if (_isLocked)
+                throw new Exception($"Employee record is locked");
+
+            _rcoRecord = null;
+
+            if (rcoRecord != null)
+            {
+                if (!rcoRecord.IsLocked)
+                    throw new Exception($"Employee optional record is unlocked");
+
+                _rcoRecord = (RcoRecord)rcoRecord.Clone(Manager);
+
+                _rcoRecord.SetRcwRecord(this);
+            }
+        }
+
+        public void SetRcsRecord(RcsRecord rcsRecord)
+        {
+            if (_isLocked)
+                throw new Exception($"Employee record is locked");
+
+            if (!rcsRecord.IsLocked)
+                throw new Exception($"Employee optional record is unlocked");
+
+            _rcsRecord = null;
+
+            if (rcsRecord != null)
+                _rcsRecord = (RcsRecord)rcsRecord.Clone(Manager);
         }
 
         protected override List<(int, int)> CreateBlankList()

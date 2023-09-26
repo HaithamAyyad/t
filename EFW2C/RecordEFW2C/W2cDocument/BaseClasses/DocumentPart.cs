@@ -46,7 +46,8 @@ namespace EFW2C.RecordEFW2C.W2cDocument
 
         private void Prepare()
         {
-            _record.ResetFields();
+            _record.Reset();
+            _record.Prepare();
 
             foreach (var data in DataDictionary)
             {

@@ -12,16 +12,18 @@ namespace EFW2C.Records
     internal abstract class RecordBase
     {
         private RecordManager _manager;
-        public char[] RecordBuffer { get; private set; }
-
         protected List<FieldBase> _fields;
         private List<FieldBase> _helperFieldsList;
         private List<(int, int)> _blankFields;
-        public List<FieldBase> Fields { get { return _fields; } }
+        protected bool _isLocked;
+        private bool _isVerified;
         public RecordManager Manager { get { return _manager; } }
+        public char[] RecordBuffer { get; private set; }
         public string RecordName { get; set; }
         public string ClassName { get; set; }
-        public string SumRecordClassName { get; set; }
+        public List<FieldBase> Fields { get { return _fields; } }
+        public bool IsLocked { get { return _isLocked; } }
+        public bool IsVerified { get { return _isVerified; }}
 
         public RecordBase(RecordManager recordManager, string recordName, char[] buffer = null)
         {
@@ -32,6 +34,7 @@ namespace EFW2C.Records
             RecordBuffer = buffer != null ? buffer : RecordBuffer = new string(' ', Constants.RecordLength).ToCharArray();
 
             _fields = new List<FieldBase>();
+
             ClassName = GetType().Name;
 
             _blankFields = CreateBlankList();
@@ -62,6 +65,17 @@ namespace EFW2C.Records
             }
 
             return true;
+        }
+
+        public void Lock(bool isLocked = true)
+        {
+            if (isLocked)
+            {
+                if (!_isVerified && !Verify())
+                    return;
+            }
+
+            _isLocked = isLocked;
         }
 
         private bool CheckHelperFieldsList()
@@ -137,8 +151,11 @@ namespace EFW2C.Records
         }
         public void AddField(FieldBase field)
         {
+
             if (IsFieldExists(field))
                 throw new Exception($"{field.ClassName} is already added to {ClassName}");
+
+            _isVerified = false;
 
             _fields.Add(field);
         }
@@ -156,12 +173,17 @@ namespace EFW2C.Records
 
         public void Write()
         {
+            for (int i = 0; i < RecordBuffer.Length; i++)
+                RecordBuffer[i] = Constants.WhiteSpaceChar;
+            
             foreach (var field in _fields)
                 field.Write();
         }
 
         public bool Verify()
         {
+            _isVerified = false;
+
             if (string.IsNullOrWhiteSpace(new string(RecordBuffer, 0, 3)))
                 throw new Exception($"{ClassName} RecordName can't be empty.");
 
@@ -178,7 +200,10 @@ namespace EFW2C.Records
                     return false;
                 }
             }
-            return true;
+
+            _isVerified = true;
+
+            return _isVerified;
         }
 
         private bool CheckblankFields()
@@ -239,26 +264,36 @@ namespace EFW2C.Records
                 {
                     var newField = field.Clone(this, data.TrimEnd());
 
-                    _fields.Add(newField);
+                    AddField(newField);
                 }
             }
         }
 
-        protected void CloneData(RecordBase record, RecordManager manager)
+        protected void CloneData(RecordBase record)
         {
+            if(record.IsLocked)
+                throw new Exception($"{ClassName} record is locked");
+
+            record._isLocked = _isLocked;
+
             record.RecordBuffer = (char[])RecordBuffer.Clone();
 
+            record.Reset();
+
             foreach (var field in _fields)
-                record._fields.Add(field.Clone(record));
+                record.AddField(field.Clone(record));
         }
 
-        public void ResetFields()
+        public void Reset()
         {
             _fields.Clear();
 
             RecordBuffer = new string(' ', Constants.RecordLength).ToCharArray();
+        }
+        public void Prepare()
+        {
+            var identifierField = _helperFieldsList.FirstOrDefault(item => item.ClassName == $"{RecordName}IdentifierField");
 
-            var identifierField = _helperFieldsList.FirstOrDefault(item => item.ClassName == "{RecordName}IdentifierField}");
             AddField(identifierField.Clone(this));
         }
 

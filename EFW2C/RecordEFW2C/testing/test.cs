@@ -11,71 +11,54 @@ using System.Windows.Forms;
 
 namespace EFW2C.RecordEFW2C.W2cDocument
 {
-    public class ManagerSingleton
-    {
-        private static ManagerSingleton instance;
-
-        private RecordManager _recordManager;
-
-        private ManagerSingleton()
-        {
-            _recordManager = new RecordManager();
-        }
-
-        public static ManagerSingleton GetInstance()
-        {
-            if (instance == null)
-            {
-                instance = new ManagerSingleton();
-            }
-
-            return instance;
-        }
-
-        internal RecordManager GetRecordManager()
-        {
-            return _recordManager;
-        }
-    }
-
     public class TestClass
     {
         public void test()
         {
-            var fileName1 = @"C:\1\1.txt";
-            var fileName2 = @"C:\1\2.txt";
-            var fileName3 = @"C:\1\3.txt";
-
-
+            //var fileName1 = @"C:\1\1.txt";
+            //var fileName2 = @"C:\1\2.txt";
+            //var fileName3 = @"C:\1\3.txt";
 
             try
             {
                 var manager = new RecordManager();
                 manager.SetSubmitter(true);
 
-                manager.AddRecord(CreateRcaRecord(manager));
+                var rcaRecord = CreateRcaRecord(manager);
+                rcaRecord.Write();
+                rcaRecord.Lock();
+                manager.SetRcaRecord(rcaRecord);
 
-                manager.AddRecord(CreateRceRecord(manager));
-                manager.AddRecord(CreateRcwRecord(manager));
-                manager.AddRecord(CreateRcoRecord(manager));
-                manager.AddRecord(CreateRctRecord(manager));
-                manager.AddRecord(CreateRcuRecord(manager));
+                var rceRecord = CreateRceRecord(manager);
+                rceRecord.Write();
+                rceRecord.Verify();
 
-                manager.AddRecord(CreateRceRecord(manager));
-                manager.AddRecord(CreateRcwRecord(manager));
-                manager.AddRecord(CreateRcoRecord2(manager));
-                manager.AddRecord(CreateRcsRecord(manager));
-                manager.AddRecord(CreateRctRecord(manager));
-                manager.AddRecord(CreateRcuRecord(manager));
-                manager.AddRecord(CreateRcvRecord(manager));
+                var rcoRecord = CreateRcoRecord(manager);
+                rcoRecord.Write();
+                rcoRecord.Lock();
+                
+                var rcsRecord = CreateRcsRecord(manager);
+                rcsRecord.Write();
+                rcsRecord.Lock();
 
-                manager.AddRecord(CreateRcfRecord(manager));
+                var rcwRecord = CreateRcwRecord(manager);
+                rcwRecord.SetRceRecord(rceRecord);
+                rcwRecord.SetRcoRecord(rcoRecord);
+                rcwRecord.SetRcsRecord(rcsRecord);
+                rcwRecord.Write();
+                rcwRecord.Lock();
 
-                manager.VerifyOrder();
+                rceRecord.AddRcwRecord(rcwRecord);
 
-                manager.write();
+                rceRecord.Lock();
+                manager.AddRceRecord(rceRecord);
 
                 manager.Verify();
+
+                /*
+                manager.VerifyOrder();
+                
+
                 manager.Lock();
 
                 manager.WriteToFile(fileName1);
@@ -101,11 +84,13 @@ namespace EFW2C.RecordEFW2C.W2cDocument
 
                 if (!AreFilesIdentical_testfunction(fileName1, fileName3))
                     throw new Exception($"for testing {fileName1} is not equal to {fileName3}");
+                */
 
                 if (!manager.Verify())
                     MessageBox.Show("Error");
                 else
                     MessageBox.Show("Sucess");
+
             }
             catch (Exception ex)
             {
@@ -136,36 +121,14 @@ namespace EFW2C.RecordEFW2C.W2cDocument
             return true;
         }
 
-        private RecordBase CreateRctRecord(RecordManager manager)
-        {
-            var rctRecord = new RctRecord(manager);
-
-
-            return rctRecord;
-        }
-
-        private RecordBase CreateRcsRecord(RecordManager manager)
+        private RcsRecord CreateRcsRecord(RecordManager manager)
         {
             var rcsRecord = new RcsRecord(manager);
 
             return rcsRecord;
         }
 
-        private RecordBase CreateRcuRecord(RecordManager manager)
-        {
-            var rcuRecord = new RcuRecord(manager);
-
-            rcuRecord.AddField(new RcuNumberOfRCORecord(rcuRecord));
-            rcuRecord.AddField(new RcuTotalAllocatedTipsOriginal(rcuRecord));
-            rcuRecord.AddField(new RcuTotalAllocatedTipsCorrect(rcuRecord));
-
-            return rcuRecord;
-
-
-
-        }
-
-        private RecordBase CreateRcwRecord(RecordManager manager)
+        private RcwRecord CreateRcwRecord(RecordManager manager)
         {
             var rcwRecord = new RcwRecord(manager);
 
@@ -189,7 +152,7 @@ namespace EFW2C.RecordEFW2C.W2cDocument
             return rcwRecord;
         }
 
-        private RecordBase CreateRcoRecord(RecordManager manager)
+        private RcoRecord CreateRcoRecord(RecordManager manager)
         {
             var rcoRecord = new RcoRecord(manager);
 
@@ -199,7 +162,7 @@ namespace EFW2C.RecordEFW2C.W2cDocument
             return rcoRecord;
         }
 
-        private RecordBase CreateRcoRecord2(RecordManager manager)
+        private RcoRecord CreateRcoRecord2(RecordManager manager)
         {
             var rcoRecord = new RcoRecord(manager);
 
@@ -209,21 +172,14 @@ namespace EFW2C.RecordEFW2C.W2cDocument
             return rcoRecord;
         }
 
-        private RecordBase CreateRcfRecord(RecordManager manager)
-        {
-            var rcfRecord = new RcfRecord(manager);
-            rcfRecord.AddField(new RcfNumberOfRCWRecord(rcfRecord));
-            return rcfRecord;
-        }
-
-        private RecordBase CreateRcvRecord(RecordManager manager)
+        private RcvRecord CreateRcvRecord(RecordManager manager)
         {
             var rcvRecord = new RcvRecord(manager);
             rcvRecord.AddField(new RcvSupplementalData(rcvRecord, " this is data from user"));
             return rcvRecord;
         }
 
-        private RecordBase CreateRceRecord(RecordManager manager)
+        private RceRecord CreateRceRecord(RecordManager manager)
         {
             var rceRecord = new RceRecord(manager);
 
@@ -237,7 +193,7 @@ namespace EFW2C.RecordEFW2C.W2cDocument
             return rceRecord;
         }
 
-        private RecordBase CreateRcaRecord(RecordManager manager)
+        private RcaRecord CreateRcaRecord(RecordManager manager)
         {
             var rcaRecord = new RcaRecord(manager);
             rcaRecord.AddField(new RcaEinSubmitterField(rcaRecord, "773456789"));
@@ -262,7 +218,6 @@ namespace EFW2C.RecordEFW2C.W2cDocument
             rcaRecord.AddField(new RcaPreparerCode(rcaRecord, "A"));
             rcaRecord.AddField(new RcaResubIndicator(rcaRecord, "1"));
             rcaRecord.AddField(new RcaResubWageFile(rcaRecord, "hjhfj"));
-
             return rcaRecord;
         }
     }

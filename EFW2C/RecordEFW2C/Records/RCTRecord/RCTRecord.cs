@@ -8,27 +8,36 @@ namespace EFW2C.Records
 {
     internal class RctRecord : RecordBase
     {
+        private RceRecord _rceRecord;
+        public RceRecord RceRecord { get;}
+
         public RctRecord(RecordManager recordManager)
             : base(recordManager, RecordNameEnum.Rct.ToString())
         {
             AddField(new RctIdentifierField(this));
-            SumRecordClassName = RecordNameEnum.Rcw.ToString();
         }
 
         public RctRecord(RecordManager recordManager, char[] buffer)
             : base(recordManager, RecordNameEnum.Rct.ToString(), buffer)
         {
             AddField(new RctIdentifierField(this));
-            SumRecordClassName = RecordNameEnum.Rcw.ToString();
         }
 
         public override RecordBase Clone(RecordManager manager)
         {
             var rctRecord = new RctRecord(manager);
 
-            CloneData(rctRecord, manager);
+            CloneData(rctRecord);
 
             return rctRecord;
+        }
+
+        public void SetRceRecord(RceRecord rceRecord)
+        {
+            if (_isLocked)
+                throw new Exception($"Employee Total record is locked");
+
+            _rceRecord = rceRecord;
         }
 
         protected override List<(int, int)> CreateBlankList()

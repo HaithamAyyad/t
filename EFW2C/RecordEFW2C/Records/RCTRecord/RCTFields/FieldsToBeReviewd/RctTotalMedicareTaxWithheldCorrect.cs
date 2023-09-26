@@ -30,7 +30,7 @@ namespace EFW2C.Fields
 
             var localData = DataInRecordBuffer();
 
-            var employmentCode = GetEmploymentCode();
+            var employmentCode = ((RctRecord)_record).RceRecord.GetEmploymentCode();
 
             if (employmentCode == EmploymentCodeEnum.X.ToString())
             {

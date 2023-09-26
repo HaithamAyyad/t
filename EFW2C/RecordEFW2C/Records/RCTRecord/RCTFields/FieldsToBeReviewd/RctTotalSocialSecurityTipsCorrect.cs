@@ -29,11 +29,11 @@ namespace EFW2C.Fields
             if (!base.Verify())
                 return false;
 
-            var taxYear = GetTaxYear();
+            var taxYear = ((RctRecord)_record).RceRecord.GetTaxYear();
 
             var localData = DataInRecordBuffer();
 
-            var employmentCode = GetEmploymentCode();
+            var employmentCode = ((RctRecord)_record).RceRecord.GetEmploymentCode();
 
             if (employmentCode == EmploymentCodeEnum.Q.ToString() ||
                 employmentCode == EmploymentCodeEnum.X.ToString())
@@ -46,7 +46,7 @@ namespace EFW2C.Fields
             {
                 var wageTax = WageTaxHelper.GetWageTax(taxYear);
 
-                double.TryParse(localData, out var value);
+                var value = double.Parse(localData);
 
                 if (value != 0 || value < wageTax.SocialSecurity.MinHouseHoldCoveredWages)
                     throw new Exception($"{ClassName} : must be zero or equal to or greater than the annual Household minimum for the tax year being reported");

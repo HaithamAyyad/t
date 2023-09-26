@@ -24,7 +24,7 @@ namespace EFW2C.Records
         {
             var rcaRecord = new RcaRecord(manager);
 
-            CloneData(rcaRecord, manager);
+            CloneData(rcaRecord);
 
             return rcaRecord;
         }

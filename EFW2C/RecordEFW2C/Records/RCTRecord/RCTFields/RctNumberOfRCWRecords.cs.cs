@@ -27,33 +27,15 @@ namespace EFW2C.Fields
 
         public override void Write()
         {
-            var precedRce = _record.Manager.GetPrecedRecord(_record, RecordNameEnum.Rce.ToString());
-
-            if (precedRce != null)
-            {
-                _data = _record.Manager.GetRecordsBetween(_record, precedRce, _record.SumRecordClassName)?.Count.ToString();
-                base.Write();
-            }
-
+            _data = ((RctRecord)_record).RceRecord.GetRcwRecordsCount().ToString();
+            base.Write();
         }
         public override bool Verify()
         {
             if (!base.Verify())
                 return false;
 
-            var count = -1;
-
-            var precedRce = _record.Manager.GetPrecedRecord(_record, RecordNameEnum.Rce.ToString());
-
-            if (precedRce != null)
-            {
-                var list = _record.Manager.GetRecordsBetween(_record, precedRce, _record.SumRecordClassName);
-                if (list != null)
-                    count = list.Count;
-            }
-
-            Int32.TryParse(DataInRecordBuffer(), out int value);
-            if (value != count)
+            if (Int32.Parse(DataInRecordBuffer()) != ((RctRecord)_record).RceRecord.GetRcwRecordsCount())
                 throw new Exception($"{ClassName} number of RCW is not correct");
 
             return true;

@@ -30,7 +30,7 @@ namespace EFW2C.Fields
             if (!base.Verify())
                 return false;
 
-            var employmentCode = GetEmploymentCode();
+            var employmentCode = ((RcwRecord)_record).RceRecord.GetEmploymentCode();
 
             var localData = DataInRecordBuffer();
 

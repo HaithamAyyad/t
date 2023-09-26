@@ -9,7 +9,7 @@ namespace EFW2C.Records
     internal class RecordTemplate : RecordBase
     {
         public RecordTemplate(RecordManager recordManager)
-            : base(recordManager, "")
+            : base(recordManager, null)
         {
         }
 

@@ -24,7 +24,7 @@ namespace EFW2C.Records
         {
             var rcsRecord = new RcsRecord(manager);
 
-            CloneData(rcsRecord, manager);
+            CloneData(rcsRecord);
 
             return rcsRecord;
         }

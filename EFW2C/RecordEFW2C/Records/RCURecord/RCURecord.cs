@@ -8,27 +8,35 @@ namespace EFW2C.Records
 {
     internal class RcuRecord : RecordBase
     {
+        private RceRecord _rceRecord;
+        public RceRecord RceRecord { get; }
+
         public RcuRecord(RecordManager recordManager)
             : base(recordManager, RecordNameEnum.Rcu.ToString())
         {
             AddField(new RcuIdentifierField(this));
-            SumRecordClassName = RecordNameEnum.Rco.ToString();
         }
+
         public RcuRecord(RecordManager recordManager, char[] buffer)
             : base(recordManager, RecordNameEnum.Rcu.ToString(), buffer)
         {
             AddField(new RcuIdentifierField(this));
-            SumRecordClassName = RecordNameEnum.Rco.ToString();
         }
 
         public override RecordBase Clone(RecordManager manager)
         {
             var rcuRecord = new RcuRecord(manager);
 
-            CloneData(rcuRecord, manager);
+            CloneData(rcuRecord);
 
             return rcuRecord;
         }
+
+        public void SetRceRecord(RceRecord rceRecord)
+        {
+            _rceRecord = rceRecord;
+        }
+
         protected override List<(int, int)> CreateBlankList()
         {
             return new List<(int, int)>

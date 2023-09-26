@@ -29,9 +29,9 @@ namespace EFW2C.Fields
             if (!base.Verify())
                 return false;
 
-            var employmentCode = GetEmploymentCode();
+            var employmentCode = ((RctRecord)_record).RceRecord.GetEmploymentCode();
 
-            var taxYear = GetTaxYear();
+            var taxYear = ((RctRecord) _record).RceRecord.GetTaxYear();
 
             var localData = DataInRecordBuffer();
 

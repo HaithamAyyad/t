@@ -15,7 +15,7 @@ namespace EFW2C.RecordEFW2C.W2cDocument
         public W2cSubmitter(W2cDocument document)
             : base(document)
         {
-            _record = new RcaRecord(ManagerSingleton.GetInstance().GetRecordManager());
+            _record = new RcaRecord(document.Manager);
         }
 
         private string _ein;

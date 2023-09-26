@@ -13,6 +13,7 @@ namespace EFW2C.Records
         {
             AddField(new RcvIdentifierField(this));
         }
+
         public RcvRecord(RecordManager recordManager, char[] buffer)
             : base(recordManager, RecordNameEnum.Rcv.ToString(), buffer)
         {
@@ -23,7 +24,7 @@ namespace EFW2C.Records
         {
             var rcvRecord = new RcvRecord(manager);
 
-            CloneData(rcvRecord, manager);
+            CloneData(rcvRecord);
 
             return rcvRecord;
         }

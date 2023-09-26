@@ -29,10 +29,10 @@ namespace EFW2C.Fields
             if (!base.Verify())
                 return false;
 
-            var taxYear = GetTaxYear();
+            var taxYear = ((RcwRecord)_record).RceRecord.GetTaxYear();
             var localData = DataInRecordBuffer();
 
-            var employmentCode = GetEmploymentCode();
+            var employmentCode = ((RcwRecord)_record).RceRecord.GetEmploymentCode();
 
             if (employmentCode == EmploymentCodeEnum.X.ToString())
             {

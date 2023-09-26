@@ -1,4 +1,5 @@
 ﻿using System;
+using EFW2C.Common.Constants;
 using EFW2C.Common.Enums;
 using EFW2C.Extensions;
 using EFW2C.Records;
@@ -21,7 +22,17 @@ namespace EFW2C.Fields
 
         public override void Write()
         {
-            var sum = _record.Manager.GetRecordsFieldsSum(ClassName, _record, _record.SumRecordClassName);
+            var fieldClassName = ClassName.Replace(Constants.TotalStr, "");
+
+            var sum = 0;
+
+            if (_record is RcwRecord rcwRecord)
+                sum = rcwRecord.RceRecord.GetRcwFieldsSum(fieldClassName);
+
+            if (_record is RcoRecord rcoRecord)
+            {
+                sum = rcoRecord.RcwRecord.RceRecord.GetRcoFieldsSum(fieldClassName);
+            }
 
             if (sum > 0)
             {
@@ -35,11 +46,21 @@ namespace EFW2C.Fields
             if (!base.Verify())
                 return false;
 
-            var localData = DataInRecordBuffer();
-            var sum = _record.Manager.GetRecordsFieldsSum(ClassName, _record, _record.SumRecordClassName);
-            Int32.TryParse(localData, out int value);
+            var fieldClassName = ClassName.Replace(Constants.TotalStr, "");
 
-            if (sum != value)
+            var sum = 0;
+
+            if (_record is RcwRecord rcwRecord)
+                sum = rcwRecord.RceRecord.GetRcwFieldsSum(fieldClassName);
+
+            if (_record is RcoRecord rcoRecord)
+            {
+                sum = rcoRecord.RcwRecord.RceRecord.GetRcoFieldsSum(fieldClassName);
+            }
+
+            var localData = DataInRecordBuffer();
+            
+            if (sum != Int32.Parse(localData))
                 throw new Exception($"Total of {ClassName} is not correct");
 
             return true;

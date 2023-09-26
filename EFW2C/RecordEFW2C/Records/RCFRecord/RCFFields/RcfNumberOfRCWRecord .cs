@@ -24,7 +24,7 @@ namespace EFW2C.Fields
 
         public override void Write()
         {
-            _data = _record.Manager.GetRecordsCount(RecordNameEnum.Rcw).ToString();
+            _data = _record.Manager.GetRcwRecordsCount().ToString();
             base.Write();
         }
         public override bool Verify()
@@ -32,10 +32,8 @@ namespace EFW2C.Fields
             if (!base.Verify())
                 return false;
 
-            var RcwCount = _record.Manager.GetRecordsCount(RecordNameEnum.Rcw);
-
-            if (Int32.Parse(DataInRecordBuffer()) != RcwCount)
-                throw new Exception($"{ClassName} number of RCW records is not correct");
+            if (Int32.Parse(DataInRecordBuffer()) != _record.Manager.GetRcwRecordsCount())
+                throw new Exception($"Number of employee records is not correct");
 
             return true;
         }

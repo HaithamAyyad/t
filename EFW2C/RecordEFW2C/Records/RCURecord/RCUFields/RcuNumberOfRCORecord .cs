@@ -16,6 +16,7 @@ namespace EFW2C.Fields
             _pos = 3;
             _length = 7;
         }
+
         public override FieldBase Clone(RecordBase record)
         {
             return new RcuNumberOfRCORecord(record);
@@ -24,13 +25,8 @@ namespace EFW2C.Fields
 
         public override void Write()
         {
-            var precedRce = _record.Manager.GetPrecedRecord(_record, RecordNameEnum.Rce.ToString());
-
-            if (precedRce != null)
-            {
-                _data = _record.Manager.GetRecordsBetween(_record, precedRce, _record.SumRecordClassName)?.Count.ToString();
-                base.Write();
-            }
+            _data = ((RcuRecord)_record).RceRecord.GetRcoRecordsCount().ToString();
+            base.Write();
 
         }
         public override bool Verify()
@@ -38,19 +34,7 @@ namespace EFW2C.Fields
             if (!base.Verify())
                 return false;
 
-            var count = -1;
-
-            var precedRce = _record.Manager.GetPrecedRecord(_record, RecordNameEnum.Rce.ToString());
-
-            if (precedRce != null)
-            {
-                var list = _record.Manager.GetRecordsBetween(_record, precedRce, _record.SumRecordClassName);
-                if(list!= null)
-                    count = list.Count;
-            }
-
-            Int32.TryParse(DataInRecordBuffer(), out int value);
-            if (value != count)
+            if (Int32.Parse(DataInRecordBuffer()) != ((RcuRecord)_record).RceRecord.GetRcoRecordsCount())
                 throw new Exception($"{ClassName} number of RCO is not correct");
 
             return true;

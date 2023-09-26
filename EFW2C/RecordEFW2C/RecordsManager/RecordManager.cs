@@ -12,91 +12,152 @@ namespace EFW2C.Manager
 {
     internal class RecordManager
     {
+        private bool _isLocked;
+        private bool _isVerified;
+
         private bool _reSubmitted;
         private bool _unemployment;
-        private bool _lock;
         private bool _isTIB;
 
-        public bool Islock { get { return _lock; } }
+        private RcaRecord _rcaRecord;
+        private RcfRecord _rcfRecord;
+        private List<RceRecord> _rceRecordList;
 
+        public bool IsLock { get { return _isLocked; } }
+        public bool IsVerified { get { return _isVerified; } }
         public bool IsTIB { get { return _isTIB; } }
-
-        private List<RecordBase> _records;
-
-        public List<RecordBase> Records { get { return _records; } }
 
         public RecordManager()
         {
-            _records = new List<RecordBase>();
+            _rceRecordList = new List<RceRecord>();
+            _rcfRecord = new RcfRecord(this);
+            _rcfRecord.AddField(new RcfNumberOfRCWRecord(_rcfRecord));
 
             WageTaxHelper.CreateWageTaxTabel();
         }
 
-
-        public bool Lock(bool lockManager = true)
+        public void SetRcaRecord(RcaRecord rcaRecord)
         {
-            if (lockManager)
+            CheckLocked(false);
+
+            _rcaRecord = null;
+
+            if (rcaRecord != null)
             {
-                if (!Verify())
-                    return false;
+                if (!rcaRecord.IsLocked)
+                    throw new Exception($"Submitter is unlocked");
+
+                _rcaRecord = (RcaRecord)rcaRecord.Clone(this);
+            }
+        }
+
+        public void AddRceRecord(RceRecord rceRecord)
+        {
+            CheckLocked(false);
+
+            if (rceRecord == null)
+                return;
+
+            if (_rceRecordList.Count + 1 > Constants.MaxRceRecordsNumber)
+                throw new Exception($"Employer records should not exceed {Constants.MaxRceRecordsNumber}");
+
+            if (!rceRecord.IsLocked)
+                throw new Exception($"Empoyer record is unlocked");
+
+            _rceRecordList.Add((RceRecord) rceRecord.Clone(this));
+        }
+
+        public void Lock(bool isLocked = true)
+        {
+            if (isLocked)
+            {
+                if (!IsVerified && !Verify())
+                    return;
+            }
+            else
+            {
+                _isVerified = false;
             }
 
-            _lock = lockManager;
-
-            return true;
+            _isLocked = isLocked;
         }
 
-        private void CheckLock(bool check)
+        private void CheckLocked(bool isLock)
         {
-            if(check && !_lock)
-                throw new Exception($"Manager is unlocked");
-
-            if(!check && _lock)
-                throw new Exception($"Manager is locked");
-        }
-
-        public void write()
-        {
-            foreach (var record in _records)
-                record.Write();
+            if (isLock)
+            {
+                if (!_isLocked)
+                    throw new Exception($"Document is unlocked");
+            }
+            else
+            {
+                if (_isLocked)
+                    throw new Exception($"Document is locked");
+            }
         }
 
         public bool Verify()
         {
+            _isVerified = false;
 
-            if (!VerifyOrder())
+            if (GetRcwRecordsCount() > Constants.MaxRcwRecordsNumber)
+                throw new Exception($"Employee records should not exceed {Constants.MaxRcwRecordsNumber}");
+
+            if (GetRceRecordsCount() > Constants.MaxRceRecordsNumber)
+                throw new Exception($"Employer  records should not exceed {Constants.MaxRceRecordsNumber}");
+
+            if (!_rcaRecord.IsVerified && !_rcaRecord.Verify())
                 return false;
 
-            if (!VerifyFieldsInRecords())
-                return true;
-
-            foreach (var record in _records)
+            foreach(var rceRecord in _rceRecordList)
             {
-                if (!record.Verify())
+                if (!rceRecord.IsVerified && !rceRecord.Verify())
                     return false;
             }
 
-            if(GetRecordsCount(RecordNameEnum.Rcw) > Constants.MaxRcwRecordsNumber)
-                throw new Exception($"Rcw records should not exceed {Constants.MaxRcwRecordsNumber}");
+            if (!_rcfRecord.IsVerified && !_rcfRecord.Verify())
+                return false;
 
-            if(GetRecordsCount(RecordNameEnum.Rce) > Constants.MaxRceRecordsNumber)
-                throw new Exception($"Rce records should not exceed {Constants.MaxRceRecordsNumber}");
+            if (!VerifyFieldsInRecords())
+                return false;
 
-            return true;
+            _isVerified = true;
+
+            return _isVerified;
         }
 
-        public bool VerifyOrder()
+        public void Close()
         {
-            return RecordsOrderHelper.VerifyRecordsOrder(_records);
+            CheckLocked(false);
+
+            _rcfRecord.Lock(false);
+            _rcfRecord.Reset();
+            _rcfRecord.AddField(new RcfNumberOfRCWRecord(_rcfRecord));
+            _rcfRecord.Write();
+            _rcfRecord.Lock();
+
+            Verify();
+            Lock();
         }
 
-        public int GetRecordsCount(RecordNameEnum recordName)
+        public int GetRcwRecordsCount()
         {
-            return _records.Count(item => item.RecordName == recordName.ToString());
+            int rcwNumber = 0;
+
+            foreach (var rceRecord in _rceRecordList)
+                rcwNumber += rceRecord.RcwRecordList.Count();
+
+            return rcwNumber;
+        }
+
+        public int GetRceRecordsCount()
+        {
+            return _rceRecordList.Count();
         }
 
         public RecordManager Clone()
         {
+            /*
             CheckLock(true);
 
             var manager = new RecordManager()
@@ -110,42 +171,75 @@ namespace EFW2C.Manager
                 manager.AddRecord(record.Clone(manager));
 
             return manager;
+            */
+
+            return null;
         }
 
         private bool VerifyFieldsInRecords()
         {
-            foreach (var record in _records)
+            if (!RecordBase.AreFieldsBelongToRecord(_rcaRecord, _rcaRecord.Fields))
+                return false;
+
+            foreach (var rceRecord in _rceRecordList)
             {
-                if (!RecordBase.AreFieldsBelongToRecord(record, record.Fields))
+                if (!RecordBase.AreFieldsBelongToRecord(rceRecord, rceRecord.Fields))
                     return false;
+
+                foreach (var rcwRecord in rceRecord.RcwRecordList)
+                {
+                    if (!RecordBase.AreFieldsBelongToRecord(rcwRecord, rcwRecord.Fields))
+                        return false;
+
+                    if (rcwRecord.RcoRecord != null)
+                    {
+                        if (!RecordBase.AreFieldsBelongToRecord(rcwRecord.RcoRecord, rcwRecord.RcoRecord.Fields))
+                            return false;
+                    }
+
+                    if (rcwRecord.RcsRecord != null)
+                    {
+                        if (!RecordBase.AreFieldsBelongToRecord(rcwRecord.RcsRecord, rcwRecord.RcsRecord.Fields))
+                            return false;
+                    }
+                }
+
+                if (!RecordBase.AreFieldsBelongToRecord(rceRecord.RctRecord, rceRecord.RctRecord.Fields))
+                    return false;
+
+                if (rceRecord.RcuRecord != null)
+                {
+                    if (!RecordBase.AreFieldsBelongToRecord(rceRecord.RcuRecord, rceRecord.RcuRecord.Fields))
+                        return false;
+                }
+
+                if (rceRecord.RcvRecord != null)
+                {
+                    if (!RecordBase.AreFieldsBelongToRecord(rceRecord.RcvRecord, rceRecord.RcvRecord.Fields))
+                        return false;
+                }
             }
 
             return true;
         }
 
-        public void AddRecord(RecordBase record)
-        {
-            CheckLock(false);
-
-            _records.Add(record);
-        }
-
         public void SetSubmitter(bool value)
         {
-            CheckLock(false);
+            CheckLocked(false);
             _reSubmitted = value;
+            
         }
 
         public void SetUnEmployment(bool value)
         {
-            CheckLock(false);
+            CheckLocked(false);
 
             _unemployment = value;
         }
 
         public void SetUnTIB(bool value)
         {
-            CheckLock(false);
+            CheckLocked(false);
 
             _isTIB = value;
         }
@@ -159,100 +253,10 @@ namespace EFW2C.Manager
         {
             return _unemployment;
         }
-        
-        public RecordBase GetPrecedRecord(RecordBase sourceRecord, string recordName)
+
+        public void WriteToFile_1(string fileName)
         {
-            var pos = _records.Select((record, index) => new { Record = record, Index = index })
-                              .FirstOrDefault(item => item.Record.RecordName == sourceRecord.RecordName)?.Index ?? -1;
-
-            for (var i = pos - 1; i >= 0; i--)
-            {
-                if (_records[i].RecordName == recordName)
-                {
-                    return _records[i];
-                }
-            }
-
-            return null;
-
-        }
-        public List<RecordBase> GetRecordsBetween(RecordBase first, RecordBase second, string recordName)
-        {
-            if (first == null || second == null)
-            {
-                return null;
-            }
-
-            int firstIndex = _records.IndexOf(first);
-            int secondIndex = _records.IndexOf(second);
-
-            if (firstIndex > secondIndex)
-            {
-                int temp = firstIndex;
-                firstIndex = secondIndex;
-                secondIndex = temp;
-            }
-
-            var recordsBetween = new List<RecordBase>();
-
-            for(var i = firstIndex + 1; i < secondIndex; i++)
-            {
-                if (_records[i].RecordName == recordName)
-                    recordsBetween.Add(_records[i]);
-            }
-
-            return recordsBetween;
-        }
-
-        public int GetTotal(string fieldClassName, RecordBase first, RecordBase second, string recordClassName)
-        {
-            if (first == null || second == null)
-                return -1;
-
-            var recordList = GetRecordsBetween(first, second, recordClassName);
-            var sum = 0;
-
-            foreach (var record in recordList)
-            {
-                var matchClassName = fieldClassName.Replace(Constants.TotalStr, "");
-                matchClassName = record.ClassName.Substring(0, 3) + matchClassName.Substring(3);
-                var field = record.GetField(matchClassName);
-
-                if (field != null)
-                {
-                    Int32.TryParse(field.DataInRecordBuffer(), out int value);
-                    sum += value;
-
-                }
-            }
-
-            return sum;
-        }
-
-        public int GetRecordsFieldsSum(string fieldClassName, RecordBase record, string summationRecordName)
-        {
-            var rceRecord = GetPrecedRecord(record, RecordNameEnum.Rce.ToString());
-
-            if (rceRecord != null)
-            {
-                return GetTotal(fieldClassName, record, rceRecord, summationRecordName);
-            }
-
-            return 0;
-        }
-
-        public int GetTaxYear(RecordBase record)
-        {
-            var rceRecord = GetPrecedRecord(record, RecordNameEnum.Rce.ToString()) as RceRecord;
-
-            if (rceRecord == null)
-                throw new Exception($"Rce Record is not provided");
-
-            return rceRecord.GetTaxYear();
-        }
-
-        public void WriteToFile(string fileName)
-        {
+            /*
             CheckLock(true);
 
             using (StreamWriter writer = new StreamWriter(fileName))
@@ -262,10 +266,12 @@ namespace EFW2C.Manager
                     writer.Write(new string(record.RecordBuffer));
                 }
             }
+            */
         }
 
-        public List<string> ReadFromFile(string fileName)
+        public List<string> ReadFromFile_1(string fileName)
         {
+            /*
             CheckLock(false);
 
             var bufferList = new List<string>();
@@ -283,10 +289,14 @@ namespace EFW2C.Manager
             }
 
             return bufferList;
+            */
+
+            return null;
         }
 
-        public static RecordManager CreateManager(string fileName)
+        public static RecordManager CreateManager_1(string fileName)
         {
+            /*
             try
             {
                 if (!File.Exists(fileName))
@@ -358,6 +368,9 @@ namespace EFW2C.Manager
             {
                 throw new Exception($"Create Manager faild, {ex.Message}");
             }
+            */
+
+            return null;
         }
     }
 }
