@@ -34,8 +34,6 @@ namespace EFW2C.Manager
 
             _isOpened = true;
 
-            PrepareRcfRecord();
-
             WageTaxHelper.CreateWageTaxTabel();
 
         }
@@ -126,11 +124,26 @@ namespace EFW2C.Manager
             if (!_isOpened)
                 return;
 
+            foreach (var rceRecord in _rceRecordList)
+            {
+                rceRecord.GenerateTotalRecords();
+                rceRecord.GenerateTotalOptionalRecords();
+            }
+
             PrepareRcfRecord();
 
-            Verify();
-
             _isOpened = false;
+
+            try
+            {
+                Verify();
+            }
+            catch(Exception ex)
+            {
+                _isOpened = true;
+                throw ex;
+            }
+
         }
 
         private void PrepareRcfRecord()
@@ -181,6 +194,8 @@ namespace EFW2C.Manager
 
         private bool VerifyFieldsInRecords()
         {
+            CheckOpened(false);
+
             if (!RecordBase.AreFieldsBelongToRecord(_rcaRecord, _rcaRecord.Fields))
                 return false;
 

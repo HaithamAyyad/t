@@ -44,6 +44,31 @@ namespace EFW2C.Records
             return rceRecord;
         }
 
+        public override bool Verify()
+        {
+            if (!base.Verify())
+                return false;
+
+            var found = false;
+
+            if (_rcvRecord != null)
+            {
+                foreach (var rcwRecord in _rcwRecordList)
+                {
+                    if (rcwRecord.RcsRecord != null)
+                    {
+                        found = true;
+                        break;
+                    }
+                }
+
+                if (!found)
+                    throw new Exception($"State total record should not be provided since state record is not provided");
+            }
+
+            return true;
+        }
+
         public void AddRcwRecord(RcwRecord rcwRecord)
         {
             if (_isLocked)
@@ -65,7 +90,7 @@ namespace EFW2C.Records
 
             _rcvRecord = null;
 
-            if (rcvRecord != null)
+            if (rcvRecord != null && !rcvRecord.IsRecordEmpty())
             {
                 if (!rcvRecord.IsLocked)
                     throw new Exception($"State record is unlocked");
@@ -114,6 +139,50 @@ namespace EFW2C.Records
             }
 
             return sum;
+        }
+
+        public void GenerateTotalOptionalRecords()
+        {
+            bool found = false;
+
+            foreach (var rcwRecord in _rcwRecordList)
+            {
+                if (rcwRecord.RcoRecord != null)
+                {
+                    found = true;
+                    break;
+                }
+            }
+
+            _rcuRecord = null;
+
+            if (found)
+            {
+                var rcuRecord = new RcuRecord(Manager);
+
+                rcuRecord.Reset();
+                rcuRecord.SetRceRecord(this);
+
+                foreach (var rcuField in rcuRecord.HelperFieldsList)
+                    rcuRecord.AddField(rcuField.Clone(rcuRecord));
+
+                rcuRecord.Write();
+
+                if (!rcuRecord.IsRecordEmpty())
+                    _rcuRecord = rcuRecord;
+            }
+        }
+
+        public void GenerateTotalRecords()
+        {
+            _rctRecord = new RctRecord(Manager);
+            _rctRecord.Reset();
+            _rctRecord.SetRceRecord(this);
+
+            foreach (var rctField in _rctRecord.HelperFieldsList)
+                _rctRecord.AddField(rctField.Clone(_rctRecord));
+
+            _rctRecord.Write();
         }
 
         public string GetEmploymentCode()

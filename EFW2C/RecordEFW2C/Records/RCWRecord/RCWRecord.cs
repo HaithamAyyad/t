@@ -56,7 +56,7 @@ namespace EFW2C.Records
 
             _rcoRecord = null;
 
-            if (rcoRecord != null)
+            if (rcoRecord != null && !rcoRecord.IsRecordEmpty())
             {
                 if (!rcoRecord.IsLocked)
                     throw new Exception($"Employee optional record is unlocked");

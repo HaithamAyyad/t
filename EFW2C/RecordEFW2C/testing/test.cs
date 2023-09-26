@@ -44,13 +44,18 @@ namespace EFW2C.RecordEFW2C.W2cDocument
                 var rcwRecord = CreateRcwRecord(manager);
                 rcwRecord.SetRceRecord(rceRecord);
                 rcwRecord.SetRcoRecord(rcoRecord);
-                rcwRecord.SetRcsRecord(rcsRecord);
+                //rcwRecord.SetRcsRecord(rcsRecord);
                 rcwRecord.Write();
                 rcwRecord.Lock();
-
                 rceRecord.AddRcwRecord(rcwRecord);
+                
+                var rcvRecord = CreateRcvRecord(manager);
+                rcvRecord.Write();
+                rcvRecord.Lock();
+                rceRecord.SetRcvRecord(rcvRecord);
 
                 rceRecord.Lock();
+                
                 manager.AddRceRecord(rceRecord);
 
                 manager.Close();

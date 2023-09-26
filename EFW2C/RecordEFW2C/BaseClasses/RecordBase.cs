@@ -25,6 +25,8 @@ namespace EFW2C.Records
         public bool IsLocked { get { return _isLocked; } }
         public bool IsVerified { get { return _isVerified; }}
 
+        public List<FieldBase> HelperFieldsList { get { return _helperFieldsList; } }
+
         public RecordBase(RecordManager recordManager, string recordName, char[] buffer = null)
         {
             _manager = recordManager;
@@ -180,12 +182,9 @@ namespace EFW2C.Records
                 field.Write();
         }
 
-        public bool Verify()
+        public virtual bool Verify()
         {
             _isVerified = false;
-
-            if (string.IsNullOrWhiteSpace(new string(RecordBuffer, 0, 3)))
-                throw new Exception($"{ClassName} RecordName can't be empty.");
 
             if (!CheckRequiredFields())
                 return false;
@@ -240,16 +239,7 @@ namespace EFW2C.Records
 
         public bool IsRecordEmpty()
         {
-            if (RecordBuffer != null)
-            {
-                for (var i = 0; i < RecordBuffer.Length; i++)
-                {
-                    if (!char.IsWhiteSpace(RecordBuffer[i]))
-                        return false;
-                }
-            }
-
-            return true;
+            return string.IsNullOrWhiteSpace(new string(RecordBuffer, 0, 3));
         }
 
         public void CreateFieldsFromRecordBuffer()

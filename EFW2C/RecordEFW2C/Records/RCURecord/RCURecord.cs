@@ -9,7 +9,7 @@ namespace EFW2C.Records
     internal class RcuRecord : RecordBase
     {
         private RceRecord _rceRecord;
-        public RceRecord RceRecord { get; }
+        public RceRecord RceRecord { get { return _rceRecord; } }
 
         public RcuRecord(RecordManager recordManager)
             : base(recordManager, RecordNameEnum.Rcu.ToString())
