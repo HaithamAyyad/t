@@ -44,7 +44,7 @@ namespace EFW2C.RecordEFW2C.W2cDocument
                 var rcwRecord = CreateRcwRecord(manager);
                 rcwRecord.SetRceRecord(rceRecord);
                 rcwRecord.SetRcoRecord(rcoRecord);
-                //rcwRecord.SetRcsRecord(rcsRecord);
+                rcwRecord.SetRcsRecord(rcsRecord);
                 rcwRecord.Write();
                 rcwRecord.Lock();
                 rceRecord.AddRcwRecord(rcwRecord);
@@ -58,8 +58,42 @@ namespace EFW2C.RecordEFW2C.W2cDocument
                 
                 manager.AddRceRecord(rceRecord);
 
+
+                //rce 2
+                rceRecord = CreateRceRecord(manager);
+                rceRecord.Write();
+                rceRecord.Verify();
+
+                rcoRecord = CreateRcoRecord2(manager);
+                rcoRecord.Write();
+                rcoRecord.Lock();
+
+                rcsRecord = CreateRcsRecord(manager);
+                rcsRecord.Write();
+                rcsRecord.Lock();
+
+                rcwRecord = CreateRcwRecord(manager);
+                rcwRecord.SetRceRecord(rceRecord);
+                rcwRecord.SetRcoRecord(rcoRecord);
+                rcwRecord.SetRcsRecord(rcsRecord);
+                rcwRecord.Write();
+                rcwRecord.Lock();
+                rceRecord.AddRcwRecord(rcwRecord);
+
+                rcvRecord = CreateRcvRecord(manager);
+                rcvRecord.Write();
+                rcvRecord.Lock();
+                rceRecord.SetRcvRecord(rcvRecord);
+
+                rceRecord.Lock();
+
+                manager.AddRceRecord(rceRecord);
+
                 manager.Close();
                 manager.Verify();
+
+
+                var manager2 = manager.Clone();
 
                 /*
                 manager.VerifyOrder();

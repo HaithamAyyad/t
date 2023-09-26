@@ -32,9 +32,16 @@ namespace EFW2C.Records
         {
             var rcwRecord = new RcwRecord(manager);
 
-            rcwRecord._rceRecord = _rceRecord;
-            rcwRecord._rcoRecord = _rcoRecord;
-            rcwRecord._rcsRecord = _rcsRecord;
+            if (_rcoRecord != null)
+            {
+                rcwRecord._rcoRecord = (RcoRecord)_rcoRecord.Clone(manager);
+                rcwRecord._rcoRecord.SetRcwRecord(rcwRecord);
+            }
+
+            if (_rcsRecord != null)
+            {
+                rcwRecord._rcsRecord = (RcsRecord)_rcsRecord.Clone(manager);
+            }
 
             CloneData(rcwRecord);
 
@@ -65,6 +72,13 @@ namespace EFW2C.Records
 
                 _rcoRecord.SetRcwRecord(this);
             }
+        }
+
+        public RcwRecord Clone(RecordManager manager, RceRecord rceRecord)
+        {
+            var rcwRecord = (RcwRecord)Clone(manager);
+            rcwRecord._rceRecord = rceRecord;
+            return rcwRecord;
         }
 
         public void SetRcsRecord(RcsRecord rcsRecord)

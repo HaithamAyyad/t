@@ -173,8 +173,7 @@ namespace EFW2C.Manager
 
         public RecordManager Clone()
         {
-            /*
-            CheckLock(true);
+            CheckOpened(false);
 
             var manager = new RecordManager()
             {
@@ -183,13 +182,18 @@ namespace EFW2C.Manager
                 _isTIB = _isTIB,
             };
 
-            foreach (var record in _records)
-                manager.AddRecord(record.Clone(manager));
+
+            manager._rcaRecord = _rcaRecord;
+            manager._rcfRecord = _rcfRecord;
+
+            manager._rceRecordList = new List<RceRecord>();
+
+            foreach (var rceRecord in _rceRecordList)
+            {
+                manager._rceRecordList.Add((RceRecord)rceRecord.Clone(manager));
+            }
 
             return manager;
-            */
-
-            return null;
         }
 
         private bool VerifyFieldsInRecords()
