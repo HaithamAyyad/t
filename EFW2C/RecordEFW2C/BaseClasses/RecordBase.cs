@@ -275,10 +275,11 @@ namespace EFW2C.Records
                 throw new Exception($"{ClassName} record is locked");
 
             record._isLocked = _isLocked;
-
-            record.RecordBuffer = (char[])RecordBuffer.Clone();
+            record._isVerified = _isVerified;
 
             record.Reset();
+
+            record.RecordBuffer = (char[])RecordBuffer.Clone();
 
             foreach (var field in _fields)
                 record.AddField(field.Clone(record));

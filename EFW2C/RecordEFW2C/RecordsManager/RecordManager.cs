@@ -12,7 +12,7 @@ namespace EFW2C.Manager
 {
     internal class RecordManager
     {
-        private bool _isLocked;
+        private bool _isOpened;
         private bool _isVerified;
 
         private bool _reSubmitted;
@@ -23,7 +23,7 @@ namespace EFW2C.Manager
         private RcfRecord _rcfRecord;
         private List<RceRecord> _rceRecordList;
 
-        public bool IsLock { get { return _isLocked; } }
+        public bool IsOpened { get { return _isOpened; } }
         public bool IsVerified { get { return _isVerified; } }
         public bool IsTIB { get { return _isTIB; } }
 
@@ -31,14 +31,18 @@ namespace EFW2C.Manager
         {
             _rceRecordList = new List<RceRecord>();
             _rcfRecord = new RcfRecord(this);
-            _rcfRecord.AddField(new RcfNumberOfRCWRecord(_rcfRecord));
+
+            _isOpened = true;
+
+            PrepareRcfRecord();
 
             WageTaxHelper.CreateWageTaxTabel();
+
         }
 
         public void SetRcaRecord(RcaRecord rcaRecord)
         {
-            CheckLocked(false);
+            CheckOpened(true);
 
             _rcaRecord = null;
 
@@ -53,7 +57,7 @@ namespace EFW2C.Manager
 
         public void AddRceRecord(RceRecord rceRecord)
         {
-            CheckLocked(false);
+            CheckOpened(true);
 
             if (rceRecord == null)
                 return;
@@ -67,32 +71,23 @@ namespace EFW2C.Manager
             _rceRecordList.Add((RceRecord) rceRecord.Clone(this));
         }
 
-        public void Lock(bool isLocked = true)
+        public void Open()
         {
-            if (isLocked)
-            {
-                if (!IsVerified && !Verify())
-                    return;
-            }
-            else
-            {
-                _isVerified = false;
-            }
-
-            _isLocked = isLocked;
+            _isVerified = false;
+            _isOpened = true;
         }
 
-        private void CheckLocked(bool isLock)
+        private void CheckOpened(bool isOpened)
         {
-            if (isLock)
+            if (isOpened)
             {
-                if (!_isLocked)
-                    throw new Exception($"Document is unlocked");
+                if (!_isOpened)
+                    throw new Exception($"Document is Closed");
             }
             else
             {
-                if (_isLocked)
-                    throw new Exception($"Document is locked");
+                if (_isOpened)
+                    throw new Exception($"Document is Opened");
             }
         }
 
@@ -128,16 +123,24 @@ namespace EFW2C.Manager
 
         public void Close()
         {
-            CheckLocked(false);
+            if (!_isOpened)
+                return;
 
+            PrepareRcfRecord();
+
+            Verify();
+
+            _isOpened = false;
+        }
+
+        private void PrepareRcfRecord()
+        {
             _rcfRecord.Lock(false);
             _rcfRecord.Reset();
+            _rcfRecord.AddField(new RcfIdentifierField(_rcfRecord));
             _rcfRecord.AddField(new RcfNumberOfRCWRecord(_rcfRecord));
             _rcfRecord.Write();
             _rcfRecord.Lock();
-
-            Verify();
-            Lock();
         }
 
         public int GetRcwRecordsCount()
@@ -225,21 +228,21 @@ namespace EFW2C.Manager
 
         public void SetSubmitter(bool value)
         {
-            CheckLocked(false);
+            CheckOpened(true);
             _reSubmitted = value;
             
         }
 
         public void SetUnEmployment(bool value)
         {
-            CheckLocked(false);
+            CheckOpened(true);
 
             _unemployment = value;
         }
 
         public void SetUnTIB(bool value)
         {
-            CheckLocked(false);
+            CheckOpened(true);
 
             _isTIB = value;
         }

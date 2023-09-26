@@ -53,6 +53,7 @@ namespace EFW2C.RecordEFW2C.W2cDocument
                 rceRecord.Lock();
                 manager.AddRceRecord(rceRecord);
 
+                manager.Close();
                 manager.Verify();
 
                 /*
