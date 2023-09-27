@@ -69,15 +69,6 @@
     <Compile Include="RecordEFW2C\BaseClasses\Info\ZIPCodeBase.cs" />
     <Compile Include="RecordEFW2C\BaseClasses\Info\ZIPCodeExtensionBase.cs" />
     <Compile Include="RecordEFW2C\BaseClasses\RecordBase.cs" />
-    <Compile Include="RecordEFW2C\BaseClasses\Template\FieldCorrectTemplate.cs" />
-    <Compile Include="RecordEFW2C\BaseClasses\Template\FieldOriginalTemplate.cs" />
-    <Compile Include="RecordEFW2C\BaseClasses\Template\MoneyCorrectTemplate.cs" />
-    <Compile Include="RecordEFW2C\BaseClasses\Template\MoneyOriginalTemplate.cs" />
-    <Compile Include="RecordEFW2C\BaseClasses\Template\RecordTemplate.cs" />
-    <Compile Include="RecordEFW2C\BaseClasses\Template\SumFieldCorrectTemplate.cs" />
-    <Compile Include="RecordEFW2C\BaseClasses\Template\SumFieldOriginalTemplate.cs" />
-    <Compile Include="RecordEFW2C\BaseClasses\Template\UnEmploymentReportingCorrectTemplate.cs" />
-    <Compile Include="RecordEFW2C\BaseClasses\Template\UnEmploymentReportingOriginalTemplate.cs" />
     <Compile Include="RecordEFW2C\Common\Constants.cs" />
     <Compile Include="RecordEFW2C\Common\enums.cs" />
     <Compile Include="RecordEFW2C\Common\WageTax.cs" />
