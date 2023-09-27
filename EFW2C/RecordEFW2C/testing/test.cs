@@ -15,9 +15,9 @@ namespace EFW2C.RecordEFW2C.W2cDocument
     {
         public void test()
         {
-            //var fileName1 = @"C:\1\1.txt";
-            //var fileName2 = @"C:\1\2.txt";
-            //var fileName3 = @"C:\1\3.txt";
+            var fileName1 = @"C:\1\1.txt";
+            var fileName2 = @"C:\1\2.txt";
+            var fileName3 = @"C:\1\3.txt";
 
             try
             {
@@ -42,7 +42,7 @@ namespace EFW2C.RecordEFW2C.W2cDocument
                 rcsRecord.Lock();
 
                 var rcwRecord = CreateRcwRecord(manager);
-                rcwRecord.SetRceRecord(rceRecord);
+                rcwRecord.SetParent(rceRecord);
                 rcwRecord.SetRcoRecord(rcoRecord);
                 rcwRecord.SetRcsRecord(rcsRecord);
                 rcwRecord.Write();
@@ -73,7 +73,7 @@ namespace EFW2C.RecordEFW2C.W2cDocument
                 rcsRecord.Lock();
 
                 rcwRecord = CreateRcwRecord(manager);
-                rcwRecord.SetRceRecord(rceRecord);
+                rcwRecord.SetParent(rceRecord);
                 rcwRecord.SetRcoRecord(rcoRecord);
                 rcwRecord.SetRcsRecord(rcsRecord);
                 rcwRecord.Write();
@@ -92,16 +92,26 @@ namespace EFW2C.RecordEFW2C.W2cDocument
                 manager.Close();
                 manager.Verify();
 
-
                 var manager2 = manager.Clone();
+                manager2.Close();
+
+                manager.WriteToFile(fileName1);
+                manager2.WriteToFile(fileName2);
+
+                if (!AreFilesIdentical_testfunction(fileName1, fileName2))
+                    throw new Exception($"for testing {fileName1} is not equal to {fileName2}");
+
+                RecordManager manager3 = RecordManager.CreateManager(fileName1);
+
+                manager3.WriteToFile(fileName3);
+
+                if (!AreFilesIdentical_testfunction(fileName1, fileName3))
+                    throw new Exception($"for testing {fileName1} is not equal to {fileName3}");
 
                 /*
                 manager.VerifyOrder();
-                
 
                 manager.Lock();
-
-                manager.WriteToFile(fileName1);
 
                 RecordManager manager2 = RecordManager.CreateManager(fileName1);
 
@@ -122,8 +132,6 @@ namespace EFW2C.RecordEFW2C.W2cDocument
                 manager3.Lock();
                 manager3.WriteToFile(fileName3);
 
-                if (!AreFilesIdentical_testfunction(fileName1, fileName3))
-                    throw new Exception($"for testing {fileName1} is not equal to {fileName3}");
                 */
 
                 if (!manager.Verify())

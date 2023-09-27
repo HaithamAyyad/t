@@ -8,13 +8,13 @@ namespace EFW2C.Records
 {
     internal class RcwRecord : RecordBase
     {
-        private RceRecord _rceRecord;
+        private RceRecord _parent;
         private RcoRecord _rcoRecord;
         private RcsRecord _rcsRecord;
 
         public RcoRecord RcoRecord { get { return _rcoRecord; } }
         public RcsRecord RcsRecord { get { return _rcsRecord; } }
-        public RceRecord RceRecord { get { return _rceRecord; } }
+        public RceRecord Parent { get { return _parent; } }
 
         public RcwRecord(RecordManager recordManager)
             : base(recordManager, RecordNameEnum.Rcw.ToString())
@@ -33,33 +33,28 @@ namespace EFW2C.Records
             var rcwRecord = new RcwRecord(manager);
 
             if (_rcoRecord != null)
-            {
-                rcwRecord._rcoRecord = (RcoRecord)_rcoRecord.Clone(manager);
-                rcwRecord._rcoRecord.SetRcwRecord(rcwRecord);
-            }
+                rcwRecord.SetRcoRecord((RcoRecord)_rcoRecord.Clone(manager));
 
             if (_rcsRecord != null)
-            {
-                rcwRecord._rcsRecord = (RcsRecord)_rcsRecord.Clone(manager);
-            }
+                rcwRecord.SetRcsRecord((RcsRecord)_rcsRecord.Clone(manager));
 
             CloneData(rcwRecord);
 
             return rcwRecord;
         }
 
-        public void SetRceRecord(RceRecord rceRecord)
+        public void SetParent(RceRecord parent)
         {
-            if (_isLocked)
-                throw new Exception($"Employee record is locked");
-
-            _rceRecord = rceRecord;
+            _parent = parent;
         }
 
         public void SetRcoRecord(RcoRecord rcoRecord)
         {
             if (_isLocked)
                 throw new Exception($"Employee record is locked");
+
+            if (_rcoRecord != null)
+                _rcoRecord.SetParent(this);
 
             _rcoRecord = null;
 
@@ -70,15 +65,8 @@ namespace EFW2C.Records
 
                 _rcoRecord = (RcoRecord)rcoRecord.Clone(Manager);
 
-                _rcoRecord.SetRcwRecord(this);
+                _rcoRecord.SetParent(this);
             }
-        }
-
-        public RcwRecord Clone(RecordManager manager, RceRecord rceRecord)
-        {
-            var rcwRecord = (RcwRecord)Clone(manager);
-            rcwRecord._rceRecord = rceRecord;
-            return rcwRecord;
         }
 
         public void SetRcsRecord(RcsRecord rcsRecord)
@@ -89,10 +77,16 @@ namespace EFW2C.Records
             if (!rcsRecord.IsLocked)
                 throw new Exception($"Employee optional record is unlocked");
 
+            if (_rcsRecord != null)
+                _rcsRecord.SetParent(null);
+
             _rcsRecord = null;
 
             if (rcsRecord != null)
+            {
                 _rcsRecord = (RcsRecord)rcsRecord.Clone(Manager);
+                _rcsRecord.SetParent(this);
+            }
         }
 
         protected override List<(int, int)> CreateBlankList()

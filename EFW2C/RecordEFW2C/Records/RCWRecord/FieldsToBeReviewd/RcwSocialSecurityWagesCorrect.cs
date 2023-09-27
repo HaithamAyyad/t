@@ -29,9 +29,9 @@ namespace EFW2C.Fields
             if (!base.Verify())
                 return false;
 
-            var taxYear = ((RcwRecord)_record).RceRecord.GetTaxYear();
+            var taxYear = ((RcwRecord)_record).Parent.GetTaxYear();
 
-            var employmentCode = ((RcwRecord)_record).RceRecord.GetEmploymentCode();
+            var employmentCode = ((RcwRecord)_record).Parent.GetEmploymentCode();
             if (employmentCode == EmploymentCodeEnum.Q.ToString() || employmentCode == EmploymentCodeEnum.X.ToString())
                 throw new Exception($"{ClassName} : since employment code is {employmentCode}, this field must not be provided");
 

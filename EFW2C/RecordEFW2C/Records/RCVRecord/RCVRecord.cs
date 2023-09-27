@@ -8,6 +8,9 @@ namespace EFW2C.Records
 {
     internal class RcvRecord : RecordBase
     {
+        private RceRecord _parent;
+        public RceRecord Parent { get { return _parent; } }
+
         public RcvRecord(RecordManager recordManager)
             : base(recordManager, RecordNameEnum.Rcv.ToString())
         {
@@ -28,6 +31,12 @@ namespace EFW2C.Records
 
             return rcvRecord;
         }
+
+        public void SetParent(RceRecord parent)
+        {
+            _parent = parent;
+        }
+
         protected override List<(int, int)> CreateBlankList()
         {
             return null;

@@ -31,9 +31,9 @@ namespace EFW2C.Fields
 
             var localData = DataInRecordBuffer();
 
-            var employmentCode = ((RctRecord)_record).RceRecord.GetEmploymentCode();
+            var employmentCode = ((RctRecord)_record).Parent.GetEmploymentCode();
 
-            var taxYear = ((RctRecord)_record).RceRecord.GetTaxYear();
+            var taxYear = ((RctRecord)_record).Parent.GetTaxYear();
 
             var value = double.Parse(localData);
 

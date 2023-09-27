@@ -97,12 +97,15 @@ namespace EFW2C.Manager
                 throw new Exception($"Employee records should not exceed {Constants.MaxRcwRecordsNumber}");
 
             if (GetRceRecordsCount() > Constants.MaxRceRecordsNumber)
-                throw new Exception($"Employer  records should not exceed {Constants.MaxRceRecordsNumber}");
+                throw new Exception($"Employer records should not exceed {Constants.MaxRceRecordsNumber}");
 
             if (!_rcaRecord.IsVerified && !_rcaRecord.Verify())
                 return false;
 
-            foreach(var rceRecord in _rceRecordList)
+            if (_rceRecordList.Count == 0)
+                throw new Exception($"At least one Employer records should be provided");
+
+            foreach (var rceRecord in _rceRecordList)
             {
                 if (!rceRecord.IsVerified && !rceRecord.Verify())
                     return false;
@@ -181,7 +184,6 @@ namespace EFW2C.Manager
                 _unemployment = _unemployment,
                 _isTIB = _isTIB,
             };
-
 
             manager._rcaRecord = _rcaRecord;
             manager._rcfRecord = _rcfRecord;
@@ -276,26 +278,44 @@ namespace EFW2C.Manager
             return _unemployment;
         }
 
-        public void WriteToFile_1(string fileName)
+        public void WriteToFile(string fileName)
         {
-            /*
-            CheckLock(true);
+            CheckOpened(false);
 
             using (StreamWriter writer = new StreamWriter(fileName))
             {
-                foreach (var record in _records)
+                writer.Write(new string(_rcaRecord.RecordBuffer));
+
+                foreach (var rceRecord in _rceRecordList)
                 {
-                    writer.Write(new string(record.RecordBuffer));
+                    writer.Write(new string(rceRecord.RecordBuffer));
+                    
+                    foreach (var rcwRecord in rceRecord.RcwRecordList)
+                    {
+                        writer.Write(new string(rcwRecord.RecordBuffer));
+                        
+                        if(rcwRecord.RcoRecord != null)
+                            writer.Write(new string(rcwRecord.RcoRecord.RecordBuffer));
+
+                        if(rcwRecord.RcsRecord != null)
+                            writer.Write(new string(rcwRecord.RcsRecord.RecordBuffer));
+                    }
+
+                    writer.Write(new string(rceRecord.RctRecord.RecordBuffer));
+
+                    if(rceRecord.RcuRecord != null)
+                        writer.Write(new string(rceRecord.RcuRecord.RecordBuffer));
+
+                    if(rceRecord.RcvRecord != null)
+                        writer.Write(new string(rceRecord.RcvRecord.RecordBuffer));
                 }
+
+                writer.Write(new string(_rcfRecord.RecordBuffer));
             }
-            */
         }
 
-        public List<string> ReadFromFile_1(string fileName)
+        public static List<string> ReadFromFile(string fileName)
         {
-            /*
-            CheckLock(false);
-
             var bufferList = new List<string>();
 
             using (StreamReader reader = new StreamReader(fileName))
@@ -311,14 +331,10 @@ namespace EFW2C.Manager
             }
 
             return bufferList;
-            */
-
-            return null;
         }
 
-        public static RecordManager CreateManager_1(string fileName)
+        public static RecordManager CreateManager(string fileName)
         {
-            /*
             try
             {
                 if (!File.Exists(fileName))
@@ -326,63 +342,71 @@ namespace EFW2C.Manager
 
                 var manager = new RecordManager();
 
-                var recordBufferList = manager.ReadFromFile(fileName);
+                var recordBufferList = ReadFromFile(fileName);
 
-                foreach (var recordBuffer in recordBufferList)
+                var recordList = RecordBase.CreateRecordList(manager, recordBufferList);
+
+                try
                 {
-                    var recordName = recordBuffer.Substring(0, 1) + recordBuffer.Substring(1, 2).ToLower();
-                    var recordNameEnum = Enum.Parse(typeof(RecordNameEnum), recordName);
-
-                    var record = null as RecordBase;
-
-                    switch (recordNameEnum)
-                    {
-                        case RecordNameEnum.Rca:
-                            record = new RcaRecord(manager, recordBuffer.ToCharArray());
-                            break;
-                        case RecordNameEnum.Rce:
-                            record = new RceRecord(manager, recordBuffer.ToCharArray());
-                            break;
-                        case RecordNameEnum.Rcw:
-                            record = new RcwRecord(manager, recordBuffer.ToCharArray());
-                            break;
-                        case RecordNameEnum.Rco:
-                            record = new RcoRecord(manager, recordBuffer.ToCharArray());
-                            break;
-                        case RecordNameEnum.Rcs:
-                            record = new RcsRecord(manager, recordBuffer.ToCharArray());
-                            break;
-                        case RecordNameEnum.Rct:
-                            record = new RctRecord(manager, recordBuffer.ToCharArray());
-                            break;
-                        case RecordNameEnum.Rcu:
-                            record = new RcuRecord(manager, recordBuffer.ToCharArray());
-                            break;
-                        case RecordNameEnum.Rcv:
-                            record = new RcvRecord(manager, recordBuffer.ToCharArray());
-                            break;
-                        case RecordNameEnum.Rcf:
-                            record = new RcfRecord(manager, recordBuffer.ToCharArray());
-                            break;
-                    }
-
-                    if (record != null)
-                    {
-                        manager.AddRecord(record);
-                        record.CreateFieldsFromRecordBuffer();
-
-                        if (record is RcaRecord rcaRecord)
-                        {
-                            var rcaResubIndicator = record.GetField(typeof(RcaResubIndicator).Name);
-
-                            if (!FieldBase.IsFieldNullOrWhiteSpace(rcaResubIndicator))
-                                manager.SetSubmitter(rcaResubIndicator.DataInRecordBuffer() == "1");
-                        }
-
-                    }
+                    RecordsOrderHelper.VerifyRecordsOrder(recordList);
+                }
+                catch(Exception ex)
+                {
+                    throw new Exception($"Invaild file {fileName} : { ex.Message}");
                 }
 
-                manager.Verify();
+                recordList[0].Lock();
+                manager.SetRcaRecord((RcaRecord)recordList[0]);
+
+                var index = 1;
+
+                while(recordList[index] is RceRecord rceRecord)
+                {
+                    index++;
+                    while(recordList[index] is RcwRecord rcwRecord)
+                    {
+                        index++;
+                        if (recordList[index] is RcoRecord rcoRecord)
+                        {
+                            rcoRecord.Lock();
+                            rcwRecord.SetRcoRecord(rcoRecord);
+                            index++;
+                        }
+
+                        if (recordList[index] is RcsRecord rcsRecord)
+                        {
+                            rcsRecord.Lock();
+                            rcwRecord.SetRcsRecord(rcsRecord);
+                            index++;
+                        }
+
+                        rcwRecord = rceRecord.AddRcwRecord(rcwRecord, true);
+                        rcwRecord.Lock();
+                    }
+
+                    //since RctRecord is are auto generated 
+                    if (recordList[index] is RctRecord rctRecord)
+                        index++;
+
+                    //since RcuRecord is auto generated 
+                    if (recordList[index] is RcuRecord rcuRecord)
+                        index++;
+
+                    if (recordList[index] is RcvRecord rcvRecord)
+                    {
+                        rcvRecord.Lock();
+                        rceRecord.SetRcvRecord(rcvRecord);
+                        index++;
+                    }
+
+                    rceRecord.Lock(true);
+                    manager.AddRceRecord(rceRecord);
+                }
+
+                if (recordList[index] as RcfRecord == null)
+                    throw new Exception($"RcfRecord is not provided");
+
+                manager.Close();
 
                 return manager;
             }
@@ -390,9 +414,6 @@ namespace EFW2C.Manager
             {
                 throw new Exception($"Create Manager faild, {ex.Message}");
             }
-            */
-
-            return null;
         }
     }
 }

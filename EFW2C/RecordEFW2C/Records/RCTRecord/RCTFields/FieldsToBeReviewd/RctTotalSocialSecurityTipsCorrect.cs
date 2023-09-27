@@ -29,11 +29,11 @@ namespace EFW2C.Fields
             if (!base.Verify())
                 return false;
 
-            var taxYear = ((RctRecord)_record).RceRecord.GetTaxYear();
+            var taxYear = ((RctRecord)_record).Parent.GetTaxYear();
 
             var localData = DataInRecordBuffer();
 
-            var employmentCode = ((RctRecord)_record).RceRecord.GetEmploymentCode();
+            var employmentCode = ((RctRecord)_record).Parent.GetEmploymentCode();
 
             if (employmentCode == EmploymentCodeEnum.Q.ToString() ||
                 employmentCode == EmploymentCodeEnum.X.ToString())

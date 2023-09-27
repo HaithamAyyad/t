@@ -8,8 +8,9 @@ namespace EFW2C.Records
 {
     internal class RctRecord : RecordBase
     {
-        private RceRecord _rceRecord;
-        public RceRecord RceRecord { get { return _rceRecord; } }
+        private RceRecord _parent;
+
+        public RceRecord Parent { get { return _parent; } }
 
         public RctRecord(RecordManager recordManager)
             : base(recordManager, RecordNameEnum.Rct.ToString())
@@ -32,12 +33,9 @@ namespace EFW2C.Records
             return rctRecord;
         }
 
-        public void SetRceRecord(RceRecord rceRecord)
+        public void SetParent(RceRecord parent)
         {
-            if (_isLocked)
-                throw new Exception($"Employee Total record is locked");
-
-            _rceRecord = rceRecord;
+            _parent = parent;
         }
 
         protected override List<(int, int)> CreateBlankList()

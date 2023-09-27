@@ -48,6 +48,47 @@ namespace EFW2C.Records
             CheckHelperFieldsList();
         }
 
+        protected void CloneData(RecordBase record)
+        {
+            if (record.IsLocked)
+                throw new Exception($"{ClassName} record is locked");
+
+            record._isLocked = _isLocked;
+            record._isVerified = _isVerified;
+
+            record.Reset();
+
+            record.RecordBuffer = (char[])RecordBuffer.Clone();
+
+            foreach (var field in _fields)
+                record.AddField(field.Clone(record));
+        }
+
+        public void Lock(bool isLocked = true)
+        {
+            if (isLocked)
+            {
+                if (!_isVerified && !Verify())
+                    return;
+            }
+
+            _isLocked = isLocked;
+        }
+
+        public void Reset()
+        {
+            _fields.Clear();
+
+            RecordBuffer = new string(' ', Constants.RecordLength).ToCharArray();
+        }
+
+        public void Prepare()
+        {
+            var identifierField = _helperFieldsList.FirstOrDefault(item => item.ClassName == $"{RecordName}IdentifierField");
+
+            AddField(identifierField.Clone(this));
+        }
+
         public FieldBase CreateField(RecordBase record, string fieldName, string data)
         {
             var field = _helperFieldsList.FirstOrDefault(item => item.ClassName == fieldName);
@@ -67,17 +108,6 @@ namespace EFW2C.Records
             }
 
             return true;
-        }
-
-        public void Lock(bool isLocked = true)
-        {
-            if (isLocked)
-            {
-                if (!_isVerified && !Verify())
-                    return;
-            }
-
-            _isLocked = isLocked;
         }
 
         private bool CheckHelperFieldsList()
@@ -151,6 +181,7 @@ namespace EFW2C.Records
 
             return _fields.FirstOrDefault(field => field.ClassName == fieldClassName);
         }
+
         public void AddField(FieldBase field)
         {
 
@@ -205,6 +236,99 @@ namespace EFW2C.Records
             return _isVerified;
         }
 
+        public bool IsRecordEmpty()
+        {
+            return string.IsNullOrWhiteSpace(new string(RecordBuffer, 0, 3));
+        }
+
+        public static RecordBase CreateRecord(RecordManager manager,string recordBuffer)
+        {
+            var record = null as RecordBase;
+
+            var recordName = recordBuffer.Substring(0, 1) + recordBuffer.Substring(1, 2).ToLower();
+
+            if (Enum.TryParse<RecordNameEnum>(recordName, out RecordNameEnum recordNameEnum) &&
+                recordBuffer.Length == Constants.RecordLength)
+            {
+                switch (recordNameEnum)
+                {
+                    case RecordNameEnum.Rca:
+                        record = new RcaRecord(manager, recordBuffer.ToCharArray());
+                        break;
+                    case RecordNameEnum.Rce:
+                        record = new RceRecord(manager, recordBuffer.ToCharArray());
+                        break;
+                    case RecordNameEnum.Rcw:
+                        record = new RcwRecord(manager, recordBuffer.ToCharArray());
+                        break;
+                    case RecordNameEnum.Rco:
+                        record = new RcoRecord(manager, recordBuffer.ToCharArray());
+                        break;
+                    case RecordNameEnum.Rcs:
+                        record = new RcsRecord(manager, recordBuffer.ToCharArray());
+                        break;
+                    case RecordNameEnum.Rct:
+                        record = new RctRecord(manager, recordBuffer.ToCharArray());
+                        break;
+                    case RecordNameEnum.Rcu:
+                        record = new RcuRecord(manager, recordBuffer.ToCharArray());
+                        break;
+                    case RecordNameEnum.Rcv:
+                        record = new RcvRecord(manager, recordBuffer.ToCharArray());
+                        break;
+                    case RecordNameEnum.Rcf:
+                        record = new RcfRecord(manager, recordBuffer.ToCharArray());
+                        break;
+                }
+            }
+
+            return record;
+        }
+
+        public static List<RecordBase> CreateRecordList(RecordManager manager, List<string> recordBufferList)
+        {
+            var recordList = new List<RecordBase>();
+
+            foreach (var recordBuffer in recordBufferList)
+            {
+                var record = CreateRecord(manager, recordBuffer);
+
+                if (record != null)
+                {
+                    record.CreateFieldsFromRecordBuffer();
+
+                    if (record is RcaRecord rcaRecord)
+                    {
+                        var rcaResubIndicator = record.GetField(typeof(RcaResubIndicator).Name);
+
+                        if (!FieldBase.IsFieldNullOrWhiteSpace(rcaResubIndicator))
+                            manager.SetSubmitter(rcaResubIndicator.DataInRecordBuffer() == "1");
+                    }
+
+                    recordList.Add(record);
+                }
+            }
+
+            return recordList;
+        }
+
+        public void CreateFieldsFromRecordBuffer()
+        {
+            _fields.Clear();
+
+            foreach(var field in _helperFieldsList)
+            {
+                var data = new string(RecordBuffer, field.Pos, field.Length);
+
+                if (!string.IsNullOrWhiteSpace(data))
+                {
+                    var newField = field.Clone(this, data.TrimEnd());
+
+                    AddField(newField);
+                }
+            }
+        }
+
         private bool CheckblankFields()
         {
             if (_blankFields != null)
@@ -235,57 +359,6 @@ namespace EFW2C.Records
             }
 
             return true;
-        }
-
-        public bool IsRecordEmpty()
-        {
-            return string.IsNullOrWhiteSpace(new string(RecordBuffer, 0, 3));
-        }
-
-        public void CreateFieldsFromRecordBuffer()
-        {
-            _fields.Clear();
-
-            foreach(var field in _helperFieldsList)
-            {
-                var data = new string(RecordBuffer, field.Pos, field.Length);
-
-                if (!string.IsNullOrWhiteSpace(data))
-                {
-                    var newField = field.Clone(this, data.TrimEnd());
-
-                    AddField(newField);
-                }
-            }
-        }
-
-        protected void CloneData(RecordBase record)
-        {
-            if(record.IsLocked)
-                throw new Exception($"{ClassName} record is locked");
-
-            record._isLocked = _isLocked;
-            record._isVerified = _isVerified;
-
-            record.Reset();
-
-            record.RecordBuffer = (char[])RecordBuffer.Clone();
-
-            foreach (var field in _fields)
-                record.AddField(field.Clone(record));
-        }
-
-        public void Reset()
-        {
-            _fields.Clear();
-
-            RecordBuffer = new string(' ', Constants.RecordLength).ToCharArray();
-        }
-        public void Prepare()
-        {
-            var identifierField = _helperFieldsList.FirstOrDefault(item => item.ClassName == $"{RecordName}IdentifierField");
-
-            AddField(identifierField.Clone(this));
         }
 
         protected abstract List<FieldBase> CreateHelperFieldsList();

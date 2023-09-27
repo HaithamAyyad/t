@@ -8,6 +8,9 @@ namespace EFW2C.Records
 {
     internal class RcsRecord : RecordBase
     {
+        private RcwRecord _parent;
+        public RcwRecord Pranet { get { return _parent; } }
+
         public RcsRecord(RecordManager recordManager)
             : base(recordManager, RecordNameEnum.Rcs.ToString())
         {
@@ -28,6 +31,12 @@ namespace EFW2C.Records
 
             return rcsRecord;
         }
+
+        public void SetParent(RcwRecord parent)
+        {
+            _parent = parent;
+        }
+
         protected override List<(int, int)> CreateBlankList()
         {
             return new List<(int, int)>

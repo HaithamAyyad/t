@@ -25,7 +25,7 @@ namespace EFW2C.Fields
 
         public override void Write()
         {
-            _data = ((RcuRecord)_record).RceRecord.GetRcoRecordsCount().ToString();
+            _data = ((RcuRecord)_record).Parent.GetRcoRecordsCount().ToString();
             base.Write();
 
         }
@@ -34,7 +34,7 @@ namespace EFW2C.Fields
             if (!base.Verify())
                 return false;
 
-            if (Int32.Parse(DataInRecordBuffer()) != ((RcuRecord)_record).RceRecord.GetRcoRecordsCount())
+            if (Int32.Parse(DataInRecordBuffer()) != ((RcuRecord)_record).Parent.GetRcoRecordsCount())
                 throw new Exception($"{ClassName} number of RCO is not correct");
 
             return true;

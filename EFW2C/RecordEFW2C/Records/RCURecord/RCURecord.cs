@@ -8,8 +8,9 @@ namespace EFW2C.Records
 {
     internal class RcuRecord : RecordBase
     {
-        private RceRecord _rceRecord;
-        public RceRecord RceRecord { get { return _rceRecord; } }
+        private RceRecord _parent;
+
+        public RceRecord Parent { get { return _parent; } }
 
         public RcuRecord(RecordManager recordManager)
             : base(recordManager, RecordNameEnum.Rcu.ToString())
@@ -32,9 +33,9 @@ namespace EFW2C.Records
             return rcuRecord;
         }
 
-        public void SetRceRecord(RceRecord rceRecord)
+        public void SetParent(RceRecord parent)
         {
-            _rceRecord = rceRecord;
+            _parent = parent;
         }
 
         protected override List<(int, int)> CreateBlankList()

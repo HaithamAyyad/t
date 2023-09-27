@@ -27,7 +27,7 @@ namespace EFW2C.Fields
 
         public override void Write()
         {
-            _data = ((RctRecord)_record).RceRecord.GetRcwRecordsCount().ToString();
+            _data = ((RctRecord)_record).Parent.GetRcwRecordsCount().ToString();
             base.Write();
         }
         public override bool Verify()
@@ -35,7 +35,7 @@ namespace EFW2C.Fields
             if (!base.Verify())
                 return false;
 
-            if (Int32.Parse(DataInRecordBuffer()) != ((RctRecord)_record).RceRecord.GetRcwRecordsCount())
+            if (Int32.Parse(DataInRecordBuffer()) != ((RctRecord)_record).Parent.GetRcwRecordsCount())
                 throw new Exception($"{ClassName} number of RCW is not correct");
 
             return true;

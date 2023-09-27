@@ -27,11 +27,11 @@ namespace EFW2C.Fields
             var sum = 0;
 
             if (_record is RcwRecord rcwRecord)
-                sum = rcwRecord.RceRecord.GetRcwFieldsSum(fieldClassName);
+                sum = rcwRecord.Parent.GetRcwFieldsSum(fieldClassName);
 
             if (_record is RcoRecord rcoRecord)
             {
-                sum = rcoRecord.RcwRecord.RceRecord.GetRcoFieldsSum(fieldClassName);
+                sum = rcoRecord.Parent.Parent.GetRcoFieldsSum(fieldClassName);
             }
 
             if (sum > 0)
@@ -51,11 +51,11 @@ namespace EFW2C.Fields
             var sum = 0;
 
             if (_record is RcwRecord rcwRecord)
-                sum = rcwRecord.RceRecord.GetRcwFieldsSum(fieldClassName);
+                sum = rcwRecord.Parent.GetRcwFieldsSum(fieldClassName);
 
             if (_record is RcoRecord rcoRecord)
             {
-                sum = rcoRecord.RcwRecord.RceRecord.GetRcoFieldsSum(fieldClassName);
+                sum = rcoRecord.Parent.Parent.GetRcoFieldsSum(fieldClassName);
             }
 
             var localData = DataInRecordBuffer();
