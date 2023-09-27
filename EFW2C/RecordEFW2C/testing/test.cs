@@ -108,32 +108,7 @@ namespace EFW2C.RecordEFW2C.W2cDocument
                 if (!AreFilesIdentical_testfunction(fileName1, fileName3))
                     throw new Exception($"for testing {fileName1} is not equal to {fileName3}");
 
-                /*
-                manager.VerifyOrder();
-
-                manager.Lock();
-
-                RecordManager manager2 = RecordManager.CreateManager(fileName1);
-
-                manager2.write();
-
-                manager2.Verify();
-                manager2.Lock();
-
-                manager2.WriteToFile(fileName2);
-
-                if (!AreFilesIdentical_testfunction(fileName1, fileName2))
-                    throw new Exception($"for testing {fileName1} is not equal to {fileName2}");
-
-                var manager3 = manager.Clone();
-                manager3.write();
-
-                manager3.Verify();
-                manager3.Lock();
-                manager3.WriteToFile(fileName3);
-
-                */
-
+      
                 if (!manager.Verify())
                     MessageBox.Show("Error");
                 else
@@ -148,7 +123,6 @@ namespace EFW2C.RecordEFW2C.W2cDocument
 
         static bool AreFilesIdentical_testfunction(string filePath1, string filePath2)
         {
-
             byte[] fileBytes1 = File.ReadAllBytes(filePath1);
             byte[] fileBytes2 = File.ReadAllBytes(filePath2);
 

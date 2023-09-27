@@ -52,8 +52,8 @@ namespace EFW2C.RecordEFW2C.W2cDocument
         {
             var mapDictionary = new Dictionary<string, string>();
 
-            mapDictionary.Add(nameof(W2cSubmitter.Ein), typeof(RcaEinSubmitterField).Name);
-            mapDictionary.Add(nameof(W2cSubmitter.UserID), typeof(RcaUserIdentification).Name);
+            mapDictionary.Add(nameof(Ein), typeof(RcaEinSubmitterField).Name);
+            mapDictionary.Add(nameof(UserID), typeof(RcaUserIdentification).Name);
 
             return mapDictionary;
         }

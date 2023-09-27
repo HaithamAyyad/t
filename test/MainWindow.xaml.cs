@@ -16,7 +16,7 @@ namespace test
 
             try
             {
-                /*var document = new W2cDocument();
+                var document = new W2cDocument();
 
                 var submitter = new W2cSubmitter(document);
                 submitter.Ein = "001001909";
@@ -24,7 +24,7 @@ namespace test
 
                 submitter.Lock(true);
 
-                document.SetSubmitter(submitter);*/
+                document.SetSubmitter(submitter);
 
                 var test = new TestClass();
 
