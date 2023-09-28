@@ -3,6 +3,7 @@ using EFW2C.Manager;
 using EFW2C.Records;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -24,19 +25,29 @@ namespace EFW2C.RecordEFW2C.W2cDocument
             get { return _ein; }
             set
             {
-                _ein = value;
-                AddData(value);
+                if (_ein != value)
+                {
+                    _ein = value;
+                    AddData(value);
+                    OnPropertyChanged();
+                }
             }
         }
 
         private string _userID;
+
+
         public string UserID
         {
             get { return _userID; }
             set
             {
-                _userID = value;
-                AddData(value);
+                if (_userID != value)
+                {
+                    _userID = value;
+                    AddData(value);
+                    OnPropertyChanged();
+                }
             }
         }
 

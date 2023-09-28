@@ -1,6 +1,7 @@
 ﻿using EFW2C.Records;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace EFW2C.RecordEFW2C.W2cDocument
 {
-    public abstract class DocumentPart
+    public abstract class DocumentPart : INotifyPropertyChanged
     {
         protected W2cDocument _document;
         internal RecordBase _record;
@@ -76,5 +77,12 @@ namespace EFW2C.RecordEFW2C.W2cDocument
 
         public abstract bool Verify();
         protected abstract Dictionary<string, string> CreateMapPropFieldDictionay();
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void OnPropertyChanged([CallerMemberName] string propertyName = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
     }
 }
