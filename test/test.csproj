@@ -38,6 +38,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Reflection.Context" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -56,9 +57,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Interface\IDocumentViewModel.cs" />
     <Compile Include="ViewModel\EmployeeViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\EmployerViewModel.cs" />
+    <Compile Include="ViewModel\DocumentViewModel.cs" />
+    <Compile Include="View\SubmitterDataUserControl.xaml.cs">
+      <DependentUpon>SubmitterDataUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\EmployeeStateDataUserControl.xaml.cs">
       <DependentUpon>EmployeeStateDataUserControl.xaml</DependentUpon>
     </Compile>
@@ -71,12 +77,17 @@
     <Compile Include="View\EmployerWindow.xaml.cs">
       <DependentUpon>EmployerWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\SubmitterWindow.xaml.cs">
-      <DependentUpon>SubmitterWindow.xaml</DependentUpon>
+    <Compile Include="View\DocumentWindow.xaml.cs">
+      <DependentUpon>DocumentWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\EmployeeDataUserControl.xaml.cs">
       <DependentUpon>EmployeeDataUserControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WindowManager\WindowManager.cs" />
+    <Page Include="View\SubmitterDataUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="View\EmployeeStateDataUserControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -107,9 +118,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\SubmitterWindow.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="View\DocumentWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="View\EmployeeDataUserControl.xaml">
       <SubType>Designer</SubType>

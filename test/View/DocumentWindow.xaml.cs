@@ -16,14 +16,14 @@ using test.ViewModel;
 namespace test.View
 {
     /// <summary>
-    /// Interaction logic for SubmitterWindow.xaml
+    /// Interaction logic for DocumentWindow.xaml
     /// </summary>
-    public partial class SubmitterWindow : Window
+    public partial class DocumentWindow : Window
     {
-        public SubmitterWindow()
+        public DocumentWindow()
         {
             InitializeComponent();
-            DataContext = new SubmitterViewModel();
+            DataContext = new DocumentViewModel();
         }
     }
 }

@@ -1,0 +1,31 @@
+﻿<Window x:Class="test.View.DocumentWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:test.View"
+        mc:Ignorable="d"
+        Title="Document Window" Height="450" Width="800">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Margin="5,0" Text="Ein:" VerticalAlignment="Top"/>
+            <TextBox Text="{Binding Submitter.Ein, Mode=TwoWay}" VerticalAlignment="Top" Width="120" Height="20"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center" Grid.ColumnSpan="2">
+            <Button Margin="10,0" Content="Verify" Command="{Binding VerifyCommand}" HorizontalContentAlignment="Center" />
+            <Button Content="Create Employer" Command="{Binding CreateEmployerCommand}" HorizontalContentAlignment="Center"/>
+        </StackPanel>
+        <ListBox ItemsSource="{Binding EmployerList}" Grid.Column="2" Grid.RowSpan="2"/>
+
+    </Grid>
+</Window>

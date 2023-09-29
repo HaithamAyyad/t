@@ -97,6 +97,7 @@ namespace test.ViewModel
                 MessageBox.Show(ex.Message);
             }
         }    
+
         private void VerifyEmployeeStateCommandHandler()
         {
             try

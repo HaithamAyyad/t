@@ -43,7 +43,7 @@ namespace test.ViewModel
 
         private void CreateDocumentCommandHandler()
         {
-            var submitterWindow = new SubmitterWindow();
+            var submitterWindow = new DocumentWindow();
             submitterWindow.ShowDialog();
         }
 

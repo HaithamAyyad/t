@@ -83,6 +83,5 @@ namespace EFW2C.RecordEFW2C.W2cDocument
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-
     }
 }
