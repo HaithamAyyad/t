@@ -384,10 +384,10 @@ namespace EFW2C.RecordEFW2C.W2cDocument
             mapDictionary.Add(nameof(ContactPhoneExtension), typeof(RcaContactPhoneExtension).Name);
             mapDictionary.Add(nameof(CountryCode), typeof(RcaCountryCode).Name);
             mapDictionary.Add(nameof(DeliveryAddress), typeof(RcaDeliveryAddress).Name);
-            mapDictionary.Add(nameof(EinSubmitterField), typeof(RcaEinSubmitterField).Name);
+            mapDictionary.Add(nameof(EinSubmitterField), typeof(RcaEinSubmitter).Name);
             mapDictionary.Add(nameof(ForeignPostalCode), typeof(RcaForeignPostalCode).Name);
             mapDictionary.Add(nameof(ForeignStateProvince), typeof(RcaForeignStateProvince).Name);
-            mapDictionary.Add(nameof(IdentifierField), typeof(RcaIdentifierField).Name);
+            mapDictionary.Add(nameof(IdentifierField), typeof(RcaIdentifier).Name);
             mapDictionary.Add(nameof(LocationAddress), typeof(RcaLocationAddress).Name);
             mapDictionary.Add(nameof(PreparerCode), typeof(RcaPreparerCode).Name);
             mapDictionary.Add(nameof(ResubIndicator), typeof(RcaResubIndicator).Name);

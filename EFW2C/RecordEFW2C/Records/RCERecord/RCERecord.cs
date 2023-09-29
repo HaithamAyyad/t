@@ -22,7 +22,7 @@ namespace EFW2C.Records
         public RceRecord(RecordManager recordManager)
             : base(recordManager, RecordNameEnum.Rce.ToString())
         {
-            AddField(new RceIdentifierField(this));
+            AddField(new RceIdentifier(this));
 
             _rcwRecordList = new List<RcwRecord>();
         }
@@ -30,7 +30,7 @@ namespace EFW2C.Records
         public RceRecord(RecordManager recordManager, char[] buffer)
             : base(recordManager, RecordNameEnum.Rce.ToString(), buffer)
         {
-            AddField(new RceIdentifierField(this));
+            AddField(new RceIdentifier(this));
 
             _rcwRecordList = new List<RcwRecord>();
         }
@@ -300,7 +300,7 @@ namespace EFW2C.Records
                 new RceEstablishmentNumberOriginal(this, "Helper"),
                 new RceForeignPostalCode(this, "Helper"),
                 new RceForeignStateProvince(this, "Helper"),
-                new RceIdentifierField(this),
+                new RceIdentifier(this),
                 new RceKindOfEmployer(this, "Helper"),
                 new RceLocationAddress(this, "Helper"),
                 new RceStateAbbreviation(this, "Helper"),

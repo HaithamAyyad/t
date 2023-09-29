@@ -463,7 +463,7 @@ namespace EFW2C.RecordEFW2C.W2cDocument
             mapDictionary.Add(nameof(EstablishmentNumberOriginal), typeof(RceEstablishmentNumberOriginal).Name);
             mapDictionary.Add(nameof(ForeignPostalCode), typeof(RceForeignPostalCode).Name);
             mapDictionary.Add(nameof(ForeignStateProvince), typeof(RceForeignStateProvince).Name);
-            mapDictionary.Add(nameof(IdentifierField), typeof(RceIdentifierField).Name);
+            mapDictionary.Add(nameof(IdentifierField), typeof(RceIdentifier).Name);
             mapDictionary.Add(nameof(KindOfEmployer), typeof(RceKindOfEmployer).Name);
             mapDictionary.Add(nameof(LocationAddress), typeof(RceLocationAddress).Name);
             mapDictionary.Add(nameof(StateAbbreviation), typeof(RceStateAbbreviation).Name);

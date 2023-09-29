@@ -11,13 +11,13 @@ namespace EFW2C.Records
         public RcaRecord(RecordManager recordManager)
             : base(recordManager, RecordNameEnum.Rca.ToString())
         {
-            AddField(new RcaIdentifierField(this));
+            AddField(new RcaIdentifier(this));
         }
         
         public RcaRecord(RecordManager recordManager, char[] buffer)
             : base(recordManager, RecordNameEnum.Rca.ToString(), buffer)
         {
-            AddField(new RcaIdentifierField(this));
+            AddField(new RcaIdentifier(this));
         }
 
         public override RecordBase Clone(RecordManager manager)
@@ -54,10 +54,10 @@ namespace EFW2C.Records
                 new RcaContactPhoneExtension(this, "Helper"),
                 new RcaCountryCode(this, "Helper"),
                 new RcaDeliveryAddress(this, "Helper"),
-                new RcaEinSubmitterField(this, "Helper"),
+                new RcaEinSubmitter(this, "Helper"),
                 new RcaForeignPostalCode(this, "Helper"),
                 new RcaForeignStateProvince(this, "Helper"),
-                new RcaIdentifierField(this),
+                new RcaIdentifier(this),
                 new RcaLocationAddress(this, "Helper"),
                 new RcaPreparerCode(this, "Helper"),
                 new RcaResubIndicator(this, "Helper"),
