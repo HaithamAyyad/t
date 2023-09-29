@@ -14,7 +14,8 @@ namespace test
         {
             InitializeComponent();
 
-            DataContext = new SubmitterViewModel();
+            DataContext = new MainViewModel();
+
 
             /* try
              {

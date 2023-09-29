@@ -56,6 +56,39 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ViewModel\EmployeeViewModel.cs" />
+    <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\EmployerViewModel.cs" />
+    <Compile Include="View\EmployeeStateDataUserControl.xaml.cs">
+      <DependentUpon>EmployeeStateDataUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\EmployeeOptionalDataUserControl.xaml.cs">
+      <DependentUpon>EmployeeOptionalDataUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\EmployeeWindow.xaml.cs">
+      <DependentUpon>EmployeeWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\EmployerWindow.xaml.cs">
+      <DependentUpon>EmployerWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SubmitterWindow.xaml.cs">
+      <DependentUpon>SubmitterWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\EmployeeDataUserControl.xaml.cs">
+      <DependentUpon>EmployeeDataUserControl.xaml</DependentUpon>
+    </Compile>
+    <Page Include="View\EmployeeStateDataUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\EmployeeOptionalDataUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\EmployeeWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="View\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -70,6 +103,18 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\EmployerWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\SubmitterWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\EmployeeDataUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

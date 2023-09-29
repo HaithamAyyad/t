@@ -5,10 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:test"
         mc:Ignorable="d"
-        Title="Submitter" Height="450" Width="800">
-    <StackPanel>
-        <TextBox Text="{Binding Submitter.Ein, Mode=TwoWay}"/>
+        Title="MainWindow" Height="450" Width="800">
+    <DockPanel Background="Bisque">
+        <StackPanel DockPanel.Dock="Top"  Orientation="Horizontal">
+            <TextBlock Margin="20" Padding="0,10" Text="Document Name" Height="40"/>
+            <TextBox Text="{Binding DocumentName}" VerticalContentAlignment="Center" Width="220" Height="40"/>
+        </StackPanel>
 
-        <Button Content="Verify" Command="{Binding VerifyCommand}" />
-    </StackPanel>
+        <Button Margin="30" DockPanel.Dock="Bottom" Content="Create Document" Command="{Binding CreateDocumentCommand}" />
+        <Label DockPanel.Dock="Top"/>
+    </DockPanel>
 </Window>

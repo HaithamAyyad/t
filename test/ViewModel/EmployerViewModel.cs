@@ -14,67 +14,53 @@ using test.View;
 
 namespace test.ViewModel
 {
-    public class SubmitterViewModel : INotifyPropertyChanged
+    public class EmployerViewModel : INotifyPropertyChanged
     {
 
+        private W2cEmployer _employer;
 
-        private W2cSubmitter _submitter;
-
-        public W2cSubmitter Submitter
+        public W2cEmployer Employer
         {
-            get { return _submitter; }
-            set 
+            get { return _employer; }
+            set
             {
-                if (_submitter != value)
+                if (_employer != value)
                 {
-                    _submitter = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
-
-        private string _employerList;
-
-        public string EmployerList
-        {
-            get { return _employerList; }
-            set 
-            {
-                if (_employerList != value)
-                {
-                    _employerList = value;
+                    _employer = value;
                     OnPropertyChanged();
                 }
             }
         }
 
         public ICommand VerifyCommand { get; set; }
-        public ICommand CreateEmployerCommand { get; set; }
+        public ICommand CreateEmployeeCommand { get; set; }
 
-        public SubmitterViewModel() 
+
+        public EmployerViewModel() 
         {
             VerifyCommand = new RelayCommand(VerifyCommandHandler);
-            CreateEmployerCommand = new RelayCommand(CreateEmployerCommandHandler);
+            CreateEmployeeCommand = new RelayCommand(CreateEmployeeCommandHandler);
 
-            _submitter = new W2cSubmitter(new W2cDocument());
-        }
+            _employer = new W2cEmployer(new W2cDocument());
 
-        private void CreateEmployerCommandHandler()
-        {
-            var employerWindow = new EmployerWindow();
-            employerWindow.ShowDialog();
         }
 
         private void VerifyCommandHandler()
         {
             try
             {
-                _submitter.Verify();
+                _employer.Verify();
             }
             catch(Exception ex) 
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void CreateEmployeeCommandHandler()
+        {
+            var employeeWindow = new EmployeeWindow();
+            employeeWindow.ShowDialog();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
