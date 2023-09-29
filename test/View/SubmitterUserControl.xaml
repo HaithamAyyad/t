@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="test.View.SubmitterDataUserControl"
+﻿<UserControl x:Class="test.View.SubmitterUserControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -8,6 +8,7 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Margin="20">
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
@@ -17,15 +18,14 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <StackPanel Orientation="Horizontal">
+        <TextBlock Text="Submitter"/>
+        <StackPanel Orientation="Horizontal" Grid.Row="1">
             <TextBlock Margin="5,0" Text="Ein:" VerticalAlignment="Top"/>
             <TextBox Text="{Binding Submitter.Ein, Mode=TwoWay}" VerticalAlignment="Top" Width="120" Height="20"/>
         </StackPanel>
-        <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center" Grid.ColumnSpan="2">
-            <Button Margin="10,0" Content="Verify" Command="{Binding VerifyCommand}" HorizontalContentAlignment="Center" />
-            <Button Content="Create Employer" Command="{Binding CreateEmployerCommand}" HorizontalContentAlignment="Center"/>
+        <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Center" Grid.ColumnSpan="2">
+            <Button Margin="10,0" Content="Verify" Command="{Binding VerifySubmitterCommand}" HorizontalContentAlignment="Center" />
         </StackPanel>
-        <ListBox ItemsSource="{Binding EmployerList}" Grid.Column="2" Grid.RowSpan="2"/>
-
+        <ListBox ItemsSource="{Binding EmployerList}" Grid.Column="3" Grid.RowSpan="2"/>
     </Grid>
 </UserControl>

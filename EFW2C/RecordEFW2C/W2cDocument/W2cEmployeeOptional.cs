@@ -8,7 +8,7 @@ namespace EFW2C.RecordEFW2C.W2cDocument
 {
     public class W2cEmployeeOptional : DocumentPart
     {
-        W2cEmployeeOptional(W2cDocument document)
+        public W2cEmployeeOptional(W2cDocument document)
             : base(document)
         {
 

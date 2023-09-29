@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace test.View
 {
     /// <summary>             
-    /// Interaction logic for SubmitterDataUserControl.xaml
+    /// Interaction logic for SubmitterUserControl.xaml
     /// </summary>
-    public partial class SubmitterDataUserControl : UserControl
+    public partial class SubmitterUserControl : UserControl
     {
-        public SubmitterDataUserControl()
+        public SubmitterUserControl()
         {
             InitializeComponent();
         }

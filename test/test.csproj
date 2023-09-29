@@ -57,46 +57,49 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Interface\IDocumentViewModel.cs" />
-    <Compile Include="ViewModel\EmployeeViewModel.cs" />
+    <Compile Include="Converter\BooleanToVisibilityConverter.cs" />
+    <Compile Include="Interface\IViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
-    <Compile Include="ViewModel\EmployerViewModel.cs" />
     <Compile Include="ViewModel\DocumentViewModel.cs" />
-    <Compile Include="View\SubmitterDataUserControl.xaml.cs">
-      <DependentUpon>SubmitterDataUserControl.xaml</DependentUpon>
+    <Compile Include="View\EmployeeCollectionUserControl.xaml.cs">
+      <DependentUpon>EmployeeCollectionUserControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\EmployeeStateDataUserControl.xaml.cs">
-      <DependentUpon>EmployeeStateDataUserControl.xaml</DependentUpon>
+    <Compile Include="View\EmployerUserControl.xaml.cs">
+      <DependentUpon>EmployerUserControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\EmployeeOptionalDataUserControl.xaml.cs">
-      <DependentUpon>EmployeeOptionalDataUserControl.xaml</DependentUpon>
+    <Compile Include="View\SubmitterUserControl.xaml.cs">
+      <DependentUpon>SubmitterUserControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\EmployeeWindow.xaml.cs">
-      <DependentUpon>EmployeeWindow.xaml</DependentUpon>
+    <Compile Include="View\EmployeeStateUserControl.xaml.cs">
+      <DependentUpon>EmployeeStateUserControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\EmployerWindow.xaml.cs">
-      <DependentUpon>EmployerWindow.xaml</DependentUpon>
+    <Compile Include="View\EmployeeOptionalUserControl.xaml.cs">
+      <DependentUpon>EmployeeOptionalUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\DocumentWindow.xaml.cs">
       <DependentUpon>DocumentWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\EmployeeDataUserControl.xaml.cs">
-      <DependentUpon>EmployeeDataUserControl.xaml</DependentUpon>
+    <Compile Include="View\EmployeeUserControl.xaml.cs">
+      <DependentUpon>EmployeeUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="WindowManager\WindowManager.cs" />
-    <Page Include="View\SubmitterDataUserControl.xaml">
+    <Page Include="View\EmployeeCollectionUserControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\EmployeeStateDataUserControl.xaml">
+    <Page Include="View\EmployerUserControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\EmployeeOptionalDataUserControl.xaml">
+    <Page Include="View\SubmitterUserControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\EmployeeWindow.xaml">
+    <Page Include="View\EmployeeStateUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\EmployeeOptionalUserControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -109,20 +112,15 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Command\RelayCommand.cs" />
-    <Compile Include="ViewModel\SubmitterViewModel.cs" />
     <Compile Include="View\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="View\EmployerWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="View\DocumentWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\EmployeeDataUserControl.xaml">
+    <Page Include="View\EmployeeUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace test.Interface
 {
-    internal interface IDocumentViewModel
+    public interface IViewModel
     {
     }
 }

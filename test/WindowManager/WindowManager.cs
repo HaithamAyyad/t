@@ -9,19 +9,24 @@ using test.Interface;
 
 namespace test.WindowManager
 {
-    internal class WindowManager
+    public class WindowsManager
     {
-        private Window CreateWindow(IDocumentViewModel viewModel)
+        public static Window CreateWindow(IViewModel viewModel)
         {
-            /*
-            var modelType = viewModel.GetType();
-            var windowTypeName = modelType.Name.Replace("ViewModel", "Window");
-            var windowTypes = from t in GetTypes().Assembly
-                              where t.IsClass
-                              && t.Name == windowTypeName
-                              select t;
-            return (Window)Activator.CreateInstance(windowTypes.Single());
-            */
+            var windowName = viewModel.GetType().ToString().Replace("Model", "");
+            windowName = windowName.Replace("DocumentView", "DocumentWindow");
+
+            var windowType = Type.GetType(windowName);
+
+            if (windowType != null && typeof(Window).IsAssignableFrom(windowType))
+            {
+                var window = (Window)Activator.CreateInstance(windowType);
+
+                window.DataContext = viewModel;
+
+                return window;
+            }
+
             return null;
         }
 

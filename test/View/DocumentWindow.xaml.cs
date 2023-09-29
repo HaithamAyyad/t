@@ -23,7 +23,6 @@ namespace test.View
         public DocumentWindow()
         {
             InitializeComponent();
-            DataContext = new DocumentViewModel();
         }
     }
 }

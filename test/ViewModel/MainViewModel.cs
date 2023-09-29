@@ -12,13 +12,12 @@ using System.Windows;
 using System.Windows.Input;
 using test.Command;
 using test.View;
+using test.WindowManager;
 
 namespace test.ViewModel
 {
     public class MainViewModel : INotifyPropertyChanged
     {
-
-
         private string _documentName;
 
         public string DocumentName
@@ -43,8 +42,11 @@ namespace test.ViewModel
 
         private void CreateDocumentCommandHandler()
         {
-            var submitterWindow = new DocumentWindow();
-            submitterWindow.ShowDialog();
+            var documentViewModel = new DocumentViewModel();
+            var documentWindow = WindowsManager.CreateWindow(documentViewModel);
+            documentWindow.ShowDialog();
+
+            //documentViewModel.Document.SaveDocument()
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

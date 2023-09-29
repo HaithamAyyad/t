@@ -10,20 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
-using test.ViewModel;
 
 namespace test.View
 {
     /// <summary>
-    /// Interaction logic for EmployerWindow.xaml
+    /// Interaction logic for EmployeeStateUserControl.xaml
     /// </summary>
-    public partial class EmployerWindow : Window
+    public partial class EmployeeStateUserControl : UserControl
     {
-        public EmployerWindow()
+        public EmployeeStateUserControl()
         {
             InitializeComponent();
-            DataContext = new EmployerViewModel();
         }
     }
 }
