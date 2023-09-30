@@ -9,9 +9,9 @@ namespace EFW2C.Fields
     //Created by : HSA 9-1-2023
     //Reviewed by : HSA on ........
 
-    internal class RcaEinSubmitter : EinFieldBase
+    internal class RcaEinSubmitterField : EinFieldBase
     {
-        public RcaEinSubmitter(RecordBase record, string data)
+        public RcaEinSubmitterField(RecordBase record, string data)
             : base(record, data)
         {
             _pos = 3;
@@ -20,7 +20,7 @@ namespace EFW2C.Fields
 
         public override FieldBase Clone(RecordBase record)
         {
-            return new RcaEinSubmitter(record, _data);
+            return new RcaEinSubmitterField(record, _data);
         }
     }
 }

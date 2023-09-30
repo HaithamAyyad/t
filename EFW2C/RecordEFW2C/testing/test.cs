@@ -218,7 +218,7 @@ namespace EFW2C.RecordEFW2C.W2cDocument
         private RcaRecord CreateRcaRecord(RecordManager manager)
         {
             var rcaRecord = new RcaRecord(manager);
-            rcaRecord.AddField(new RcaEinSubmitter(rcaRecord, "773456789"));
+            rcaRecord.AddField(new RcaEinSubmitterField(rcaRecord, "773456789"));
             rcaRecord.AddField(new RcaSoftwareCode(rcaRecord, "99"));
             rcaRecord.AddField(new RcaUserIdentification(rcaRecord, "12345678"));
             rcaRecord.AddField(new RcaSoftwareVendorCode(rcaRecord, "4444"));
