@@ -16,6 +16,8 @@ namespace EFW2C.RecordEFW2C.W2cDocument
         protected bool _isLocked;
         private Dictionary<string, string> _mapPropFieldDictionary;
         protected Dictionary<string, string> DataDictionary { get; }
+
+        internal RecordBase Record { get { return _record; } }
         public DocumentPart(W2cDocument document)
         {
             _document = document;
@@ -28,21 +30,16 @@ namespace EFW2C.RecordEFW2C.W2cDocument
             {
                 Prepare();
 
+                _record.Lock();
+
                 if (!Verify())
                     return false;
-            }
-            else
-            {
-                if (_document != null)
-                {
-                    _document.Remove(this);
-                    _document = null;
-                }
+
             }
 
             _isLocked = value;
 
-            return true;
+            return _isLocked;
         }
 
         private void Prepare()
@@ -75,7 +72,14 @@ namespace EFW2C.RecordEFW2C.W2cDocument
             DataDictionary[propertyName] = value;
         }
 
-        public abstract bool Verify();
+        public virtual bool Verify()
+        {
+            if (!_record.Verify())
+                return false;
+
+            return true;
+        }
+
         protected abstract Dictionary<string, string> CreateMapPropFieldDictionay();
 
         public event PropertyChangedEventHandler PropertyChanged;

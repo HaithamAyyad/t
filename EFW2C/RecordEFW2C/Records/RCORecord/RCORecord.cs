@@ -8,7 +8,7 @@ namespace EFW2C.Records
 {
     internal class RcoRecord : RecordBase
     {
-        RcwRecord _parent;
+        private RcwRecord _parent;
         public RcwRecord Parent { get { return _parent; } }
 
         public RcoRecord(RecordManager recordManager)
@@ -34,6 +34,14 @@ namespace EFW2C.Records
             CloneData(rcoRecord);
 
             return rcoRecord;
+        }
+
+        public override bool Verify()
+        {
+            if (_parent == null)
+                throw new Exception($"Employee-Optional : must be added to Employee");
+
+            return !base.Verify();
         }
 
         protected override List<(int, int)> CreateBlankList()

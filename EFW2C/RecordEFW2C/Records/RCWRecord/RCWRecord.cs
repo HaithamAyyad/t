@@ -89,6 +89,14 @@ namespace EFW2C.Records
             }
         }
 
+        public override bool Verify()
+        {
+            if(_parent == null)
+                throw new Exception($"Employee : must be added to Employer");
+
+            return !base.Verify();
+        }
+
         protected override List<(int, int)> CreateBlankList()
         {
             return new List<(int, int)>

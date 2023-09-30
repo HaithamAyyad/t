@@ -1,4 +1,5 @@
 ﻿using EFW2C.Fields;
+using EFW2C.Records;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace EFW2C.RecordEFW2C.W2cDocument
         public W2cEmployeeOptional(W2cDocument document)
             : base(document)
         {
-
+            _record = new RcoRecord(document.Manager);
         }
 
         private string _aggregateDeferralsCodeHHCorrect;
@@ -360,10 +361,6 @@ namespace EFW2C.RecordEFW2C.W2cDocument
             }
         }
 
-        public override bool Verify()
-        {
-            throw new NotImplementedException();
-        }
         protected override Dictionary<string, string> CreateMapPropFieldDictionay()
         {
             var mapDictionary = new Dictionary<string, string>();

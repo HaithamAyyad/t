@@ -1,4 +1,5 @@
 ﻿using EFW2C.Manager;
+using EFW2C.Records;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -53,17 +54,7 @@ namespace EFW2C.RecordEFW2C.W2cDocument
             // More checking is needed.
             //
 
-            _employerList.Add(employer);
-
-        }
-
-        internal void Remove(DocumentPart documentPart)
-        {
-            if (documentPart is W2cSubmitter)
-                _submitter = null;
-
-            if (documentPart is W2cEmployer employer)
-                _employerList.RemoveAll(item => item == employer);
+            Manager.AddRceRecord((RceRecord)employer.Record);
 
         }
 

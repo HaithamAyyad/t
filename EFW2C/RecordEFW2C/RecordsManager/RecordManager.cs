@@ -27,6 +27,8 @@ namespace EFW2C.Manager
         public bool IsVerified { get { return _isVerified; } }
         public bool IsTIB { get { return _isTIB; } }
 
+        public List<RceRecord> RceRecordList { get { return _rceRecordList; } }
+
         public RecordManager()
         {
             _rceRecordList = new List<RceRecord>();

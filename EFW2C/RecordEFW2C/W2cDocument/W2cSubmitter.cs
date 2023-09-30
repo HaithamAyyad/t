@@ -366,7 +366,7 @@ namespace EFW2C.RecordEFW2C.W2cDocument
 
         public override bool Verify()
         {
-            if (!_record.Verify())
+            if (!base.Verify())
                 return false;
 
             return true;

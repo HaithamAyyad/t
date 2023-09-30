@@ -206,10 +206,44 @@ namespace test.ViewModel
             //_submitter.ResubWageFile= "hjhfj";
             _submitter.Lock();
 
-            /*_employer = new W2cEmployer(_document);
-            _employee = new W2cEmployee(_document);
-            _employeeOptional = new W2cEmployeeOptional(_document);
-            _employeeState = new W2cState(_document);*/
+            _employee.ZipCode = "11118";
+            _employee.ZipCodeExtension = "1117";
+            _employee.StateAbbreviation = "AL";
+            _employee.LocationAddress = "ggg";
+            _employee.DeliveryAddress = "Alask box 444 0";
+            _employee.City = "City1";
+            //_employee.ForeignStateProvince = "KKK";
+            _employee.ForeignPostalCode = "BOX 300";
+            //_employee.CountryCode= ="UK";
+            _employee.SocialSecurityNumberCorrect = "123456789";
+            _employee.SocialSecurityNumberOriginal = "122456789";
+            _employee.SocialSecurityTaxWithheldCorrect = "5656";
+            _employee.SocialSecurityTaxWithheldOriginal = "5656";
+            _employee.EmployeeFirstNameOriginal = "John";
+            _employee.EmployeeFirstNameCorrect = "John";
+            _employee.EmployeeLastNameCorrect = "Smith";
+            _employee.EmployeeLastNameOriginal = "Smith";
+
+            _employee.Lock();
+
+            _employer.AddEmployee(_employee);
+
+            _employeeOptional.AllocatedTipsCorrect = "10";
+            _employeeOptional.AllocatedTipsOriginal = "10";
+            _employeeOptional.Lock();
+
+            _employer.TaxYear = "1960";
+            _employer.KindOfEmployer = "S";
+            _employer.AgentIndicator = "1";
+            _employer.EinAgentFederal = "123456789";
+            _employer.EinAgent = "123456789";
+            _employer.EmployerName = "employer1";
+
+
+            _employer.Lock();
+
+
+
         }
 
         private void VerifySubmitterCommandHandler()
