@@ -1,5 +1,6 @@
 ﻿using System;
 using EFW2C.Common.Enums;
+using EFW2C.Common.Helper;
 using EFW2C.Extensions;
 using EFW2C.Records;
 
@@ -28,7 +29,7 @@ namespace EFW2C.Fields
 
             var localData = DataInRecordBuffer();
 
-            if (!(localData == ((int)SoftwareCodeEnum.Code_98).ToString() || localData == ((int)SoftwareCodeEnum.Code_99).ToString()))
+            if (!EnumHelper.IsSoftwareCodeValid(localData, true))
                 throw new Exception($"{ClassName} must be either 98 or 99");
 
             return true;

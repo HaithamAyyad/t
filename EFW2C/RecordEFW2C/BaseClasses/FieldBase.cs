@@ -28,7 +28,7 @@ namespace EFW2C.Fields
             _record = record;
             _fieldType = GetFieldType();
 
-            _data = _fieldType == FieldTypeEnum.UpperCase_LeftJustify_Blank ? data.ToUpper() : data;
+            _data = (_fieldType == FieldTypeEnum.UpperCase_LeftJustify_Blank) ? data.ToUpper() : data;
 
             ClassName = GetType().Name;
         }
@@ -42,7 +42,7 @@ namespace EFW2C.Fields
         {
             var field = Clone(record);
 
-            field._data = data;
+            field._data = (_fieldType == FieldTypeEnum.UpperCase_LeftJustify_Blank) ? data.ToUpper() : data; ;
 
             return field;
         }

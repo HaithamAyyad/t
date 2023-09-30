@@ -75,6 +75,63 @@ namespace EFW2C.Common.Helper
             return false;
         }
 
+        public static bool IsResubIndicatorCodeValid(string indicatorValue, bool value = false)
+        {
+            foreach (var indicatorCode in Enum.GetValues(typeof(ResubIndicatorCodeEnum)))
+            {
+                if (value)
+                {
+                    if (((int)indicatorCode).ToString("D1") == indicatorValue)
+                        return true;
+                }
+                else
+                {
+                    if (indicatorCode.ToString() == indicatorValue)
+                        return true;
+                }
+            }
+
+            return false;
+        }
+
+        public static bool IsAgentIndicatorValid(string indicatorValue, bool value = false)
+        {
+            foreach (var agentIndicatorCode in Enum.GetValues(typeof(AgentIndicatorCodeEnum)))
+            {
+                if (value)
+                {
+                    if (((int)agentIndicatorCode).ToString("D1") == indicatorValue)
+                        return true;
+                }
+                else
+                {
+                    if (agentIndicatorCode.ToString() == indicatorValue)
+                        return true;
+                }
+            }
+
+            return false;
+        }
+
+        public static bool IsSoftwareCodeValid(string state, bool value = false)
+        {
+            foreach (var oftwareCode in Enum.GetValues(typeof(SoftwareCodeEnum)))
+            {
+                if (value)
+                {
+                    if (((int)oftwareCode).ToString("D2") == state)
+                        return true;
+                }
+                else
+                {
+                    if (oftwareCode.ToString() == state)
+                        return true;
+                }
+            }
+
+            return false;
+        }
+
         public static bool IsPreparerCodeVaild(string code)
         {
             return Enum.GetNames(typeof(PreparerCodeEnum)).Any(enumValue => enumValue == code);
@@ -83,11 +140,6 @@ namespace EFW2C.Common.Helper
         public static bool IsKindOfEmployerValid(string kind)
         {
             return Enum.GetNames(typeof(KindOfEmployerEnum)).Any(enumValue => enumValue == kind);
-        }
-     
-        public static bool IsAgentIndicatorValid(int indicatorValue)
-        {
-            return Enum.IsDefined(typeof(AgentIndicatorCodeEnum), indicatorValue);
         }
 
         public static bool IsEmploymentCodeValid(string code)

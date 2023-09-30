@@ -32,10 +32,8 @@ namespace EFW2C.Fields
 
             if (!string.IsNullOrWhiteSpace(localData))
             {
-                var value = Int32.Parse(localData);
-
-                if (!EnumHelper.IsAgentIndicatorValid(value))
-                    throw new Exception($"{ClassName} {value} is not correct");
+                if (!EnumHelper.IsAgentIndicatorValid(localData, true))
+                    throw new Exception($"{ClassName} {localData} is not Valid Agent Indicator");
             }
 
             return true;

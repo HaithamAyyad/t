@@ -22,7 +22,7 @@ namespace EFW2C.RecordEFW2C.W2cDocument
             _mapPropFieldDictionary = CreateMapPropFieldDictionay();
             DataDictionary = new Dictionary<string, string>();
         }
-        public bool Lock(bool value)
+        public bool Lock(bool value = true)
         {
             if (value)
             {

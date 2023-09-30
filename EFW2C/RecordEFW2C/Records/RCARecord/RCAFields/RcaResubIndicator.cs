@@ -1,5 +1,6 @@
 ﻿using System;
 using EFW2C.Common.Enums;
+using EFW2C.Common.Helper;
 using EFW2C.Extensions;
 using EFW2C.Records;
 
@@ -27,9 +28,12 @@ namespace EFW2C.Fields
             if (!base.Verify())
                 return false;
 
-            var submitValue = DataInRecordBuffer();
+            var localData = DataInRecordBuffer();
 
-            switch (submitValue)
+            if(!EnumHelper.IsResubIndicatorCodeValid(localData, true))
+                throw new Exception($"{ClassName} must be ethier 0 or 1");
+
+            switch (localData)
             {
                 case "0":
                     if (_record.Manager.IsSubmitter())
@@ -39,8 +43,6 @@ namespace EFW2C.Fields
                     if (!_record.Manager.IsSubmitter())
                         throw new Exception($"{ClassName} must be 0 because this file marked as not resubmitted");
                     break;
-                default:
-                    throw new Exception($"{ClassName}: the value is {submitValue} it must be either 1 or 0");
             }
 
             return true;

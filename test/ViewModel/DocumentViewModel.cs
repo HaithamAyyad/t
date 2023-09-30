@@ -175,7 +175,41 @@ namespace test.ViewModel
             _employeeOptional = new W2cEmployeeOptional(_document);
             _employeeState = new W2cState(_document);
 
-            ShowHideWindow();
+            test();
+
+            ShowHideWindows();
+        }
+
+        private void test()
+        {
+            _submitter.EinSubmitter = "773456789";
+            _submitter.SoftwareCode= "99";
+            _submitter.UserIdentification= "12345678";
+            _submitter.SoftwareVendorCode= "4444";
+            _submitter.SubmitterName= "Adam";
+            _submitter.ContactName= "john";
+            _submitter.ZipCode= "11118";
+            _submitter.ZipCodeExtension= "1117";
+            _submitter.StateAbbreviation= "AL";
+            _submitter.LocationAddress= "dfd";
+            _submitter.DeliveryAddress= "Alask box 444 0";
+            _submitter.City = "City1";
+            //_submitter.ForeignStateProvince="KKK";
+            _submitter.ForeignPostalCode= "BOX 300";
+            //_submitter.CountryCode="UK";
+            _submitter.ContactPhone= "9090000000";
+            _submitter.ContactPhoneExtension= "108";
+            _submitter.ContactEMailInternet= "e@t.com";
+            _submitter.ContactFax= "123456456";
+            _submitter.PreparerCode= "A";
+            _submitter.ResubIndicator= "0";
+            //_submitter.ResubWageFile= "hjhfj";
+            _submitter.Lock();
+
+            /*_employer = new W2cEmployer(_document);
+            _employee = new W2cEmployee(_document);
+            _employeeOptional = new W2cEmployeeOptional(_document);
+            _employeeState = new W2cState(_document);*/
         }
 
         private void VerifySubmitterCommandHandler()
@@ -240,17 +274,27 @@ namespace test.ViewModel
 
         private void NextCommandHandler()
         {
-            _windowIndex++;
-            ShowHideWindow();
+            MoveToNextWindow();
         }
 
         private void PreviousCommandHandler()
         {
-            _windowIndex--;
-            ShowHideWindow();
+            MoveToPreviousWindow();
         }
 
-        private void ShowHideWindow()
+        private void MoveToPreviousWindow()
+        {
+            _windowIndex--;
+            ShowHideWindows();
+        }
+
+        private void MoveToNextWindow()
+        {
+            _windowIndex++;
+            ShowHideWindows();
+        }
+
+        private void ShowHideWindows()
         {
             _windowIndex = Math.Max(0, _windowIndex);
             _windowIndex = Math.Min(_windowIndex, 2);

@@ -387,6 +387,12 @@ namespace EFW2C.Common.Enums
         N,
     }
 
+    public enum ResubIndicatorCodeEnum
+    {
+        Zero = 0,
+        One = 1,
+    }
+
     public enum AgentIndicatorCodeEnum
     {
         One = 1,

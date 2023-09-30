@@ -1,5 +1,6 @@
 ﻿using System;
 using EFW2C.Common.Enums;
+using EFW2C.Common.Helper;
 using EFW2C.Extensions;
 using EFW2C.Records;
 
@@ -35,10 +36,11 @@ namespace EFW2C.Fields
                 return false;
 
             var rcaResubIndicator = _record.GetField(typeof(RcaResubIndicator).Name);
-            var localData = DataInRecordBuffer();
 
             if (rcaResubIndicator != null)
             {
+                var localData = DataInRecordBuffer();
+ 
                 switch (rcaResubIndicator.DataInRecordBuffer())
                 {
                     case "1":
@@ -63,7 +65,11 @@ namespace EFW2C.Fields
 
         public override bool IsRequired()
         {
-            return true;
+            var rcaResubIndicator = _record.GetField(typeof(RcaResubIndicator).Name);
+            if (!IsFieldNullOrWhiteSpace(rcaResubIndicator))
+                return (rcaResubIndicator.DataInRecordBuffer()) == ((int)ResubIndicatorCodeEnum.One).ToString();
+
+            return false;
         }
     }
 }
