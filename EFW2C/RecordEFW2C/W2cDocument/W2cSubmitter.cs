@@ -139,15 +139,15 @@ namespace EFW2C.RecordEFW2C.W2cDocument
             }
         }
 
-        private string _einSubmitterField;
-        public string EinSubmitterField
+        private string _einSubmitter;
+        public string EinSubmitter
         {
-            get { return _einSubmitterField; }
+            get { return _einSubmitter; }
             set
             {
-                if (_einSubmitterField != value)
+                if (_einSubmitter != value)
                 {
-                    _einSubmitterField = value;
+                    _einSubmitter = value;
                     AddData(value);
                     OnPropertyChanged();
                 }
@@ -184,15 +184,15 @@ namespace EFW2C.RecordEFW2C.W2cDocument
             }
         }
 
-        private string _identifierField;
-        public string IdentifierField
+        private string _recordIdentifier;
+        public string RecordIdentifier
         {
-            get { return _identifierField; }
+            get { return _recordIdentifier; }
             set
             {
-                if (_identifierField != value)
+                if (_recordIdentifier != value)
                 {
-                    _identifierField = value;
+                    _recordIdentifier = value;
                     AddData(value);
                     OnPropertyChanged();
                 }
@@ -384,10 +384,10 @@ namespace EFW2C.RecordEFW2C.W2cDocument
             mapDictionary.Add(nameof(ContactPhoneExtension), typeof(RcaContactPhoneExtension).Name);
             mapDictionary.Add(nameof(CountryCode), typeof(RcaCountryCode).Name);
             mapDictionary.Add(nameof(DeliveryAddress), typeof(RcaDeliveryAddress).Name);
-            mapDictionary.Add(nameof(EinSubmitterField), typeof(RcaEinSubmitterField).Name);
+            mapDictionary.Add(nameof(EinSubmitter), typeof(RcaEinSubmitter).Name);
             mapDictionary.Add(nameof(ForeignPostalCode), typeof(RcaForeignPostalCode).Name);
             mapDictionary.Add(nameof(ForeignStateProvince), typeof(RcaForeignStateProvince).Name);
-            mapDictionary.Add(nameof(IdentifierField), typeof(RcaIdentifierField).Name);
+            mapDictionary.Add(nameof(RecordIdentifier), typeof(RcaRecordIdentifier).Name);
             mapDictionary.Add(nameof(LocationAddress), typeof(RcaLocationAddress).Name);
             mapDictionary.Add(nameof(PreparerCode), typeof(RcaPreparerCode).Name);
             mapDictionary.Add(nameof(ResubIndicator), typeof(RcaResubIndicator).Name);

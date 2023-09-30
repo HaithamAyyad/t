@@ -84,9 +84,9 @@ namespace EFW2C.Records
 
         public void Prepare()
         {
-            var identifierField = _helperFieldsList.FirstOrDefault(item => item.ClassName == $"{RecordName}IdentifierField");
+            var recordIdentifier = _helperFieldsList.FirstOrDefault(item => item.ClassName == $"{RecordName}RecordIdentifier");
 
-            AddField(identifierField.Clone(this));
+            AddField(recordIdentifier.Clone(this));
         }
 
         public FieldBase CreateField(RecordBase record, string fieldName, string data)

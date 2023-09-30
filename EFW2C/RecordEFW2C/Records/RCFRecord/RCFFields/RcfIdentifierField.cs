@@ -8,9 +8,9 @@ namespace EFW2C.Fields
     //Created by : Has 9-3-2023
     //Reviewed by : 
 
-    internal class RcfIdentifierField : IdentifierFieldBase
+    internal class RcfRecordIdentifier : RecordIdentifierBase
     {
-        public RcfIdentifierField(RecordBase record)
+        public RcfRecordIdentifier(RecordBase record)
             : base(record, record.RecordName)
         {
             _pos = 0;
@@ -19,7 +19,7 @@ namespace EFW2C.Fields
 
         public override FieldBase Clone(RecordBase record)
         {
-            return new RcfIdentifierField(record);
+            return new RcfRecordIdentifier(record);
         }
     }
 }

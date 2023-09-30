@@ -8,9 +8,9 @@ namespace EFW2C.Fields
     //Created by  : HSA on 9-4-2023
     //Reviewed by : HSA on ........
 
-    internal class RcuIdentifierField : IdentifierFieldBase
+    internal class RcuRecordIdentifier : RecordIdentifierBase
     {
-        public RcuIdentifierField(RecordBase record)
+        public RcuRecordIdentifier(RecordBase record)
             : base(record, record.RecordName)
         {
             _pos = 0;
@@ -19,7 +19,7 @@ namespace EFW2C.Fields
 
         public override FieldBase Clone(RecordBase record)
         {
-            return new RcuIdentifierField(record);
+            return new RcuRecordIdentifier(record);
         }
     }
 }

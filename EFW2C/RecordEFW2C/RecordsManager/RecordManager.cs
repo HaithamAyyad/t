@@ -153,7 +153,7 @@ namespace EFW2C.Manager
         {
             _rcfRecord.Lock(false);
             _rcfRecord.Reset();
-            _rcfRecord.AddField(new RcfIdentifierField(_rcfRecord));
+            _rcfRecord.AddField(new RcfRecordIdentifier(_rcfRecord));
             _rcfRecord.AddField(new RcfNumberOfRCWRecord(_rcfRecord));
             _rcfRecord.Write();
             _rcfRecord.Lock();

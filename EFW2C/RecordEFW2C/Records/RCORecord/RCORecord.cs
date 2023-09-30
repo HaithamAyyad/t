@@ -14,13 +14,13 @@ namespace EFW2C.Records
         public RcoRecord(RecordManager recordManager)
             : base(recordManager, RecordNameEnum.Rco.ToString())
         {
-            AddField(new RcoIdentifierField(this));
+            AddField(new RcoRecordIdentifier(this));
         }
 
         public RcoRecord(RecordManager recordManager, char[] buffer)
             : base(recordManager, RecordNameEnum.Rco.ToString(), buffer)
         {
-            AddField(new RcoIdentifierField(this));
+            AddField(new RcoRecordIdentifier(this));
         }
 
         public void SetParent(RcwRecord parent)
@@ -56,7 +56,7 @@ namespace EFW2C.Records
                 new RcoAllocatedTipsOriginal(this, "Helper"),
                 new RcoDesignatedRothContributionsCodeEECorrect(this, "Helper"),
                 new RcoDesignatedRothContributionsCodeEEOriginal(this, "Helper"),
-                new RcoIdentifierField(this),
+                new RcoRecordIdentifier(this),
                 new RcoIncomeFromQualifiedEquityCodeGGCorrect(this, "Helper"),
                 new RcoIncomeFromQualifiedEquityCodeGGOriginal(this, "Helper"),
                 new RcoIncomeUnderANonQualifiedDeferredCompensationPlanCodeZCorrect(this, "Helper"),

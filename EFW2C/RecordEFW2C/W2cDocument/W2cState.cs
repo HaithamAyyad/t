@@ -240,15 +240,15 @@ namespace EFW2C.RecordEFW2C.W2cDocument
             }
         }
 
-        private string _identifierField;
-        public string IdentifierField
+        private string _recordIdentifier;
+        public string RecordIdentifier
         {
-            get { return _identifierField; }
+            get { return _recordIdentifier; }
             set
             {
-                if (_identifierField != value)
+                if (_recordIdentifier != value)
                 {
-                    _identifierField = value;
+                    _recordIdentifier = value;
                     AddData(value);
                     OnPropertyChanged();
                 }
@@ -759,7 +759,7 @@ namespace EFW2C.RecordEFW2C.W2cDocument
             mapDictionary.Add(nameof(EmployeeMiddleNameOriginal), typeof(RcsEmployeeMiddleNameOriginal).Name);
             mapDictionary.Add(nameof(ForeignPostalCode), typeof(RcsForeignPostalCode).Name);
             mapDictionary.Add(nameof(ForeignStateProvince), typeof(RcsForeignStateProvince).Name);
-            mapDictionary.Add(nameof(IdentifierField), typeof(RcsIdentifierField).Name);
+            mapDictionary.Add(nameof(RecordIdentifier), typeof(RcsRecordIdentifier).Name);
             mapDictionary.Add(nameof(LocalTaxableWagesCorrect), typeof(RcsLocalTaxableWagesCorrect).Name);
             mapDictionary.Add(nameof(LocalTaxableWagesOriginal), typeof(RcsLocalTaxableWagesOriginal).Name);
             mapDictionary.Add(nameof(LocationAddress), typeof(RcsLocationAddress).Name);

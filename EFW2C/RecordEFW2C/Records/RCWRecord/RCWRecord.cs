@@ -19,13 +19,13 @@ namespace EFW2C.Records
         public RcwRecord(RecordManager recordManager)
             : base(recordManager, RecordNameEnum.Rcw.ToString())
         {
-            AddField(new RcwIdentifierField(this));
+            AddField(new RcwRecordIdentifier(this));
         }
 
         public RcwRecord(RecordManager recordManager, char[] buffer)
             : base(recordManager, RecordNameEnum.Rcw.ToString(), buffer)
         {
-            AddField(new RcwIdentifierField(this));
+            AddField(new RcwRecordIdentifier(this));
         }
 
         public override RecordBase Clone(RecordManager manager)
@@ -139,7 +139,7 @@ namespace EFW2C.Records
                 new RcwFederalIncomeTaxWithheldOriginal(this, "Helper"),
                 new RcwForeignPostalCode(this, "Helper"),
                 new RcwForeignStateProvince(this, "Helper"),
-                new RcwIdentifierField(this),
+                new RcwRecordIdentifier(this),
                 new RcwIncomeFromTheExerciseOfNonstatutoryStockOptionsCodeVCorrect(this, "Helper"),
                 new RcwIncomeFromTheExerciseOfNonstatutoryStockOptionsCodeVOriginal(this, "Helper"),
                 new RcwLocationAddress(this, "Helper"),

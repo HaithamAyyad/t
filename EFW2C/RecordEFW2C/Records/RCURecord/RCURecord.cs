@@ -15,13 +15,13 @@ namespace EFW2C.Records
         public RcuRecord(RecordManager recordManager)
             : base(recordManager, RecordNameEnum.Rcu.ToString())
         {
-            AddField(new RcuIdentifierField(this));
+            AddField(new RcuRecordIdentifier(this));
         }
 
         public RcuRecord(RecordManager recordManager, char[] buffer)
             : base(recordManager, RecordNameEnum.Rcu.ToString(), buffer)
         {
-            AddField(new RcuIdentifierField(this));
+            AddField(new RcuRecordIdentifier(this));
         }
 
         public override RecordBase Clone(RecordManager manager)
@@ -51,7 +51,7 @@ namespace EFW2C.Records
         {
             return new List<FieldBase>
             {
-                new RcuIdentifierField(this),
+                new RcuRecordIdentifier(this),
                 new RcuNumberOfRCORecord (this),
                 new RcuTotalAggregateDeferralsCodeHHCorrect(this),
                 new RcuTotalAggregateDeferralsCodeHHOriginal(this),

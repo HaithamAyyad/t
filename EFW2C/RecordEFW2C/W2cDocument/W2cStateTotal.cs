@@ -15,15 +15,15 @@ namespace EFW2C.RecordEFW2C.W2cDocument
 
         }
 
-        private string _identifierField;
-        public string IdentifierField
+        private string _recordIdentifier;
+        public string RecordIdentifier
         {
-            get { return _identifierField; }
+            get { return _recordIdentifier; }
             set
             {
-                if (_identifierField != value)
+                if (_recordIdentifier != value)
                 {
-                    _identifierField = value;
+                    _recordIdentifier = value;
                     AddData(value);
                     OnPropertyChanged();
                 }
@@ -52,7 +52,7 @@ namespace EFW2C.RecordEFW2C.W2cDocument
         protected override Dictionary<string, string> CreateMapPropFieldDictionay()
         {
             var mapDictionary = new Dictionary<string, string>();
-            mapDictionary.Add(nameof(IdentifierField), typeof(RcvIdentifierField).Name);
+            mapDictionary.Add(nameof(RecordIdentifier), typeof(RcvRecordIdentifier).Name);
             mapDictionary.Add(nameof(SupplementalData), typeof(RcvSupplementalData).Name);
 
             return mapDictionary;

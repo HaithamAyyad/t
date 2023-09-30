@@ -15,13 +15,13 @@ namespace EFW2C.Records
         public RctRecord(RecordManager recordManager)
             : base(recordManager, RecordNameEnum.Rct.ToString())
         {
-            AddField(new RctIdentifierField(this));
+            AddField(new RctRecordIdentifier(this));
         }
 
         public RctRecord(RecordManager recordManager, char[] buffer)
             : base(recordManager, RecordNameEnum.Rct.ToString(), buffer)
         {
-            AddField(new RctIdentifierField(this));
+            AddField(new RctRecordIdentifier(this));
         }
 
         public override RecordBase Clone(RecordManager manager)
@@ -53,7 +53,7 @@ namespace EFW2C.Records
         {
             return new List<FieldBase>
             {
-                new RctIdentifierField(this),
+                new RctRecordIdentifier(this),
                 new RctNumberOfRCWRecords(this),
                 new RctTotalCostOfEmployerSponsoredHealthCoverageCodeDDCorrect(this),
                 new RctTotalCostOfEmployerSponsoredHealthCoverageCodeDDOriginal(this),

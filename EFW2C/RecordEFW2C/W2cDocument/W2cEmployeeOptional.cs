@@ -105,15 +105,15 @@ namespace EFW2C.RecordEFW2C.W2cDocument
             }
         }
 
-        private string _identifierField;
-        public string IdentifierField
+        private string _recordIdentifier;
+        public string RecordIdentifier
         {
-            get { return _identifierField; }
+            get { return _recordIdentifier; }
             set
             {
-                if (_identifierField != value)
+                if (_recordIdentifier != value)
                 {
-                    _identifierField = value;
+                    _recordIdentifier = value;
                     AddData(value);
                     OnPropertyChanged();
                 }
@@ -374,7 +374,7 @@ namespace EFW2C.RecordEFW2C.W2cDocument
             mapDictionary.Add(nameof(AllocatedTipsOriginal), typeof(RcoAllocatedTipsOriginal).Name);
             mapDictionary.Add(nameof(DesignatedRothContributionsCodeEECorrect), typeof(RcoDesignatedRothContributionsCodeEECorrect).Name);
             mapDictionary.Add(nameof(DesignatedRothContributionsCodeEEOriginal), typeof(RcoDesignatedRothContributionsCodeEEOriginal).Name);
-            mapDictionary.Add(nameof(IdentifierField), typeof(RcoIdentifierField).Name);
+            mapDictionary.Add(nameof(RecordIdentifier), typeof(RcoRecordIdentifier).Name);
             mapDictionary.Add(nameof(IncomeFromQualifiedEquityCodeGGCorrect), typeof(RcoIncomeFromQualifiedEquityCodeGGCorrect).Name);
             mapDictionary.Add(nameof(IncomeFromQualifiedEquityCodeGGOriginal), typeof(RcoIncomeFromQualifiedEquityCodeGGOriginal).Name);
             mapDictionary.Add(nameof(IncomeUnderANonQualifiedDeferredCompensationPlanCodeZCorrect), typeof(RcoIncomeUnderANonQualifiedDeferredCompensationPlanCodeZCorrect).Name);

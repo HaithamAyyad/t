@@ -11,13 +11,13 @@ namespace EFW2C.Records
         public RcfRecord(RecordManager recordManager)
             : base(recordManager, RecordNameEnum.Rcf.ToString())
         {
-            AddField(new RcfIdentifierField(this));
+            AddField(new RcfRecordIdentifier(this));
         }
 
         public RcfRecord(RecordManager recordManager, char[] buffer)
             : base(recordManager, RecordNameEnum.Rcf.ToString(), buffer)
         {
-            AddField(new RcfIdentifierField(this));
+            AddField(new RcfRecordIdentifier(this));
         }
 
         public override RecordBase Clone(RecordManager manager)
@@ -41,7 +41,7 @@ namespace EFW2C.Records
         {
             return new List<FieldBase>
             {
-                new RcfIdentifierField(this),
+                new RcfRecordIdentifier(this),
                 new RcfNumberOfRCWRecord(this)
             };
         }

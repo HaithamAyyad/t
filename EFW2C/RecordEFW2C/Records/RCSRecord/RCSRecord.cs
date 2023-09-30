@@ -14,13 +14,13 @@ namespace EFW2C.Records
         public RcsRecord(RecordManager recordManager)
             : base(recordManager, RecordNameEnum.Rcs.ToString())
         {
-            AddField(new RcsIdentifierField(this));
+            AddField(new RcsRecordIdentifier(this));
         }
 
         public RcsRecord(RecordManager recordManager, char[] buffer)
             : base(recordManager, RecordNameEnum.Rcs.ToString(), buffer)
         {
-            AddField(new RcsIdentifierField(this));
+            AddField(new RcsRecordIdentifier(this));
         }
 
         public override RecordBase Clone(RecordManager manager)
@@ -68,7 +68,7 @@ namespace EFW2C.Records
                 new RcsEmployeeMiddleNameOriginal(this, "Helper"),
                 new RcsForeignPostalCode(this, "Helper"),
                 new RcsForeignStateProvince(this, "Helper"),
-                new RcsIdentifierField(this),
+                new RcsRecordIdentifier(this),
                 new RcsLocalTaxableWagesCorrect(this, "Helper"),
                 new RcsLocalTaxableWagesOriginal(this, "Helper"),
                 new RcsLocationAddress(this, "Helper"),
