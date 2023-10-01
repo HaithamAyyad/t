@@ -212,15 +212,7 @@ namespace EFW2C.Records
                 RecordBuffer[i] = Constants.WhiteSpaceChar;
 
             foreach (var field in _fields)
-            {
-                try
-                {
-                    field.Write();
-                }
-                catch(Exception ex)
-                {
-                }
-            }
+                field.Write();
         }
 
         public virtual bool Verify()
@@ -235,18 +227,8 @@ namespace EFW2C.Records
 
             foreach (var field in _fields)
             {
-                try
-                {
-                    if (!field.Verify())
-                    {
-                        return false;
-                    }
-                }
-                catch(Exception ex)
-                {
-
-                }
-
+                if (!field.Verify())
+                    return false;
             }
 
             _isVerified = true;

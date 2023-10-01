@@ -20,26 +20,13 @@ namespace test
 
             test.test();
 
-            /* try
+             try
              {
-                 var document = new W2cDocument();
-
-                 var submitter = new W2cSubmitter(document);
-                 submitter.Ein = "001001909";
-                 submitter.UserID = "00000";
-
-                 submitter.Lock(true);
-
-                 document.SetSubmitter(submitter);
-
-                 var test = new TestClass();
-
-                 test.test();
              }
              catch(Exception ex)
              {
                  MessageBox.Show(ex.Message);
-             }*/
+             }
 
         }
     }

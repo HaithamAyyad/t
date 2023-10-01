@@ -218,15 +218,8 @@ namespace EFW2C.Records
                     rctRecord.AddField(rctField.Clone(rctRecord));
             }
 
-            try
-            {
-                SetRctRecord(rctRecord);
-                rctRecord.Write();
-            }
-            catch (Exception ex)
-            {
-
-            }
+            SetRctRecord(rctRecord);
+            rctRecord.Write();
         }
 
         public void GenerateTotalOptionalRecords()

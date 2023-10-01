@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace EFW2C.RecordEFW2C.W2cDocument
 {
-    public class W2cDocument : DocumentBase
+    public class W2cDocument
     {
         private W2cSubmitter _submitter;
         private List<W2cEmployer> _employerList;
-        RecordManager _manager;
+        private RecordManager _manager;
 
        internal RecordManager Manager { get { return _manager; } }
 
@@ -23,7 +23,7 @@ namespace EFW2C.RecordEFW2C.W2cDocument
             _employerList = new List<W2cEmployer>();
         }
 
-        public override bool Verify()
+        public bool Verify()
         {
             if (!_submitter.Verify())
                 return false;
