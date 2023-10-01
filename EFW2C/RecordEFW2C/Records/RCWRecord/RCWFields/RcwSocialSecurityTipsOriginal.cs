@@ -35,16 +35,16 @@ namespace EFW2C.Fields
 
             if (employmentCode == EmploymentCodeEnum.H.ToString())
             {
-                var value = double.Parse(localData);
+                double.TryParse(localData, out var localValue);
                 var wageTax = WageTaxHelper.GetWageTax(taxYear);
 
                 var rcwSocialSecurityWagesOriginal = _record.GetField(typeof(RcwSocialSecurityWagesOriginal).Name);
                 if (rcwSocialSecurityWagesOriginal == null)
                     throw new Exception($"{ClassName}: RcwSocialSecurityWagesOriginal must be provided");
 
-                var rcwSocialSecurityWagesOriginalValue = double.Parse(rcwSocialSecurityWagesOriginal.DataInRecordBuffer());
+                double.TryParse(rcwSocialSecurityWagesOriginal.DataInRecordBuffer(), out var rcwSocialSecurityWagesOriginalValue);
 
-                if (value != 0 || value + rcwSocialSecurityWagesOriginalValue < wageTax.SocialSecurity.MinHouseHoldCoveredWages)
+                if (localValue != 0 || localValue + rcwSocialSecurityWagesOriginalValue < wageTax.SocialSecurity.MinHouseHoldCoveredWages)
                     throw new Exception($"{ClassName} : vlaue must be zero or equal or greater than MinHouseHold Covered Wages");
             }
             

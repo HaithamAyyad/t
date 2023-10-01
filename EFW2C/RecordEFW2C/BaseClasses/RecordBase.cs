@@ -15,16 +15,13 @@ namespace EFW2C.Records
         protected List<FieldBase> _fields;
         private List<FieldBase> _helperFieldsList;
         private List<(int, int)> _blankFields;
-        protected bool _isLocked;
-        private bool _isVerified;
+        protected bool _isVerified;
         public RecordManager Manager { get { return _manager; } }
         public char[] RecordBuffer { get; private set; }
         public string RecordName { get; set; }
         public string ClassName { get; set; }
         public List<FieldBase> Fields { get { return _fields; } }
-        public bool IsLocked { get { return _isLocked; } }
-        public bool IsVerified { get { return _isVerified; }}
-
+        public bool IsVerified { get { return _isVerified; } }
         public List<FieldBase> HelperFieldsList { get { return _helperFieldsList; } }
 
         public RecordBase(RecordManager recordManager, string recordName, char[] buffer = null)
@@ -50,12 +47,6 @@ namespace EFW2C.Records
 
         protected void CloneData(RecordBase record)
         {
-            if (record.IsLocked)
-                throw new Exception($"{ClassName} record is locked");
-
-            record._isLocked = _isLocked;
-            record._isVerified = _isVerified;
-
             record.Reset();
 
             record.RecordBuffer = (char[])RecordBuffer.Clone();
@@ -64,15 +55,21 @@ namespace EFW2C.Records
                 record.AddField(field.Clone(record));
         }
 
-        public void Lock(bool isLocked = true)
+        protected void SetDirty()
         {
-            if (isLocked)
+            _isVerified = false;
+        }
+
+        public void Lock1(bool isLocked = true)
+        {
+            throw new NotImplementedException();
+            /*if (isLocked)
             {
                 if (!_isVerified && !Verify())
                     return;
             }
 
-            _isLocked = isLocked;
+            _isLocked = isLocked;*/
         }
 
         public void Reset()
@@ -93,7 +90,7 @@ namespace EFW2C.Records
         {
             var field = _helperFieldsList.FirstOrDefault(item => item.ClassName == fieldName);
 
-            if(field == null)
+            if (field == null)
                 throw new Exception($"CreateField() : you are trying to get invalid class : {fieldName}");
 
             return field.Clone(record, data);
@@ -108,6 +105,11 @@ namespace EFW2C.Records
             }
 
             return true;
+        }
+
+        protected static bool IsRecordNullOrEmpty(RecordBase record)
+        {
+            return record == null || record.IsRecordEmpty();
         }
 
         private bool CheckHelperFieldsList()
@@ -208,9 +210,17 @@ namespace EFW2C.Records
         {
             for (int i = 0; i < RecordBuffer.Length; i++)
                 RecordBuffer[i] = Constants.WhiteSpaceChar;
-            
+
             foreach (var field in _fields)
-                field.Write();
+            {
+                try
+                {
+                    field.Write();
+                }
+                catch(Exception ex)
+                {
+                }
+            }
         }
 
         public virtual bool Verify()
@@ -225,10 +235,18 @@ namespace EFW2C.Records
 
             foreach (var field in _fields)
             {
-                if (!field.Verify())
+                try
                 {
-                    return false;
+                    if (!field.Verify())
+                    {
+                        return false;
+                    }
                 }
+                catch(Exception ex)
+                {
+
+                }
+
             }
 
             _isVerified = true;

@@ -34,7 +34,7 @@ namespace EFW2C.Fields
             if (!base.Verify())
                 return false;
 
-            if (Int32.Parse(DataInRecordBuffer()) != ((RcuRecord)_record).Parent.GetRcoRecordsCount())
+            if (int.Parse(DataInRecordBuffer()) != ((RcuRecord)_record).Parent.GetRcoRecordsCount())
                 throw new Exception($"{ClassName} number of RCO is not correct");
 
             return true;

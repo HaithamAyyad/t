@@ -9,9 +9,9 @@ namespace EFW2C.Fields
     //Created by : HSA 9-9-2023
     //Reviewed by : 
 
-    internal class RcwNonqualifiedPlanSection457Original : MoneyOriginal
+    internal class RcwNonQualifiedPlanSection457Original : MoneyOriginal
     {
-        public RcwNonqualifiedPlanSection457Original(RecordBase record, string data)
+        public RcwNonQualifiedPlanSection457Original(RecordBase record, string data)
             : base(record, data)
         {
             _pos = 595;
@@ -20,7 +20,7 @@ namespace EFW2C.Fields
 
         public override FieldBase Clone(RecordBase record)
         {
-            return new RcwNonqualifiedPlanSection457Original(record, _data);
+            return new RcwNonQualifiedPlanSection457Original(record, _data);
         }
     }
 }

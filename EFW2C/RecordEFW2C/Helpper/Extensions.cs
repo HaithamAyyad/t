@@ -30,6 +30,18 @@ namespace EFW2C.Extensions
             }
             return true;
         }
+        
+        public static string ReplaceFirstOccurrence(this string original, string oldValue, string newValue)
+        {
+            int index = original.IndexOf(oldValue);
+
+            if (index != -1)
+            {
+                return original.Substring(0, index) + newValue + original.Substring(index + oldValue.Length);
+            }
+
+            return original;
+        }
     }
 
     static class ArrayExtensions

@@ -24,10 +24,10 @@ namespace EFW2C.Fields
             if (!base.Verify())
                 return false;
 
-            if(DataInRecordBuffer() != _record.RecordName.ToUpper())
+            if (DataInRecordBuffer() != _record.RecordName.ToUpper())
                 throw new Exception($"{ClassName} Field must be {_record.RecordName.ToUpper()}");
 
-                return true;
+            return true;
         }
 
         protected override FieldTypeEnum GetFieldType()

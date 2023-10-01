@@ -9,9 +9,9 @@ namespace EFW2C.Fields
     //Created by : HSA 9-8-2023
     //Reviewed by : 
 
-    internal class RctTotalNonqualifiedDeferredCompensationPlanCodeYOriginal : SumFieldOriginal
+    internal class RctTotalNonQualifiedDeferredCompensationPlanCodeYOriginal : SumFieldOriginal
     {
-        public RctTotalNonqualifiedDeferredCompensationPlanCodeYOriginal(RecordBase record)
+        public RctTotalNonQualifiedDeferredCompensationPlanCodeYOriginal(RecordBase record)
             : base(record, Constants.WhiteSpaceString)
         {
             _pos = 700;
@@ -20,7 +20,7 @@ namespace EFW2C.Fields
 
         public override FieldBase Clone(RecordBase record)
         {
-            return new RctTotalNonqualifiedDeferredCompensationPlanCodeYOriginal(record);
+            return new RctTotalNonQualifiedDeferredCompensationPlanCodeYOriginal(record);
         }
     }
 }

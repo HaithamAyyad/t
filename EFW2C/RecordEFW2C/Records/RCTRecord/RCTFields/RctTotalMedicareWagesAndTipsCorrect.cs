@@ -35,8 +35,6 @@ namespace EFW2C.Fields
 
             var taxYear = ((RctRecord)_record).Parent.GetTaxYear();
 
-            var value = double.Parse(localData);
-
             var rctSocialSecurityTipsCorrect = _record.GetField(typeof(RctTotalSocialSecurityTipsCorrect).Name);
 
             if (rctSocialSecurityTipsCorrect == null)
@@ -46,17 +44,19 @@ namespace EFW2C.Fields
             if (rctSocialSecurityWagesCorrect == null)
                 throw new Exception($"{ClassName}: RctSocialSecurityWagesCorrect must be provided");
 
-            var rctSocialSecurityTipsCorrectValue = double.Parse(rctSocialSecurityTipsCorrect.DataInRecordBuffer());
-            var rctSocialSecurityWagesCorrectValue = double.Parse(rctSocialSecurityWagesCorrect.DataInRecordBuffer());
+            double.TryParse(rctSocialSecurityTipsCorrect.DataInRecordBuffer(), out var rctSocialSecurityTipsCorrectValue);
+            double.TryParse(rctSocialSecurityWagesCorrect.DataInRecordBuffer(), out var rctSocialSecurityWagesCorrectValue);
 
-            if (value < rctSocialSecurityTipsCorrectValue + rctSocialSecurityWagesCorrectValue)
+            double.TryParse(localData, out var localValue);
+
+            if (localValue < rctSocialSecurityTipsCorrectValue + rctSocialSecurityWagesCorrectValue)
                 throw new Exception($"Value must be equal the sum of Social Security Tips and Social Security Wages");
 
             if (employmentCode == EmploymentCodeEnum.H.ToString())
             {
                 var wageTax = WageTaxHelper.GetWageTax(taxYear);
 
-                if (value != 0 || value < wageTax.SocialSecurity.MinHouseHoldCoveredWages)
+                if (localValue != 0 || localValue < wageTax.SocialSecurity.MinHouseHoldCoveredWages)
                     throw new Exception($"{ClassName} : must be zero or equal to or greater than the annual Household minimum for the tax year being reported");
             }
 

@@ -36,11 +36,11 @@ namespace EFW2C.Fields
             switch (localData)
             {
                 case "0":
-                    if (_record.Manager.IsSubmitter())
+                    if (_record.Manager.IsSubmitter)
                         throw new Exception($"{ClassName} must be 1 because this file marked as resubmitted");
                     break;
                 case "1":
-                    if (!_record.Manager.IsSubmitter())
+                    if (!_record.Manager.IsSubmitter)
                         throw new Exception($"{ClassName} must be 0 because this file marked as not resubmitted");
                     break;
             }

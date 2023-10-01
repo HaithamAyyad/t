@@ -15,13 +15,13 @@ namespace EFW2C.Records
         public RctRecord(RecordManager recordManager)
             : base(recordManager, RecordNameEnum.Rct.ToString())
         {
-            AddField(new RctRecordIdentifier(this));
+            Prepare();
         }
 
         public RctRecord(RecordManager recordManager, char[] buffer)
             : base(recordManager, RecordNameEnum.Rct.ToString(), buffer)
         {
-            AddField(new RctRecordIdentifier(this));
+            Prepare();
         }
 
         public override RecordBase Clone(RecordManager manager)
@@ -36,6 +36,7 @@ namespace EFW2C.Records
         public void SetParent(RceRecord parent)
         {
             _parent = parent;
+            SetDirty();
         }
 
         public override bool Verify()
@@ -43,7 +44,7 @@ namespace EFW2C.Records
             if (_parent == null)
                 throw new Exception($"Total : must be added to Employee");
 
-            return !base.Verify();
+            return base.Verify();
         }
 
         protected override List<(int, int)> CreateBlankList()
@@ -93,12 +94,12 @@ namespace EFW2C.Records
                 new RctTotalMedicareTaxWithheldOriginal(this),
                 new RctTotalMedicareWagesAndTipsCorrect(this),
                 new RctTotalMedicareWagesAndTipsOriginal(this),
-                new RctTotalNonqualifiedDeferredCompensationPlanCodeYCorrect(this),
-                new RctTotalNonqualifiedDeferredCompensationPlanCodeYOriginal(this),
-                new RctTotalNonqualifiedPlanNotSection457Correct(this),
-                new RctTotalNonqualifiedPlanNotSection457Original(this),
-                new RctTotalNonqualifiedPlanSection457Correct(this),
-                new RctTotalNonqualifiedPlanSection457Original(this),
+                new RctTotalNonQualifiedDeferredCompensationPlanCodeYCorrect(this),
+                new RctTotalNonQualifiedDeferredCompensationPlanCodeYOriginal(this),
+                new RctTotalNonQualifiedPlanNotSection457Correct(this),
+                new RctTotalNonQualifiedPlanNotSection457Original(this),
+                new RctTotalNonQualifiedPlanSection457Correct(this),
+                new RctTotalNonQualifiedPlanSection457Original(this),
                 new RctTotalNontaxableCombatPayCodeQCorrect(this),
                 new RctTotalNontaxableCombatPayCodeQOriginal(this),
                 new RctTotalPermittedBenefitsUnderAQSEHRACodeFFCorrect(this),

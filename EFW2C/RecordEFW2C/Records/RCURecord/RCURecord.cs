@@ -15,13 +15,13 @@ namespace EFW2C.Records
         public RcuRecord(RecordManager recordManager)
             : base(recordManager, RecordNameEnum.Rcu.ToString())
         {
-            AddField(new RcuRecordIdentifier(this));
+            Prepare();
         }
 
         public RcuRecord(RecordManager recordManager, char[] buffer)
             : base(recordManager, RecordNameEnum.Rcu.ToString(), buffer)
         {
-            AddField(new RcuRecordIdentifier(this));
+            Prepare();
         }
 
         public override RecordBase Clone(RecordManager manager)
@@ -36,6 +36,7 @@ namespace EFW2C.Records
         public void SetParent(RceRecord parent)
         {
             _parent = parent;
+            SetDirty();
         }
 
         public override bool Verify()
@@ -43,7 +44,7 @@ namespace EFW2C.Records
             if (_parent == null)
                 throw new Exception($"Total-Optional: must be added to Employer");
 
-            return !base.Verify();
+            return base.Verify();
         }
 
         protected override List<(int, int)> CreateBlankList()
@@ -69,8 +70,8 @@ namespace EFW2C.Records
                 new RcuTotalDesignatedRothContributionsCodeEEOriginal(this),
                 new RcuTotalIncomeFromQualifiedEquityCodeGGCorrect(this),
                 new RcuTotalIncomeFromQualifiedEquityCodeGGOriginal(this),
-                new RcuTotalIncomeUnderANonqualifiedDeferredCompensationPlanCodeZCorrect(this),
-                new RcuTotalIncomeUnderANonqualifiedDeferredCompensationPlanCodeZOriginal(this),
+                new RcuTotalIncomeUnderANonQualifiedDeferredCompensationPlanCodeZCorrect(this),
+                new RcuTotalIncomeUnderANonQualifiedDeferredCompensationPlanCodeZOriginal(this),
                 new RcuTotalMedicalSavingsAccountCodeRCorrect(this),
                 new RcuTotalMedicalSavingsAccountCodeROriginal(this),
                 new RcuTotalQualifiedAdoptionExpensesCodeTCorrect(this),

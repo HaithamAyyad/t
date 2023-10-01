@@ -35,7 +35,7 @@ namespace EFW2C.Fields
             if (!base.Verify())
                 return false;
 
-            if (Int32.Parse(DataInRecordBuffer()) != ((RctRecord)_record).Parent.GetRcwRecordsCount())
+            if (int.Parse(DataInRecordBuffer()) != ((RctRecord)_record).Parent.GetRcwRecordsCount())
                 throw new Exception($"{ClassName} number of RCW is not correct");
 
             return true;

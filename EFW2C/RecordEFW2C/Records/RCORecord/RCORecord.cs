@@ -14,18 +14,19 @@ namespace EFW2C.Records
         public RcoRecord(RecordManager recordManager)
             : base(recordManager, RecordNameEnum.Rco.ToString())
         {
-            AddField(new RcoRecordIdentifier(this));
+            Prepare();
         }
 
         public RcoRecord(RecordManager recordManager, char[] buffer)
             : base(recordManager, RecordNameEnum.Rco.ToString(), buffer)
         {
-            AddField(new RcoRecordIdentifier(this));
+            Prepare();
         }
 
         public void SetParent(RcwRecord parent)
         {
             _parent = parent;
+            SetDirty();
         }
         public override RecordBase Clone(RecordManager manager)
         {
@@ -41,7 +42,7 @@ namespace EFW2C.Records
             if (_parent == null)
                 throw new Exception($"Employee-Optional : must be added to Employee");
 
-            return !base.Verify();
+            return base.Verify();
         }
 
         protected override List<(int, int)> CreateBlankList()

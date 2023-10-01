@@ -36,22 +36,22 @@ namespace EFW2C.Fields
                 throw new Exception($"{ClassName} : since employment code is {employmentCode}, this field must not be provided");
 
             var localData = DataInRecordBuffer();
-            var value = double.Parse(localData);
+            double.TryParse(localData, out var localValue);
             var wageTax = WageTaxHelper.GetWageTax(taxYear);
 
             var rcwSocialSecurityWagesCorrect = _record.GetField(typeof(RcwSocialSecurityWagesCorrect).Name);
             if (rcwSocialSecurityWagesCorrect == null)
                 throw new Exception($"{ClassName}: RcwSocialSecurityWagesCorrect must be provided");
 
-            var rcwSocialSecurityWagesCorrectValue = double.Parse(rcwSocialSecurityWagesCorrect.DataInRecordBuffer());
+            double.TryParse(rcwSocialSecurityWagesCorrect.DataInRecordBuffer(), out var rcwSocialSecurityWagesCorrectValue);
 
             if (employmentCode == EmploymentCodeEnum.H.ToString())
             {
-                if (value != 0 || value + rcwSocialSecurityWagesCorrectValue < wageTax.SocialSecurity.MinHouseHoldCoveredWages)
+                if (localValue != 0 || localValue + rcwSocialSecurityWagesCorrectValue < wageTax.SocialSecurity.MinHouseHoldCoveredWages)
                     throw new Exception($"{ClassName} : vlaue must be zero or equal or greater than MinHouseHold Covered Wages ({wageTax.SocialSecurity.MinHouseHoldCoveredWages})");
             }
 
-            if (value + rcwSocialSecurityWagesCorrectValue > wageTax.SocialSecurity.MaxTaxedEarnings)
+            if (localValue + rcwSocialSecurityWagesCorrectValue > wageTax.SocialSecurity.MaxTaxedEarnings)
                 throw new Exception($"{ClassName} : vlaue must not exceed SocialSecurity MaxTaxedEarnings");
 
             return true;

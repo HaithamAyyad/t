@@ -661,90 +661,90 @@ namespace EFW2C.RecordEFW2C.W2cDocument
             }
         }
 
-        private string _nonqualifiedDeferredCompensationPlanCodeYCorrect;
-        public string NonqualifiedDeferredCompensationPlanCodeYCorrect
+        private string _nonQualifiedDeferredCompensationPlanCodeYCorrect;
+        public string NonQualifiedDeferredCompensationPlanCodeYCorrect
         {
-            get { return _nonqualifiedDeferredCompensationPlanCodeYCorrect; }
+            get { return _nonQualifiedDeferredCompensationPlanCodeYCorrect; }
             set
             {
-                if (_nonqualifiedDeferredCompensationPlanCodeYCorrect != value)
+                if (_nonQualifiedDeferredCompensationPlanCodeYCorrect != value)
                 {
-                    _nonqualifiedDeferredCompensationPlanCodeYCorrect = value;
+                    _nonQualifiedDeferredCompensationPlanCodeYCorrect = value;
                     AddData(value);
                     OnPropertyChanged();
                 }
             }
         }
 
-        private string _nonqualifiedDeferredCompensationPlanCodeYOriginal;
-        public string NonqualifiedDeferredCompensationPlanCodeYOriginal
+        private string _nonQualifiedDeferredCompensationPlanCodeYOriginal;
+        public string NonQualifiedDeferredCompensationPlanCodeYOriginal
         {
-            get { return _nonqualifiedDeferredCompensationPlanCodeYOriginal; }
+            get { return _nonQualifiedDeferredCompensationPlanCodeYOriginal; }
             set
             {
-                if (_nonqualifiedDeferredCompensationPlanCodeYOriginal != value)
+                if (_nonQualifiedDeferredCompensationPlanCodeYOriginal != value)
                 {
-                    _nonqualifiedDeferredCompensationPlanCodeYOriginal = value;
+                    _nonQualifiedDeferredCompensationPlanCodeYOriginal = value;
                     AddData(value);
                     OnPropertyChanged();
                 }
             }
         }
 
-        private string _nonqualifiedPlanNotSection457Correct;
-        public string NonqualifiedPlanNotSection457Correct
+        private string _nonQualifiedPlanNotSection457Correct;
+        public string NonQualifiedPlanNotSection457Correct
         {
-            get { return _nonqualifiedPlanNotSection457Correct; }
+            get { return _nonQualifiedPlanNotSection457Correct; }
             set
             {
-                if (_nonqualifiedPlanNotSection457Correct != value)
+                if (_nonQualifiedPlanNotSection457Correct != value)
                 {
-                    _nonqualifiedPlanNotSection457Correct = value;
+                    _nonQualifiedPlanNotSection457Correct = value;
                     AddData(value);
                     OnPropertyChanged();
                 }
             }
         }
 
-        private string _nonqualifiedPlanNotSection457Original;
-        public string NonqualifiedPlanNotSection457Original
+        private string _nonQualifiedPlanNotSection457Original;
+        public string NonQualifiedPlanNotSection457Original
         {
-            get { return _nonqualifiedPlanNotSection457Original; }
+            get { return _nonQualifiedPlanNotSection457Original; }
             set
             {
-                if (_nonqualifiedPlanNotSection457Original != value)
+                if (_nonQualifiedPlanNotSection457Original != value)
                 {
-                    _nonqualifiedPlanNotSection457Original = value;
+                    _nonQualifiedPlanNotSection457Original = value;
                     AddData(value);
                     OnPropertyChanged();
                 }
             }
         }
 
-        private string _nonqualifiedPlanSection457Correct;
-        public string NonqualifiedPlanSection457Correct
+        private string _nonQualifiedPlanSection457Correct;
+        public string NonQualifiedPlanSection457Correct
         {
-            get { return _nonqualifiedPlanSection457Correct; }
+            get { return _nonQualifiedPlanSection457Correct; }
             set
             {
-                if (_nonqualifiedPlanSection457Correct != value)
+                if (_nonQualifiedPlanSection457Correct != value)
                 {
-                    _nonqualifiedPlanSection457Correct = value;
+                    _nonQualifiedPlanSection457Correct = value;
                     AddData(value);
                     OnPropertyChanged();
                 }
             }
         }
 
-        private string _nonqualifiedPlanSection457Original;
-        public string NonqualifiedPlanSection457Original
+        private string _nonQualifiedPlanSection457Original;
+        public string NonQualifiedPlanSection457Original
         {
-            get { return _nonqualifiedPlanSection457Original; }
+            get { return _nonQualifiedPlanSection457Original; }
             set
             {
-                if (_nonqualifiedPlanSection457Original != value)
+                if (_nonQualifiedPlanSection457Original != value)
                 {
-                    _nonqualifiedPlanSection457Original = value;
+                    _nonQualifiedPlanSection457Original = value;
                     AddData(value);
                     OnPropertyChanged();
                 }
@@ -1181,12 +1181,12 @@ namespace EFW2C.RecordEFW2C.W2cDocument
             mapDictionary.Add(nameof(MedicareWagesAndTipsOriginal), typeof(RcwMedicareWagesAndTipsOriginal).Name);
             mapDictionary.Add(nameof(MiddleNameEmployeeCorrect), typeof(RcwMiddleNameEmployeeCorrect).Name);
             mapDictionary.Add(nameof(MiddleNameEmployeeOriginal), typeof(RcwMiddleNameEmployeeOriginal).Name);
-            mapDictionary.Add(nameof(NonqualifiedDeferredCompensationPlanCodeYCorrect), typeof(RcwNonqualifiedDeferredCompensationPlanCodeYCorrect).Name);
-            mapDictionary.Add(nameof(NonqualifiedDeferredCompensationPlanCodeYOriginal), typeof(RcwNonqualifiedDeferredCompensationPlanCodeYOriginal).Name);
-            mapDictionary.Add(nameof(NonqualifiedPlanNotSection457Correct), typeof(RcwNonqualifiedPlanNotSection457Correct).Name);
-            mapDictionary.Add(nameof(NonqualifiedPlanNotSection457Original), typeof(RcwNonqualifiedPlanNotSection457Original).Name);
-            mapDictionary.Add(nameof(NonqualifiedPlanSection457Correct), typeof(RcwNonqualifiedPlanSection457Correct).Name);
-            mapDictionary.Add(nameof(NonqualifiedPlanSection457Original), typeof(RcwNonqualifiedPlanSection457Original).Name);
+            mapDictionary.Add(nameof(NonQualifiedDeferredCompensationPlanCodeYCorrect), typeof(RcwNonQualifiedDeferredCompensationPlanCodeYCorrect).Name);
+            mapDictionary.Add(nameof(NonQualifiedDeferredCompensationPlanCodeYOriginal), typeof(RcwNonQualifiedDeferredCompensationPlanCodeYOriginal).Name);
+            mapDictionary.Add(nameof(NonQualifiedPlanNotSection457Correct), typeof(RcwNonQualifiedPlanNotSection457Correct).Name);
+            mapDictionary.Add(nameof(NonQualifiedPlanNotSection457Original), typeof(RcwNonQualifiedPlanNotSection457Original).Name);
+            mapDictionary.Add(nameof(NonQualifiedPlanSection457Correct), typeof(RcwNonQualifiedPlanSection457Correct).Name);
+            mapDictionary.Add(nameof(NonQualifiedPlanSection457Original), typeof(RcwNonQualifiedPlanSection457Original).Name);
             mapDictionary.Add(nameof(NontaxableCombatPayCodeQCorrect), typeof(RcwNontaxableCombatPayCodeQCorrect).Name);
             mapDictionary.Add(nameof(NontaxableCombatPayCodeQOriginal), typeof(RcwNontaxableCombatPayCodeQOriginal).Name);
             mapDictionary.Add(nameof(PermittedBenefitsUnderAQSEHRACodeFFCorrect), typeof(RcwPermittedBenefitsUnderAQSEHRACodeFFCorrect).Name);

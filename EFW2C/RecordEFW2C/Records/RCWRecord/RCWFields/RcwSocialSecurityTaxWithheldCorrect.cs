@@ -37,8 +37,8 @@ namespace EFW2C.Fields
             if (taxYear == 2023)
             {
                 var localData = DataInRecordBuffer();
-                var value = double.Parse(localData);
-                if(value > 9932.40)
+                double.TryParse(localData, out var localValue);
+                if(localValue > 9932.40)
                     throw new Exception($"{ClassName} since year is 2023 the value must not exceed $9,932.40");
             }
 

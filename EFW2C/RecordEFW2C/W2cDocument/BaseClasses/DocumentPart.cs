@@ -30,7 +30,7 @@ namespace EFW2C.RecordEFW2C.W2cDocument
             {
                 Prepare();
 
-                _record.Lock();
+                _record.Lock1();
 
                 if (!Verify())
                     return false;

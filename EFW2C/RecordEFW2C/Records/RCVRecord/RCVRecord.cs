@@ -14,13 +14,13 @@ namespace EFW2C.Records
         public RcvRecord(RecordManager recordManager)
             : base(recordManager, RecordNameEnum.Rcv.ToString())
         {
-            AddField(new RcvRecordIdentifier(this));
+            Prepare();
         }
 
         public RcvRecord(RecordManager recordManager, char[] buffer)
             : base(recordManager, RecordNameEnum.Rcv.ToString(), buffer)
         {
-            AddField(new RcvRecordIdentifier(this));
+            Prepare();
         }
 
         public override RecordBase Clone(RecordManager manager)
@@ -35,6 +35,7 @@ namespace EFW2C.Records
         public void SetParent(RceRecord parent)
         {
             _parent = parent;
+            SetDirty();
         }
 
         public override bool Verify()
@@ -42,7 +43,7 @@ namespace EFW2C.Records
             if (_parent == null)
                 throw new Exception($"State-Total : must be added to Employer");
 
-            return !base.Verify();
+            return base.Verify();
         }
 
         protected override List<(int, int)> CreateBlankList()

@@ -16,6 +16,9 @@ namespace test
 
             DataContext = new MainViewModel();
 
+            var test = new TestClass();
+
+            test.test();
 
             /* try
              {

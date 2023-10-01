@@ -32,7 +32,7 @@ namespace EFW2C.Fields
             if (!base.Verify())
                 return false;
 
-            if (Int32.Parse(DataInRecordBuffer()) != _record.Manager.GetRcwRecordsCount())
+            if (int.Parse(DataInRecordBuffer()) != _record.Manager.GetRcwRecordsCount())
                 throw new Exception($"Number of employee records is not correct");
 
             return true;

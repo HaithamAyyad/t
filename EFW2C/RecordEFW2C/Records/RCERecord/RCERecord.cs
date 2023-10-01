@@ -1,5 +1,6 @@
 ﻿using EFW2C.Common.Constants;
 using EFW2C.Common.Enums;
+using EFW2C.Extensions;
 using EFW2C.Fields;
 using EFW2C.Manager;
 using System;
@@ -22,7 +23,7 @@ namespace EFW2C.Records
         public RceRecord(RecordManager recordManager)
             : base(recordManager, RecordNameEnum.Rce.ToString())
         {
-            AddField(new RceRecordIdentifier(this));
+            Prepare();
 
             _rcwRecordList = new List<RcwRecord>();
         }
@@ -30,7 +31,7 @@ namespace EFW2C.Records
         public RceRecord(RecordManager recordManager, char[] buffer)
             : base(recordManager, RecordNameEnum.Rce.ToString(), buffer)
         {
-            AddField(new RceRecordIdentifier(this));
+            Prepare();
 
             _rcwRecordList = new List<RcwRecord>();
         }
@@ -39,101 +40,73 @@ namespace EFW2C.Records
         {
             var rceRecord = new RceRecord(manager);
 
-            if (_rctRecord != null)
-                rceRecord.SetRctRecord((RctRecord)_rctRecord.Clone(manager), true);
-
-            if (_rcuRecord != null)
-                rceRecord.SetRcuRecord((RcuRecord)_rcuRecord.Clone(manager), true);
+            CloneData(rceRecord);
 
             if (_rcvRecord != null)
-                rceRecord.SetRcvRecord((RcvRecord)_rcvRecord.Clone(manager), true);
+                rceRecord.SetRcvRecord((RcvRecord)_rcvRecord.Clone(manager));
 
             rceRecord._rcwRecordList = new List<RcwRecord>();
 
             foreach (var rcwRecord in _rcwRecordList)
-            {
-                var rcwRecordCloned = (RcwRecord)rcwRecord.Clone(manager);
-                rceRecord._rcwRecordList.Add(rcwRecordCloned);
-            }
-
-            CloneData(rceRecord);
+                rceRecord.AddRcwRecord((RcwRecord)rcwRecord.Clone(manager));
 
             return rceRecord;
         }
 
-        public RcwRecord AddRcwRecord(RcwRecord rcwRecord, bool cloneMode = false)
+        public void AddRcwRecord(RcwRecord rcwRecord)
         {
-            if (_isLocked)
-                throw new Exception($"Employer record is locked");
+            if (rcwRecord != null)
+            {
+                if (_rcwRecordList.Count + 1 > Constants.MaxRcwRecordsNumber)
+                    throw new Exception($"Employee records should not exceed {Constants.MaxRcwRecordsNumber}");
 
-            if (_rcwRecordList.Count + 1 > Constants.MaxRcwRecordsNumber)
-                throw new Exception($"Employee records should not exceed {Constants.MaxRcwRecordsNumber}");
+                rcwRecord.SetParent(this);
+                _rcwRecordList.Add(rcwRecord);
 
-            if (!cloneMode && !rcwRecord.IsLocked)
-                throw new Exception($"Employee record is unlocked");
+                _rctRecord = null;
+                _rcuRecord = null;
 
-            var rcwRecordCloned = (RcwRecord)rcwRecord.Clone(Manager);
-            rcwRecordCloned.SetParent(this);
-            _rcwRecordList.Add(rcwRecordCloned);
-
-            return rcwRecordCloned;
+                SetDirty();
+            }
         }
 
-        public void SetRcuRecord(RcuRecord rcuRecord, bool cloneMode = false)
+        public void SetRcuRecord(RcuRecord rcuRecord)
         {
-            if (_isLocked)
-                throw new Exception($"Employer record is locked");
-
             if (_rcuRecord != null)
                 _rcuRecord.SetParent(null);
 
-            _rcuRecord = null;
+            _rcuRecord = rcuRecord;
 
-            if (!cloneMode && !rcuRecord.IsLocked)
-                throw new Exception($"Total Option record is unlocked");
+            if (_rcuRecord != null)
+                _rcuRecord.SetParent(this);
 
-            _rcuRecord = (RcuRecord)rcuRecord.Clone(Manager);
-
-            _rcuRecord.SetParent(this);
+            SetDirty();
         }
 
-        public void SetRctRecord(RctRecord rctRecord, bool cloneMode = false)
+        public void SetRctRecord(RctRecord rctRecord)
         {
-            if (_isLocked)
-                throw new Exception($"Employer record is locked");
-
             if (_rctRecord != null)
                 _rctRecord.SetParent(null);
 
-            _rctRecord = null;
+            _rctRecord = rctRecord;
 
-            if (!cloneMode && !rctRecord.IsLocked)
-                throw new Exception($"Total record is unlocked");
+            if (_rctRecord != null)
+                _rctRecord.SetParent(this);
 
-            _rctRecord = (RctRecord)rctRecord.Clone(Manager);
-
-            _rctRecord.SetParent(this);
+            SetDirty();
         }
 
-        public void SetRcvRecord(RcvRecord rcvRecord, bool cloneMode = false)
+        public void SetRcvRecord(RcvRecord rcvRecord)
         {
-            if (_isLocked)
-                throw new Exception($"Employer record is locked");
-
             if (_rcvRecord != null)
                 _rcvRecord.SetParent(null);
 
-            _rcvRecord = null;
+            _rcvRecord = rcvRecord;
 
-            if (rcvRecord != null && !rcvRecord.IsRecordEmpty())
-            {
-                if (!cloneMode && !rcvRecord.IsLocked)
-                    throw new Exception($"State record is unlocked");
-
-                _rcvRecord = (RcvRecord)rcvRecord.Clone(Manager);
-
+            if (rcvRecord != null)
                 _rcvRecord.SetParent(this);
-            }
+
+            SetDirty();
         }
 
         public override bool Verify()
@@ -141,24 +114,56 @@ namespace EFW2C.Records
             if (!base.Verify())
                 return false;
 
-            var found = false;
+            _isVerified = false;
 
-            if (_rcvRecord != null)
+            foreach (var rcwRecord in _rcwRecordList)
             {
-                foreach (var rcwRecord in _rcwRecordList)
-                {
-                    if (rcwRecord.RcsRecord != null)
-                    {
-                        found = true;
-                        break;
-                    }
-                }
-
-                if (!found)
-                    throw new Exception($"State total record should not be provided since state record is not provided");
+                if (!rcwRecord.IsVerified && !rcwRecord.Verify())
+                    return false;
             }
 
-            return true;
+            if (_rctRecord == null)
+                GenerateTotalRecords();
+
+            if (_rcuRecord == null)
+                GenerateTotalOptionalRecords();
+
+            if (!_rctRecord.IsVerified && !_rctRecord.Verify())
+                return false;
+
+            if (_rcuRecord != null)
+            {
+                if (!_rcuRecord.IsVerified && !_rcuRecord.Verify())
+                    return false;
+            }
+
+            if (!IsRecordNullOrEmpty(_rcvRecord) && !IsRcsRecordExists())
+                throw new Exception($"Remove State-Total record or add State record");
+
+            _isVerified = true;
+            return _isVerified;
+        }
+
+        private bool IsRcsRecordExists()
+        {
+            foreach (var rcwRecord in _rcwRecordList)
+            {
+                if (rcwRecord.RcsRecord != null)
+                    return true;
+            }
+
+            return false;
+        }
+
+        private bool IsRcoRecordExists()
+        {
+            foreach (var rcwRecord in _rcwRecordList)
+            {
+                if (rcwRecord.RcoRecord != null)
+                    return true;
+            }
+
+            return false;
         }
 
         public int GetTaxYear()
@@ -179,7 +184,7 @@ namespace EFW2C.Records
                 var field = rcwRecord.GetField(fieldClassName);
 
                 if (field != null)
-                    sum += Int32.Parse(field.DataInRecordBuffer());
+                    sum += int.Parse(field.DataInRecordBuffer());
             }
 
             return sum;
@@ -196,55 +201,88 @@ namespace EFW2C.Records
                     var field = rcwRecord.RcoRecord.GetField(fieldClassName);
 
                     if (field != null)
-                        sum += Int32.Parse(field.DataInRecordBuffer());
+                        sum += int.Parse(field.DataInRecordBuffer());
                 }
             }
 
             return sum;
         }
 
-        public void GenerateTotalOptionalRecords()
+        public void GenerateTotalRecords()
         {
-            bool found = false;
+            var rctRecord = new RctRecord(Manager);
 
-            foreach (var rcwRecord in _rcwRecordList)
+            foreach (var rctField in rctRecord.HelperFieldsList)
             {
-                if (rcwRecord.RcoRecord != null)
-                {
-                    found = true;
-                    break;
-                }
+                if (IsRcwMatchRctFieldExists(rctField.ClassName))
+                    rctRecord.AddField(rctField.Clone(rctRecord));
             }
 
-            _rcuRecord = null;
-
-            if (found)
+            try
             {
-                var rcuRecord = new RcuRecord(Manager);
+                SetRctRecord(rctRecord);
+                rctRecord.Write();
+            }
+            catch (Exception ex)
+            {
 
-                rcuRecord.Reset();
-                rcuRecord.SetParent(this);
-
-                foreach (var rcuField in rcuRecord.HelperFieldsList)
-                    rcuRecord.AddField(rcuField.Clone(rcuRecord));
-
-                rcuRecord.Write();
-
-                if (!rcuRecord.IsRecordEmpty())
-                    _rcuRecord = rcuRecord;
             }
         }
 
-        public void GenerateTotalRecords()
+        public void GenerateTotalOptionalRecords()
         {
-            _rctRecord = new RctRecord(Manager);
-            _rctRecord.Reset();
-            _rctRecord.SetParent(this);
+            _rcuRecord = null;
 
-            foreach (var rctField in _rctRecord.HelperFieldsList)
-                _rctRecord.AddField(rctField.Clone(_rctRecord));
+            if (IsRcoRecordExists())
+            {
+                var rcuRecord = new RcuRecord(Manager);
 
-            _rctRecord.Write();
+                foreach (var rcuField in rcuRecord.HelperFieldsList)
+                {
+                    if (IsRcoMatchRcuFieldExists(rcuField.ClassName))
+                        rcuRecord.AddField(rcuField.Clone(rcuRecord));
+                }
+
+                rcuRecord.SetParent(this);
+                rcuRecord.Write();
+                if (!rcuRecord.IsRecordEmpty())
+                    SetRcuRecord(rcuRecord);
+            }
+        }
+
+        private bool IsRcwMatchRctFieldExists(string fieldName)
+        {
+            fieldName = $"{RecordNameEnum.Rcw}{fieldName.Substring(3)}";
+
+            if (fieldName.Contains(Constants.OriginalStr) || fieldName.Contains(Constants.CorrectStr))
+            {
+                fieldName = fieldName.ReplaceFirstOccurrence(Constants.TotalStr, "");
+
+                foreach (var rcwRecord in _rcwRecordList)
+                {
+                    if (rcwRecord.GetField(fieldName) != null)
+                        return true;
+                }
+            }
+
+            return false;
+        }
+
+        private bool IsRcoMatchRcuFieldExists(string fieldName)
+        {
+            fieldName = $"{RecordNameEnum.Rco}{fieldName.Substring(3)}";
+
+            if (fieldName.Contains(Constants.OriginalStr) || fieldName.Contains(Constants.CorrectStr))
+            {
+                fieldName = fieldName.ReplaceFirstOccurrence(Constants.TotalStr, "");
+                foreach (var rcwRecord in _rcwRecordList)
+                {
+                    if (rcwRecord.RcoRecord?.GetField(fieldName) != null)
+                        return true;
+                }
+            }
+
+            return false;
         }
 
         public string GetEmploymentCode()

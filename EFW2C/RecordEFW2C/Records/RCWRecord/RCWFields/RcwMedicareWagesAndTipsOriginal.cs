@@ -35,10 +35,10 @@ namespace EFW2C.Fields
 
             if (employmentCode == EmploymentCodeEnum.H.ToString())
             {
-                var value = double.Parse(localData);
+                double.TryParse(localData, out var localValue);
                 var wageTax = WageTaxHelper.GetWageTax(taxYear);
 
-                if (value != 0 || value < wageTax.SocialSecurity.MinHouseHoldCoveredWages)
+                if (localValue != 0 || localValue < wageTax.SocialSecurity.MinHouseHoldCoveredWages)
                     throw new Exception($"{ClassName} : vlaue must be zero or equal or greater than MinHouseHold Covered Wages");
             }
 

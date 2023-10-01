@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using EFW2C.Common.Constants;
-using EFW2C.Common.Enums;
 using EFW2C.Common.Helper;
 using EFW2C.Fields;
 using EFW2C.Records;
@@ -26,6 +25,8 @@ namespace EFW2C.Manager
         public bool IsOpened { get { return _isOpened; } }
         public bool IsVerified { get { return _isVerified; } }
         public bool IsTIB { get { return _isTIB; } }
+        public bool IsSubmitter { get { return _reSubmitted; } }
+        public bool IsUnEmployment { get { return _unemployment; } }
 
         public List<RceRecord> RceRecordList { get { return _rceRecordList; } }
 
@@ -37,44 +38,36 @@ namespace EFW2C.Manager
             _isOpened = true;
 
             WageTaxHelper.CreateWageTaxTabel();
-
         }
 
         public void SetRcaRecord(RcaRecord rcaRecord)
         {
-            CheckOpened(true);
+            _rcaRecord = rcaRecord;
 
-            _rcaRecord = null;
+            SetDirty();
+        }
 
-            if (rcaRecord != null)
-            {
-                if (!rcaRecord.IsLocked)
-                    throw new Exception($"Submitter is unlocked");
-
-                _rcaRecord = (RcaRecord)rcaRecord.Clone(this);
-            }
+        private void SetDirty()
+        {
+            _isVerified = false;
         }
 
         public void AddRceRecord(RceRecord rceRecord)
         {
-            CheckOpened(true);
+            if (rceRecord != null)
+            {
+                if (_rceRecordList.Count + 1 > Constants.MaxRceRecordsNumber)
+                    throw new Exception($"Employer records should not exceed {Constants.MaxRceRecordsNumber}");
 
-            if (rceRecord == null)
-                return;
-
-            if (_rceRecordList.Count + 1 > Constants.MaxRceRecordsNumber)
-                throw new Exception($"Employer records should not exceed {Constants.MaxRceRecordsNumber}");
-
-            if (!rceRecord.IsLocked)
-                throw new Exception($"Empoyer record is unlocked");
-
-            _rceRecordList.Add((RceRecord) rceRecord.Clone(this));
+                _rceRecordList.Add(rceRecord);
+                SetDirty();
+            }
         }
 
         public void Open()
         {
-            _isVerified = false;
             _isOpened = true;
+            SetDirty();
         }
 
         private void CheckOpened(bool isOpened)
@@ -113,8 +106,11 @@ namespace EFW2C.Manager
                     return false;
             }
 
-            if (!_rcfRecord.IsVerified && !_rcfRecord.Verify())
-                return false;
+            if (!_isOpened)
+            {
+                if (!_rcfRecord.Verify())
+                    return false;
+            }
 
             if (!VerifyFieldsInRecords())
                 return false;
@@ -129,12 +125,6 @@ namespace EFW2C.Manager
             if (!_isOpened)
                 return;
 
-            foreach (var rceRecord in _rceRecordList)
-            {
-                rceRecord.GenerateTotalRecords();
-                rceRecord.GenerateTotalOptionalRecords();
-            }
-
             PrepareRcfRecord();
 
             _isOpened = false;
@@ -148,17 +138,14 @@ namespace EFW2C.Manager
                 _isOpened = true;
                 throw ex;
             }
-
         }
 
         private void PrepareRcfRecord()
         {
-            _rcfRecord.Lock(false);
             _rcfRecord.Reset();
             _rcfRecord.AddField(new RcfRecordIdentifier(_rcfRecord));
             _rcfRecord.AddField(new RcfNumberOfRCWRecord(_rcfRecord));
             _rcfRecord.Write();
-            _rcfRecord.Lock();
         }
 
         public int GetRcwRecordsCount()
@@ -178,8 +165,6 @@ namespace EFW2C.Manager
 
         public RecordManager Clone()
         {
-            CheckOpened(false);
-
             var manager = new RecordManager()
             {
                 _reSubmitted = _reSubmitted,
@@ -187,23 +172,18 @@ namespace EFW2C.Manager
                 _isTIB = _isTIB,
             };
 
-            manager._rcaRecord = _rcaRecord;
-            manager._rcfRecord = _rcfRecord;
+            manager.SetRcaRecord((RcaRecord)_rcaRecord.Clone(manager));
 
             manager._rceRecordList = new List<RceRecord>();
 
             foreach (var rceRecord in _rceRecordList)
-            {
                 manager._rceRecordList.Add((RceRecord)rceRecord.Clone(manager));
-            }
 
             return manager;
         }
 
         private bool VerifyFieldsInRecords()
         {
-            CheckOpened(false);
-
             if (!RecordBase.AreFieldsBelongToRecord(_rcaRecord, _rcaRecord.Fields))
                 return false;
 
@@ -244,6 +224,12 @@ namespace EFW2C.Manager
                     if (!RecordBase.AreFieldsBelongToRecord(rceRecord.RcvRecord, rceRecord.RcvRecord.Fields))
                         return false;
                 }
+           }
+
+            if (_rcfRecord != null)
+            {
+                if (!RecordBase.AreFieldsBelongToRecord(_rcfRecord, _rcfRecord.Fields))
+                    return false;
             }
 
             return true;
@@ -251,68 +237,78 @@ namespace EFW2C.Manager
 
         public void SetSubmitter(bool value)
         {
-            CheckOpened(true);
-            _reSubmitted = value;
-            
+            if (_reSubmitted != value)
+            {
+                _reSubmitted = value;
+                SetDirty();
+            }
         }
 
         public void SetUnEmployment(bool value)
         {
-            CheckOpened(true);
-
-            _unemployment = value;
+            if (_unemployment != value)
+            {
+                _unemployment = value;
+                SetDirty();
+            }
         }
 
-        public void SetUnTIB(bool value)
+        public void SetTIB(bool value)
         {
-            CheckOpened(true);
-
-            _isTIB = value;
+            if (_isTIB != value)
+            {
+                _isTIB = value;
+                SetDirty();
+            }
         }
 
-        public bool IsSubmitter()
+        private List<RecordBase> CreateRecordList()
         {
-            return _reSubmitted;
-        }
+            var recordList = new List<RecordBase>();
 
-        public bool IsUnEmployment()
-        {
-            return _unemployment;
+            recordList.Add(_rcaRecord);
+
+            foreach (var rceRecord in _rceRecordList)
+            {
+                recordList.Add(rceRecord);
+
+                foreach (var rcwRecord in rceRecord.RcwRecordList)
+                {
+                    recordList.Add(rcwRecord);
+
+                    if (rcwRecord.RcoRecord != null && !rcwRecord.RcoRecord.IsRecordEmpty())
+                        recordList.Add(rcwRecord.RcoRecord);
+
+                    if (rcwRecord.RcsRecord != null)
+                        recordList.Add(rcwRecord.RcsRecord);
+                }
+
+                recordList.Add(rceRecord.RctRecord);
+
+                if (rceRecord.RcuRecord != null)
+                    recordList.Add(rceRecord.RcuRecord);
+
+                if (rceRecord.RcvRecord != null && !rceRecord.RcvRecord.IsRecordEmpty())
+                    recordList.Add(rceRecord.RcvRecord);
+            }
+
+            recordList.Add(_rcfRecord);
+
+            return recordList;
         }
 
         public void WriteToFile(string fileName)
         {
             CheckOpened(false);
 
+            var recordList = CreateRecordList();
+
+            RecordsOrderHelper.VerifyRecordsOrder(recordList);
+
             using (StreamWriter writer = new StreamWriter(fileName))
             {
-                writer.Write(new string(_rcaRecord.RecordBuffer));
-
-                foreach (var rceRecord in _rceRecordList)
-                {
-                    writer.Write(new string(rceRecord.RecordBuffer));
-                    
-                    foreach (var rcwRecord in rceRecord.RcwRecordList)
-                    {
-                        writer.Write(new string(rcwRecord.RecordBuffer));
-                        
-                        if(rcwRecord.RcoRecord != null)
-                            writer.Write(new string(rcwRecord.RcoRecord.RecordBuffer));
-
-                        if(rcwRecord.RcsRecord != null)
-                            writer.Write(new string(rcwRecord.RcsRecord.RecordBuffer));
-                    }
-
-                    writer.Write(new string(rceRecord.RctRecord.RecordBuffer));
-
-                    if(rceRecord.RcuRecord != null)
-                        writer.Write(new string(rceRecord.RcuRecord.RecordBuffer));
-
-                    if(rceRecord.RcvRecord != null)
-                        writer.Write(new string(rceRecord.RcvRecord.RecordBuffer));
-                }
-
-                writer.Write(new string(_rcfRecord.RecordBuffer));
+                foreach(var record in recordList)
+                    writer.Write(new string(record.RecordBuffer));
             }
         }
 
@@ -357,7 +353,6 @@ namespace EFW2C.Manager
                     throw new Exception($"Invaild file {fileName} : { ex.Message}");
                 }
 
-                recordList[0].Lock();
                 manager.SetRcaRecord((RcaRecord)recordList[0]);
 
                 var index = 1;
@@ -370,38 +365,33 @@ namespace EFW2C.Manager
                         index++;
                         if (recordList[index] is RcoRecord rcoRecord)
                         {
-                            rcoRecord.Lock();
                             rcwRecord.SetRcoRecord(rcoRecord);
                             index++;
                         }
 
                         if (recordList[index] is RcsRecord rcsRecord)
                         {
-                            rcsRecord.Lock();
                             rcwRecord.SetRcsRecord(rcsRecord);
                             index++;
                         }
 
-                        rcwRecord = rceRecord.AddRcwRecord(rcwRecord, true);
-                        rcwRecord.Lock();
+                        rceRecord.AddRcwRecord(rcwRecord);
                     }
 
-                    //since RctRecord is are auto generated 
+                    //since RctRecord is auto generated, we don't add it. 
                     if (recordList[index] is RctRecord rctRecord)
                         index++;
 
-                    //since RcuRecord is auto generated 
+                    //since RcuRecord is auto generated, we don't add ot 
                     if (recordList[index] is RcuRecord rcuRecord)
                         index++;
 
                     if (recordList[index] is RcvRecord rcvRecord)
                     {
-                        rcvRecord.Lock();
                         rceRecord.SetRcvRecord(rcvRecord);
                         index++;
                     }
 
-                    rceRecord.Lock(true);
                     manager.AddRceRecord(rceRecord);
                 }
 

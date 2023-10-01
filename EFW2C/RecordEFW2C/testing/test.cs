@@ -23,10 +23,10 @@ namespace EFW2C.RecordEFW2C.W2cDocument
             {
                 var manager = new RecordManager();
                 manager.SetSubmitter(true);
+                manager.SetTIB(true);
 
                 var rcaRecord = CreateRcaRecord(manager);
                 rcaRecord.Write();
-                rcaRecord.Lock();
                 manager.SetRcaRecord(rcaRecord);
 
                 var rceRecord = CreateRceRecord(manager);
@@ -35,30 +35,24 @@ namespace EFW2C.RecordEFW2C.W2cDocument
 
                 var rcoRecord = CreateRcoRecord(manager);
                 rcoRecord.Write();
-                rcoRecord.Lock();
                 
                 var rcsRecord = CreateRcsRecord(manager);
                 rcsRecord.Write();
-                rcsRecord.Lock();
 
                 var rcwRecord = CreateRcwRecord(manager);
-                rcwRecord.SetParent(rceRecord);
                 rcwRecord.SetRcoRecord(rcoRecord);
                 rcwRecord.SetRcsRecord(rcsRecord);
                 rcwRecord.Write();
-                rcwRecord.Lock();
                 rceRecord.AddRcwRecord(rcwRecord);
                 
                 var rcvRecord = CreateRcvRecord(manager);
                 rcvRecord.Write();
-                rcvRecord.Lock();
                 rceRecord.SetRcvRecord(rcvRecord);
 
-                rceRecord.Lock();
-                
                 manager.AddRceRecord(rceRecord);
 
-
+                /*
+                
                 //rce 2
                 rceRecord = CreateRceRecord(manager);
                 rceRecord.Write();
@@ -66,31 +60,27 @@ namespace EFW2C.RecordEFW2C.W2cDocument
 
                 rcoRecord = CreateRcoRecord2(manager);
                 rcoRecord.Write();
-                rcoRecord.Lock();
 
                 rcsRecord = CreateRcsRecord(manager);
                 rcsRecord.Write();
-                rcsRecord.Lock();
 
                 rcwRecord = CreateRcwRecord(manager);
                 rcwRecord.SetParent(rceRecord);
                 rcwRecord.SetRcoRecord(rcoRecord);
                 rcwRecord.SetRcsRecord(rcsRecord);
                 rcwRecord.Write();
-                rcwRecord.Lock();
                 rceRecord.AddRcwRecord(rcwRecord);
 
                 rcvRecord = CreateRcvRecord(manager);
                 rcvRecord.Write();
-                rcvRecord.Lock();
                 rceRecord.SetRcvRecord(rcvRecord);
 
-                rceRecord.Lock();
-
                 manager.AddRceRecord(rceRecord);
-
+                
+                */
                 manager.Close();
                 manager.Verify();
+
 
                 var manager2 = manager.Clone();
                 manager2.Close();

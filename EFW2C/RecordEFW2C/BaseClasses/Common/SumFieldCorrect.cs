@@ -22,16 +22,20 @@ namespace EFW2C.Fields
 
         public override void Write()
         {
-            var fieldClassName = ClassName.Replace(Constants.TotalStr, "");
+            var fieldClassName = ClassName.ReplaceFirstOccurrence(Constants.TotalStr, "");
 
             var sum = 0;
 
-            if (_record is RcwRecord rcwRecord)
-                sum = rcwRecord.Parent.GetRcwFieldsSum(fieldClassName);
-
-            if (_record is RcoRecord rcoRecord)
+            if (_record is RctRecord rctRecord)
             {
-                sum = rcoRecord.Parent.Parent.GetRcoFieldsSum(fieldClassName);
+                fieldClassName = $"{RecordNameEnum.Rcw}{fieldClassName.Substring(3)}";
+                sum = rctRecord.Parent.GetRcwFieldsSum(fieldClassName);
+            }
+
+            if (_record is RcuRecord rcuRecord)
+            {
+                fieldClassName = $"{RecordNameEnum.Rco}{fieldClassName.Substring(3)}";
+                sum = rcuRecord.Parent.GetRcoFieldsSum(fieldClassName);
             }
 
             if (sum > 0)
@@ -46,21 +50,25 @@ namespace EFW2C.Fields
             if (!base.Verify())
                 return false;
 
-            var fieldClassName = ClassName.Replace(Constants.TotalStr, "");
+            var fieldClassName = ClassName.ReplaceFirstOccurrence(Constants.TotalStr, "");
 
             var sum = 0;
 
-            if (_record is RcwRecord rcwRecord)
-                sum = rcwRecord.Parent.GetRcwFieldsSum(fieldClassName);
-
-            if (_record is RcoRecord rcoRecord)
+            if (_record is RctRecord rctRecord)
             {
-                sum = rcoRecord.Parent.Parent.GetRcoFieldsSum(fieldClassName);
+                fieldClassName = $"{RecordNameEnum.Rcw}{fieldClassName.Substring(3)}";
+                sum = rctRecord.Parent.GetRcwFieldsSum(fieldClassName);
             }
 
-            var localData = DataInRecordBuffer();
-            
-            if (sum != Int32.Parse(localData))
+            if (_record is RcuRecord rcuRecord)
+            {
+                fieldClassName = $"{RecordNameEnum.Rco}{fieldClassName.Substring(3)}";
+                sum = rcuRecord.Parent.GetRcoFieldsSum(fieldClassName);
+            }
+
+            int.TryParse(DataInRecordBuffer(), out var localSum);
+
+            if (sum != localSum)
                 throw new Exception($"Total of {ClassName} is not correct");
 
             return true;

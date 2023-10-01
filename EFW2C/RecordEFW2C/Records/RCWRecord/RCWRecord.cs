@@ -19,13 +19,13 @@ namespace EFW2C.Records
         public RcwRecord(RecordManager recordManager)
             : base(recordManager, RecordNameEnum.Rcw.ToString())
         {
-            AddField(new RcwRecordIdentifier(this));
+            Prepare();
         }
 
         public RcwRecord(RecordManager recordManager, char[] buffer)
             : base(recordManager, RecordNameEnum.Rcw.ToString(), buffer)
         {
-            AddField(new RcwRecordIdentifier(this));
+            Prepare();
         }
 
         public override RecordBase Clone(RecordManager manager)
@@ -46,47 +46,33 @@ namespace EFW2C.Records
         public void SetParent(RceRecord parent)
         {
             _parent = parent;
+            SetDirty();
         }
 
         public void SetRcoRecord(RcoRecord rcoRecord)
         {
-            if (_isLocked)
-                throw new Exception($"Employee record is locked");
-
             if (_rcoRecord != null)
+                _rcoRecord.SetParent(null);
+
+            _rcoRecord = rcoRecord;
+
+            if (rcoRecord != null)
                 _rcoRecord.SetParent(this);
 
-            _rcoRecord = null;
-
-            if (rcoRecord != null && !rcoRecord.IsRecordEmpty())
-            {
-                if (!rcoRecord.IsLocked)
-                    throw new Exception($"Employee optional record is unlocked");
-
-                _rcoRecord = (RcoRecord)rcoRecord.Clone(Manager);
-
-                _rcoRecord.SetParent(this);
-            }
+            SetDirty();
         }
 
         public void SetRcsRecord(RcsRecord rcsRecord)
         {
-            if (_isLocked)
-                throw new Exception($"Employee record is locked");
-
-            if (!rcsRecord.IsLocked)
-                throw new Exception($"Employee optional record is unlocked");
-
             if (_rcsRecord != null)
                 _rcsRecord.SetParent(null);
 
-            _rcsRecord = null;
+            _rcsRecord = rcsRecord;
 
             if (rcsRecord != null)
-            {
-                _rcsRecord = (RcsRecord)rcsRecord.Clone(Manager);
                 _rcsRecord.SetParent(this);
-            }
+
+            SetDirty();
         }
 
         public override bool Verify()
@@ -94,7 +80,19 @@ namespace EFW2C.Records
             if(_parent == null)
                 throw new Exception($"Employee : must be added to Employer");
 
-            return !base.Verify();
+            if (_rcoRecord != null)
+            {
+                if (!_rcoRecord.Verify())
+                    return false;
+            }
+
+            if (_rcsRecord != null)
+            {
+                if (!_rcsRecord.Verify())
+                    return false;
+            }
+
+            return base.Verify();
         }
 
         protected override List<(int, int)> CreateBlankList()
@@ -157,12 +155,12 @@ namespace EFW2C.Records
                 new RcwMedicareWagesAndTipsOriginal(this, "Helper"),
                 new RcwMiddleNameEmployeeCorrect(this, "Helper"),
                 new RcwMiddleNameEmployeeOriginal(this, "Helper"),
-                new RcwNonqualifiedDeferredCompensationPlanCodeYCorrect(this, "Helper"),
-                new RcwNonqualifiedDeferredCompensationPlanCodeYOriginal(this, "Helper"),
-                new RcwNonqualifiedPlanNotSection457Correct(this, "Helper"),
-                new RcwNonqualifiedPlanNotSection457Original(this, "Helper"),
-                new RcwNonqualifiedPlanSection457Correct(this, "Helper"),
-                new RcwNonqualifiedPlanSection457Original(this, "Helper"),
+                new RcwNonQualifiedDeferredCompensationPlanCodeYCorrect(this, "Helper"),
+                new RcwNonQualifiedDeferredCompensationPlanCodeYOriginal(this, "Helper"),
+                new RcwNonQualifiedPlanNotSection457Correct(this, "Helper"),
+                new RcwNonQualifiedPlanNotSection457Original(this, "Helper"),
+                new RcwNonQualifiedPlanSection457Correct(this, "Helper"),
+                new RcwNonQualifiedPlanSection457Original(this, "Helper"),
                 new RcwNontaxableCombatPayCodeQCorrect(this, "Helper"),
                 new RcwNontaxableCombatPayCodeQOriginal(this, "Helper"),
                 new RcwPermittedBenefitsUnderAQSEHRACodeFFCorrect(this, "Helper"),

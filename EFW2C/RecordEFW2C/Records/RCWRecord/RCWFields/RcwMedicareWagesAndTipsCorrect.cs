@@ -41,12 +41,12 @@ namespace EFW2C.Fields
             }
             else
             {
-                var value = double.Parse(localData);
+                double.TryParse(localData, out var localValue);
                 var wageTax = WageTaxHelper.GetWageTax(taxYear);
 
                 if (employmentCode == EmploymentCodeEnum.H.ToString())
                 {
-                    if (value != 0 || value < wageTax.SocialSecurity.MinHouseHoldCoveredWages)
+                    if (localValue != 0 || localValue < wageTax.SocialSecurity.MinHouseHoldCoveredWages)
                         throw new Exception($"{ClassName} : vlaue must be zero or equal or greater than MinHouseHold Covered Wages ({wageTax.SocialSecurity.MinHouseHoldCoveredWages})");
                 }
                 else
@@ -60,10 +60,10 @@ namespace EFW2C.Fields
                     if (rcwSocialSecurityWagesCorrect == null)
                         throw new Exception($"{ClassName}: RcwSocialSecurityWagesCorrect must be provided");
 
-                    var rcwSocialSecurityTipsCorrectValue = double.Parse(rcwSocialSecurityTipsCorrect.DataInRecordBuffer());
-                    var rcwSocialSecurityWagesCorrectValue = double.Parse(rcwSocialSecurityWagesCorrect.DataInRecordBuffer());
+                    double.TryParse(rcwSocialSecurityTipsCorrect.DataInRecordBuffer(), out var rcwSocialSecurityTipsCorrectValue);
+                    double.TryParse(rcwSocialSecurityWagesCorrect.DataInRecordBuffer(), out var rcwSocialSecurityWagesCorrectValue);
 
-                    if (value < rcwSocialSecurityTipsCorrectValue + rcwSocialSecurityWagesCorrectValue)
+                    if (localValue < rcwSocialSecurityTipsCorrectValue + rcwSocialSecurityWagesCorrectValue)
                         throw new Exception($"value must be equal or gratewr to the sum of Social Security Tips and Social Security Wages");
                 }
             }

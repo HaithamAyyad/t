@@ -9,9 +9,9 @@ namespace EFW2C.Fields
     //Created by : HSA 9-9-2023
     //Reviewed by : 
 
-    internal class RcwNonqualifiedDeferredCompensationPlanCodeYOriginal : MoneyOriginal
+    internal class RcwNonQualifiedDeferredCompensationPlanCodeYOriginal : MoneyOriginal
     {
-        public RcwNonqualifiedDeferredCompensationPlanCodeYOriginal(RecordBase record, string data)
+        public RcwNonQualifiedDeferredCompensationPlanCodeYOriginal(RecordBase record, string data)
             : base(record, data)
         {
             _pos = 749;
@@ -20,7 +20,7 @@ namespace EFW2C.Fields
 
         public override FieldBase Clone(RecordBase record)
         {
-            return new RcwNonqualifiedDeferredCompensationPlanCodeYOriginal(record, _data);
+            return new RcwNonQualifiedDeferredCompensationPlanCodeYOriginal(record, _data);
         }
     }
 }
