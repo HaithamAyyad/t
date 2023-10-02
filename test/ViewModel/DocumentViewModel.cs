@@ -378,7 +378,7 @@ namespace test.ViewModel
                 _document.AddEmployer(_employer);
 
                 _document.SaveDocument(saveFileDialog.FileName);
-                MessageBox.Show($"{saveFileDialog.FileName} document created correctly");
+                MessageBox.Show($"{saveFileDialog.FileName} : Document created correctly");
             }
             catch(Exception ex)
             {
