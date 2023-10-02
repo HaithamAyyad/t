@@ -335,21 +335,6 @@ namespace EFW2C.RecordEFW2C.W2cDocument
         }
 
 
-        private string _recordIdentifier;
-        public string RecordIdentifier
-        {
-            get { return _recordIdentifier; }
-            set
-            {
-                if (_recordIdentifier != value)
-                {
-                    _recordIdentifier = value;
-                    AddData(value);
-                    OnPropertyChanged();
-                }
-            }
-        }
-
         private string _kindOfEmployer;
         public string KindOfEmployer
         {
@@ -508,7 +493,6 @@ namespace EFW2C.RecordEFW2C.W2cDocument
             mapDictionary.Add(nameof(EstablishmentNumberOriginal), typeof(RceEstablishmentNumberOriginal).Name);
             mapDictionary.Add(nameof(ForeignPostalCode), typeof(RceForeignPostalCode).Name);
             mapDictionary.Add(nameof(ForeignStateProvince), typeof(RceForeignStateProvince).Name);
-            mapDictionary.Add(nameof(RecordIdentifier), typeof(RceRecordIdentifier).Name);
             mapDictionary.Add(nameof(KindOfEmployer), typeof(RceKindOfEmployer).Name);
             mapDictionary.Add(nameof(LocationAddress), typeof(RceLocationAddress).Name);
             mapDictionary.Add(nameof(StateAbbreviation), typeof(RceStateAbbreviation).Name);

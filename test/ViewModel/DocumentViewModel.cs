@@ -1,4 +1,5 @@
 ﻿using EFW2C.RecordEFW2C.W2cDocument;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,6 +22,7 @@ namespace test.ViewModel
         W2cDocument _document;
 
         int _windowIndex;
+        string _initialDirectory = @"c:\W2C_test\";
 
         private W2cSubmitter _submitter;
         public W2cSubmitter Submitter
@@ -178,6 +180,7 @@ namespace test.ViewModel
         public ICommand VerifyEmployeeOptionalCommand { get; set; }
         public ICommand VerifyEmployeeStateCommand { get; set; }
         public ICommand NextCommand { get; set; }
+        public ICommand CreateCommand { get; set; }
         public ICommand PreviousCommand { get; set; }
 
         public W2cDocument Document{ get { return _document; }}
@@ -189,6 +192,7 @@ namespace test.ViewModel
             VerifyEmployeeOptionalCommand = new RelayCommand(VerifyEmployeeOptionalCommandHandler);
             VerifyEmployeeStateCommand = new RelayCommand(VerifyEmployeeStateCommandHandler);
             NextCommand = new RelayCommand(NextCommandHandler);
+            CreateCommand = new RelayCommand(CreateCommandHandler);
             PreviousCommand = new RelayCommand(PreviousCommandHandler);
 
             _document = new W2cDocument();
@@ -200,14 +204,13 @@ namespace test.ViewModel
             _employeeState = new W2cEmployeeState(_document);
             _employeeStateTotal = new W2cEmployeeStateTotal(_document);
 
-            test();
+            test_FillData();
 
             ShowHideWindows();
         }
 
-        private void test()
+        private void test_FillData()
         {
-
             _submitter.EinSubmitter = "773456789";
             _submitter.SoftwareCode= "99";
             _submitter.UserIdentification= "12345678";
@@ -220,20 +223,13 @@ namespace test.ViewModel
             _submitter.LocationAddress= "dfd";
             _submitter.DeliveryAddress= "Alask box 444 0";
             _submitter.City = "City1";
-            //_submitter.ForeignStateProvince="KKK";
             _submitter.ForeignPostalCode= "BOX 300";
-            //_submitter.CountryCode="UK";
             _submitter.ContactPhone= "9090000000";
             _submitter.ContactPhoneExtension= "108";
             _submitter.ContactEMailInternet= "e@t.com";
             _submitter.ContactFax= "123456456";
             _submitter.PreparerCode= "A";
             _submitter.ResubIndicator= "0";
-            //_submitter.ResubWageFile= "hjhfj";
-
-            _submitter.Prepare();
-
-            _document.SetSubmitter(_submitter);
 
             _employee.ZipCode = "11118";
             _employee.ZipCodeExtension = "1117";
@@ -241,9 +237,7 @@ namespace test.ViewModel
             _employee.LocationAddress = "ggg";
             _employee.DeliveryAddress = "Alask box 444 0";
             _employee.City = "City1";
-            //_employee.ForeignStateProvince = "KKK";
             _employee.ForeignPostalCode = "BOX 300";
-            //_employee.CountryCode= ="UK";
             _employee.SocialSecurityNumberCorrect = "123456789";
             _employee.SocialSecurityNumberOriginal = "122456789";
             _employee.SocialSecurityTaxWithheldCorrect = "5656";
@@ -253,21 +247,10 @@ namespace test.ViewModel
             _employee.EmployeeLastNameCorrect = "Smith";
             _employee.EmployeeLastNameOriginal = "Smith";
 
-            _employee.Prepare();
-
-            _employer.AddEmployee(_employee);
-
             _employeeOptional.AllocatedTipsCorrect = "10";
             _employeeOptional.AllocatedTipsOriginal = "10";
-            _employeeOptional.Prepare();
-
-            _employee.SetEmployeeOptional(_employeeOptional);
-            _employeeState.Prepare();
-            _employee.SetEmployeeState(_employeeState);
 
             _employeeStateTotal.SupplementalData = " this is data from user";
-            _employeeStateTotal.Prepare();
-            _employer.SetEmployeeStateTotal(_employeeStateTotal);
 
             _employer.TaxYear = "1960";
             _employer.KindOfEmployer = "S";
@@ -275,13 +258,6 @@ namespace test.ViewModel
             _employer.EinAgentFederal = "123456789";
             _employer.EinAgent = "123456789";
             _employer.EmployerName = "employer1";
-
-            _employer.Prepare();
-            _document.AddEmployer(_employer);
-
-            _document.SaveDocument(@"c:\1\4.txt");
-
-            AreFilesIdentical_testfunction(@"c:\1\1.txt", @"c:\1\4.txt");
         }
 
         static bool AreFilesIdentical_testfunction(string filePath1, string filePath2)
@@ -311,6 +287,7 @@ namespace test.ViewModel
             try
             {
                 _submitter.Verify();
+                MessageBox.Show("Verified Successfully", "Subbmitter");
             }
             catch(Exception ex) 
             {
@@ -364,6 +341,51 @@ namespace test.ViewModel
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        
+        private void CreateCommandHandler()
+        {
+            try
+            {
+                var saveFileDialog = new SaveFileDialog();
+                saveFileDialog.Title = "Save WC2 Document";
+                saveFileDialog.Filter = "Text Files (*.txt)|*.txt";
+
+                saveFileDialog.InitialDirectory = _initialDirectory;
+
+                if (saveFileDialog.ShowDialog() ==  false)
+                    return;
+
+                _initialDirectory = saveFileDialog.InitialDirectory;
+
+
+                _submitter.Prepare();
+                _document.SetSubmitter(_submitter);
+
+                _employee.Prepare();
+                _employer.AddEmployee(_employee);
+
+                _employeeOptional.Prepare();
+                _employee.SetEmployeeOptional(_employeeOptional);
+
+                _employeeState.Prepare();
+                _employee.SetEmployeeState(_employeeState);
+
+                _employeeStateTotal.Prepare();
+                _employer.SetEmployeeStateTotal(_employeeStateTotal);
+                _employer.Prepare();
+                _document.AddEmployer(_employer);
+
+                _document.SaveDocument(saveFileDialog.FileName);
+                MessageBox.Show($"{saveFileDialog.FileName} document created correctly");
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            //AreFilesIdentical_testfunction(@"c:\1\1.txt", @"c:\1\4.txt");
         }
 
         private void NextCommandHandler()

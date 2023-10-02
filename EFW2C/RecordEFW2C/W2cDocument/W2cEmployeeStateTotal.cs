@@ -29,21 +29,6 @@ namespace EFW2C.RecordEFW2C.W2cDocument
                 InternalRecord.SetParent(employer.InternalRecord);
         }
 
-        private string _recordIdentifier;
-        public string RecordIdentifier
-        {
-            get { return _recordIdentifier; }
-            set
-            {
-                if (_recordIdentifier != value)
-                {
-                    _recordIdentifier = value;
-                    AddData(value);
-                    OnPropertyChanged();
-                }
-            }
-        }
-
         private string _supplementalData;
         public string SupplementalData
         {
@@ -70,7 +55,6 @@ namespace EFW2C.RecordEFW2C.W2cDocument
         protected override Dictionary<string, string> CreateMapPropFieldDictionay()
         {
             var mapDictionary = new Dictionary<string, string>();
-            mapDictionary.Add(nameof(RecordIdentifier), typeof(RcvRecordIdentifier).Name);
             mapDictionary.Add(nameof(SupplementalData), typeof(RcvSupplementalData).Name);
 
             return mapDictionary;

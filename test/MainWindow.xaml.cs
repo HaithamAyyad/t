@@ -16,14 +16,15 @@ namespace test
 
             DataContext = new MainViewModel();
 
-            var test = new TestClass();
+            
 
-            //test.test();
 
              try
              {
-             }
-             catch(Exception ex)
+                var test = new TestClass();
+                //test.test();
+            }
+            catch (Exception ex)
              {
                  MessageBox.Show(ex.Message);
              }

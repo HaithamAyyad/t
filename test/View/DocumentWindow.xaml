@@ -23,6 +23,7 @@
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
             <Button Content="&lt;&lt;" Command="{Binding PreviousCommand}" HorizontalContentAlignment="Center" Margin="5,0"/>
             <Button Content=">>" Command="{Binding NextCommand}" HorizontalContentAlignment="Center" Margin="5,0"/>
+            <Button Content="Create" Command="{Binding CreateCommand}" HorizontalContentAlignment="Center" Margin="5,0"/>
         </StackPanel>
     </Grid>
 </Window>

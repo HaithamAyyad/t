@@ -186,21 +186,6 @@ namespace EFW2C.RecordEFW2C.W2cDocument
             }
         }
 
-        private string _recordIdentifier;
-        public string RecordIdentifier
-        {
-            get { return _recordIdentifier; }
-            set
-            {
-                if (_recordIdentifier != value)
-                {
-                    _recordIdentifier = value;
-                    AddData(value);
-                    OnPropertyChanged();
-                }
-            }
-        }
-
         private string _locationAddress;
         public string LocationAddress
         {
@@ -368,6 +353,7 @@ namespace EFW2C.RecordEFW2C.W2cDocument
 
         public override bool Verify()
         {
+            Prepare();
             if (!base.Verify())
                 return false;
 
@@ -389,7 +375,6 @@ namespace EFW2C.RecordEFW2C.W2cDocument
             mapDictionary.Add(nameof(EinSubmitter), typeof(RcaEinSubmitter).Name);
             mapDictionary.Add(nameof(ForeignPostalCode), typeof(RcaForeignPostalCode).Name);
             mapDictionary.Add(nameof(ForeignStateProvince), typeof(RcaForeignStateProvince).Name);
-            mapDictionary.Add(nameof(RecordIdentifier), typeof(RcaRecordIdentifier).Name);
             mapDictionary.Add(nameof(LocationAddress), typeof(RcaLocationAddress).Name);
             mapDictionary.Add(nameof(PreparerCode), typeof(RcaPreparerCode).Name);
             mapDictionary.Add(nameof(ResubIndicator), typeof(RcaResubIndicator).Name);
