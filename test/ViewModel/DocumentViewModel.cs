@@ -348,6 +348,10 @@ namespace test.ViewModel
         {
             try
             {
+                _document.Reset();
+
+                _employer.Reset(); ;
+
                 var saveFileDialog = new SaveFileDialog();
                 saveFileDialog.Title = "Save WC2 Document";
                 saveFileDialog.Filter = "Text Files (*.txt)|*.txt";
@@ -385,7 +389,6 @@ namespace test.ViewModel
                 MessageBox.Show(ex.Message);
             }
 
-            //AreFilesIdentical_testfunction(@"c:\1\1.txt", @"c:\1\4.txt");
         }
 
         private void NextCommandHandler()

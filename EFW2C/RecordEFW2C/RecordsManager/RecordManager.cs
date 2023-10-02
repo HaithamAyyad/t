@@ -64,6 +64,13 @@ namespace EFW2C.Manager
             }
         }
 
+        internal void Reset()
+        {
+            _rcaRecord =  null;
+            _rcfRecord = new RcfRecord(this);
+            _rceRecordList.Clear();
+        }
+
         public void Open()
         {
             _isOpened = true;
@@ -122,9 +129,6 @@ namespace EFW2C.Manager
 
         public void Close()
         {
-            if (!_isOpened)
-                return;
-
             PrepareRcfRecord();
 
             _isOpened = false;

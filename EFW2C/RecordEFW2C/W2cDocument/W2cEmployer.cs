@@ -380,6 +380,11 @@ namespace EFW2C.RecordEFW2C.W2cDocument
             }
         }
 
+        public void Reset()
+        {
+            _employeeList.Clear();
+        }
+
         private string _taxYear;
         public string TaxYear
         {

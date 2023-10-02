@@ -57,5 +57,11 @@ namespace EFW2C.RecordEFW2C.W2cDocument
             _manager.Close();
             _manager.WriteToFile(fileName);
         }
+
+        public void Reset()
+        {
+            _employerList.Clear();
+            _manager.Reset();
+        }
     }
 }
