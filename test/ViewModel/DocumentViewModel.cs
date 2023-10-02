@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data.Odbc;
+using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -35,6 +36,7 @@ namespace test.ViewModel
             }
         }
 
+
         private W2cEmployer _employer;
         public W2cEmployer Employer
         {
@@ -48,6 +50,7 @@ namespace test.ViewModel
                 }
             }
         }
+
 
         private W2cEmployee _employee;
         public W2cEmployee Employee
@@ -63,6 +66,7 @@ namespace test.ViewModel
             }
         }
 
+
         private W2cEmployeeOptional _employeeOptional;
         public W2cEmployeeOptional EmployeeOptional
         {
@@ -77,8 +81,9 @@ namespace test.ViewModel
             }
         }
 
-        private W2cState _employeeState;
-        public W2cState EmployeeState
+
+        private W2cEmployeeState _employeeState;
+        public W2cEmployeeState EmployeeState
         {
             get { return _employeeState; }
             set
@@ -91,8 +96,9 @@ namespace test.ViewModel
             }
         }
 
-        private string _employerList;
-        public string EmployerList
+
+        private W2cEmployer _employerList;
+        public W2cEmployer EmployerList
         {
             get { return _employerList; }
             set 
@@ -100,6 +106,21 @@ namespace test.ViewModel
                 if (_employerList != value)
                 {
                     _employerList = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+
+        public W2cEmployeeStateTotal _employeeStateTotal;
+        public W2cEmployeeStateTotal EmployeeStateTotal
+        {
+            get { return _employeeStateTotal; }
+            set 
+            {
+                if (_employeeStateTotal != value)
+                {
+                    _employeeStateTotal = value;
                     OnPropertyChanged();
                 }
             }
@@ -120,6 +141,7 @@ namespace test.ViewModel
             }
         }
 
+
         private bool _showEmployer;
         public bool ShowEmployer
         {
@@ -134,6 +156,7 @@ namespace test.ViewModel
             }
         }
 
+
         private bool _showEmployeeCollection;
         public bool ShowEmployeeCollection
         {
@@ -147,6 +170,7 @@ namespace test.ViewModel
                 }
             }
         }
+
 
         public ICommand VerifySubmitterCommand { get; set; }
         public ICommand VerifyEmployerCommand { get; set; }
@@ -173,7 +197,8 @@ namespace test.ViewModel
             _employer = new W2cEmployer(_document);
             _employee = new W2cEmployee(_document);
             _employeeOptional = new W2cEmployeeOptional(_document);
-            _employeeState = new W2cState(_document);
+            _employeeState = new W2cEmployeeState(_document);
+            _employeeStateTotal = new W2cEmployeeStateTotal(_document);
 
             test();
 
@@ -182,6 +207,7 @@ namespace test.ViewModel
 
         private void test()
         {
+
             _submitter.EinSubmitter = "773456789";
             _submitter.SoftwareCode= "99";
             _submitter.UserIdentification= "12345678";
@@ -204,7 +230,10 @@ namespace test.ViewModel
             _submitter.PreparerCode= "A";
             _submitter.ResubIndicator= "0";
             //_submitter.ResubWageFile= "hjhfj";
-            _submitter.Lock();
+
+            _submitter.Prepare();
+
+            _document.SetSubmitter(_submitter);
 
             _employee.ZipCode = "11118";
             _employee.ZipCodeExtension = "1117";
@@ -224,13 +253,21 @@ namespace test.ViewModel
             _employee.EmployeeLastNameCorrect = "Smith";
             _employee.EmployeeLastNameOriginal = "Smith";
 
-            _employee.Lock();
+            _employee.Prepare();
 
             _employer.AddEmployee(_employee);
 
             _employeeOptional.AllocatedTipsCorrect = "10";
             _employeeOptional.AllocatedTipsOriginal = "10";
-            _employeeOptional.Lock();
+            _employeeOptional.Prepare();
+
+            _employee.SetEmployeeOptional(_employeeOptional);
+            _employeeState.Prepare();
+            _employee.SetEmployeeState(_employeeState);
+
+            _employeeStateTotal.SupplementalData = " this is data from user";
+            _employeeStateTotal.Prepare();
+            _employer.SetEmployeeStateTotal(_employeeStateTotal);
 
             _employer.TaxYear = "1960";
             _employer.KindOfEmployer = "S";
@@ -239,11 +276,34 @@ namespace test.ViewModel
             _employer.EinAgent = "123456789";
             _employer.EmployerName = "employer1";
 
+            _employer.Prepare();
+            _document.AddEmployer(_employer);
 
-            _employer.Lock();
+            _document.SaveDocument(@"c:\1\4.txt");
+
+            AreFilesIdentical_testfunction(@"c:\1\1.txt", @"c:\1\4.txt");
+        }
+
+        static bool AreFilesIdentical_testfunction(string filePath1, string filePath2)
+        {
+            byte[] fileBytes1 = File.ReadAllBytes(filePath1);
+            byte[] fileBytes2 = File.ReadAllBytes(filePath2);
 
 
+            if (fileBytes1.Length != fileBytes2.Length)
+            {
+                return false;
+            }
 
+            for (int i = 0; i < fileBytes1.Length; i++)
+            {
+                if (fileBytes1[i] != fileBytes2[i])
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
 
         private void VerifySubmitterCommandHandler()

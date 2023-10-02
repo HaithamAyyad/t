@@ -15,13 +15,11 @@ namespace EFW2C.Records
         protected List<FieldBase> _fields;
         private List<FieldBase> _helperFieldsList;
         private List<(int, int)> _blankFields;
-        protected bool _isVerified;
         public RecordManager Manager { get { return _manager; } }
         public char[] RecordBuffer { get; private set; }
         public string RecordName { get; set; }
         public string ClassName { get; set; }
         public List<FieldBase> Fields { get { return _fields; } }
-        public bool IsVerified { get { return _isVerified; } }
         public List<FieldBase> HelperFieldsList { get { return _helperFieldsList; } }
 
         public RecordBase(RecordManager recordManager, string recordName, char[] buffer = null)
@@ -53,23 +51,6 @@ namespace EFW2C.Records
 
             foreach (var field in _fields)
                 record.AddField(field.Clone(record));
-        }
-
-        protected void SetDirty()
-        {
-            _isVerified = false;
-        }
-
-        public void Lock1(bool isLocked = true)
-        {
-            throw new NotImplementedException();
-            /*if (isLocked)
-            {
-                if (!_isVerified && !Verify())
-                    return;
-            }
-
-            _isLocked = isLocked;*/
         }
 
         public void Reset()
@@ -190,8 +171,6 @@ namespace EFW2C.Records
             if (IsFieldExists(field))
                 throw new Exception($"{field.ClassName} is already added to {ClassName}");
 
-            _isVerified = false;
-
             _fields.Add(field);
         }
 
@@ -217,8 +196,6 @@ namespace EFW2C.Records
 
         public virtual bool Verify()
         {
-            _isVerified = false;
-
             if (!CheckRequiredFields())
                 return false;
 
@@ -231,9 +208,7 @@ namespace EFW2C.Records
                     return false;
             }
 
-            _isVerified = true;
-
-            return _isVerified;
+            return true;
         }
 
         public bool IsRecordEmpty()

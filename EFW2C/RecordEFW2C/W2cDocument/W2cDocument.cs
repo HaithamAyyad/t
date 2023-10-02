@@ -23,6 +23,21 @@ namespace EFW2C.RecordEFW2C.W2cDocument
             _employerList = new List<W2cEmployer>();
         }
 
+        public void SetSubmitter(W2cSubmitter submitter)
+        {
+            _submitter = submitter;
+            _manager.SetRcaRecord(_submitter.InternalRecord);
+        }
+
+        public void AddEmployer(W2cEmployer employer)
+        {
+            if (employer != null)
+            {
+                _manager.AddRceRecord(employer.InternalRecord);
+                _employerList.Add(employer);
+            }
+        }
+
         public bool Verify()
         {
             if (!_submitter.Verify())
@@ -37,29 +52,10 @@ namespace EFW2C.RecordEFW2C.W2cDocument
             return true;
         }
 
-        public void SetSubmitter(W2cSubmitter submitter)
-        {
-            if (!submitter.IsLocked())
-                throw new Exception($"Submitter must be locked");
-
-            _submitter = submitter;
-        }
-
-        public void AddEmployer(W2cEmployer employer)
-        {
-            if (!employer.IsLocked())
-                throw new Exception($"Employer must be locked");
-
-            //
-            // More checking is needed.
-            //
-
-            Manager.AddRceRecord((RceRecord)employer.Record);
-
-        }
-
         public void SaveDocument(string fileName)
         {
+            _manager.Close();
+            _manager.WriteToFile(fileName);
         }
     }
 }

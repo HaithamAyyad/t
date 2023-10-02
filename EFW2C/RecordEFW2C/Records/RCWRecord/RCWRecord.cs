@@ -46,7 +46,6 @@ namespace EFW2C.Records
         public void SetParent(RceRecord parent)
         {
             _parent = parent;
-            SetDirty();
         }
 
         public void SetRcoRecord(RcoRecord rcoRecord)
@@ -58,8 +57,6 @@ namespace EFW2C.Records
 
             if (rcoRecord != null)
                 _rcoRecord.SetParent(this);
-
-            SetDirty();
         }
 
         public void SetRcsRecord(RcsRecord rcsRecord)
@@ -71,8 +68,6 @@ namespace EFW2C.Records
 
             if (rcsRecord != null)
                 _rcsRecord.SetParent(this);
-
-            SetDirty();
         }
 
         public override bool Verify()

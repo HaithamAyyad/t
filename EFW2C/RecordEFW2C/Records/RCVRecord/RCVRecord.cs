@@ -35,7 +35,6 @@ namespace EFW2C.Records
         public void SetParent(RceRecord parent)
         {
             _parent = parent;
-            SetDirty();
         }
 
         public override bool Verify()

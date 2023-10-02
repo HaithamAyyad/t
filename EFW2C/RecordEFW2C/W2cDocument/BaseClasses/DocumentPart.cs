@@ -13,36 +13,18 @@ namespace EFW2C.RecordEFW2C.W2cDocument
     {
         protected W2cDocument _document;
         internal RecordBase _record;
-        protected bool _isLocked;
         private Dictionary<string, string> _mapPropFieldDictionary;
-        protected Dictionary<string, string> DataDictionary { get; }
 
+        protected Dictionary<string, string> DataDictionary { get; }
         internal RecordBase Record { get { return _record; } }
         public DocumentPart(W2cDocument document)
         {
             _document = document;
-            _mapPropFieldDictionary = CreateMapPropFieldDictionay();
             DataDictionary = new Dictionary<string, string>();
-        }
-        public bool Lock(bool value = true)
-        {
-            if (value)
-            {
-                Prepare();
-
-                _record.Lock1();
-
-                if (!Verify())
-                    return false;
-
-            }
-
-            _isLocked = value;
-
-            return _isLocked;
+            _mapPropFieldDictionary = CreateMapPropFieldDictionay();
         }
 
-        private void Prepare()
+        public void Prepare()
         {
             _record.Reset();
             _record.Prepare();
@@ -56,17 +38,8 @@ namespace EFW2C.RecordEFW2C.W2cDocument
             _record.Write();
         }
 
-        public bool IsLocked()
-        {
-            return _isLocked;
-        }
-
         protected void AddData(string value, [CallerMemberName] string propertyName = null)
         {
-            if (_isLocked)
-            {
-
-            }
             //throw new Exception($"{ClassName} data can't be null or empty");
 
             DataDictionary[propertyName] = value;

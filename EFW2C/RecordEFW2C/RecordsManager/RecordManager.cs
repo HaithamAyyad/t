@@ -44,10 +44,10 @@ namespace EFW2C.Manager
         {
             _rcaRecord = rcaRecord;
 
-            SetDirty();
+            SetDirty1();
         }
 
-        private void SetDirty()
+        private void SetDirty1()
         {
             _isVerified = false;
         }
@@ -60,14 +60,14 @@ namespace EFW2C.Manager
                     throw new Exception($"Employer records should not exceed {Constants.MaxRceRecordsNumber}");
 
                 _rceRecordList.Add(rceRecord);
-                SetDirty();
+                SetDirty1();
             }
         }
 
         public void Open()
         {
             _isOpened = true;
-            SetDirty();
+            SetDirty1();
         }
 
         private void CheckOpened(bool isOpened)
@@ -94,7 +94,7 @@ namespace EFW2C.Manager
             if (GetRceRecordsCount() > Constants.MaxRceRecordsNumber)
                 throw new Exception($"Employer records should not exceed {Constants.MaxRceRecordsNumber}");
 
-            if (!_rcaRecord.IsVerified && !_rcaRecord.Verify())
+            if (!_rcaRecord.Verify())
                 return false;
 
             if (_rceRecordList.Count == 0)
@@ -102,7 +102,7 @@ namespace EFW2C.Manager
 
             foreach (var rceRecord in _rceRecordList)
             {
-                if (!rceRecord.IsVerified && !rceRecord.Verify())
+                if (!rceRecord.Verify())
                     return false;
             }
 
@@ -240,7 +240,7 @@ namespace EFW2C.Manager
             if (_reSubmitted != value)
             {
                 _reSubmitted = value;
-                SetDirty();
+                SetDirty1();
             }
         }
 
@@ -249,7 +249,7 @@ namespace EFW2C.Manager
             if (_unemployment != value)
             {
                 _unemployment = value;
-                SetDirty();
+                SetDirty1();
             }
         }
 
@@ -258,7 +258,7 @@ namespace EFW2C.Manager
             if (_isTIB != value)
             {
                 _isTIB = value;
-                SetDirty();
+                SetDirty1();
             }
         }
 

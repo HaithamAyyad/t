@@ -368,8 +368,8 @@
     <Compile Include="RecordEFW2C\testing\test.cs" />
     <Compile Include="RecordEFW2C\W2cDocument\W2cEmployee.cs" />
     <Compile Include="RecordEFW2C\W2cDocument\W2cEmployeeOptional.cs" />
-    <Compile Include="RecordEFW2C\W2cDocument\W2cState.cs" />
-    <Compile Include="RecordEFW2C\W2cDocument\W2cStateTotal.cs" />
+    <Compile Include="RecordEFW2C\W2cDocument\W2cEmployeeState.cs" />
+    <Compile Include="RecordEFW2C\W2cDocument\W2cEmployeeStateTotal.cs" />
     <Compile Include="RecordEFW2C\W2cDocument\W2cSubmitter.cs" />
     <Compile Include="RecordEFW2C\W2cDocument\W2cEmployer.cs" />
   </ItemGroup>

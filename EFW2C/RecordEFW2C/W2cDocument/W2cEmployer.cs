@@ -10,10 +10,43 @@ namespace EFW2C.RecordEFW2C.W2cDocument
 {
     public class W2cEmployer : DocumentPart
     {
+        private List<W2cEmployee> _employeeList;
+        private W2cEmployeeStateTotal _employeeStateTotal;
+
+        public List<W2cEmployee> EmployeeList { get { return _employeeList; } }
+        public W2cEmployeeStateTotal EmployeeStateTotal { get { return _employeeStateTotal; } }
+        internal RceRecord InternalRecord { get { return ((RceRecord)_record); } }
+
         public W2cEmployer(W2cDocument document)
             : base(document)
         {
             _record = new RceRecord(document.Manager);
+            _employeeList = new List<W2cEmployee>();
+        }
+
+        public void AddEmployee(W2cEmployee employee)
+        {
+            if (employee != null)
+            {
+                employee.SetParent(this);
+                InternalRecord.AddRcwRecord(employee.InternalRecord);
+
+                _employeeList.Add(employee);
+            }
+        }
+
+        public void SetEmployeeStateTotal(W2cEmployeeStateTotal employeeStateTotal)
+        {
+            if (_employeeStateTotal != null)
+                _employeeStateTotal.SetParent(null);
+
+            if (employeeStateTotal != null)
+            {
+                employeeStateTotal.SetParent(this);
+                InternalRecord.SetRcvRecord(employeeStateTotal.InternalRecord);
+            }
+
+            _employeeStateTotal = employeeStateTotal;
         }
 
         private string _agentIndicator;
@@ -301,10 +334,6 @@ namespace EFW2C.RecordEFW2C.W2cDocument
             }
         }
 
-        public void AddEmployee(W2cEmployee employee)
-        {
-            ((RceRecord)_record).AddRcwRecord((RcwRecord)employee._record);
-        }
 
         private string _recordIdentifier;
         public string RecordIdentifier
@@ -445,6 +474,13 @@ namespace EFW2C.RecordEFW2C.W2cDocument
         {
             if (!base.Verify())
                 return false;
+
+            foreach(var employee in _employeeList)
+            {
+                employee.Verify();
+            }
+
+
 
             return true;
         }

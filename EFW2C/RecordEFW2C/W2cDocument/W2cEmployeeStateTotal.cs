@@ -8,12 +8,25 @@ using System.Threading.Tasks;
 
 namespace EFW2C.RecordEFW2C.W2cDocument
 {
-    public class W2cStateTotal : DocumentPart
+    public class W2cEmployeeStateTotal : DocumentPart
     {
-        public W2cStateTotal(W2cDocument document)
+        private W2cEmployer _parent;
+
+        public W2cEmployer Parent { get { return _parent; } }
+        internal RcvRecord InternalRecord { get { return ((RcvRecord)_record); } }
+
+        public W2cEmployeeStateTotal(W2cDocument document)
             :base(document)
         {
             _record = new RcvRecord(document.Manager);
+        }
+
+        public void SetParent(W2cEmployer employer)
+        {
+            _parent = employer;
+
+            if (employer != null)
+                InternalRecord.SetParent(employer.InternalRecord);
         }
 
         private string _recordIdentifier;

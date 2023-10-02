@@ -10,10 +10,53 @@ namespace EFW2C.RecordEFW2C.W2cDocument
 {
     public class W2cEmployee : DocumentPart
     {
+        private W2cEmployer _parent;
+        private W2cEmployeeOptional _employeeOptional;
+        private W2cEmployeeState _employeeState;
+        public W2cEmployeeOptional EmployeeOptional { get { return _employeeOptional; } }
+        public W2cEmployeeState EmployeeState { get { return _employeeState; } }
+        public W2cEmployer Parent { get { return _parent; } }
+        internal RcwRecord InternalRecord { get { return ((RcwRecord)_record); } }
+
         public W2cEmployee(W2cDocument document)
             :base(document)
         {
             _record = new RcwRecord(document.Manager);
+        }
+
+        public void SetParent(W2cEmployer employer)
+        {
+            _parent = employer;
+            if (employer != null)
+                InternalRecord.SetParent((RceRecord)employer.Record);
+        }
+
+        public void SetEmployeeOptional(W2cEmployeeOptional employeeOptional)
+        {
+            if (_employeeOptional != null)
+                _employeeOptional.SetParent(null);
+
+            if (employeeOptional != null)
+            {
+                employeeOptional.SetParent(this);
+                InternalRecord.SetRcoRecord(employeeOptional.InternalRecord);
+            }
+
+            _employeeOptional = employeeOptional;
+        }
+
+        public void SetEmployeeState(W2cEmployeeState employeeState)
+        {
+            if (_employeeState != null)
+                _employeeState.SetParent(null);
+
+            if (employeeState != null)
+            {
+                employeeState.SetParent(this);
+                InternalRecord.SetRcsRecord(employeeState.InternalRecord);
+            }
+
+            _employeeState = employeeState;
         }
 
         private string _city;

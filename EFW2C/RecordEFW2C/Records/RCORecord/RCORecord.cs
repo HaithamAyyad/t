@@ -26,7 +26,6 @@ namespace EFW2C.Records
         public void SetParent(RcwRecord parent)
         {
             _parent = parent;
-            SetDirty();
         }
         public override RecordBase Clone(RecordManager manager)
         {

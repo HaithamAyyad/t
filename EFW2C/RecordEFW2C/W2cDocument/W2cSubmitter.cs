@@ -13,6 +13,8 @@ namespace EFW2C.RecordEFW2C.W2cDocument
 {
     public class W2cSubmitter : DocumentPart
     {
+        internal RcaRecord InternalRecord { get { return ((RcaRecord)_record); } }
+
         public W2cSubmitter(W2cDocument document)
             : base(document)
         {

@@ -65,8 +65,6 @@ namespace EFW2C.Records
 
                 _rctRecord = null;
                 _rcuRecord = null;
-
-                SetDirty();
             }
         }
 
@@ -79,8 +77,6 @@ namespace EFW2C.Records
 
             if (_rcuRecord != null)
                 _rcuRecord.SetParent(this);
-
-            SetDirty();
         }
 
         public void SetRctRecord(RctRecord rctRecord)
@@ -92,8 +88,6 @@ namespace EFW2C.Records
 
             if (_rctRecord != null)
                 _rctRecord.SetParent(this);
-
-            SetDirty();
         }
 
         public void SetRcvRecord(RcvRecord rcvRecord)
@@ -105,8 +99,6 @@ namespace EFW2C.Records
 
             if (rcvRecord != null)
                 _rcvRecord.SetParent(this);
-
-            SetDirty();
         }
 
         public override bool Verify()
@@ -114,11 +106,9 @@ namespace EFW2C.Records
             if (!base.Verify())
                 return false;
 
-            _isVerified = false;
-
             foreach (var rcwRecord in _rcwRecordList)
             {
-                if (!rcwRecord.IsVerified && !rcwRecord.Verify())
+                if (!rcwRecord.Verify())
                     return false;
             }
 
@@ -128,20 +118,19 @@ namespace EFW2C.Records
             if (_rcuRecord == null)
                 GenerateTotalOptionalRecords();
 
-            if (!_rctRecord.IsVerified && !_rctRecord.Verify())
+            if (!_rctRecord.Verify())
                 return false;
 
             if (_rcuRecord != null)
             {
-                if (!_rcuRecord.IsVerified && !_rcuRecord.Verify())
+                if (!_rcuRecord.Verify())
                     return false;
             }
 
             if (!IsRecordNullOrEmpty(_rcvRecord) && !IsRcsRecordExists())
                 throw new Exception($"Remove State-Total record or add State record");
 
-            _isVerified = true;
-            return _isVerified;
+            return true;
         }
 
         private bool IsRcsRecordExists()

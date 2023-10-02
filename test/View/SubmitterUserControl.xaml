@@ -20,8 +20,8 @@
 
         <TextBlock Text="Submitter"/>
         <StackPanel Orientation="Horizontal" Grid.Row="1">
-            <TextBlock Margin="5,0" Text="Ein:" VerticalAlignment="Top"/>
-            <TextBox Text="{Binding Submitter.Ein, Mode=TwoWay}" VerticalAlignment="Top" Width="120" Height="20"/>
+            <TextBlock Margin="5,0" Text= "EinSubmitter:" VerticalAlignment ="Top"/>
+            <TextBox Text= "{Binding Submitter.EinSubmitter, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Center" Grid.ColumnSpan="2">
             <Button Margin="10,0" Content="Verify" Command="{Binding VerifySubmitterCommand}" HorizontalContentAlignment="Center" />

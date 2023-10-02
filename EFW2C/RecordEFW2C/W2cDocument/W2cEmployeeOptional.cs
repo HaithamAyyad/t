@@ -10,10 +10,23 @@ namespace EFW2C.RecordEFW2C.W2cDocument
 {
     public class W2cEmployeeOptional : DocumentPart
     {
+        private W2cEmployee _parent;
+
+        public W2cEmployee Parent { get { return _parent; } }
+        internal RcoRecord InternalRecord { get { return ((RcoRecord)_record); } }
+
         public W2cEmployeeOptional(W2cDocument document)
             : base(document)
         {
             _record = new RcoRecord(document.Manager);
+        }
+
+        public void SetParent(W2cEmployee employee)
+        {
+            _parent = employee;
+
+            if (employee != null)
+                InternalRecord.SetParent(employee.InternalRecord);
         }
 
         private string _aggregateDeferralsCodeHHCorrect;

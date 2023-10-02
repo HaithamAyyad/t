@@ -18,7 +18,7 @@ namespace test
 
             var test = new TestClass();
 
-            test.test();
+            //test.test();
 
              try
              {
