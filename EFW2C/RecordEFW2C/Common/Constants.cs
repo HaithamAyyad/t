@@ -12,6 +12,7 @@ namespace EFW2C.Common.Constants
         public static string TotalStr = "Total";
         public static char WhiteSpaceChar = ' ';
         public static string WhiteSpaceString = " ";
+        public static char DotChar = '.';
         public static string CorrectStr = "Correct";
         public static string OriginalStr = "Original";
         public static int MaxRcwRecordsNumber = 500000;

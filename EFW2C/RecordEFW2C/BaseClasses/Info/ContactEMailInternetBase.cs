@@ -15,6 +15,7 @@ namespace EFW2C.Fields
         {
             _pos = -1;
             _length = -1;
+            _fieldFormat = FieldFormat.Email;
         }
 
         public override abstract FieldBase Clone(RecordBase record);

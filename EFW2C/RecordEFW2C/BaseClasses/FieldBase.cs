@@ -13,12 +13,13 @@ namespace EFW2C.Fields
         protected int _length;
         protected string _data;
         private FieldTypeEnum _fieldType;
+        protected FieldFormat _fieldFormat;
 
         public string ClassName { get; set; }
         public string Data { get { return _data; } }
-
         public int Length { get { return _length; } }
         public int Pos { get { return _pos; } }
+        public FieldFormat FieldFormat { get { return _fieldFormat; } }
 
         public FieldBase(RecordBase record, string data)
         {
@@ -27,6 +28,7 @@ namespace EFW2C.Fields
 
             _record = record;
             _fieldType = GetFieldType();
+            _fieldFormat = FieldFormat.Data;
 
             _data = (_fieldType == FieldTypeEnum.UpperCase_LeftJustify_Blank) ? data.ToUpper() : data;
 

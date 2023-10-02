@@ -28,6 +28,14 @@ namespace EFW2C.Common.Enums
         CaseSensitive_LeftJustify,
     }
 
+    public enum FieldFormat
+    {
+        Data,
+        Money,
+        Email,
+        Hyphen,
+    }
+
     public enum StateCodeEnum
     {
         AL = 01,

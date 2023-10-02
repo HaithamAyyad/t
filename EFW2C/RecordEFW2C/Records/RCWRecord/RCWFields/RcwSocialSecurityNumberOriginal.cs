@@ -8,7 +8,7 @@ namespace EFW2C.Fields
     //Created by : 9-9-2023
     //Reviewed by : 
 
-    internal class RcwSocialSecurityNumberOriginal : FieldOriginal
+    internal class RcwSocialSecurityNumberOriginal : SocialSecurityNumberOriginal
     {
         public RcwSocialSecurityNumberOriginal(RecordBase record, string data)
             : base(record, data)

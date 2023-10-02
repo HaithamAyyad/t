@@ -211,7 +211,7 @@ namespace test.ViewModel
 
         private void test_FillData()
         {
-            _submitter.EinSubmitter = "773456789";
+            _submitter.EinSubmitter = "12-3456789";
             _submitter.SoftwareCode= "99";
             _submitter.UserIdentification= "12345678";
             _submitter.SoftwareVendorCode= "4444";
@@ -238,17 +238,17 @@ namespace test.ViewModel
             _employee.DeliveryAddress = "Alask box 444 0";
             _employee.City = "City1";
             _employee.ForeignPostalCode = "BOX 300";
-            _employee.SocialSecurityNumberCorrect = "123456789";
-            _employee.SocialSecurityNumberOriginal = "122456789";
-            _employee.SocialSecurityTaxWithheldCorrect = "5656";
-            _employee.SocialSecurityTaxWithheldOriginal = "5656";
+            _employee.SocialSecurityNumberCorrect = "888-43-7777";
+            _employee.SocialSecurityNumberOriginal = "123456789";
+            _employee.SocialSecurityTaxWithheldCorrect = "56.56";
+            _employee.SocialSecurityTaxWithheldOriginal = "56";
             _employee.EmployeeFirstNameOriginal = "John";
             _employee.EmployeeFirstNameCorrect = "John";
             _employee.EmployeeLastNameCorrect = "Smith";
             _employee.EmployeeLastNameOriginal = "Smith";
 
-            _employeeOptional.AllocatedTipsCorrect = "10";
-            _employeeOptional.AllocatedTipsOriginal = "10";
+            _employeeOptional.AllocatedTipsCorrect = "40.9";
+            _employeeOptional.AllocatedTipsOriginal = "80.";
 
             _employeeStateTotal.SupplementalData = " this is data from user";
 

@@ -16,6 +16,7 @@ namespace EFW2C.Fields
         {
             _pos = -1;
             _length = -1;
+            _fieldFormat = FieldFormat.Hyphen;
         }
 
         public abstract override FieldBase Clone(RecordBase record);
