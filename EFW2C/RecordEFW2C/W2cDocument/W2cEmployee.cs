@@ -59,6 +59,15 @@ namespace EFW2C.RecordEFW2C.W2cDocument
             _employeeState = employeeState;
         }
 
+        public override void Prepare()
+        {
+            _employeeOptional?.Verify();
+            _employeeState?.Verify();
+
+            base.Prepare();
+        }
+
+        #region Properties
         private string _city;
         public string City
         {
@@ -1153,14 +1162,7 @@ namespace EFW2C.RecordEFW2C.W2cDocument
                 }
             }
         }
-
-        public override bool Verify()
-        {
-            if (!base.Verify())
-                return false;
-
-            return true;
-        }
+        #endregion
 
         protected override Dictionary<string, string> CreateMapPropFieldDictionay()
         {

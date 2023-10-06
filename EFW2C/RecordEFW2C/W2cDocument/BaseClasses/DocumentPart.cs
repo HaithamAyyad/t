@@ -27,7 +27,7 @@ namespace EFW2C.RecordEFW2C.W2cDocument
             _mapPropFieldDictionary = CreateMapPropFieldDictionay();
         }
 
-        public void Prepare()
+        public virtual void Prepare()
         {
             _record.Reset();
             _record.Prepare();

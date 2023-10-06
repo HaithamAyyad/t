@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using test.ViewModel;
 
 namespace test.View
 {
@@ -24,5 +25,18 @@ namespace test.View
         {
             InitializeComponent();
         }
+
+        private void ListBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (sender is ListBox listBox && listBox.SelectedItem != null)
+            {
+                // Access the selected item or index as needed
+                var selectedItem = listBox.SelectedItem;
+
+                // Call your command or method from the ViewModel
+                (DataContext as DocumentViewModel)?.HandleDoubleClickEmployeeListBox(selectedItem);
+            }
+        }
+
     }
 }

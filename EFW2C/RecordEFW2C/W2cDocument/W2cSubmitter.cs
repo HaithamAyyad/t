@@ -21,6 +21,7 @@ namespace EFW2C.RecordEFW2C.W2cDocument
             _record = new RcaRecord(document.Manager);
         }
 
+        #region Properties
         private string _city;
         public string City
         {
@@ -350,15 +351,7 @@ namespace EFW2C.RecordEFW2C.W2cDocument
                 }
             }
         }
-
-        public override bool Verify()
-        {
-            Prepare();
-            if (!base.Verify())
-                return false;
-
-            return true;
-        }
+        #endregion
 
         protected override Dictionary<string, string> CreateMapPropFieldDictionay()
         {

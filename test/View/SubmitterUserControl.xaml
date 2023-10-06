@@ -3,6 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
              xmlns:local="clr-namespace:test.View"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
@@ -101,6 +103,19 @@
         <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Center" Grid.ColumnSpan="2">
             <Button Margin="10,0" Content="Verify" Command="{Binding VerifySubmitterCommand}" HorizontalContentAlignment="Center" />
         </StackPanel>
-        <ListBox ItemsSource="{Binding EmployerList}" Grid.Column="3" Grid.RowSpan="2"/>
+        <ListBox  Grid.Column="3" Grid.RowSpan="2"
+                  ItemsSource="{Binding Document.EmployerList}" 
+                  SelectedItem="{Binding Document.SelectedEmployer, Mode=TwoWay}"
+                  MouseDoubleClick="ListBox_MouseDoubleClick">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding EmployerName}" />
+                        <Rectangle Fill="Black" Width="20"/>
+                        <TextBlock Text="{Binding EinAgent}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
     </Grid>
 </UserControl>

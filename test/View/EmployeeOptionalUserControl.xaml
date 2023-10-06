@@ -15,11 +15,11 @@
         <StackPanel>
             <StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
                 <TextBlock Margin="5,0" Text= "EmployeAllocatedTipsCorrect:" VerticalAlignment ="Top"/>
-                <TextBox Text= "{Binding EmployeeOptional.AllocatedTipsCorrect, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
+                <TextBox Text= "{Binding Document.SelectedEmployer.SelectedEmployee.EmployeeOptional.AllocatedTipsCorrect, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
             </StackPanel>
             <StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
                 <TextBlock Margin="5,0" Text= "EmployeAllocatedTipsOriginal:" VerticalAlignment ="Top"/>
-                <TextBox Text= "{Binding EmployeeOptional.AllocatedTipsOriginal, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
+                <TextBox Text= "{Binding Document.SelectedEmployer.SelectedEmployee.EmployeeOptional.AllocatedTipsOriginal, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
             </StackPanel>
         </StackPanel>
         <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center">

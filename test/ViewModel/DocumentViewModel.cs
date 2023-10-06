@@ -2,6 +2,7 @@
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Data.Odbc;
 using System.IO;
@@ -10,6 +11,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 using test.Command;
 using test.Interface;
@@ -17,7 +19,7 @@ using test.View;
 
 namespace test.ViewModel
 {
-     public class DocumentViewModel : IViewModel, INotifyPropertyChanged
+    public class DocumentViewModel : IViewModel, INotifyPropertyChanged
     {
         W2cDocument _document;
 
@@ -28,56 +30,11 @@ namespace test.ViewModel
         public W2cSubmitter Submitter
         {
             get { return _submitter; }
-            set 
+            set
             {
                 if (_submitter != value)
                 {
                     _submitter = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
-
-
-        private W2cEmployer _employer;
-        public W2cEmployer Employer
-        {
-            get { return _employer; }
-            set
-            {
-                if (_employer != value)
-                {
-                    _employer = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
-
-
-        private W2cEmployee _employee;
-        public W2cEmployee Employee
-        {
-            get { return _employee; }
-            set
-            {
-                if (_employee != value)
-                {
-                    _employee = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
-
-
-        private W2cEmployeeOptional _employeeOptional;
-        public W2cEmployeeOptional EmployeeOptional
-        {
-            get { return _employeeOptional; }
-            set
-            {
-                if (_employeeOptional != value)
-                {
-                    _employeeOptional = value;
                     OnPropertyChanged();
                 }
             }
@@ -98,27 +55,11 @@ namespace test.ViewModel
             }
         }
 
-
-        private W2cEmployer _employerList;
-        public W2cEmployer EmployerList
-        {
-            get { return _employerList; }
-            set 
-            {
-                if (_employerList != value)
-                {
-                    _employerList = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
-
-
         public W2cEmployeeStateTotal _employeeStateTotal;
         public W2cEmployeeStateTotal EmployeeStateTotal
         {
             get { return _employeeStateTotal; }
-            set 
+            set
             {
                 if (_employeeStateTotal != value)
                 {
@@ -127,13 +68,12 @@ namespace test.ViewModel
                 }
             }
         }
-         
 
         private bool _showSubmitter;
         public bool ShowSubmitter
         {
             get { return _showSubmitter; }
-            set 
+            set
             {
                 if (_showSubmitter != value)
                 {
@@ -148,7 +88,7 @@ namespace test.ViewModel
         public bool ShowEmployer
         {
             get { return _showEmployer; }
-            set 
+            set
             {
                 if (_showEmployer != value)
                 {
@@ -163,7 +103,7 @@ namespace test.ViewModel
         public bool ShowEmployeeCollection
         {
             get { return _showEmployeeCollection; }
-            set 
+            set
             {
                 if (_showEmployeeCollection != value)
                 {
@@ -179,12 +119,13 @@ namespace test.ViewModel
         public ICommand VerifyEmployeeCommand { get; set; }
         public ICommand VerifyEmployeeOptionalCommand { get; set; }
         public ICommand VerifyEmployeeStateCommand { get; set; }
+
         public ICommand NextCommand { get; set; }
         public ICommand CreateCommand { get; set; }
         public ICommand PreviousCommand { get; set; }
 
-        public W2cDocument Document{ get { return _document; }}
-        public DocumentViewModel() 
+        public W2cDocument Document { get { return _document; } }
+        public DocumentViewModel()
         {
             VerifySubmitterCommand = new RelayCommand(VerifySubmitterCommandHandler);
             VerifyEmployerCommand = new RelayCommand(VerifyEmployerCommandHandler);
@@ -198,9 +139,7 @@ namespace test.ViewModel
             _document = new W2cDocument();
 
             _submitter = new W2cSubmitter(_document);
-            _employer = new W2cEmployer(_document);
-            _employee = new W2cEmployee(_document);
-            _employeeOptional = new W2cEmployeeOptional(_document);
+
             _employeeState = new W2cEmployeeState(_document);
             _employeeStateTotal = new W2cEmployeeStateTotal(_document);
 
@@ -212,52 +151,92 @@ namespace test.ViewModel
         private void test_FillData()
         {
             _submitter.EinSubmitter = "12-3456789";
-            _submitter.SoftwareCode= "99";
-            _submitter.UserIdentification= "12345678";
-            _submitter.SoftwareVendorCode= "4444";
-            _submitter.SubmitterName= "Adam";
-            _submitter.ContactName= "john";
-            _submitter.ZipCode= "11118";
-            _submitter.ZipCodeExtension= "1117";
-            _submitter.StateAbbreviation= "AL";
-            _submitter.LocationAddress= "dfd";
-            _submitter.DeliveryAddress= "Alask box 444 0";
+            _submitter.SoftwareCode = "99";
+            _submitter.UserIdentification = "12345678";
+            _submitter.SoftwareVendorCode = "4444";
+            _submitter.SubmitterName = "Adam";
+            _submitter.ContactName = "john";
+            _submitter.ZipCode = "11118";
+            _submitter.ZipCodeExtension = "1117";
+            _submitter.StateAbbreviation = "AL";
+            _submitter.LocationAddress = "dfd";
+            _submitter.DeliveryAddress = "Alask box 444 0";
             _submitter.City = "City1";
-            _submitter.ForeignPostalCode= "BOX 300";
-            _submitter.ContactPhone= "9090000000";
-            _submitter.ContactPhoneExtension= "108";
-            _submitter.ContactEMailInternet= "e@t.com";
-            _submitter.ContactFax= "123456456";
-            _submitter.PreparerCode= "A";
-            _submitter.ResubIndicator= "0";
+            _submitter.ForeignPostalCode = "BOX 300";
+            _submitter.ContactPhone = "9090000000";
+            _submitter.ContactPhoneExtension = "108";
+            _submitter.ContactEMailInternet = "e@t.com";
+            _submitter.ContactFax = "123456456";
+            _submitter.PreparerCode = "A";
+            _submitter.ResubIndicator = "0";
 
-            _employee.ZipCode = "11118";
-            _employee.ZipCodeExtension = "1117";
-            _employee.StateAbbreviation = "AL";
-            _employee.LocationAddress = "ggg";
-            _employee.DeliveryAddress = "Alask box 444 0";
-            _employee.City = "City1";
-            _employee.ForeignPostalCode = "BOX 300";
-            _employee.SocialSecurityNumberCorrect = "888-43-7777";
-            _employee.SocialSecurityNumberOriginal = "123456789";
-            _employee.SocialSecurityTaxWithheldCorrect = "56.56";
-            _employee.SocialSecurityTaxWithheldOriginal = "56";
-            _employee.EmployeeFirstNameOriginal = "John";
-            _employee.EmployeeFirstNameCorrect = "John";
-            _employee.EmployeeLastNameCorrect = "Smith";
-            _employee.EmployeeLastNameOriginal = "Smith";
+            var employee = new W2cEmployee(_document);
 
-            _employeeOptional.AllocatedTipsCorrect = "40.9";
-            _employeeOptional.AllocatedTipsOriginal = "80.";
+            employee.ZipCode = "11118";
+            employee.ZipCodeExtension = "1117";
+            employee.StateAbbreviation = "AL";
+            employee.LocationAddress = "ggg";
+            employee.DeliveryAddress = "Alask box 444 0";
+            employee.City = "City1";
+            employee.ForeignPostalCode = "BOX 300";
+            employee.SocialSecurityNumberCorrect = "888-43-7777";
+            employee.SocialSecurityNumberOriginal = "123456789";
+            employee.SocialSecurityTaxWithheldCorrect = "56.56";
+            employee.SocialSecurityTaxWithheldOriginal = "56";
+            employee.EmployeeFirstNameOriginal = "John";
+            employee.EmployeeFirstNameCorrect = "John";
+            employee.EmployeeLastNameCorrect = "Smith";
+            employee.EmployeeLastNameOriginal = "Smith";
+
+            var employeeOptional = new W2cEmployeeOptional(_document);
+
+            employeeOptional.AllocatedTipsCorrect = "40.9";
+            employeeOptional.AllocatedTipsOriginal = "80.";
+
+            employee.SetEmployeeOptional(employeeOptional);
 
             _employeeStateTotal.SupplementalData = " this is data from user";
 
-            _employer.TaxYear = "1960";
-            _employer.KindOfEmployer = "S";
-            _employer.AgentIndicator = "1";
-            _employer.EinAgentFederal = "123456789";
-            _employer.EinAgent = "123456789";
-            _employer.EmployerName = "employer1";
+            var employer1 = new W2cEmployer(_document);
+
+            employer1.TaxYear = "1960";
+            employer1.KindOfEmployer = "S";
+            employer1.AgentIndicator = "1";
+            employer1.EinAgentFederal = "123456789";
+            employer1.EinAgent = "123456789";
+            employer1.EmployerName = "employer0";
+
+            var employer2 = new W2cEmployer(_document);
+
+            employer2.TaxYear = "2023";
+            employer2.KindOfEmployer = "K";
+            employer2.AgentIndicator = "1";
+            employer2.EinAgentFederal = "999999999";
+            employer2.EinAgent = "000000000";
+            employer2.EmployerName = "employer1";
+
+            employer1.AddEmployee(employee);
+
+            _document.AddEmployer(employer1);
+            _document.AddEmployer(employer2);
+        }
+
+        internal void HandleDoubleClickEmployerListBox(object selectedItem)
+        {
+            if (selectedItem as W2cEmployer != null)
+            {
+                _windowIndex = 1;
+                ShowHideWindows();
+            }
+        }
+
+        internal void HandleDoubleClickEmployeeListBox(object selectedItem)
+        {
+            if (selectedItem as W2cEmployee != null)
+            {
+                _windowIndex = 2;
+                ShowHideWindows();
+            }
         }
 
         static bool AreFilesIdentical_testfunction(string filePath1, string filePath2)
@@ -289,7 +268,7 @@ namespace test.ViewModel
                 _submitter.Verify();
                 MessageBox.Show("Verified Successfully", "Subbmitter");
             }
-            catch(Exception ex) 
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -299,7 +278,7 @@ namespace test.ViewModel
         {
             try
             {
-                _employer.Verify();
+                _document.SelectedEmployer?.Verify();
             }
             catch (Exception ex)
             {
@@ -311,7 +290,7 @@ namespace test.ViewModel
         {
             try
             {
-                _employee.Verify();
+                _document.SelectedEmployer?.SelectedEmployee?.Verify();
             }
             catch (Exception ex)
             {
@@ -323,7 +302,7 @@ namespace test.ViewModel
         {
             try
             {
-                _employeeOptional.Verify();
+                _document.SelectedEmployer?.SelectedEmployee?.EmployeeOptional?.Verify();
             }
             catch (Exception ex)
             {
@@ -348,27 +327,12 @@ namespace test.ViewModel
         {
             try
             {
-                _document.Reset();
-
-                _employer.Reset(); ;
-
-                var saveFileDialog = new SaveFileDialog();
-                saveFileDialog.Title = "Save WC2 Document";
-                saveFileDialog.Filter = "Text Files (*.txt)|*.txt";
-
-                saveFileDialog.InitialDirectory = _initialDirectory;
-
-                if (saveFileDialog.ShowDialog() ==  false)
+                if (!GetSaveFileName(out var fileName))
                     return;
 
-                _initialDirectory = saveFileDialog.InitialDirectory;
-
-
-                _submitter.Prepare();
                 _document.SetSubmitter(_submitter);
 
-                _employee.Prepare();
-                _employer.AddEmployee(_employee);
+                /*_employer.AddEmployee(_employee);
 
                 _employeeOptional.Prepare();
                 _employee.SetEmployeeOptional(_employeeOptional);
@@ -381,14 +345,37 @@ namespace test.ViewModel
                 _employer.Prepare();
                 _document.AddEmployer(_employer);
 
-                _document.SaveDocument(saveFileDialog.FileName);
-                MessageBox.Show($"{saveFileDialog.FileName} : Document created correctly");
+                */
+
+                _document.Verify();
+                _document.SaveDocument(fileName);
+                MessageBox.Show($"{fileName} : Document created correctly");
             }
             catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
 
+        }
+
+        private bool GetSaveFileName(out string fileName)
+        {
+            fileName = string.Empty;
+
+            var saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Title = "Save WC2 Document";
+            saveFileDialog.Filter = "Text Files (*.txt)|*.txt";
+
+            saveFileDialog.InitialDirectory = _initialDirectory;
+
+            if (saveFileDialog.ShowDialog() == false)
+                return false;
+
+            fileName = saveFileDialog.FileName;
+
+            _initialDirectory = saveFileDialog.InitialDirectory;
+
+            return true;
         }
 
         private void NextCommandHandler()

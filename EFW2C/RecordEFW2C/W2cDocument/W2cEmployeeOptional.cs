@@ -29,6 +29,7 @@ namespace EFW2C.RecordEFW2C.W2cDocument
                 InternalRecord.SetParent(employee.InternalRecord);
         }
 
+        #region Properties
         private string _aggregateDeferralsCodeHHCorrect;
         public string AggregateDeferralsCodeHHCorrect
         {
@@ -358,6 +359,7 @@ namespace EFW2C.RecordEFW2C.W2cDocument
                 }
             }
         }
+        #endregion
 
         protected override Dictionary<string, string> CreateMapPropFieldDictionay()
         {

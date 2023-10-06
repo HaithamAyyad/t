@@ -12,36 +12,54 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
 
         <TextBlock Text="Employer" Grid.Row="0"/>
         <StackPanel Grid.Row="1">
             <StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
                 <TextBlock Margin="5,0" Text= "TaxYear:" VerticalAlignment ="Top"/>
-                <TextBox Text= "{Binding Employer.TaxYear, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
+                <TextBox Text= "{Binding Document.SelectedEmployer.TaxYear, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
             </StackPanel>
             <StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
                 <TextBlock Margin="5,0" Text= "KindOfEmployer:" VerticalAlignment ="Top"/>
-                <TextBox Text= "{Binding Employer.KindOfEmployer, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
+                <TextBox Text= "{Binding Document.SelectedEmployer.KindOfEmployer, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
             </StackPanel>
             <StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
                 <TextBlock Margin="5,0" Text= "AgentIndicator:" VerticalAlignment ="Top"/>
-                <TextBox Text= "{Binding Employer.AgentIndicator, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
+                <TextBox Text= "{Binding Document.SelectedEmployer.AgentIndicator, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
             </StackPanel>
             <StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
                 <TextBlock Margin="5,0" Text= "EinAgentFederal:" VerticalAlignment ="Top"/>
-                <TextBox Text= "{Binding Employer.EinAgentFederal, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
+                <TextBox Text= "{Binding Document.SelectedEmployer.EinAgentFederal, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
             </StackPanel>
             <StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
                 <TextBlock Margin="5,0" Text= "EinAgent:" VerticalAlignment ="Top"/>
-                <TextBox Text= "{Binding Employer.EinAgent, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
+                <TextBox Text= "{Binding Document.SelectedEmployer.EinAgent, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
             </StackPanel>
             <StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
                 <TextBlock Margin="5,0" Text= "EmployerName:" VerticalAlignment ="Top"/>
-                <TextBox Text= "{Binding Employer.EmployerName, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
+                <TextBox Text= "{Binding Document.SelectedEmployer.EmployerName, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
             </StackPanel>
         </StackPanel>
         <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Center">
             <Button Margin="10,0" Content="Verify" IsEnabled="False" Command="{Binding VerifyEmployeeCommand}" HorizontalContentAlignment="Center" />
         </StackPanel>
+        <ListBox  Grid.Column="2" Grid.RowSpan="2" Width="120"
+                  ItemsSource="{Binding Document.SelectedEmployer.EmployeeList}" 
+                  SelectedItem="{Binding Document.SelectedEmployer.SelectedEmployee, Mode=TwoWay}"
+                  MouseDoubleClick="ListBox_MouseDoubleClick">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding EmployeeFirstNameOriginal}" />
+                        <Rectangle Fill="Black" Width="20"/>
+                        <TextBlock Text="{Binding EmployeeLastNameOriginal}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
     </Grid>
 </UserControl>

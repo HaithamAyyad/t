@@ -16,7 +16,7 @@ namespace EFW2C.RecordEFW2C.W2cDocument
         internal RcvRecord InternalRecord { get { return ((RcvRecord)_record); } }
 
         public W2cEmployeeStateTotal(W2cDocument document)
-            :base(document)
+            : base(document)
         {
             _record = new RcvRecord(document.Manager);
         }
@@ -29,6 +29,7 @@ namespace EFW2C.RecordEFW2C.W2cDocument
                 InternalRecord.SetParent(employer.InternalRecord);
         }
 
+        #region Properties
         private string _supplementalData;
         public string SupplementalData
         {
@@ -43,14 +44,7 @@ namespace EFW2C.RecordEFW2C.W2cDocument
                 }
             }
         }
-
-        public override bool Verify()
-        {
-            if (!base.Verify())
-                return false;
-
-            return true;
-        }
+        #endregion
 
         protected override Dictionary<string, string> CreateMapPropFieldDictionay()
         {

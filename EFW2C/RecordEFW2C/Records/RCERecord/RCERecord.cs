@@ -55,7 +55,7 @@ namespace EFW2C.Records
 
         public void AddRcwRecord(RcwRecord rcwRecord)
         {
-            if (rcwRecord != null)
+            if (rcwRecord != null && !_rcwRecordList.Contains(rcwRecord))
             {
                 if (_rcwRecordList.Count + 1 > Constants.MaxRcwRecordsNumber)
                     throw new Exception($"Employee records should not exceed {Constants.MaxRcwRecordsNumber}");

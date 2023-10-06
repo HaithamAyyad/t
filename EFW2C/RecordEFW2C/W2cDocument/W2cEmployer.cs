@@ -2,6 +2,7 @@
 using EFW2C.Records;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,30 +11,56 @@ namespace EFW2C.RecordEFW2C.W2cDocument
 {
     public class W2cEmployer : DocumentPart
     {
-        private List<W2cEmployee> _employeeList;
         private W2cEmployeeStateTotal _employeeStateTotal;
 
-        public List<W2cEmployee> EmployeeList { get { return _employeeList; } }
         public W2cEmployeeStateTotal EmployeeStateTotal { get { return _employeeStateTotal; } }
         internal RceRecord InternalRecord { get { return ((RceRecord)_record); } }
+
+        private W2cEmployee _selectedEmployee;
+        public W2cEmployee SelectedEmployee
+        {
+            get { return _selectedEmployee; }
+            set
+            {
+                if (_selectedEmployee != value)
+                {
+                    _selectedEmployee = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        private ObservableCollection<W2cEmployee> _employeeList;
+        public IEnumerable<W2cEmployee> EmployeeList => _employeeList;
 
         public W2cEmployer(W2cDocument document)
             : base(document)
         {
             _record = new RceRecord(document.Manager);
-            _employeeList = new List<W2cEmployee>();
+            _employeeList = new ObservableCollection<W2cEmployee>();
         }
 
         public void AddEmployee(W2cEmployee employee)
         {
-            if (employee != null)
+            if (employee != null && !_employeeList.Contains(employee))
             {
                 employee.SetParent(this);
                 InternalRecord.AddRcwRecord(employee.InternalRecord);
 
-                _employeeList.Add(employee);
+               _employeeList.Add(employee);
+                SelectedEmployee = employee;
             }
         }
+
+        public void AddEmployees(ObservableCollection<W2cEmployee> employeeList)
+        {
+            if(employeeList != null)
+            {
+                foreach (var employee in employeeList)
+                    AddEmployee(employee);
+            }
+        }
+
 
         public void SetEmployeeStateTotal(W2cEmployeeStateTotal employeeStateTotal)
         {
@@ -49,6 +76,18 @@ namespace EFW2C.RecordEFW2C.W2cDocument
             _employeeStateTotal = employeeStateTotal;
         }
 
+        public override void Prepare()
+        {
+            foreach (var employee in _employeeList)
+                employee.Prepare();
+
+            if (_employeeStateTotal != null)
+                _employeeStateTotal.Prepare();
+
+            base.Prepare();
+        }
+
+        #region Properties
         private string _agentIndicator;
         public string AgentIndicator
         {
@@ -459,21 +498,7 @@ namespace EFW2C.RecordEFW2C.W2cDocument
                 }
             }
         }
-
-        public override bool Verify()
-        {
-            if (!base.Verify())
-                return false;
-
-            foreach(var employee in _employeeList)
-            {
-                employee.Verify();
-            }
-
-
-
-            return true;
-        }
+        #endregion
 
         protected override Dictionary<string, string> CreateMapPropFieldDictionay()
         {
