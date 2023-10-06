@@ -118,6 +118,7 @@ namespace test.ViewModel
         public ICommand VerifySubmitterCommand { get; set; }
         public ICommand VerifyEmployerCommand { get; set; }
         public ICommand VerifyEmployeeCommand { get; set; }
+        public ICommand CreateRandomEmployeeCommand { get; set; }
         public ICommand VerifyEmployeeOptionalCommand { get; set; }
         public ICommand VerifyEmployeeStateCommand { get; set; }
 
@@ -131,6 +132,7 @@ namespace test.ViewModel
             VerifySubmitterCommand = new RelayCommand(VerifySubmitterCommandHandler);
             VerifyEmployerCommand = new RelayCommand(VerifyEmployerCommandHandler);
             VerifyEmployeeCommand = new RelayCommand(VerifyEmployeeCommandHandler);
+            CreateRandomEmployeeCommand = new RelayCommand(CreateRandomEmployeeCommandHandler);
             VerifyEmployeeOptionalCommand = new RelayCommand(VerifyEmployeeOptionalCommandHandler);
             VerifyEmployeeStateCommand = new RelayCommand(VerifyEmployeeStateCommandHandler);
             NextCommand = new RelayCommand(NextCommandHandler);
@@ -229,6 +231,23 @@ namespace test.ViewModel
             {
                 _document.SelectedEmployer?.Prepare();
                 _document.SelectedEmployer?.Verify();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void CreateRandomEmployeeCommandHandler()
+        {
+            try
+            {
+                var employee = DocumentDataTest.CreateEmployeeRandomly(_document);
+                var employeeOptional = DocumentDataTest.CreateEmployeeOptional(_document);
+
+                employee.SetEmployeeOptional(employeeOptional);
+
+                _document.SelectedEmployer?.AddEmployee(employee);
             }
             catch (Exception ex)
             {

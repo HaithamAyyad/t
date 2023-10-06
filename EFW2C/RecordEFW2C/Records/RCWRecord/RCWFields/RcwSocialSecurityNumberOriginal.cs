@@ -1,4 +1,5 @@
 ﻿using System;
+using EFW2C.Common.Constants;
 using EFW2C.Common.Enums;
 using EFW2C.Extensions;
 using EFW2C.Records;
@@ -30,8 +31,8 @@ namespace EFW2C.Fields
             var localData = DataInRecordBuffer();
             var strValid1 = localData.Substring(0, 3);
             var strValid2 = localData.Substring(0, 1);
-            if(strValid1 == "999" || strValid2 == "6")
-                throw new Exception($"{ClassName} : SSN should not start with 999 or 6");
+            if(strValid1 == Constants.Str_666 || strValid2 == Constants.Str_9)
+                throw new Exception($"{ClassName}: Social Security Number, should not start with '666' or '9'");
 
             return true;
         }

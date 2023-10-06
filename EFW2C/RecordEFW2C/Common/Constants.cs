@@ -17,5 +17,7 @@ namespace EFW2C.Common.Constants
         public static string OriginalStr = "Original";
         public static int MaxRcwRecordsNumber = 500000;
         public static int MaxRceRecordsNumber = 25000;
+        public static string Str_666 = "666";
+        public static string Str_9 = "9";
     }
 }

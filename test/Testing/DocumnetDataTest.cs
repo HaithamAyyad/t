@@ -47,8 +47,8 @@ namespace test.Testing
             "Milwaukee", "Albuquerque", "Tucson", "Fresno", "Sacramento", "Mesa", "Kansas City", "Atlanta", "Long Beach", "Colorado Springs",
             "Raleigh", "Miami", "Virginia Beach", "Omaha", "Oakland", "Minneapolis", "Tulsa", "Arlington", "New Orleans", "Wichita",
             "Cleveland", "Tampa", "Bakersfield", "Aurora", "Anaheim", "Honolulu", "Santa Ana", "Riverside", "Corpus Christi", "Lexington",
-            "Stockton", "Henderson", "Saint Paul", "St. Louis", "Cincinnati", "Pittsburgh", "Greensboro", "Anchorage", "Plano", "Lincoln",
-            "Orlando", "Irvine", "Newark", "Durham", "Chula Vista", "Toledo", "Fort Wayne", "St. Petersburg", "Laredo", "Jersey City",
+            "Stockton", "Henderson", "Saint Paul", "St Louis", "Cincinnati", "Pittsburgh", "Greensboro", "Anchorage", "Plano", "Lincoln",
+            "Orlando", "Irvine", "Newark", "Durham", "Chula Vista", "Toledo", "Fort Wayne", "St Petersburg", "Laredo", "Jersey City",
             "Chandler", "Madison", "Lubbock", "Buffalo", "Laredo", "Irving", "Scottsdale", "Gilbert", "Fremont", "San Bernardino"
         };
 
@@ -136,7 +136,7 @@ namespace test.Testing
         public static string GenerateRandomDoubleAsString()
         {
             int precision = random.Next(3); // Randomly choose precision: 0, 1, or 2 decimal places
-            int integerPart = random.Next(1000000); // Maximum 6 digits
+            int integerPart = random.Next(5000); // Limit to a maximum of 5000
 
             double generatedDouble = integerPart / Math.Pow(10, precision);
             double roundedDouble = Math.Round(generatedDouble, precision);
@@ -146,13 +146,19 @@ namespace test.Testing
 
         public static string GenerateRandomSSN()
         {
-            int areaNumber = random.Next(100, 1000);
-            int groupNumber = random.Next(10, 100);
-            int serialNumber = random.Next(1000, 10000);
+            int areaNumber;
+            int groupNumber;
+            int serialNumber;
+
+            do
+            {
+                areaNumber = random.Next(100, 1000);
+                groupNumber = random.Next(10, 100);
+                serialNumber = random.Next(1000, 10000);
+            } while (areaNumber.ToString().StartsWith("9") || areaNumber.ToString().StartsWith("666"));
 
             return $"{areaNumber:D3}-{groupNumber:D2}-{serialNumber:D4}";
         }
-
         public static string GenerateRandomUSAPhoneNumber()
         {
             string[] formats = { "XXX-XXX-XXXX", "(XXX) XXX-XXXX" };

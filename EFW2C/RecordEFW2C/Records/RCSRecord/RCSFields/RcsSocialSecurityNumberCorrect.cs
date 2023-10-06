@@ -1,4 +1,5 @@
 ﻿using System;
+using EFW2C.Common.Constants;
 using EFW2C.Common.Enums;
 using EFW2C.Extensions;
 using EFW2C.Records;
@@ -29,7 +30,7 @@ namespace EFW2C.Fields
 
             var lacalData = DataInRecordBuffer();
 
-            if (lacalData.Substring(0, 3) == "666" || lacalData.Substring(0, 1) == "9")
+            if (lacalData.Substring(0, 3) == Constants.Str_666 || lacalData.Substring(0, 1) == Constants.Str_9)
                 throw new Exception($"{ClassName}: Social Security Number, should not start with '666' or '9'");
 
             return true;
