@@ -89,12 +89,12 @@ namespace EFW2C.RecordEFW2C.W2cDocument
             _manager.WriteToFile(fileName);
         }
 
-        private void Prepar()
+        public void Prepar()
         {
             _submitter?.Prepare();
 
             foreach (var employer in _employerList)
-                employer.Verify();
+                employer.Prepare();
         }
 
         public void Reset()

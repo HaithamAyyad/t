@@ -24,6 +24,8 @@ namespace EFW2C.Fields
             if (!base.Verify())
                 return false;
 
+            var uu = DataInRecordBuffer();
+
             if (DataInRecordBuffer() != _record.RecordName.ToUpper())
                 throw new Exception($"{ClassName} Field must be {_record.RecordName.ToUpper()}");
 

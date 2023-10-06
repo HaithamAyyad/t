@@ -25,6 +25,7 @@ namespace EFW2C.Common.Enums
         Numerical_RightJustify_Zero,
         Numerical_LeftJustify_Blank,
         UpperCase_LeftJustify_Blank,
+        UpperCase_Address_LeftJustify_Blank,
         CaseSensitive_LeftJustify,
     }
 
@@ -34,6 +35,7 @@ namespace EFW2C.Common.Enums
         Money,
         Email,
         Hyphen,
+        Phone,
     }
 
     public enum StateCodeEnum

@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:test"
         mc:Ignorable="d"
-        Title="MainWindow" Height="150" Width="300">
+        Title="MainWindow" Height="150" Width="300"
+        WindowStartupLocation="CenterScreen">
+    
     <DockPanel Background="Bisque">
         <Button Margin="30" DockPanel.Dock="Bottom" Content="Create Document" Command="{Binding CreateDocumentCommand}" />
         <Label DockPanel.Dock="Top"/>

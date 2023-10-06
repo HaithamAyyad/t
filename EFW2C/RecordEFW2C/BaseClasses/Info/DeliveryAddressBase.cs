@@ -29,7 +29,7 @@ namespace EFW2C.Fields
 
         protected override FieldTypeEnum GetFieldType()
         {
-            return FieldTypeEnum.UpperCase_LeftJustify_Blank;
+            return FieldTypeEnum.UpperCase_Address_LeftJustify_Blank;
         }
 
         public override bool IsRequired()

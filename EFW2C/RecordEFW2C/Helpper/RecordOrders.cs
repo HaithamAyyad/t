@@ -109,7 +109,7 @@ namespace EFW2C.Common.Helper
                     }
 
                     if (rceRecordGroup.Count - 1 != index)
-                        throw new Exception($"index {index + mainIndex + 2} must be either {RecordNameEnum.Rce} or {RecordNameEnum.Rcf}"); ;
+                        throw new Exception($"index {index + mainIndex + 2} must be either {RecordNameEnum.Rce} or {RecordNameEnum.Rcf}");
                 }
 
                 var rcoCount = rceRecordGroup.Count(item => item.RecordName == RecordNameEnum.Rco.ToString());

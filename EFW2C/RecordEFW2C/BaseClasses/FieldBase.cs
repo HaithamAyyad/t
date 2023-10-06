@@ -1,4 +1,5 @@
-﻿using EFW2C.Common.Enums;
+﻿using EFW2C.Common.Constants;
+using EFW2C.Common.Enums;
 using EFW2C.Extensions;
 using EFW2C.Records;
 using System;
@@ -30,7 +31,17 @@ namespace EFW2C.Fields
             _fieldType = GetFieldType();
             _fieldFormat = FieldFormat.Data;
 
-            _data = (_fieldType == FieldTypeEnum.UpperCase_LeftJustify_Blank) ? data.ToUpper() : data;
+            switch (_fieldType)
+            {
+                case FieldTypeEnum.UpperCase_LeftJustify_Blank:
+                    data = data.ToUpper();
+                    break;
+                case FieldTypeEnum.UpperCase_Address_LeftJustify_Blank:
+                    data = data.ToUpper();
+                    break;
+            }
+
+            _data = data;
 
             ClassName = GetType().Name;
         }
@@ -44,7 +55,18 @@ namespace EFW2C.Fields
         {
             var field = Clone(record);
 
-            field._data = (_fieldType == FieldTypeEnum.UpperCase_LeftJustify_Blank) ? data.ToUpper() : data; ;
+            switch (_fieldType)
+            {
+                case FieldTypeEnum.UpperCase_LeftJustify_Blank:
+                    data = data.ToUpper();
+                    break;
+                case FieldTypeEnum.UpperCase_Address_LeftJustify_Blank:
+                    data = data.ToUpper();
+                    break;
+            }
+
+
+            field._data = data;
 
             return field;
         }
@@ -97,7 +119,12 @@ namespace EFW2C.Fields
 
                 case FieldTypeEnum.UpperCase_LeftJustify_Blank:
                     if (!_data.IsUpper())
-                        throw new Exception($"{ClassName} Field is not upper case");
+                        throw new Exception($"{ClassName} Field must be upper case");
+                    break;
+                case FieldTypeEnum.UpperCase_Address_LeftJustify_Blank:
+                    var tempData = _data.Replace(",", string.Empty);
+                    if (!tempData.IsUpper())
+                        throw new Exception($"{ClassName} Field must be upper case");
                     break;
                 case FieldTypeEnum.CaseSensitive_LeftJustify:
                     break;
@@ -164,12 +191,14 @@ namespace EFW2C.Fields
                     }
                     break;
                 case FieldTypeEnum.UpperCase_LeftJustify_Blank:
-                    for (var i = _pos; i < _pos + _length; i++)
-                    {
-                        var str = DataInRecordBuffer();
-                        if (!str.IsUpper())
-                            throw new Exception($"{ClassName} Field nust be upper case");
-                    }
+                    var str = DataInRecordBuffer();
+                    if (!str.IsUpper())
+                        throw new Exception($"{ClassName} Field must be upper case");
+                    break;
+                case FieldTypeEnum.UpperCase_Address_LeftJustify_Blank:
+                    str = DataInRecordBuffer().Replace(",","");
+                    if (!str.IsUpper())
+                        throw new Exception($"{ClassName} Field must be upper case");
                     break;
                 case FieldTypeEnum.CaseSensitive_LeftJustify:
                     break;

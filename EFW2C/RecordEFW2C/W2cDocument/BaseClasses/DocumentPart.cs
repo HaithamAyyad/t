@@ -9,6 +9,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using EFW2C.Extensions;
 
 namespace EFW2C.RecordEFW2C.W2cDocument
 {
@@ -59,6 +60,10 @@ namespace EFW2C.RecordEFW2C.W2cDocument
                             dataValue = dataValue.Replace("-", "");
                             field = _record.CreateField(_record, _mapPropFieldDictionary[data.Key], dataValue);
                             break;
+                        case FieldFormat.Phone:
+                            char[] charsToRemove = { ' ', '-', '(', ')' };
+                            dataValue = charsToRemove.Aggregate(dataValue, (current, c) => current.Replace(c.ToString(), "")); field = _record.CreateField(_record, _mapPropFieldDictionary[data.Key], dataValue);
+                            break;
                     }
 
                     _record.AddField(field);
@@ -70,35 +75,43 @@ namespace EFW2C.RecordEFW2C.W2cDocument
 
         static bool IsValidMoneyFormat(string input)
         {
-            if (!(!input.Contains(".") && !input.Contains(",")))
-            {
-                var dotCount = input.Split('.').Length - 1;
+            if (input.Count(c => c == '.') > 1)
+                return false;
 
-                if (dotCount > 1)
+            if (!input.IsDigit(new char[] { ' ', ',', '.' }))
+                return false;
+
+            var parts = input.Split('.');
+            var integerPart = parts[0];
+
+            if (parts.Length > 1)
+            {
+                var decimalPart = parts[1];
+
+                if (decimalPart.Length > 2)
                     return false;
 
-                if (dotCount == 1)
+                if (decimalPart.Length == 2)
                 {
-                    var parts = input.Split('.');
-                    var integerPart = parts[0];
-                    var decimalPart = parts[1];
-
-                    if (integerPart.Length > 3 && integerPart.Length % 3 != 0)
+                    if (!char.IsDigit(decimalPart[0]))
                         return false;
 
-                    if (decimalPart.Contains(","))
+                    if (!decimalPart[1].IsDigitOrSpace())
                         return false;
                 }
-                else
-                {
-                    if (input.Length > 3 && input.Length % 3 != 0)
-                        return false;
-                }
+
+                input = integerPart;
             }
 
-            input = ConvertMoneyToCent(input);
+            var commaParts = input.Split(',');
 
-            return input.All(char.IsDigit); ;
+            for(var i = 1; i < commaParts.Length; i++)
+            {
+                if (commaParts[i].Length != 3)
+                    return false;
+            }
+
+            return true;
         }
         private static string ConvertMoneyToCent(string dataValue)
         {

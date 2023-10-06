@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace EFW2C.Extensions
 {
-    static class StringExtensions
+    public static class StringExtensions
     {
         public static char[] ToCharArray(this string str)
         {
@@ -30,7 +30,19 @@ namespace EFW2C.Extensions
             }
             return true;
         }
-        
+
+        public static bool IsDigit(this string input, char[] excludeList)
+        {
+            foreach (char c in input)
+            {
+                if (char.IsDigit(c) && !excludeList.Contains(c))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
         public static string ReplaceFirstOccurrence(this string original, string oldValue, string newValue)
         {
             int index = original.IndexOf(oldValue);
@@ -44,7 +56,14 @@ namespace EFW2C.Extensions
         }
     }
 
-    static class ArrayExtensions
+    public static class CharExtensions
+    {
+        public static bool IsDigitOrSpace(this char c)
+        {
+            return char.IsDigit(c) || c == ' ';
+        }
+    }
+    public static class ArrayExtensions
     {
         public static bool Compare<T>(this T[] array1, int startPos1, T[] array2, int length)
         {

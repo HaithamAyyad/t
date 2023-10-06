@@ -61,10 +61,10 @@ namespace EFW2C.RecordEFW2C.W2cDocument
 
         public override void Prepare()
         {
-            _employeeOptional?.Verify();
-            _employeeState?.Verify();
-
             base.Prepare();
+
+            _employeeOptional?.Prepare();
+            _employeeState?.Prepare();
         }
 
         #region Properties

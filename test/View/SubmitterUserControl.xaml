@@ -103,15 +103,17 @@
         <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Center" Grid.ColumnSpan="2">
             <Button Margin="10,0" Content="Verify" Command="{Binding VerifySubmitterCommand}" HorizontalContentAlignment="Center" />
         </StackPanel>
-        <ListBox  Grid.Column="3" Grid.RowSpan="2"
+        <ListBox  Grid.Column="3" Grid.RowSpan="2" Background="Azure"
                   ItemsSource="{Binding Document.EmployerList}" 
                   SelectedItem="{Binding Document.SelectedEmployer, Mode=TwoWay}"
                   MouseDoubleClick="ListBox_MouseDoubleClick">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="EmployerName : " />
                         <TextBlock Text="{Binding EmployerName}" />
-                        <Rectangle Fill="Black" Width="20"/>
+                        <Rectangle Margin="4,0" Fill="Lavender" Width="20"/>
+                        <TextBlock Text="Ein : " />
                         <TextBlock Text="{Binding EinAgent}" />
                     </StackPanel>
                 </DataTemplate>

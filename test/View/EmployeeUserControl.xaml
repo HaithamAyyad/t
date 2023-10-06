@@ -75,7 +75,7 @@
             </StackPanel>
         </StackPanel>
         <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center">
-            <Button Margin="10,0" Content="Verify" IsEnabled="False" Command="{Binding VerifyEmployeeCommand}" HorizontalContentAlignment="Center" />
+            <Button Margin="10,0" Content="Verify" IsEnabled="True" Command="{Binding VerifyEmployeeCommand}" HorizontalContentAlignment="Center" />
         </StackPanel>
 
     </Grid>

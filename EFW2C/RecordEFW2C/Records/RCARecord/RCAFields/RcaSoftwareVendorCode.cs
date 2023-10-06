@@ -57,7 +57,12 @@ namespace EFW2C.Fields
         public override bool IsRequired()
         {
             var rcaSoftwareCode = _record.GetField(typeof(RcaSoftwareCode).Name);
-            return rcaSoftwareCode != null;
+            if (rcaSoftwareCode != null)
+            {
+                return (rcaSoftwareCode.DataInRecordBuffer() == ((int)SoftwareCodeEnum.Code_99).ToString());
+            }
+
+            return false;
         }
     }
 }

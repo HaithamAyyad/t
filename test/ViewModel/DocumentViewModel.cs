@@ -15,6 +15,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using test.Command;
 using test.Interface;
+using test.Testing;
 using test.View;
 
 namespace test.ViewModel
@@ -138,8 +139,6 @@ namespace test.ViewModel
 
             _document = new W2cDocument();
 
-            _submitter = new W2cSubmitter(_document);
-
             _employeeState = new W2cEmployeeState(_document);
             _employeeStateTotal = new W2cEmployeeStateTotal(_document);
 
@@ -150,75 +149,24 @@ namespace test.ViewModel
 
         private void test_FillData()
         {
-            _submitter.EinSubmitter = "12-3456789";
-            _submitter.SoftwareCode = "99";
-            _submitter.UserIdentification = "12345678";
-            _submitter.SoftwareVendorCode = "4444";
-            _submitter.SubmitterName = "Adam";
-            _submitter.ContactName = "john";
-            _submitter.ZipCode = "11118";
-            _submitter.ZipCodeExtension = "1117";
-            _submitter.StateAbbreviation = "AL";
-            _submitter.LocationAddress = "dfd";
-            _submitter.DeliveryAddress = "Alask box 444 0";
-            _submitter.City = "City1";
-            _submitter.ForeignPostalCode = "BOX 300";
-            _submitter.ContactPhone = "9090000000";
-            _submitter.ContactPhoneExtension = "108";
-            _submitter.ContactEMailInternet = "e@t.com";
-            _submitter.ContactFax = "123456456";
-            _submitter.PreparerCode = "A";
-            _submitter.ResubIndicator = "0";
+            _submitter = DocumentDataTest.CreateSubmitterData(_document);
 
-            var employee = new W2cEmployee(_document);
+            var employee = DocumentDataTest.CreateEmployeeRandomly(_document);
 
-            employee.ZipCode = "11118";
-            employee.ZipCodeExtension = "1117";
-            employee.StateAbbreviation = "AL";
-            employee.LocationAddress = "ggg";
-            employee.DeliveryAddress = "Alask box 444 0";
-            employee.City = "City1";
-            employee.ForeignPostalCode = "BOX 300";
-            employee.SocialSecurityNumberCorrect = "888-43-7777";
-            employee.SocialSecurityNumberOriginal = "123456789";
-            employee.SocialSecurityTaxWithheldCorrect = "56.56";
-            employee.SocialSecurityTaxWithheldOriginal = "56";
-            employee.EmployeeFirstNameOriginal = "John";
-            employee.EmployeeFirstNameCorrect = "John";
-            employee.EmployeeLastNameCorrect = "Smith";
-            employee.EmployeeLastNameOriginal = "Smith";
-
-            var employeeOptional = new W2cEmployeeOptional(_document);
-
-            employeeOptional.AllocatedTipsCorrect = "40.9";
-            employeeOptional.AllocatedTipsOriginal = "80.";
+            var employeeOptional = DocumentDataTest.CreateEmployeeOptional(_document);
 
             employee.SetEmployeeOptional(employeeOptional);
-
+            
             _employeeStateTotal.SupplementalData = " this is data from user";
 
-            var employer1 = new W2cEmployer(_document);
+            var employer1 = DocumentDataTest.CreateEmployer(_document);
 
-            employer1.TaxYear = "1960";
-            employer1.KindOfEmployer = "S";
-            employer1.AgentIndicator = "1";
-            employer1.EinAgentFederal = "123456789";
-            employer1.EinAgent = "123456789";
-            employer1.EmployerName = "employer0";
-
-            var employer2 = new W2cEmployer(_document);
-
-            employer2.TaxYear = "2023";
-            employer2.KindOfEmployer = "K";
-            employer2.AgentIndicator = "1";
-            employer2.EinAgentFederal = "999999999";
-            employer2.EinAgent = "000000000";
-            employer2.EmployerName = "employer1";
+            var employer2 = DocumentDataTest.CreateEmployer(_document);
 
             employer1.AddEmployee(employee);
 
             _document.AddEmployer(employer1);
-            _document.AddEmployer(employer2);
+            //_document.AddEmployer(employer2);
         }
 
         internal void HandleDoubleClickEmployerListBox(object selectedItem)
@@ -265,6 +213,7 @@ namespace test.ViewModel
         {
             try
             {
+                _submitter.Prepare();
                 _submitter.Verify();
                 MessageBox.Show("Verified Successfully", "Subbmitter");
             }
@@ -278,6 +227,7 @@ namespace test.ViewModel
         {
             try
             {
+                _document.SelectedEmployer?.Prepare();
                 _document.SelectedEmployer?.Verify();
             }
             catch (Exception ex)
@@ -290,6 +240,7 @@ namespace test.ViewModel
         {
             try
             {
+                _document.SelectedEmployer?.SelectedEmployee?.Prepare();
                 _document.SelectedEmployer?.SelectedEmployee?.Verify();
             }
             catch (Exception ex)
@@ -302,6 +253,7 @@ namespace test.ViewModel
         {
             try
             {
+                _document.SelectedEmployer?.SelectedEmployee?.EmployeeOptional?.Prepare();
                 _document.SelectedEmployer?.SelectedEmployee?.EmployeeOptional?.Verify();
             }
             catch (Exception ex)
@@ -321,7 +273,6 @@ namespace test.ViewModel
                 MessageBox.Show(ex.Message);
             }
         }
-
         
         private void CreateCommandHandler()
         {
@@ -332,22 +283,9 @@ namespace test.ViewModel
 
                 _document.SetSubmitter(_submitter);
 
-                /*_employer.AddEmployee(_employee);
-
-                _employeeOptional.Prepare();
-                _employee.SetEmployeeOptional(_employeeOptional);
-
-                _employeeState.Prepare();
-                _employee.SetEmployeeState(_employeeState);
-
-                _employeeStateTotal.Prepare();
-                _employer.SetEmployeeStateTotal(_employeeStateTotal);
-                _employer.Prepare();
-                _document.AddEmployer(_employer);
-
-                */
-
+                _document.Prepar();
                 _document.Verify();
+
                 _document.SaveDocument(fileName);
                 MessageBox.Show($"{fileName} : Document created correctly");
             }
