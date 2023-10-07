@@ -30,7 +30,7 @@ namespace EFW2C.Fields
             var localData = DataInRecordBuffer();
 
             if (!(localData == "1" || localData == "0"))
-                throw new Exception($"{ClassDescription}: data only can be '0' or '1'");
+                throw new Exception($"{ClassDescription} must be ethier 0 or 1");
 
             return true;
         }

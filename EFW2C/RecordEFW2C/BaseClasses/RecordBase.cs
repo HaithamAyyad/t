@@ -337,7 +337,7 @@ namespace EFW2C.Records
             {
                 if (reqField.IsRequired() && !IsFieldExists(reqField))
                 {
-                    throw new Exception($"{reqField.ClassDescription} : Field is required");
+                    throw new Exception($"{reqField.ClassDescription} Field is required");
                 }
             }
 

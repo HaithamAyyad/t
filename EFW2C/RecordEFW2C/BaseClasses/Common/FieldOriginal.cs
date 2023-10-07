@@ -28,7 +28,7 @@ namespace EFW2C.Fields
             if(!string.IsNullOrWhiteSpace(DataInRecordBuffer()))
             {
                 if(!IsCorrectionFieldProvided())
-                    throw new Exception($"the correction filed for {ClassDescription} is not provided");
+                    throw new Exception($"{ClassDescription} correction filed me be provided");
             }
 
             return true;

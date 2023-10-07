@@ -64,7 +64,7 @@ namespace EFW2C.Fields
                     double.TryParse(rcwSocialSecurityWagesCorrect.DataInRecordBuffer(), out var rcwSocialSecurityWagesCorrectValue);
 
                     if (localValue < rcwSocialSecurityTipsCorrectValue + rcwSocialSecurityWagesCorrectValue)
-                        throw new Exception($"value must be equal or gratewr to the sum of Social Security Tips and Social Security Wages");
+                        throw new Exception($"value must be equal or grater than the sum of Social Security Tips and Social Security Wages");
                 }
             }
 
