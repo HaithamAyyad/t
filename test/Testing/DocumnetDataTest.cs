@@ -75,7 +75,6 @@ namespace test.Testing
             return stateAbbreviations[index];
         }
 
-
         public static string GenerateRandomName()
         {
             int index = random.Next(commonNames.Length);
@@ -276,7 +275,7 @@ namespace test.Testing
 
             return employee;
         }
-        internal static W2cEmployeeOptional CreateEmployeeOptional(W2cDocument document)
+        internal static W2cEmployeeOptional CreateEmployeeOptionalRandomly(W2cDocument document)
         {
             var employeeOptional = new W2cEmployeeOptional(document);
 
@@ -285,7 +284,7 @@ namespace test.Testing
 
             return employeeOptional;
         }
-        internal static W2cEmployer CreateEmployer(W2cDocument document)
+        internal static W2cEmployer CreateEmployerRandomly(W2cDocument document)
         {
             var employer = new W2cEmployer(document);
 
@@ -297,6 +296,58 @@ namespace test.Testing
             employer.EmployerName = GenerateRandomName();
 
             return employer;
+        }
+
+        public static W2cEmployeeStateTotal CreateEmployeeStateTotal(W2cDocument document)
+        {
+            var employeeStateTotal = new W2cEmployeeStateTotal(document);
+            employeeStateTotal.SupplementalData = " this is data from user";
+
+            return employeeStateTotal;
+        }
+
+        public static W2cEmployeeState CreateEmployeeState(W2cDocument document)
+        {
+            var employeeState = new W2cEmployeeState(document);
+
+            employeeState.City = GenerateRandomCity();
+            employeeState.DateFirstEmployedCorrect = GenerateRandomDoubleAsString();
+            employeeState.DateFirstEmployedOriginal = GenerateRandomDoubleAsString();
+
+            return employeeState;
+        }
+
+        public static void FillData(W2cDocument document)
+        {
+            var submitter = CreateSubmitterData(document);
+
+            document.SetSubmitter(submitter);
+
+            for (int i = 0; i < 5; i++)
+            {
+                var employer = CreateEmployerRandomly(document);
+
+                for (int j = 0; j < 7; j++)
+                {
+                    var employee = CreateEmployeeRandomly(document);
+
+                    var employeeOptional = CreateEmployeeOptionalRandomly(document);
+
+                    employee.SetEmployeeOptional(employeeOptional);
+
+                    var employeeState = CreateEmployeeState(document);
+
+                    employee.SetEmployeeState(employeeState);
+
+                    var employeeStateTotal = CreateEmployeeStateTotal(document);
+
+                    employer.SetEmployeeStateTotal(employeeStateTotal);
+
+                    employer.AddEmployee(employee);
+                }
+
+                document.AddEmployer(employer);
+            }
         }
     }
 }

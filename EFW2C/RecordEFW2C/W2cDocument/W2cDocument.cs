@@ -20,6 +20,8 @@ namespace EFW2C.RecordEFW2C.W2cDocument
         private ObservableCollection<W2cEmployer> _employerList;
         public IEnumerable<W2cEmployer> EmployerList => _employerList;
 
+        public W2cSubmitter Submitter { get { return _submitter; } }
+
         private W2cEmployer _selectedEmployer;
         public W2cEmployer SelectedEmployer
         {

@@ -22,102 +22,105 @@
         </Grid.ColumnDefinitions>
 
         <TextBlock Text="Submitter"/>
-        <StackPanel  Grid.Row="1">
+        <StackPanel Grid.Row="1">
             <StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
                 <TextBlock Margin="5,0" Text= "EinSubmitter:" VerticalAlignment ="Top"/>
-                <TextBox Text= "{Binding Submitter.EinSubmitter, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
+                <TextBox Text= "{Binding Document.Submitter.EinSubmitter, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
             </StackPanel>
             <StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
                 <TextBlock Margin="5,0" Text= "SoftwareCode:" VerticalAlignment ="Top"/>
-                <TextBox Text= "{Binding Submitter.SoftwareCode, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
+                <TextBox Text= "{Binding Document.Submitter.SoftwareCode, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
             </StackPanel>
             <StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
                 <TextBlock Margin="5,0" Text= "UserIdentification:" VerticalAlignment ="Top"/>
-                <TextBox Text= "{Binding Submitter.UserIdentification, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
+                <TextBox Text= "{Binding Document.Submitter.UserIdentification, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
             </StackPanel>
             <StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
                 <TextBlock Margin="5,0" Text= "SoftwareVendorCode:" VerticalAlignment ="Top"/>
-                <TextBox Text= "{Binding Submitter.SoftwareVendorCode, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
+                <TextBox Text= "{Binding Document.Submitter.SoftwareVendorCode, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
             </StackPanel>
             <StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
                 <TextBlock Margin="5,0" Text= "SubmitterName:" VerticalAlignment ="Top"/>
-                <TextBox Text= "{Binding Submitter.SubmitterName, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
+                <TextBox Text= "{Binding Document.Submitter.SubmitterName, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
             </StackPanel>
             <StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
                 <TextBlock Margin="5,0" Text= "ContactName:" VerticalAlignment ="Top"/>
-                <TextBox Text= "{Binding Submitter.ContactName, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
+                <TextBox Text= "{Binding Document.Submitter.ContactName, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
             </StackPanel>
             <StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
                 <TextBlock Margin="5,0" Text= "ZipCode:" VerticalAlignment ="Top"/>
-                <TextBox Text= "{Binding Submitter.ZipCode, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
+                <TextBox Text= "{Binding Document.Submitter.ZipCode, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
             </StackPanel>
             <StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
                 <TextBlock Margin="5,0" Text= "ZipCodeExtension:" VerticalAlignment ="Top"/>
-                <TextBox Text= "{Binding Submitter.ZipCodeExtension, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
+                <TextBox Text= "{Binding Document.Submitter.ZipCodeExtension, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
             </StackPanel>
             <StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
                 <TextBlock Margin="5,0" Text= "StateAbbreviation:" VerticalAlignment ="Top"/>
-                <TextBox Text= "{Binding Submitter.StateAbbreviation, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
+                <TextBox Text= "{Binding Document.Submitter.StateAbbreviation, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
             </StackPanel>
             <StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
                 <TextBlock Margin="5,0" Text= "LocationAddress:" VerticalAlignment ="Top"/>
-                <TextBox Text= "{Binding Submitter.LocationAddress, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
+                <TextBox Text= "{Binding Document.Submitter.LocationAddress, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
             </StackPanel>
             <StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
                 <TextBlock Margin="5,0" Text= "DeliveryAddress:" VerticalAlignment ="Top"/>
-                <TextBox Text= "{Binding Submitter.DeliveryAddress, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
+                <TextBox Text= "{Binding Document.Submitter.DeliveryAddress, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
             </StackPanel>
             <StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
                 <TextBlock Margin="5,0" Text= "City :" VerticalAlignment ="Top"/>
-                <TextBox Text= "{Binding Submitter.City , Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
+                <TextBox Text= "{Binding Document.Submitter.City , Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
             </StackPanel>
             <StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
                 <TextBlock Margin="5,0" Text= "ForeignPostalCode:" VerticalAlignment ="Top"/>
-                <TextBox Text= "{Binding Submitter.ForeignPostalCode, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
+                <TextBox Text= "{Binding Document.Submitter.ForeignPostalCode, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
             </StackPanel>
             <StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
                 <TextBlock Margin="5,0" Text= "ContactPhone:" VerticalAlignment ="Top"/>
-                <TextBox Text= "{Binding Submitter.ContactPhone, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
+                <TextBox Text= "{Binding Document.Submitter.ContactPhone, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
             </StackPanel>
             <StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
                 <TextBlock Margin="5,0" Text= "ContactPhoneExtension:" VerticalAlignment ="Top"/>
-                <TextBox Text= "{Binding Submitter.ContactPhoneExtension, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
+                <TextBox Text= "{Binding Document.Submitter.ContactPhoneExtension, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
             </StackPanel>
             <StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
                 <TextBlock Margin="5,0" Text= "ContactEMailInternet:" VerticalAlignment ="Top"/>
-                <TextBox Text= "{Binding Submitter.ContactEMailInternet, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
+                <TextBox Text= "{Binding Document.Submitter.ContactEMailInternet, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
             </StackPanel>
             <StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
                 <TextBlock Margin="5,0" Text= "ContactFax:" VerticalAlignment ="Top"/>
-                <TextBox Text= "{Binding Submitter.ContactFax, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
+                <TextBox Text= "{Binding Document.Submitter.ContactFax, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
             </StackPanel>
             <StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
                 <TextBlock Margin="5,0" Text= "PreparerCode:" VerticalAlignment ="Top"/>
-                <TextBox Text= "{Binding Submitter.PreparerCode, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
+                <TextBox Text= "{Binding Document.Submitter.PreparerCode, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
             </StackPanel>
             <StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
                 <TextBlock Margin="5,0" Text= "ResubIndicator:" VerticalAlignment ="Top"/>
-                <TextBox Text= "{Binding Submitter.ResubIndicator, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
+                <TextBox Text= "{Binding Document.Submitter.ResubIndicator, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
             </StackPanel>
         </StackPanel>
-        <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Center" Grid.ColumnSpan="2">
+        <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.ColumnSpan="2">
             <Button Margin="10,0" Content="Verify" Command="{Binding VerifySubmitterCommand}" HorizontalContentAlignment="Center" />
         </StackPanel>
-        <ListBox  Grid.Column="3" Grid.RowSpan="2" Background="Azure"
+        <DockPanel Grid.Column="3" Grid.RowSpan="2" >
+            <Button DockPanel.Dock="Bottom" Margin="0,10" Content="Create Random Employer" IsEnabled="True" Command="{Binding CreateRandomEmployerCommand}" HorizontalContentAlignment="Center" />
+            <ListBox  Background="OldLace" 
                   ItemsSource="{Binding Document.EmployerList}" 
                   SelectedItem="{Binding Document.SelectedEmployer, Mode=TwoWay}"
                   MouseDoubleClick="ListBox_MouseDoubleClick">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="EmployerName : " />
-                        <TextBlock Text="{Binding EmployerName}" />
-                        <Rectangle Margin="4,0" Fill="Lavender" Width="20"/>
-                        <TextBlock Text="Ein : " />
-                        <TextBlock Text="{Binding EinAgent}" />
-                    </StackPanel>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="EmployerName : " />
+                            <TextBlock Text="{Binding EmployerName}" />
+                            <TextBlock Text="Ein : " />
+                            <Rectangle Margin="4,0" Fill="Lavender" Width="20"/>
+                            <TextBlock Text="{Binding EinAgent}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </DockPanel>
     </Grid>
 </UserControl>

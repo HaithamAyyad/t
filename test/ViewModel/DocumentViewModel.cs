@@ -27,21 +27,6 @@ namespace test.ViewModel
         int _windowIndex;
         string _initialDirectory = @"c:\W2C_test\";
 
-        private W2cSubmitter _submitter;
-        public W2cSubmitter Submitter
-        {
-            get { return _submitter; }
-            set
-            {
-                if (_submitter != value)
-                {
-                    _submitter = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
-
-
         private W2cEmployeeState _employeeState;
         public W2cEmployeeState EmployeeState
         {
@@ -119,6 +104,7 @@ namespace test.ViewModel
         public ICommand VerifyEmployerCommand { get; set; }
         public ICommand VerifyEmployeeCommand { get; set; }
         public ICommand CreateRandomEmployeeCommand { get; set; }
+        public ICommand CreateRandomEmployerCommand { get; set; }
         public ICommand VerifyEmployeeOptionalCommand { get; set; }
         public ICommand VerifyEmployeeStateCommand { get; set; }
 
@@ -133,6 +119,7 @@ namespace test.ViewModel
             VerifyEmployerCommand = new RelayCommand(VerifyEmployerCommandHandler);
             VerifyEmployeeCommand = new RelayCommand(VerifyEmployeeCommandHandler);
             CreateRandomEmployeeCommand = new RelayCommand(CreateRandomEmployeeCommandHandler);
+            CreateRandomEmployerCommand = new RelayCommand(CreateRandomEmployerCommandHandler);
             VerifyEmployeeOptionalCommand = new RelayCommand(VerifyEmployeeOptionalCommandHandler);
             VerifyEmployeeStateCommand = new RelayCommand(VerifyEmployeeStateCommandHandler);
             NextCommand = new RelayCommand(NextCommandHandler);
@@ -144,31 +131,9 @@ namespace test.ViewModel
             _employeeState = new W2cEmployeeState(_document);
             _employeeStateTotal = new W2cEmployeeStateTotal(_document);
 
-            test_FillData();
+            DocumentDataTest.FillData(_document);
 
             ShowHideWindows();
-        }
-
-        private void test_FillData()
-        {
-            _submitter = DocumentDataTest.CreateSubmitterData(_document);
-
-            var employee = DocumentDataTest.CreateEmployeeRandomly(_document);
-
-            var employeeOptional = DocumentDataTest.CreateEmployeeOptional(_document);
-
-            employee.SetEmployeeOptional(employeeOptional);
-            
-            _employeeStateTotal.SupplementalData = " this is data from user";
-
-            var employer1 = DocumentDataTest.CreateEmployer(_document);
-
-            var employer2 = DocumentDataTest.CreateEmployer(_document);
-
-            employer1.AddEmployee(employee);
-
-            _document.AddEmployer(employer1);
-            //_document.AddEmployer(employer2);
         }
 
         internal void HandleDoubleClickEmployerListBox(object selectedItem)
@@ -215,8 +180,8 @@ namespace test.ViewModel
         {
             try
             {
-                _submitter.Prepare();
-                _submitter.Verify();
+                _document.Submitter.Prepare();
+                _document.Submitter.Verify();
                 MessageBox.Show("Verified Successfully", "Subbmitter");
             }
             catch (Exception ex)
@@ -240,14 +205,37 @@ namespace test.ViewModel
 
         private void CreateRandomEmployeeCommandHandler()
         {
+           
             try
             {
                 var employee = DocumentDataTest.CreateEmployeeRandomly(_document);
-                var employeeOptional = DocumentDataTest.CreateEmployeeOptional(_document);
+                var employeeOptional = DocumentDataTest.CreateEmployeeOptionalRandomly(_document);
+                var employeeState = DocumentDataTest.CreateEmployeeState(_document);
+
+                employee.SetEmployeeOptional(employeeOptional);
+                employee.SetEmployeeState(employeeState);
+
+                _document.SelectedEmployer?.AddEmployee(employee);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        private void CreateRandomEmployerCommandHandler()
+        {
+            try
+            {
+                var employee = DocumentDataTest.CreateEmployeeRandomly(_document);
+                var employeeOptional = DocumentDataTest.CreateEmployeeOptionalRandomly(_document);
 
                 employee.SetEmployeeOptional(employeeOptional);
 
-                _document.SelectedEmployer?.AddEmployee(employee);
+                var employer = DocumentDataTest.CreateEmployerRandomly(_document);
+
+                employer.AddEmployee(employee);
+
+                _document.AddEmployer(employer);
             }
             catch (Exception ex)
             {
@@ -299,8 +287,6 @@ namespace test.ViewModel
             {
                 if (!GetSaveFileName(out var fileName))
                     return;
-
-                _document.SetSubmitter(_submitter);
 
                 _document.Prepar();
                 _document.Verify();
