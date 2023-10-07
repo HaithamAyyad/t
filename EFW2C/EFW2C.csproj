@@ -378,6 +378,11 @@
     <Compile Include="RecordEFW2C\W2cDocument\W2cEmployeeStateTotal.cs" />
     <Compile Include="RecordEFW2C\W2cDocument\W2cSubmitter.cs" />
     <Compile Include="RecordEFW2C\W2cDocument\W2cEmployer.cs" />
+    <Compile Include="Resources\ResourceExceptions.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ResourceExceptions.resx</DependentUpon>
+    </Compile>
     <Compile Include="Resources\ResourceDescription.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -386,6 +391,10 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\MaximumWagesAndTaxTabel.xml" />
+    <EmbeddedResource Include="Resources\ResourceExceptions.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ResourceExceptions.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\ResourceDescription.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>ResourceDescription.Designer.cs</LastGenOutput>
