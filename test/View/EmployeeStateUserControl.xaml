@@ -15,15 +15,15 @@
         <StackPanel >
             <StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
                 <TextBlock Margin="5,0" Text= "City:" VerticalAlignment ="Top"/>
-                <TextBox Text= "{Binding Document.SelectedEmployer.SelectedEmployee.EmployeeState.City, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
+                <TextBox Text= "{Binding Document.SelectedEmployer.SelectedEmployee.EmployeeStateRecord.City, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
             </StackPanel>
             <StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
                 <TextBlock Margin="5,0" Text= "DateFirstEmployedCorrect:" VerticalAlignment ="Top"/>
-                <TextBox Text= "{Binding Document.SelectedEmployer.SelectedEmployee.EmployeeState.DateFirstEmployedCorrect, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
+                <TextBox Text= "{Binding Document.SelectedEmployer.SelectedEmployee.EmployeeStateRecord.DateFirstEmployedCorrect, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
             </StackPanel>
             <StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
                 <TextBlock Margin="5,0" Text= "DateFirstEmployedCorrect:" VerticalAlignment ="Top"/>
-                <TextBox Text= "{Binding Document.SelectedEmployer.SelectedEmployee.EmployeeState.DateFirstEmployedCorrect, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
+                <TextBox Text= "{Binding Document.SelectedEmployer.SelectedEmployee.EmployeeStateRecord.DateFirstEmployedCorrect, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
             </StackPanel>
         </StackPanel>
         <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center">

@@ -11,9 +11,9 @@ namespace EFW2C.RecordEFW2C.W2cDocument
 {
     public class W2cEmployer : DocumentPart
     {
-        private W2cEmployeeStateTotal _employeeStateTotal;
+        private W2cEmployeeStateTotal _employeeStateTotalRecord;
 
-        public W2cEmployeeStateTotal EmployeeStateTotal { get { return _employeeStateTotal; } }
+        public W2cEmployeeStateTotal EmployeeStateTotalRecord { get { return _employeeStateTotalRecord; } }
         internal RceRecord InternalRecord { get { return ((RceRecord)_record); } }
 
         private W2cEmployee _selectedEmployee;
@@ -62,18 +62,18 @@ namespace EFW2C.RecordEFW2C.W2cDocument
         }
 
 
-        public void SetEmployeeStateTotal(W2cEmployeeStateTotal employeeStateTotal)
+        public void SetEmployeeStateTotal(W2cEmployeeStateTotal employeeStateTotalRecord)
         {
-            if (_employeeStateTotal != null)
-                _employeeStateTotal.SetParent(null);
+            if (_employeeStateTotalRecord != null)
+                _employeeStateTotalRecord.SetParent(null);
 
-            if (employeeStateTotal != null)
+            if (employeeStateTotalRecord != null)
             {
-                employeeStateTotal.SetParent(this);
-                InternalRecord.SetRcvRecord(employeeStateTotal.InternalRecord);
+                employeeStateTotalRecord.SetParent(this);
+                InternalRecord.SetRcvRecord(employeeStateTotalRecord.InternalRecord);
             }
 
-            _employeeStateTotal = employeeStateTotal;
+            _employeeStateTotalRecord = employeeStateTotalRecord;
         }
 
         public override void Prepare()
@@ -81,8 +81,8 @@ namespace EFW2C.RecordEFW2C.W2cDocument
             foreach (var employee in _employeeList)
                 employee.Prepare();
 
-            if (_employeeStateTotal != null)
-                _employeeStateTotal.Prepare();
+            if (_employeeStateTotalRecord != null)
+                _employeeStateTotalRecord.Prepare();
 
             base.Prepare();
         }

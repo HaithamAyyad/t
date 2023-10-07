@@ -11,10 +11,10 @@ namespace EFW2C.RecordEFW2C.W2cDocument
     public class W2cEmployee : DocumentPart
     {
         private W2cEmployer _parent;
-        private W2cEmployeeOptional _employeeOptional;
-        private W2cEmployeeState _employeeState;
-        public W2cEmployeeOptional EmployeeOptional { get { return _employeeOptional; } }
-        public W2cEmployeeState EmployeeState { get { return _employeeState; } }
+        private W2cEmployeeOptional _employeeOptionalRecord;
+        private W2cEmployeeState _employeeStateRecord;
+        public W2cEmployeeOptional EmployeeOptionalRecord { get { return _employeeOptionalRecord; } }
+        public W2cEmployeeState EmployeeStateRecord { get { return _employeeStateRecord; } }
         public W2cEmployer Parent { get { return _parent; } }
         internal RcwRecord InternalRecord { get { return ((RcwRecord)_record); } }
 
@@ -31,40 +31,40 @@ namespace EFW2C.RecordEFW2C.W2cDocument
                 InternalRecord.SetParent((RceRecord)employer.Record);
         }
 
-        public void SetEmployeeOptional(W2cEmployeeOptional employeeOptional)
+        public void SetEmployeeOptional(W2cEmployeeOptional employeeOptionalRecord)
         {
-            if (_employeeOptional != null)
-                _employeeOptional.SetParent(null);
+            if (_employeeOptionalRecord != null)
+                _employeeOptionalRecord.SetParent(null);
 
-            if (employeeOptional != null)
+            if (employeeOptionalRecord != null)
             {
-                employeeOptional.SetParent(this);
-                InternalRecord.SetRcoRecord(employeeOptional.InternalRecord);
+                employeeOptionalRecord.SetParent(this);
+                InternalRecord.SetRcoRecord(employeeOptionalRecord.InternalRecord);
             }
 
-            _employeeOptional = employeeOptional;
+            _employeeOptionalRecord = employeeOptionalRecord;
         }
 
-        public void SetEmployeeState(W2cEmployeeState employeeState)
+        public void SetEmployeeState(W2cEmployeeState employeeStateRecord)
         {
-            if (_employeeState != null)
-                _employeeState.SetParent(null);
+            if (_employeeStateRecord != null)
+                _employeeStateRecord.SetParent(null);
 
-            if (employeeState != null)
+            if (employeeStateRecord != null)
             {
-                employeeState.SetParent(this);
-                InternalRecord.SetRcsRecord(employeeState.InternalRecord);
+                employeeStateRecord.SetParent(this);
+                InternalRecord.SetRcsRecord(employeeStateRecord.InternalRecord);
             }
 
-            _employeeState = employeeState;
+            _employeeStateRecord = employeeStateRecord;
         }
 
         public override void Prepare()
         {
             base.Prepare();
 
-            _employeeOptional?.Prepare();
-            _employeeState?.Prepare();
+            _employeeOptionalRecord?.Prepare();
+            _employeeStateRecord?.Prepare();
         }
 
         #region Properties

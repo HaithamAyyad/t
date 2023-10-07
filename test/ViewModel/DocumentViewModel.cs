@@ -260,8 +260,8 @@ namespace test.ViewModel
         {
             try
             {
-                _document.SelectedEmployer?.SelectedEmployee?.EmployeeOptional?.Prepare();
-                _document.SelectedEmployer?.SelectedEmployee?.EmployeeOptional?.Verify();
+                _document.SelectedEmployer?.SelectedEmployee?.EmployeeOptionalRecord?.Prepare();
+                _document.SelectedEmployer?.SelectedEmployee?.EmployeeOptionalRecord?.Verify();
             }
             catch (Exception ex)
             {
