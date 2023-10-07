@@ -35,7 +35,7 @@ namespace EFW2C.Fields
                     case "1":
                         break;
                     default:
-                        throw new Exception($"{ClassName} Field must be 0 or 1");
+                        throw new Exception($"{ClassDescription} Field must be 0 or 1");
                 }
             }
 

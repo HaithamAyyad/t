@@ -37,7 +37,7 @@ namespace EFW2C.Fields
             if (employmentCode == EmploymentCodeEnum.X.ToString())
             {
                 if (!string.IsNullOrWhiteSpace(localData))
-                    throw new Exception($"{ClassName} : must be blank, because employment code is 'X'");
+                    throw new Exception($"{ClassDescription} : must be blank, because employment code is 'X'");
             }
             else
             {
@@ -47,18 +47,18 @@ namespace EFW2C.Fields
                 if (employmentCode == EmploymentCodeEnum.H.ToString())
                 {
                     if (localValue != 0 || localValue < wageTax.SocialSecurity.MinHouseHoldCoveredWages)
-                        throw new Exception($"{ClassName} : vlaue must be zero or equal or greater than MinHouseHold Covered Wages ({wageTax.SocialSecurity.MinHouseHoldCoveredWages})");
+                        throw new Exception($"{ClassDescription} : vlaue must be zero or equal or greater than MinHouseHold Covered Wages ({wageTax.SocialSecurity.MinHouseHoldCoveredWages})");
                 }
                 else
                 {
                     var rcwSocialSecurityTipsCorrect = _record.GetField(typeof(RcwSocialSecurityTipsCorrect).Name);
 
                     if (rcwSocialSecurityTipsCorrect == null)
-                        throw new Exception($"{ClassName}: RcwSocialSecurityTipsCorrect must be provided");
+                        throw new Exception($"{ClassDescription}: RcwSocialSecurityTipsCorrect must be provided");
 
                     var rcwSocialSecurityWagesCorrect = _record.GetField(typeof(RcwSocialSecurityWagesCorrect).Name);
                     if (rcwSocialSecurityWagesCorrect == null)
-                        throw new Exception($"{ClassName}: RcwSocialSecurityWagesCorrect must be provided");
+                        throw new Exception($"{ClassDescription}: RcwSocialSecurityWagesCorrect must be provided");
 
                     double.TryParse(rcwSocialSecurityTipsCorrect.DataInRecordBuffer(), out var rcwSocialSecurityTipsCorrectValue);
                     double.TryParse(rcwSocialSecurityWagesCorrect.DataInRecordBuffer(), out var rcwSocialSecurityWagesCorrectValue);

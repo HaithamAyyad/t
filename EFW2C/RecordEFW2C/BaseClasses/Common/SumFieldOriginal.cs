@@ -70,7 +70,7 @@ namespace EFW2C.Fields
             int.TryParse(DataInRecordBuffer(), out var localSum);
 
             if (sum != localSum)
-                throw new Exception($"Total of {ClassName} is not correct");
+                throw new Exception($"Total of {ClassDescription} is not correct");
 
             return true;
         }

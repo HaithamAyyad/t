@@ -32,14 +32,14 @@ namespace EFW2C.Fields
 
             var employmentCode = ((RcwRecord)_record).Parent.GetEmploymentCode();
             if (employmentCode == EmploymentCodeEnum.Q.ToString() || employmentCode == EmploymentCodeEnum.X.ToString())
-                throw new Exception($"{ClassName} : since employment code is {employmentCode}, this field must not be provided");
+                throw new Exception($"{ClassDescription} : since employment code is {employmentCode}, this field must not be provided");
 
             if (taxYear == 2023)
             {
                 var localData = DataInRecordBuffer();
                 double.TryParse(localData, out var localValue);
                 if(localValue > 993240)
-                    throw new Exception($"{ClassName} since year is 2023 the value must not exceed $9,932.40");
+                    throw new Exception($"{ClassDescription} since year is 2023 the value must not exceed $9,932.40");
             }
 
 

@@ -40,12 +40,12 @@ namespace EFW2C.Fields
 
                 var rcwSocialSecurityWagesOriginal = _record.GetField(typeof(RcwSocialSecurityWagesOriginal).Name);
                 if (rcwSocialSecurityWagesOriginal == null)
-                    throw new Exception($"{ClassName}: RcwSocialSecurityWagesOriginal must be provided");
+                    throw new Exception($"{ClassDescription}: RcwSocialSecurityWagesOriginal must be provided");
 
                 double.TryParse(rcwSocialSecurityWagesOriginal.DataInRecordBuffer(), out var rcwSocialSecurityWagesOriginalValue);
 
                 if (localValue != 0 || localValue + rcwSocialSecurityWagesOriginalValue < wageTax.SocialSecurity.MinHouseHoldCoveredWages)
-                    throw new Exception($"{ClassName} : vlaue must be zero or equal or greater than MinHouseHold Covered Wages");
+                    throw new Exception($"{ClassDescription} : vlaue must be zero or equal or greater than MinHouseHold Covered Wages");
             }
             
             return true;

@@ -28,7 +28,7 @@ namespace EFW2C.Fields
             if(!string.IsNullOrWhiteSpace(DataInRecordBuffer()))
             {
                 if(!IsCorrectionFieldProvided())
-                    throw new Exception($"the correction filed for {ClassName} is not provided");
+                    throw new Exception($"the correction filed for {ClassDescription} is not provided");
             }
 
             return true;
@@ -47,7 +47,7 @@ namespace EFW2C.Fields
         private FieldCorrect GetCorrectField()
         {
             if (!ClassName.Contains(Constants.OriginalStr))
-                throw new Exception($"{ClassName} this function only used for {Constants.OriginalStr} class");
+                throw new Exception($"{ClassDescription} this function only used for {Constants.OriginalStr} class");
 
             var correctClassName = ClassName.Replace(Constants.OriginalStr, Constants.CorrectStr);
 

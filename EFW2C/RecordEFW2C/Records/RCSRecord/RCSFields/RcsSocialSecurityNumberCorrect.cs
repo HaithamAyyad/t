@@ -31,7 +31,7 @@ namespace EFW2C.Fields
             var lacalData = DataInRecordBuffer();
 
             if (lacalData.Substring(0, 3) == Constants.Str_666 || lacalData.Substring(0, 1) == Constants.Str_9)
-                throw new Exception($"{ClassName}: Social Security Number, should not start with '666' or '9'");
+                throw new Exception($"{ClassDescription}: Social Security Number, should not start with '666' or '9'");
 
             return true;
         }

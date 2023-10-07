@@ -38,11 +38,11 @@ namespace EFW2C.Fields
             var rctSocialSecurityTipsCorrect = _record.GetField(typeof(RctTotalSocialSecurityTipsCorrect).Name);
 
             if (rctSocialSecurityTipsCorrect == null)
-                throw new Exception($"{ClassName}: RctSocialSecurityTipsCorrect must be provided");
+                throw new Exception($"{ClassDescription}: RctSocialSecurityTipsCorrect must be provided");
 
             var rctSocialSecurityWagesCorrect = _record.GetField(typeof(RctTotalSocialSecurityWagesCorrect).Name);
             if (rctSocialSecurityWagesCorrect == null)
-                throw new Exception($"{ClassName}: RctSocialSecurityWagesCorrect must be provided");
+                throw new Exception($"{ClassDescription}: RctSocialSecurityWagesCorrect must be provided");
 
             double.TryParse(rctSocialSecurityTipsCorrect.DataInRecordBuffer(), out var rctSocialSecurityTipsCorrectValue);
             double.TryParse(rctSocialSecurityWagesCorrect.DataInRecordBuffer(), out var rctSocialSecurityWagesCorrectValue);
@@ -57,13 +57,13 @@ namespace EFW2C.Fields
                 var wageTax = WageTaxHelper.GetWageTax(taxYear);
 
                 if (localValue != 0 || localValue < wageTax.SocialSecurity.MinHouseHoldCoveredWages)
-                    throw new Exception($"{ClassName} : must be zero or equal to or greater than the annual Household minimum for the tax year being reported");
+                    throw new Exception($"{ClassDescription} : must be zero or equal to or greater than the annual Household minimum for the tax year being reported");
             }
 
             if (employmentCode == EmploymentCodeEnum.X.ToString())
             {
                 if (!string.IsNullOrWhiteSpace(localData))
-                    throw new Exception($"{ClassName} : must be blank because employment code is X");
+                    throw new Exception($"{ClassDescription} : must be blank because employment code is X");
             }
 
             return true;

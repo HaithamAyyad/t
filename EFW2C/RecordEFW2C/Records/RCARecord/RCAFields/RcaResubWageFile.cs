@@ -45,12 +45,12 @@ namespace EFW2C.Fields
                 {
                     case "1":
                         if (string.IsNullOrWhiteSpace(localData))
-                            throw new Exception($"{ClassName} cannot be empty because {rcaResubIndicator.ClassName} is set to 1");
+                            throw new Exception($"{ClassDescription} cannot be empty because {rcaResubIndicator.ClassName} is set to 1");
                         break;
 
                     case "0":
                         if (!string.IsNullOrWhiteSpace(Data))
-                            throw new Exception($"{ClassName} must be empty because {rcaResubIndicator.ClassName} is set to 0");
+                            throw new Exception($"{ClassDescription} must be empty because {rcaResubIndicator.ClassName} is set to 0");
                         break;
                 }
             }

@@ -29,7 +29,7 @@ namespace EFW2C.Fields
                 var stateAbbreviationClassName = $"{_record.ClassName.Substring(0, 3)}StateAbbreviation";
 
                 if (IsFieldNullOrWhiteSpace(_record.GetField(stateAbbreviationClassName)))
-                    throw new Exception($"{ClassName} can't provid this filed since {stateAbbreviationClassName} is not provided");
+                    throw new Exception($"{ClassDescription} can't provid this filed since {stateAbbreviationClassName} is not provided");
             }
 
             return true;

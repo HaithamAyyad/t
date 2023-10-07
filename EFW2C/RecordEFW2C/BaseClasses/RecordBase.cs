@@ -6,6 +6,7 @@ using EFW2C.Common.Constants;
 using EFW2C.Common.Enums;
 using EFW2C.Fields;
 using EFW2C.Manager;
+using EFW2C.Resource.Language;
 
 namespace EFW2C.Records
 {
@@ -18,7 +19,8 @@ namespace EFW2C.Records
         public RecordManager Manager { get { return _manager; } }
         public char[] RecordBuffer { get; private set; }
         public string RecordName { get; set; }
-        public string ClassName { get; set; }
+        public string ClassName { get; private set; }
+        public string ClassDescription { get; private set; }
         public List<FieldBase> Fields { get { return _fields; } }
         public List<FieldBase> HelperFieldsList { get { return _helperFieldsList; } }
 
@@ -33,6 +35,12 @@ namespace EFW2C.Records
             _fields = new List<FieldBase>();
 
             ClassName = GetType().Name;
+            ClassDescription = Language.Instance.LoadDescpitionString(ClassName);
+
+            if (ClassDescription == "{Description-Not-Defined}")
+            {
+            }
+
 
             _blankFields = CreateBlankList();
 
@@ -98,7 +106,7 @@ namespace EFW2C.Records
             try
             {
                 if (_helperFieldsList.Count == 0)
-                    throw new Exception($"{ClassName} : HelperFieldList() HelperFieldList is empty");
+                    throw new Exception($"{ClassDescription} : HelperFieldList() HelperFieldList is empty");
 
                 var duplicateNames = _helperFieldsList.GroupBy(item => item.ClassName)
                                                       .Where(group => group.Count() > 1)
@@ -119,7 +127,7 @@ namespace EFW2C.Records
                         if (fieldList.Count > 1)
                         {
                             var str = string.Join(", ", fieldList.Select(item => item.ClassName));
-                            throw new Exception($"{ClassName}: the following fileds are shared with same position : {str}");
+                            throw new Exception($"{ClassDescription}: the following fileds are shared with same position : {str}");
                         }
 
                         pos = pos + fieldList[0].Length;
@@ -133,7 +141,7 @@ namespace EFW2C.Records
                         if (blankList != null && blankList.Count != 0)
                         {
                             if (blankList.Count > 1)
-                                throw new Exception($"{ClassName}: the {pos} position is added more than once in blank list");
+                                throw new Exception($"{ClassDescription}: the {pos} position is added more than once in blank list");
 
                             pos = pos + blankList[0].Item2;
                             continue;
@@ -144,7 +152,7 @@ namespace EFW2C.Records
                 }
 
                 if (pos != 1024)
-                    throw new Exception($"{ClassName} : {pos + 1} : has no field or not added to blank list");
+                    throw new Exception($"{ClassDescription} : {pos + 1} : has no field or not added to blank list");
 
             }
             catch (Exception ex)
@@ -169,7 +177,7 @@ namespace EFW2C.Records
         {
 
             if (IsFieldExists(field))
-                throw new Exception($"{field.ClassName} is already added to {ClassName}");
+                throw new Exception($"{field.ClassName} is already added to {ClassDescription}");
 
             _fields.Add(field);
         }
@@ -316,7 +324,7 @@ namespace EFW2C.Records
                     var blankData = new string(RecordBuffer, pos, length);
 
                     if (!string.IsNullOrWhiteSpace(blankData))
-                        throw new Exception($"{ClassName} : data from {pos} with length {length} must be blank");
+                        throw new Exception($"{ClassDescription} : data from {pos} with length {length} must be blank");
                 }
             }
 
@@ -329,7 +337,7 @@ namespace EFW2C.Records
             {
                 if (reqField.IsRequired() && !IsFieldExists(reqField))
                 {
-                    throw new Exception($"{reqField.ClassName} : Field is required");
+                    throw new Exception($"{reqField.ClassDescription} : Field is required");
                 }
             }
 

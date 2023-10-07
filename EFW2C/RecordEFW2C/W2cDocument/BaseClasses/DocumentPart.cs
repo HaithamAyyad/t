@@ -127,7 +127,7 @@ namespace EFW2C.RecordEFW2C.W2cDocument
 
         protected void AddData(string value, [CallerMemberName] string propertyName = null)
         {
-            //throw new Exception($"{ClassName} data can't be null or empty");
+            //throw new Exception($"{ClassDescription} data can't be null or empty");
 
             DataDictionary[propertyName] = value;
         }

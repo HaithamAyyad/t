@@ -36,12 +36,12 @@ namespace EFW2C.Fields
                 if (softwareCode == ((int)SoftwareCodeEnum.Code_99).ToString())
                 {
                     if (string.IsNullOrWhiteSpace(DataInRecordBuffer()))
-                        throw new Exception($"{ClassName} Field must not be empty, since software code marked as Off-the-ShelfSoftware");
+                        throw new Exception($"{ClassDescription} Field must not be empty, since software code marked as Off-the-ShelfSoftware");
                 }
                 else
                 {
                     if (!string.IsNullOrWhiteSpace(DataInRecordBuffer()))
-                        throw new Exception($"{ClassName} Field must be empty, since software code not marked as Off-the-ShelfSoftware");
+                        throw new Exception($"{ClassDescription} Field must be empty, since software code not marked as Off-the-ShelfSoftware");
 
                 }
             }

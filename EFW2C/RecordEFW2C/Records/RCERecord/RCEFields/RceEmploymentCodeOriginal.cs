@@ -30,7 +30,7 @@ namespace EFW2C.Fields
             if(!string.IsNullOrWhiteSpace(DataInRecordBuffer()))
             {
                 if(!IsCorrectionFieldProvided())
-                    throw new Exception($"{ClassName}: the correction field is not provided");
+                    throw new Exception($"{ClassDescription}: the correction field is not provided");
             }
 
             return true;

@@ -30,7 +30,7 @@ namespace EFW2C.Fields
 
             var localData = DataInRecordBuffer();
             if (!EnumHelper.IsKindOfEmployerValid(localData))
-                throw new Exception($"{ClassName} : {localData} is not one of Employer Kind");
+                throw new Exception($"{ClassDescription} : {localData} is not one of Employer Kind");
 
             return true;
         }

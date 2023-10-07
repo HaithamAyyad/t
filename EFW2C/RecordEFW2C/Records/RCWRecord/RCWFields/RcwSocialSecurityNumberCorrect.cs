@@ -32,14 +32,14 @@ namespace EFW2C.Fields
             var lacalData = DataInRecordBuffer();
 
             if(lacalData.Substring(0, 3) == Constants.Str_666 || lacalData.Substring(0, 1) == Constants.Str_9)
-                throw new Exception($"{ClassName}: Social Security Number, should not start with '666' or '9'");
+                throw new Exception($"{ClassDescription}: Social Security Number, should not start with '666' or '9'");
 
             if (_record.GetField(typeof(RcwStatutoryEmployeeIndicatorCorrect).Name) == null &&
                 _record.GetField(typeof(RcwThirdPartySickPayndicatorCorrect).Name) == null  &&
                 _record.GetField(typeof(RcwRetirementPlanIndicatorCorrect).Name) == null    &&
                  IsOriginalNullOrWhiteSpace() &&
                 !IsOneCorrectMoneyFieldProvided())
-               throw new Exception($"{ClassName}: you must provoide at least one indecator or the SSN original field or at least one correct money filed");
+               throw new Exception($"{ClassDescription}: you must provoide at least one indecator or the SSN original field or at least one correct money filed");
 
             return true;
         }

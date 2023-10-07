@@ -30,7 +30,7 @@ namespace EFW2C.Fields
             var localData = DataInRecordBuffer();
 
             if (!EnumHelper.IsSoftwareCodeValid(localData, true))
-                throw new Exception($"{ClassName} must be either 98 or 99");
+                throw new Exception($"{ClassDescription} must be either 98 or 99");
 
             return true;
         }

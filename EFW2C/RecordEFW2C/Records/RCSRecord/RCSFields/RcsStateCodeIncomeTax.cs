@@ -31,7 +31,7 @@ namespace EFW2C.Fields
             var localData = DataInRecordBuffer();
 
             if (!EnumHelper.IsValidStateCode(localData, true))
-                throw new Exception($"{ClassName} {localData} is not a valid state code");
+                throw new Exception($"{ClassDescription} {localData} is not a valid state code");
 
             return true;
         }

@@ -28,7 +28,7 @@ namespace EFW2C.Fields
             {
                 var foreignStateProvinceClassName = $"{_record.ClassName.Substring(0, 3)}ForeignStateProvince";
                 if (!IsFieldNullOrWhiteSpace(_record.GetField(foreignStateProvinceClassName)))
-                    throw new Exception($"{ClassName} this filed should not be provided or should be empty, or you should provide {foreignStateProvinceClassName}");
+                    throw new Exception($"{ClassDescription} this filed should not be provided or should be empty, or you should provide {foreignStateProvinceClassName}");
             }
 
             return true;

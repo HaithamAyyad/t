@@ -28,7 +28,7 @@ namespace EFW2C.Fields
             {
                 var zipCodeClassName = $"{_record.ClassName.Substring(0, 3)}ZipCode";
                 if (IsFieldNullOrWhiteSpace(_record.GetField(zipCodeClassName)))
-                    throw new Exception($"{ClassName} can't provid this filed since {zipCodeClassName} is not provided");
+                    throw new Exception($"{ClassDescription} can't provid this filed since {zipCodeClassName} is not provided");
             }
 
             return true;

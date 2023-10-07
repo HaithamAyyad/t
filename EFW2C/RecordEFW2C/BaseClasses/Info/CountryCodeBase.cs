@@ -41,11 +41,11 @@ namespace EFW2C.Fields
                 if (!IsFieldNullOrWhiteSpace(stateAbbreviationField))
                 {
                     if (EnumHelper.IsStateTerritoriseMiltary(stateAbbreviationField.DataInRecordBuffer()))
-                        throw new Exception($"{ClassName} should not be provieded, since {stateAbbreviationField} is provided");
+                        throw new Exception($"{ClassDescription} should not be provieded, since {stateAbbreviationField} is provided");
                 }
 
                 if (!EnumHelper.IsCountryCodeValid(localData))
-                    throw new Exception($"{ClassName} country code is not correct");
+                    throw new Exception($"{ClassDescription} country code is not correct");
             }
 
             return true;

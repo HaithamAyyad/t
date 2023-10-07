@@ -28,10 +28,10 @@ namespace EFW2C.Fields
             var email = DataInRecordBuffer();
 
             if (string.IsNullOrWhiteSpace(email))
-                throw new Exception($"{ClassName} email is empty");
+                throw new Exception($"{ClassDescription} email is empty");
 
             if (!VerifyEmail(email))
-                throw new Exception($"{ClassName} email is not correct");
+                throw new Exception($"{ClassDescription} email is not correct");
 
             return true;
         }

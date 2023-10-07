@@ -33,7 +33,7 @@ namespace EFW2C.Fields
             if (!string.IsNullOrWhiteSpace(localData))
             {
                 if (!EnumHelper.IsAgentIndicatorValid(localData, true))
-                    throw new Exception($"{ClassName} {localData} is not Valid Agent Indicator");
+                    throw new Exception($"{ClassDescription} {localData} is not Valid Agent Indicator");
             }
 
             return true;

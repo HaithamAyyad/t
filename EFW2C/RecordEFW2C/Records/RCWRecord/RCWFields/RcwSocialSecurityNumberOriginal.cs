@@ -32,7 +32,7 @@ namespace EFW2C.Fields
             var strValid1 = localData.Substring(0, 3);
             var strValid2 = localData.Substring(0, 1);
             if(strValid1 == Constants.Str_666 || strValid2 == Constants.Str_9)
-                throw new Exception($"{ClassName}: Social Security Number, should not start with '666' or '9'");
+                throw new Exception($"{ClassDescription}: Social Security Number, should not start with '666' or '9'");
 
             return true;
         }

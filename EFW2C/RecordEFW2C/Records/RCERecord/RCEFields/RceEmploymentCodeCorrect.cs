@@ -33,10 +33,10 @@ namespace EFW2C.Fields
                 var employmentCode = DataInRecordBuffer();
 
                 if (string.IsNullOrWhiteSpace(employmentCode))
-                    throw new Exception($"{ClassName} cant be empty since original field is provided");
+                    throw new Exception($"{ClassDescription} cant be empty since original field is provided");
                 
                 if (!EnumHelper.IsEmploymentCodeValid(employmentCode))
-                    throw new Exception($"{ClassName}: {employmentCode} is not a valid Employment Code");
+                    throw new Exception($"{ClassDescription}: {employmentCode} is not a valid Employment Code");
             }
 
             return true;

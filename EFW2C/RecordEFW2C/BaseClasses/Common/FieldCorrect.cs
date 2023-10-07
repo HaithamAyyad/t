@@ -29,7 +29,7 @@ namespace EFW2C.Fields
             if(!IgnoreOriginalField && !IsOriginalNullOrWhiteSpace())
             {
                 if(string.IsNullOrWhiteSpace(DataInRecordBuffer()))
-                    throw new Exception($"{ClassName}: since you provide the original field then must fill {ClassName}");
+                    throw new Exception($"{ClassDescription}: since you provide the original field then must fill {ClassDescription}");
             }
 
             return true;
@@ -48,7 +48,7 @@ namespace EFW2C.Fields
         protected bool IsOriginalNullOrWhiteSpace()
         {
             if (!ClassName.Contains(Constants.CorrectStr))
-                throw new Exception($"{ClassName} this function only used for {Constants.CorrectStr} class");
+                throw new Exception($"{ClassDescription} this function only used for {Constants.CorrectStr} class");
 
             var originalName = ClassName.Replace(Constants.CorrectStr, Constants.OriginalStr);
 

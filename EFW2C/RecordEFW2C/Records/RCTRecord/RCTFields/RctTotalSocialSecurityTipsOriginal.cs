@@ -39,7 +39,7 @@ namespace EFW2C.Fields
                 employmentCode == EmploymentCodeEnum.X.ToString())
             {
                 if (!string.IsNullOrWhiteSpace(localData))
-                    throw new Exception($"{ClassName} : must be blank for employment code X or Q");
+                    throw new Exception($"{ClassDescription} : must be blank for employment code X or Q");
             }
 
             if (employmentCode == EmploymentCodeEnum.H.ToString())
@@ -49,7 +49,7 @@ namespace EFW2C.Fields
                 double.TryParse(localData, out var localValue);
 
                 if (localValue != 0 || localValue < wageTax.SocialSecurity.MinHouseHoldCoveredWages)
-                    throw new Exception($"{ClassName} : must be zero or equal to or greater than the annual Household minimum for the tax year being reported");
+                    throw new Exception($"{ClassDescription} : must be zero or equal to or greater than the annual Household minimum for the tax year being reported");
             }
 
             return true;

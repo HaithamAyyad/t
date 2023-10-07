@@ -30,7 +30,7 @@ namespace EFW2C.Fields
 
             var employmentCode = ((RcwRecord)_record).Parent.GetEmploymentCode();
             if (employmentCode == EmploymentCodeEnum.Q.ToString() || employmentCode == EmploymentCodeEnum.X.ToString())
-                throw new Exception($"{ClassName} : since employment code is {employmentCode}, this field must not be provided");
+                throw new Exception($"{ClassDescription} : since employment code is {employmentCode}, this field must not be provided");
 
             return true;
         }

@@ -26,7 +26,7 @@ namespace EFW2C.Fields
             if (!base.Verify())
                 return false;
 
-            throw new Exception($"{ClassName} Field must be implemented");
+            throw new Exception($"{ClassDescription} Field must be implemented");
 
             //return true;
         }

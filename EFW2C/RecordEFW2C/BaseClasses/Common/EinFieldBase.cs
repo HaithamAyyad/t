@@ -37,7 +37,7 @@ namespace EFW2C.Fields
             {
                 if (invalidStr == str)
                 {
-                    throw new Exception($"{ClassName} can't be started with the following: {string.Join(", ", invalidList)}");
+                    throw new Exception($"{ClassDescription} can't be started with the following: {string.Join(", ", invalidList)}");
                 }
             }
 

@@ -37,7 +37,7 @@ namespace EFW2C.Fields
             if (employmentCode != EmploymentCodeEnum.X.ToString())
             {
                 if (!string.IsNullOrWhiteSpace(localData))
-                    throw new Exception($"{ClassName} : must be blank, because employment code is 'X'");
+                    throw new Exception($"{ClassDescription} : must be blank, because employment code is 'X'");
             }
 
             return true;

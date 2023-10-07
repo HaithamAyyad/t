@@ -33,7 +33,7 @@ namespace EFW2C.Fields
 
             var employmentCode = ((RcwRecord)_record).Parent.GetEmploymentCode();
             if (employmentCode == EmploymentCodeEnum.Q.ToString() || employmentCode == EmploymentCodeEnum.X.ToString())
-                throw new Exception($"{ClassName} : since employment code is {employmentCode}, this field must not be provided");
+                throw new Exception($"{ClassDescription} : since employment code is {employmentCode}, this field must not be provided");
 
             var localData = DataInRecordBuffer();
             double.TryParse(localData, out var localValue);
@@ -41,18 +41,18 @@ namespace EFW2C.Fields
 
             var rcwSocialSecurityWagesCorrect = _record.GetField(typeof(RcwSocialSecurityWagesCorrect).Name);
             if (rcwSocialSecurityWagesCorrect == null)
-                throw new Exception($"{ClassName}: RcwSocialSecurityWagesCorrect must be provided");
+                throw new Exception($"{ClassDescription}: RcwSocialSecurityWagesCorrect must be provided");
 
             double.TryParse(rcwSocialSecurityWagesCorrect.DataInRecordBuffer(), out var rcwSocialSecurityWagesCorrectValue);
 
             if (employmentCode == EmploymentCodeEnum.H.ToString())
             {
                 if (localValue != 0 || localValue + rcwSocialSecurityWagesCorrectValue < wageTax.SocialSecurity.MinHouseHoldCoveredWages)
-                    throw new Exception($"{ClassName} : vlaue must be zero or equal or greater than MinHouseHold Covered Wages ({wageTax.SocialSecurity.MinHouseHoldCoveredWages})");
+                    throw new Exception($"{ClassDescription} : vlaue must be zero or equal or greater than MinHouseHold Covered Wages ({wageTax.SocialSecurity.MinHouseHoldCoveredWages})");
             }
 
             if (localValue + rcwSocialSecurityWagesCorrectValue > wageTax.SocialSecurity.MaxTaxedEarnings)
-                throw new Exception($"{ClassName} : vlaue must not exceed SocialSecurity MaxTaxedEarnings");
+                throw new Exception($"{ClassDescription} : vlaue must not exceed SocialSecurity MaxTaxedEarnings");
 
             return true;
         }
