@@ -23,6 +23,7 @@ namespace EFW2C.Resource.Language
 
         public string LoadDescpitionString(string str)
         {
+            var old = str;
             var descriptionStr = "{Description-Not-Defined}";
             try
             {
@@ -34,6 +35,15 @@ namespace EFW2C.Resource.Language
             }
             catch
             {
+            }
+
+            if(str == null)
+            {
+
+            }
+            if(!str.Contains(old.Substring(3)))
+            {
+
             }
 
             return descriptionStr;

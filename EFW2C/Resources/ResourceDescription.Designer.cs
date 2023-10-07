@@ -61,11 +61,2558 @@ namespace EFW2C.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to WelcomeText-5555.
+        ///   Looks up a localized string similar to Submitter City.
         /// </summary>
-        internal static string WelcomeText {
+        internal static string RcaCity {
             get {
-                return ResourceManager.GetString("WelcomeText", resourceCulture);
+                return ResourceManager.GetString("RcaCity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Submitter ContactEMailInternet.
+        /// </summary>
+        internal static string RcaContactEMailInternet {
+            get {
+                return ResourceManager.GetString("RcaContactEMailInternet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Submitter ContactFax.
+        /// </summary>
+        internal static string RcaContactFax {
+            get {
+                return ResourceManager.GetString("RcaContactFax", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Submitter ContactName.
+        /// </summary>
+        internal static string RcaContactName {
+            get {
+                return ResourceManager.GetString("RcaContactName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Submitter ContactPhone.
+        /// </summary>
+        internal static string RcaContactPhone {
+            get {
+                return ResourceManager.GetString("RcaContactPhone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Submitter ContactPhoneExtension.
+        /// </summary>
+        internal static string RcaContactPhoneExtension {
+            get {
+                return ResourceManager.GetString("RcaContactPhoneExtension", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Submitter CountryCode.
+        /// </summary>
+        internal static string RcaCountryCode {
+            get {
+                return ResourceManager.GetString("RcaCountryCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Submitter DeliveryAddress.
+        /// </summary>
+        internal static string RcaDeliveryAddress {
+            get {
+                return ResourceManager.GetString("RcaDeliveryAddress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Submitter EinSubmitter.
+        /// </summary>
+        internal static string RcaEinSubmitter {
+            get {
+                return ResourceManager.GetString("RcaEinSubmitter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Submitter ForeignPostalCode.
+        /// </summary>
+        internal static string RcaForeignPostalCode {
+            get {
+                return ResourceManager.GetString("RcaForeignPostalCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Submitter ForeignStateProvince.
+        /// </summary>
+        internal static string RcaForeignStateProvince {
+            get {
+                return ResourceManager.GetString("RcaForeignStateProvince", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Submitter LocationAddress.
+        /// </summary>
+        internal static string RcaLocationAddress {
+            get {
+                return ResourceManager.GetString("RcaLocationAddress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Submitter PreparerCode.
+        /// </summary>
+        internal static string RcaPreparerCode {
+            get {
+                return ResourceManager.GetString("RcaPreparerCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Submitter Record.
+        /// </summary>
+        internal static string RcaRecord {
+            get {
+                return ResourceManager.GetString("RcaRecord", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Submitter RecordIdentifier.
+        /// </summary>
+        internal static string RcaRecordIdentifier {
+            get {
+                return ResourceManager.GetString("RcaRecordIdentifier", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Submitter ResubIndicator.
+        /// </summary>
+        internal static string RcaResubIndicator {
+            get {
+                return ResourceManager.GetString("RcaResubIndicator", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Submitter ResubWageFile.
+        /// </summary>
+        internal static string RcaResubWageFile {
+            get {
+                return ResourceManager.GetString("RcaResubWageFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Submitter SoftwareCode.
+        /// </summary>
+        internal static string RcaSoftwareCode {
+            get {
+                return ResourceManager.GetString("RcaSoftwareCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Submitter SoftwareVendorCode.
+        /// </summary>
+        internal static string RcaSoftwareVendorCode {
+            get {
+                return ResourceManager.GetString("RcaSoftwareVendorCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Submitter StateAbbreviation.
+        /// </summary>
+        internal static string RcaStateAbbreviation {
+            get {
+                return ResourceManager.GetString("RcaStateAbbreviation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Submitter SubmitterName.
+        /// </summary>
+        internal static string RcaSubmitterName {
+            get {
+                return ResourceManager.GetString("RcaSubmitterName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Submitter UserIdentification.
+        /// </summary>
+        internal static string RcaUserIdentification {
+            get {
+                return ResourceManager.GetString("RcaUserIdentification", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Submitter ZipCode.
+        /// </summary>
+        internal static string RcaZipCode {
+            get {
+                return ResourceManager.GetString("RcaZipCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Submitter ZipCodeExtension.
+        /// </summary>
+        internal static string RcaZipCodeExtension {
+            get {
+                return ResourceManager.GetString("RcaZipCodeExtension", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employer AgentIndicator.
+        /// </summary>
+        internal static string RceAgentIndicator {
+            get {
+                return ResourceManager.GetString("RceAgentIndicator", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employer City.
+        /// </summary>
+        internal static string RceCity {
+            get {
+                return ResourceManager.GetString("RceCity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employer ContactEMailInternet.
+        /// </summary>
+        internal static string RceContactEMailInternet {
+            get {
+                return ResourceManager.GetString("RceContactEMailInternet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employer ContactFax.
+        /// </summary>
+        internal static string RceContactFax {
+            get {
+                return ResourceManager.GetString("RceContactFax", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employer ContactName.
+        /// </summary>
+        internal static string RceContactName {
+            get {
+                return ResourceManager.GetString("RceContactName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employer ContactPhone.
+        /// </summary>
+        internal static string RceContactPhone {
+            get {
+                return ResourceManager.GetString("RceContactPhone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employer ContactPhoneExtension.
+        /// </summary>
+        internal static string RceContactPhoneExtension {
+            get {
+                return ResourceManager.GetString("RceContactPhoneExtension", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employer CountryCode.
+        /// </summary>
+        internal static string RceCountryCode {
+            get {
+                return ResourceManager.GetString("RceCountryCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employer DeliveryAddress.
+        /// </summary>
+        internal static string RceDeliveryAddress {
+            get {
+                return ResourceManager.GetString("RceDeliveryAddress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employer EinAgent.
+        /// </summary>
+        internal static string RceEinAgent {
+            get {
+                return ResourceManager.GetString("RceEinAgent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employer EinAgentFederal.
+        /// </summary>
+        internal static string RceEinAgentFederal {
+            get {
+                return ResourceManager.GetString("RceEinAgentFederal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employer EinAgentFederalOriginal.
+        /// </summary>
+        internal static string RceEinAgentFederalOriginal {
+            get {
+                return ResourceManager.GetString("RceEinAgentFederalOriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employer EmployerName.
+        /// </summary>
+        internal static string RceEmployerName {
+            get {
+                return ResourceManager.GetString("RceEmployerName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employer EmploymentCodeCorrect.
+        /// </summary>
+        internal static string RceEmploymentCodeCorrect {
+            get {
+                return ResourceManager.GetString("RceEmploymentCodeCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employer EmploymentCodeOriginal.
+        /// </summary>
+        internal static string RceEmploymentCodeOriginal {
+            get {
+                return ResourceManager.GetString("RceEmploymentCodeOriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employer EstablishmentNumberCorrect.
+        /// </summary>
+        internal static string RceEstablishmentNumberCorrect {
+            get {
+                return ResourceManager.GetString("RceEstablishmentNumberCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employer EstablishmentNumberOriginal.
+        /// </summary>
+        internal static string RceEstablishmentNumberOriginal {
+            get {
+                return ResourceManager.GetString("RceEstablishmentNumberOriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employer ForeignPostalCode.
+        /// </summary>
+        internal static string RceForeignPostalCode {
+            get {
+                return ResourceManager.GetString("RceForeignPostalCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employer ForeignStateProvince.
+        /// </summary>
+        internal static string RceForeignStateProvince {
+            get {
+                return ResourceManager.GetString("RceForeignStateProvince", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employer KindOfEmployer.
+        /// </summary>
+        internal static string RceKindOfEmployer {
+            get {
+                return ResourceManager.GetString("RceKindOfEmployer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employer LocationAddress.
+        /// </summary>
+        internal static string RceLocationAddress {
+            get {
+                return ResourceManager.GetString("RceLocationAddress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employer Record.
+        /// </summary>
+        internal static string RceRecord {
+            get {
+                return ResourceManager.GetString("RceRecord", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employer RecordIdentifier.
+        /// </summary>
+        internal static string RceRecordIdentifier {
+            get {
+                return ResourceManager.GetString("RceRecordIdentifier", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employer StateAbbreviation.
+        /// </summary>
+        internal static string RceStateAbbreviation {
+            get {
+                return ResourceManager.GetString("RceStateAbbreviation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employer TaxYear.
+        /// </summary>
+        internal static string RceTaxYear {
+            get {
+                return ResourceManager.GetString("RceTaxYear", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employer ThirdPartySickPayCorrect.
+        /// </summary>
+        internal static string RceThirdPartySickPayCorrect {
+            get {
+                return ResourceManager.GetString("RceThirdPartySickPayCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employer ThirdPartySickPayOriginal.
+        /// </summary>
+        internal static string RceThirdPartySickPayOriginal {
+            get {
+                return ResourceManager.GetString("RceThirdPartySickPayOriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employer ZipCode.
+        /// </summary>
+        internal static string RceZipCode {
+            get {
+                return ResourceManager.GetString("RceZipCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employer ZipCodeExtension.
+        /// </summary>
+        internal static string RceZipCodeExtension {
+            get {
+                return ResourceManager.GetString("RceZipCodeExtension", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Final NumberOfRCWRecord.
+        /// </summary>
+        internal static string RcfNumberOfRCWRecord {
+            get {
+                return ResourceManager.GetString("RcfNumberOfRCWRecord", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Final Record.
+        /// </summary>
+        internal static string RcfRecord {
+            get {
+                return ResourceManager.GetString("RcfRecord", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Final RecordIdentifier.
+        /// </summary>
+        internal static string RcfRecordIdentifier {
+            get {
+                return ResourceManager.GetString("RcfRecordIdentifier", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployeeO AggregateDeferralsCodeHHCorrect.
+        /// </summary>
+        internal static string RcoAggregateDeferralsCodeHHCorrect {
+            get {
+                return ResourceManager.GetString("RcoAggregateDeferralsCodeHHCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployeeO AggregateDeferralsCodeHHOriginal.
+        /// </summary>
+        internal static string RcoAggregateDeferralsCodeHHOriginal {
+            get {
+                return ResourceManager.GetString("RcoAggregateDeferralsCodeHHOriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployeeO AllocatedTipsCorrect.
+        /// </summary>
+        internal static string RcoAllocatedTipsCorrect {
+            get {
+                return ResourceManager.GetString("RcoAllocatedTipsCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployeeO AllocatedTipsOriginal.
+        /// </summary>
+        internal static string RcoAllocatedTipsOriginal {
+            get {
+                return ResourceManager.GetString("RcoAllocatedTipsOriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployeeO DesignatedRothContributionsCodeEECorrect.
+        /// </summary>
+        internal static string RcoDesignatedRothContributionsCodeEECorrect {
+            get {
+                return ResourceManager.GetString("RcoDesignatedRothContributionsCodeEECorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployeeO DesignatedRothContributionsCodeEEOriginal.
+        /// </summary>
+        internal static string RcoDesignatedRothContributionsCodeEEOriginal {
+            get {
+                return ResourceManager.GetString("RcoDesignatedRothContributionsCodeEEOriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployeeO IncomeFromQualifiedEquityCodeGGCorrect.
+        /// </summary>
+        internal static string RcoIncomeFromQualifiedEquityCodeGGCorrect {
+            get {
+                return ResourceManager.GetString("RcoIncomeFromQualifiedEquityCodeGGCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployeeO IncomeFromQualifiedEquityCodeGGOriginal.
+        /// </summary>
+        internal static string RcoIncomeFromQualifiedEquityCodeGGOriginal {
+            get {
+                return ResourceManager.GetString("RcoIncomeFromQualifiedEquityCodeGGOriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployeeO IncomeUnderANonQualifiedDeferredCompensationPlanCodeZCorrect.
+        /// </summary>
+        internal static string RcoIncomeUnderANonQualifiedDeferredCompensationPlanCodeZCorrect {
+            get {
+                return ResourceManager.GetString("RcoIncomeUnderANonQualifiedDeferredCompensationPlanCodeZCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployeeO IncomeUnderANonQualifiedDeferredCompensationPlanCodeZOriginal.
+        /// </summary>
+        internal static string RcoIncomeUnderANonQualifiedDeferredCompensationPlanCodeZOriginal {
+            get {
+                return ResourceManager.GetString("RcoIncomeUnderANonQualifiedDeferredCompensationPlanCodeZOriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployeeO MedicalSavingsAccountCodeRCorrect.
+        /// </summary>
+        internal static string RcoMedicalSavingsAccountCodeRCorrect {
+            get {
+                return ResourceManager.GetString("RcoMedicalSavingsAccountCodeRCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployeeO MedicalSavingsAccountCodeROriginal.
+        /// </summary>
+        internal static string RcoMedicalSavingsAccountCodeROriginal {
+            get {
+                return ResourceManager.GetString("RcoMedicalSavingsAccountCodeROriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployeeO QualifiedAdoptionExpensesCodeTCorrect.
+        /// </summary>
+        internal static string RcoQualifiedAdoptionExpensesCodeTCorrect {
+            get {
+                return ResourceManager.GetString("RcoQualifiedAdoptionExpensesCodeTCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployeeO QualifiedAdoptionExpensesCodeTOriginal.
+        /// </summary>
+        internal static string RcoQualifiedAdoptionExpensesCodeTOriginal {
+            get {
+                return ResourceManager.GetString("RcoQualifiedAdoptionExpensesCodeTOriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployeeO Record.
+        /// </summary>
+        internal static string RcoRecord {
+            get {
+                return ResourceManager.GetString("RcoRecord", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployeeO SimpleRetirementAccountCodeSCorrectEmployeeO RecordIdentifier.
+        /// </summary>
+        internal static string RcoRecordIdentifier {
+            get {
+                return ResourceManager.GetString("RcoRecordIdentifier", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployeeO SimpleRetirementAccountCodeSCorrect.
+        /// </summary>
+        internal static string RcoSimpleRetirementAccountCodeSCorrect {
+            get {
+                return ResourceManager.GetString("RcoSimpleRetirementAccountCodeSCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployeeO SimpleRetirementAccountCodeSOriginal.
+        /// </summary>
+        internal static string RcoSimpleRetirementAccountCodeSOriginal {
+            get {
+                return ResourceManager.GetString("RcoSimpleRetirementAccountCodeSOriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployeeO UncollectedEmployeeTaxOnTipsCodesABCorrect.
+        /// </summary>
+        internal static string RcoUncollectedEmployeeTaxOnTipsCodesABCorrect {
+            get {
+                return ResourceManager.GetString("RcoUncollectedEmployeeTaxOnTipsCodesABCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployeeO UncollectedEmployeeTaxOnTipsCodesABOriginal.
+        /// </summary>
+        internal static string RcoUncollectedEmployeeTaxOnTipsCodesABOriginal {
+            get {
+                return ResourceManager.GetString("RcoUncollectedEmployeeTaxOnTipsCodesABOriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployeeO UncollectedMedicareTaxCodeNCorrect.
+        /// </summary>
+        internal static string RcoUncollectedMedicareTaxCodeNCorrect {
+            get {
+                return ResourceManager.GetString("RcoUncollectedMedicareTaxCodeNCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployeeO UncollectedMedicareTaxCodeNOriginal.
+        /// </summary>
+        internal static string RcoUncollectedMedicareTaxCodeNOriginal {
+            get {
+                return ResourceManager.GetString("RcoUncollectedMedicareTaxCodeNOriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployeeO UncollectedSocialSecurityOrRRTATaxCodeMCorrect.
+        /// </summary>
+        internal static string RcoUncollectedSocialSecurityOrRRTATaxCodeMCorrect {
+            get {
+                return ResourceManager.GetString("RcoUncollectedSocialSecurityOrRRTATaxCodeMCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployeeO UncollectedSocialSecurityOrRRTATaxCodeMOriginal.
+        /// </summary>
+        internal static string RcoUncollectedSocialSecurityOrRRTATaxCodeMOriginal {
+            get {
+                return ResourceManager.GetString("RcoUncollectedSocialSecurityOrRRTATaxCodeMOriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployeeS City.
+        /// </summary>
+        internal static string RcsCity {
+            get {
+                return ResourceManager.GetString("RcsCity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployeeS CountryCode.
+        /// </summary>
+        internal static string RcsCountryCode {
+            get {
+                return ResourceManager.GetString("RcsCountryCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployeeS DateFirstEmployedCorrect.
+        /// </summary>
+        internal static string RcsDateFirstEmployedCorrect {
+            get {
+                return ResourceManager.GetString("RcsDateFirstEmployedCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployeeS DateFirstEmployedOriginal.
+        /// </summary>
+        internal static string RcsDateFirstEmployedOriginal {
+            get {
+                return ResourceManager.GetString("RcsDateFirstEmployedOriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployeeS DateOfSeparationCorrect.
+        /// </summary>
+        internal static string RcsDateOfSeparationCorrect {
+            get {
+                return ResourceManager.GetString("RcsDateOfSeparationCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployeeS DateOfSeparationOriginal.
+        /// </summary>
+        internal static string RcsDateOfSeparationOriginal {
+            get {
+                return ResourceManager.GetString("RcsDateOfSeparationOriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployeeS DeliveryAddress.
+        /// </summary>
+        internal static string RcsDeliveryAddress {
+            get {
+                return ResourceManager.GetString("RcsDeliveryAddress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployeeS EmployeeFirstNameCorrect.
+        /// </summary>
+        internal static string RcsEmployeeFirstNameCorrect {
+            get {
+                return ResourceManager.GetString("RcsEmployeeFirstNameCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployeeS EmployeeFirstNameOriginal.
+        /// </summary>
+        internal static string RcsEmployeeFirstNameOriginal {
+            get {
+                return ResourceManager.GetString("RcsEmployeeFirstNameOriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployeeS EmployeeLastNameCorrect.
+        /// </summary>
+        internal static string RcsEmployeeLastNameCorrect {
+            get {
+                return ResourceManager.GetString("RcsEmployeeLastNameCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployeeS EmployeeLastNameOriginal.
+        /// </summary>
+        internal static string RcsEmployeeLastNameOriginal {
+            get {
+                return ResourceManager.GetString("RcsEmployeeLastNameOriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployeeS EmployeeMiddleNameCorrect.
+        /// </summary>
+        internal static string RcsEmployeeMiddleNameCorrect {
+            get {
+                return ResourceManager.GetString("RcsEmployeeMiddleNameCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployeeS EmployeeMiddleNameOriginal.
+        /// </summary>
+        internal static string RcsEmployeeMiddleNameOriginal {
+            get {
+                return ResourceManager.GetString("RcsEmployeeMiddleNameOriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployeeS ForeignPostalCode.
+        /// </summary>
+        internal static string RcsForeignPostalCode {
+            get {
+                return ResourceManager.GetString("RcsForeignPostalCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployeeS ForeignStateProvince.
+        /// </summary>
+        internal static string RcsForeignStateProvince {
+            get {
+                return ResourceManager.GetString("RcsForeignStateProvince", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployeeS LocalTaxableWagesCorrect.
+        /// </summary>
+        internal static string RcsLocalTaxableWagesCorrect {
+            get {
+                return ResourceManager.GetString("RcsLocalTaxableWagesCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployeeS LocalTaxableWagesOriginal.
+        /// </summary>
+        internal static string RcsLocalTaxableWagesOriginal {
+            get {
+                return ResourceManager.GetString("RcsLocalTaxableWagesOriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployeeS LocationAddress.
+        /// </summary>
+        internal static string RcsLocationAddress {
+            get {
+                return ResourceManager.GetString("RcsLocationAddress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployeeS NumberOfWeeksWorkedCorrect.
+        /// </summary>
+        internal static string RcsNumberOfWeeksWorkedCorrect {
+            get {
+                return ResourceManager.GetString("RcsNumberOfWeeksWorkedCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployeeS NumberOfWeeksWorkedOriginal.
+        /// </summary>
+        internal static string RcsNumberOfWeeksWorkedOriginal {
+            get {
+                return ResourceManager.GetString("RcsNumberOfWeeksWorkedOriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployeeS OptionalCode.
+        /// </summary>
+        internal static string RcsOptionalCode {
+            get {
+                return ResourceManager.GetString("RcsOptionalCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployeeS OtherStateData.
+        /// </summary>
+        internal static string RcsOtherStateData {
+            get {
+                return ResourceManager.GetString("RcsOtherStateData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployeeS Record.
+        /// </summary>
+        internal static string RcsRecord {
+            get {
+                return ResourceManager.GetString("RcsRecord", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployeeS RecordIdentifier.
+        /// </summary>
+        internal static string RcsRecordIdentifier {
+            get {
+                return ResourceManager.GetString("RcsRecordIdentifier", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployeeS ReportingPeriodCorrect.
+        /// </summary>
+        internal static string RcsReportingPeriodCorrect {
+            get {
+                return ResourceManager.GetString("RcsReportingPeriodCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployeeS ReportingPeriodOriginal.
+        /// </summary>
+        internal static string RcsReportingPeriodOriginal {
+            get {
+                return ResourceManager.GetString("RcsReportingPeriodOriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployeeS SocialSecurityNumberCorrect.
+        /// </summary>
+        internal static string RcsSocialSecurityNumberCorrect {
+            get {
+                return ResourceManager.GetString("RcsSocialSecurityNumberCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployeeS SocialSecurityNumberOriginal.
+        /// </summary>
+        internal static string RcsSocialSecurityNumberOriginal {
+            get {
+                return ResourceManager.GetString("RcsSocialSecurityNumberOriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployeeS StateAbbreviation.
+        /// </summary>
+        internal static string RcsStateAbbreviation {
+            get {
+                return ResourceManager.GetString("RcsStateAbbreviation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployeeS StateCode.
+        /// </summary>
+        internal static string RcsStateCode {
+            get {
+                return ResourceManager.GetString("RcsStateCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployeeS StateCodeIncomeTax.
+        /// </summary>
+        internal static string RcsStateCodeIncomeTax {
+            get {
+                return ResourceManager.GetString("RcsStateCodeIncomeTax", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployeeS StateControlNumberCorrect.
+        /// </summary>
+        internal static string RcsStateControlNumberCorrect {
+            get {
+                return ResourceManager.GetString("RcsStateControlNumberCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployeeS StateControlNumberOriginal.
+        /// </summary>
+        internal static string RcsStateControlNumberOriginal {
+            get {
+                return ResourceManager.GetString("RcsStateControlNumberOriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployeeS StateEmployerAccountNumberCorrect.
+        /// </summary>
+        internal static string RcsStateEmployerAccountNumberCorrect {
+            get {
+                return ResourceManager.GetString("RcsStateEmployerAccountNumberCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployeeS StateEmployerAccountNumberOriginal.
+        /// </summary>
+        internal static string RcsStateEmployerAccountNumberOriginal {
+            get {
+                return ResourceManager.GetString("RcsStateEmployerAccountNumberOriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployeeS StateIncomeTaxWithheldCorrect.
+        /// </summary>
+        internal static string RcsStateIncomeTaxWithheldCorrect {
+            get {
+                return ResourceManager.GetString("RcsStateIncomeTaxWithheldCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployeeS StateIncomeTaxWithheldOriginal.
+        /// </summary>
+        internal static string RcsStateIncomeTaxWithheldOriginal {
+            get {
+                return ResourceManager.GetString("RcsStateIncomeTaxWithheldOriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployeeS StateQuarterlyUnemploymentInsuranceTotalWagesCorrect.
+        /// </summary>
+        internal static string RcsStateQuarterlyUnemploymentInsuranceTotalWagesCorrect {
+            get {
+                return ResourceManager.GetString("RcsStateQuarterlyUnemploymentInsuranceTotalWagesCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployeeS StateQuarterlyUnemploymentInsuranceTotalWagesOriginal.
+        /// </summary>
+        internal static string RcsStateQuarterlyUnemploymentInsuranceTotalWagesOriginal {
+            get {
+                return ResourceManager.GetString("RcsStateQuarterlyUnemploymentInsuranceTotalWagesOriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployeeS StateTaxableWagesCorrect.
+        /// </summary>
+        internal static string RcsStateTaxableWagesCorrect {
+            get {
+                return ResourceManager.GetString("RcsStateTaxableWagesCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployeeS StateTaxableWagesOriginal.
+        /// </summary>
+        internal static string RcsStateTaxableWagesOriginal {
+            get {
+                return ResourceManager.GetString("RcsStateTaxableWagesOriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployeeS SupplementalData1.
+        /// </summary>
+        internal static string RcsSupplementalData1 {
+            get {
+                return ResourceManager.GetString("RcsSupplementalData1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployeeS SupplementalData2.
+        /// </summary>
+        internal static string RcsSupplementalData2 {
+            get {
+                return ResourceManager.GetString("RcsSupplementalData2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployeeS TaxingEntityCodeCorrect.
+        /// </summary>
+        internal static string RcsTaxingEntityCodeCorrect {
+            get {
+                return ResourceManager.GetString("RcsTaxingEntityCodeCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployeeS TaxingEntityCodeOriginal.
+        /// </summary>
+        internal static string RcsTaxingEntityCodeOriginal {
+            get {
+                return ResourceManager.GetString("RcsTaxingEntityCodeOriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployeeS TaxTypeCodeCorrect.
+        /// </summary>
+        internal static string RcsTaxTypeCodeCorrect {
+            get {
+                return ResourceManager.GetString("RcsTaxTypeCodeCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployeeS TaxTypeCodeOriginal.
+        /// </summary>
+        internal static string RcsTaxTypeCodeOriginal {
+            get {
+                return ResourceManager.GetString("RcsTaxTypeCodeOriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployeeS ZipCode.
+        /// </summary>
+        internal static string RcsZipCode {
+            get {
+                return ResourceManager.GetString("RcsZipCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployeeS ZipCodeExtension.
+        /// </summary>
+        internal static string RcsZipCodeExtension {
+            get {
+                return ResourceManager.GetString("RcsZipCodeExtension", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployerT NumberOfRCWRecords.
+        /// </summary>
+        internal static string RctNumberOfRCWRecords {
+            get {
+                return ResourceManager.GetString("RctNumberOfRCWRecords", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployerT Record.
+        /// </summary>
+        internal static string RctRecord {
+            get {
+                return ResourceManager.GetString("RctRecord", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployerT RecordIdentifier.
+        /// </summary>
+        internal static string RctRecordIdentifier {
+            get {
+                return ResourceManager.GetString("RctRecordIdentifier", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployerT TotalCostOfEmployerSponsoredHealthCoverageCodeDDCorrect.
+        /// </summary>
+        internal static string RctTotalCostOfEmployerSponsoredHealthCoverageCodeDDCorrect {
+            get {
+                return ResourceManager.GetString("RctTotalCostOfEmployerSponsoredHealthCoverageCodeDDCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployerT TotalCostOfEmployerSponsoredHealthCoverageCodeDDOriginal.
+        /// </summary>
+        internal static string RctTotalCostOfEmployerSponsoredHealthCoverageCodeDDOriginal {
+            get {
+                return ResourceManager.GetString("RctTotalCostOfEmployerSponsoredHealthCoverageCodeDDOriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployerT TotalDeferredCompensationCodeDCorrect.
+        /// </summary>
+        internal static string RctTotalDeferredCompensationCodeDCorrect {
+            get {
+                return ResourceManager.GetString("RctTotalDeferredCompensationCodeDCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployerT TotalDeferredCompensationCodeDOriginal.
+        /// </summary>
+        internal static string RctTotalDeferredCompensationCodeDOriginal {
+            get {
+                return ResourceManager.GetString("RctTotalDeferredCompensationCodeDOriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployerT TotalDeferredCompensationCodeECorrect.
+        /// </summary>
+        internal static string RctTotalDeferredCompensationCodeECorrect {
+            get {
+                return ResourceManager.GetString("RctTotalDeferredCompensationCodeECorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployerT TotalDeferredCompensationCodeEOriginal.
+        /// </summary>
+        internal static string RctTotalDeferredCompensationCodeEOriginal {
+            get {
+                return ResourceManager.GetString("RctTotalDeferredCompensationCodeEOriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployerT TotalDeferredCompensationCodeFCorrect.
+        /// </summary>
+        internal static string RctTotalDeferredCompensationCodeFCorrect {
+            get {
+                return ResourceManager.GetString("RctTotalDeferredCompensationCodeFCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployerT TotalDeferredCompensationCodeFOriginal.
+        /// </summary>
+        internal static string RctTotalDeferredCompensationCodeFOriginal {
+            get {
+                return ResourceManager.GetString("RctTotalDeferredCompensationCodeFOriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployerT TotalDeferredCompensationCodeGCorrect.
+        /// </summary>
+        internal static string RctTotalDeferredCompensationCodeGCorrect {
+            get {
+                return ResourceManager.GetString("RctTotalDeferredCompensationCodeGCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployerT TotalDeferredCompensationCodeGOriginal.
+        /// </summary>
+        internal static string RctTotalDeferredCompensationCodeGOriginal {
+            get {
+                return ResourceManager.GetString("RctTotalDeferredCompensationCodeGOriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployerT TotalDeferredCompensationCodeHCorrect.
+        /// </summary>
+        internal static string RctTotalDeferredCompensationCodeHCorrect {
+            get {
+                return ResourceManager.GetString("RctTotalDeferredCompensationCodeHCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployerT TotalDeferredCompensationCodeHOriginal.
+        /// </summary>
+        internal static string RctTotalDeferredCompensationCodeHOriginal {
+            get {
+                return ResourceManager.GetString("RctTotalDeferredCompensationCodeHOriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployerT TotalDependentCareBenefitsCorrect.
+        /// </summary>
+        internal static string RctTotalDependentCareBenefitsCorrect {
+            get {
+                return ResourceManager.GetString("RctTotalDependentCareBenefitsCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployerT TotalDependentCareBenefitsOriginal.
+        /// </summary>
+        internal static string RctTotalDependentCareBenefitsOriginal {
+            get {
+                return ResourceManager.GetString("RctTotalDependentCareBenefitsOriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployerT TotalDesignatedRothCodeAACorrect.
+        /// </summary>
+        internal static string RctTotalDesignatedRothCodeAACorrect {
+            get {
+                return ResourceManager.GetString("RctTotalDesignatedRothCodeAACorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployerT TotalDesignatedRothCodeAAOriginal.
+        /// </summary>
+        internal static string RctTotalDesignatedRothCodeAAOriginal {
+            get {
+                return ResourceManager.GetString("RctTotalDesignatedRothCodeAAOriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployerT TotalDesignatedRothCodeBBCorrect.
+        /// </summary>
+        internal static string RctTotalDesignatedRothCodeBBCorrect {
+            get {
+                return ResourceManager.GetString("RctTotalDesignatedRothCodeBBCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployerT TotalDesignatedRothCodeBBOriginal.
+        /// </summary>
+        internal static string RctTotalDesignatedRothCodeBBOriginal {
+            get {
+                return ResourceManager.GetString("RctTotalDesignatedRothCodeBBOriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployerT TotalEmployerContributionsToSHealthSavingsAccountCodeWCorrect.
+        /// </summary>
+        internal static string RctTotalEmployerContributionsToSHealthSavingsAccountCodeWCorrect {
+            get {
+                return ResourceManager.GetString("RctTotalEmployerContributionsToSHealthSavingsAccountCodeWCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployerT TotalEmployerContributionsToSHealthSavingsAccountCodeWOriginal.
+        /// </summary>
+        internal static string RctTotalEmployerContributionsToSHealthSavingsAccountCodeWOriginal {
+            get {
+                return ResourceManager.GetString("RctTotalEmployerContributionsToSHealthSavingsAccountCodeWOriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployerT TotalEmployerCostOfPremiumsCodeCCorrect.
+        /// </summary>
+        internal static string RctTotalEmployerCostOfPremiumsCodeCCorrect {
+            get {
+                return ResourceManager.GetString("RctTotalEmployerCostOfPremiumsCodeCCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployerT TotalEmployerCostOfPremiumsCodeCOriginal.
+        /// </summary>
+        internal static string RctTotalEmployerCostOfPremiumsCodeCOriginal {
+            get {
+                return ResourceManager.GetString("RctTotalEmployerCostOfPremiumsCodeCOriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployerT TotalFederalIncomeTaxWithheldCorrect.
+        /// </summary>
+        internal static string RctTotalFederalIncomeTaxWithheldCorrect {
+            get {
+                return ResourceManager.GetString("RctTotalFederalIncomeTaxWithheldCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployerT TotalFederalIncomeTaxWithheldOriginal.
+        /// </summary>
+        internal static string RctTotalFederalIncomeTaxWithheldOriginal {
+            get {
+                return ResourceManager.GetString("RctTotalFederalIncomeTaxWithheldOriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployerT TotalIncomeFromTheExerciseOfNonstatutoryStockOptionsCodeVCorrect.
+        /// </summary>
+        internal static string RctTotalIncomeFromTheExerciseOfNonstatutoryStockOptionsCodeVCorrect {
+            get {
+                return ResourceManager.GetString("RctTotalIncomeFromTheExerciseOfNonstatutoryStockOptionsCodeVCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployerT TotalMedicareTaxWithheldCorrect.
+        /// </summary>
+        internal static string RctTotalMedicareTaxWithheldCorrect {
+            get {
+                return ResourceManager.GetString("RctTotalMedicareTaxWithheldCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployerT TotalMedicareTaxWithheldOriginal.
+        /// </summary>
+        internal static string RctTotalMedicareTaxWithheldOriginal {
+            get {
+                return ResourceManager.GetString("RctTotalMedicareTaxWithheldOriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployerT TotalMedicareWagesAndTipsCorrect.
+        /// </summary>
+        internal static string RctTotalMedicareWagesAndTipsCorrect {
+            get {
+                return ResourceManager.GetString("RctTotalMedicareWagesAndTipsCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployerT TotalMedicareWagesAndTipsOriginal.
+        /// </summary>
+        internal static string RctTotalMedicareWagesAndTipsOriginal {
+            get {
+                return ResourceManager.GetString("RctTotalMedicareWagesAndTipsOriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployerT TotalNonQualifiedDeferredCompensationPlanCodeYCorrect.
+        /// </summary>
+        internal static string RctTotalNonQualifiedDeferredCompensationPlanCodeYCorrect {
+            get {
+                return ResourceManager.GetString("RctTotalNonQualifiedDeferredCompensationPlanCodeYCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployerT TotalNonQualifiedDeferredCompensationPlanCodeYOriginal.
+        /// </summary>
+        internal static string RctTotalNonQualifiedDeferredCompensationPlanCodeYOriginal {
+            get {
+                return ResourceManager.GetString("RctTotalNonQualifiedDeferredCompensationPlanCodeYOriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployerT TotalNonQualifiedPlanNotSection457Correct.
+        /// </summary>
+        internal static string RctTotalNonQualifiedPlanNotSection457Correct {
+            get {
+                return ResourceManager.GetString("RctTotalNonQualifiedPlanNotSection457Correct", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployerT TotalNonQualifiedPlanNotSection457Original.
+        /// </summary>
+        internal static string RctTotalNonQualifiedPlanNotSection457Original {
+            get {
+                return ResourceManager.GetString("RctTotalNonQualifiedPlanNotSection457Original", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployerT TotalNonQualifiedPlanSection457Correct.
+        /// </summary>
+        internal static string RctTotalNonQualifiedPlanSection457Correct {
+            get {
+                return ResourceManager.GetString("RctTotalNonQualifiedPlanSection457Correct", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployerT TotalNonQualifiedPlanSection457Original.
+        /// </summary>
+        internal static string RctTotalNonQualifiedPlanSection457Original {
+            get {
+                return ResourceManager.GetString("RctTotalNonQualifiedPlanSection457Original", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployerT TotalNontaxableCombatPayCodeQCorrect.
+        /// </summary>
+        internal static string RctTotalNontaxableCombatPayCodeQCorrect {
+            get {
+                return ResourceManager.GetString("RctTotalNontaxableCombatPayCodeQCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployerT TotalNontaxableCombatPayCodeQOriginal.
+        /// </summary>
+        internal static string RctTotalNontaxableCombatPayCodeQOriginal {
+            get {
+                return ResourceManager.GetString("RctTotalNontaxableCombatPayCodeQOriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployerT TotalPermittedBenefitsUnderAQSEHRACodeFFCorrect.
+        /// </summary>
+        internal static string RctTotalPermittedBenefitsUnderAQSEHRACodeFFCorrect {
+            get {
+                return ResourceManager.GetString("RctTotalPermittedBenefitsUnderAQSEHRACodeFFCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployerT TotalPermittedBenefitsUnderAQSEHRACodeFFOriginal.
+        /// </summary>
+        internal static string RctTotalPermittedBenefitsUnderAQSEHRACodeFFOriginal {
+            get {
+                return ResourceManager.GetString("RctTotalPermittedBenefitsUnderAQSEHRACodeFFOriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployerT TotalSocialSecurityTaxWithheldCorrect.
+        /// </summary>
+        internal static string RctTotalSocialSecurityTaxWithheldCorrect {
+            get {
+                return ResourceManager.GetString("RctTotalSocialSecurityTaxWithheldCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployerT TotalSocialSecurityTaxWithheldOriginal.
+        /// </summary>
+        internal static string RctTotalSocialSecurityTaxWithheldOriginal {
+            get {
+                return ResourceManager.GetString("RctTotalSocialSecurityTaxWithheldOriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployerT TotalSocialSecurityTipsCorrect.
+        /// </summary>
+        internal static string RctTotalSocialSecurityTipsCorrect {
+            get {
+                return ResourceManager.GetString("RctTotalSocialSecurityTipsCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployerT TotalSocialSecurityTipsOriginal.
+        /// </summary>
+        internal static string RctTotalSocialSecurityTipsOriginal {
+            get {
+                return ResourceManager.GetString("RctTotalSocialSecurityTipsOriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployerT TotalSocialSecurityWagesCorrect.
+        /// </summary>
+        internal static string RctTotalSocialSecurityWagesCorrect {
+            get {
+                return ResourceManager.GetString("RctTotalSocialSecurityWagesCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployerT TotalSocialSecurityWagesOriginal.
+        /// </summary>
+        internal static string RctTotalSocialSecurityWagesOriginal {
+            get {
+                return ResourceManager.GetString("RctTotalSocialSecurityWagesOriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployerT TotalTotalDeferredCompensationContributionsCorrect.
+        /// </summary>
+        internal static string RctTotalTotalDeferredCompensationContributionsCorrect {
+            get {
+                return ResourceManager.GetString("RctTotalTotalDeferredCompensationContributionsCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployerT TotalTotalDeferredCompensationContributionsOriginal.
+        /// </summary>
+        internal static string RctTotalTotalDeferredCompensationContributionsOriginal {
+            get {
+                return ResourceManager.GetString("RctTotalTotalDeferredCompensationContributionsOriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployerT TotalWagesTipsAndOtherCompensationCorrect.
+        /// </summary>
+        internal static string RctTotalWagesTipsAndOtherCompensationCorrect {
+            get {
+                return ResourceManager.GetString("RctTotalWagesTipsAndOtherCompensationCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployerT TotalWagesTipsAndOtherCompensationOriginal.
+        /// </summary>
+        internal static string RctTotalWagesTipsAndOtherCompensationOriginal {
+            get {
+                return ResourceManager.GetString("RctTotalWagesTipsAndOtherCompensationOriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployerT NumberOfRCORecord.
+        /// </summary>
+        internal static string RcuNumberOfRCORecord {
+            get {
+                return ResourceManager.GetString("RcuNumberOfRCORecord", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployerU Record.
+        /// </summary>
+        internal static string RcuRecord {
+            get {
+                return ResourceManager.GetString("RcuRecord", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployerU RecordIdentifier.
+        /// </summary>
+        internal static string RcuRecordIdentifier {
+            get {
+                return ResourceManager.GetString("RcuRecordIdentifier", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployerU TotalAggregateDeferralsCodeHHCorrect.
+        /// </summary>
+        internal static string RcuTotalAggregateDeferralsCodeHHCorrect {
+            get {
+                return ResourceManager.GetString("RcuTotalAggregateDeferralsCodeHHCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployerU TotalAggregateDeferralsCodeHHOriginal.
+        /// </summary>
+        internal static string RcuTotalAggregateDeferralsCodeHHOriginal {
+            get {
+                return ResourceManager.GetString("RcuTotalAggregateDeferralsCodeHHOriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployerU TotalAllocatedTipsCorrect.
+        /// </summary>
+        internal static string RcuTotalAllocatedTipsCorrect {
+            get {
+                return ResourceManager.GetString("RcuTotalAllocatedTipsCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployerU TotalAllocatedTipsOriginal.
+        /// </summary>
+        internal static string RcuTotalAllocatedTipsOriginal {
+            get {
+                return ResourceManager.GetString("RcuTotalAllocatedTipsOriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployerU TotalDesignatedRothContributionsCodeEECorrect.
+        /// </summary>
+        internal static string RcuTotalDesignatedRothContributionsCodeEECorrect {
+            get {
+                return ResourceManager.GetString("RcuTotalDesignatedRothContributionsCodeEECorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployerU TotalDesignatedRothContributionsCodeEEOriginal.
+        /// </summary>
+        internal static string RcuTotalDesignatedRothContributionsCodeEEOriginal {
+            get {
+                return ResourceManager.GetString("RcuTotalDesignatedRothContributionsCodeEEOriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployerU TotalIncomeFromQualifiedEquityCodeGGCorrect.
+        /// </summary>
+        internal static string RcuTotalIncomeFromQualifiedEquityCodeGGCorrect {
+            get {
+                return ResourceManager.GetString("RcuTotalIncomeFromQualifiedEquityCodeGGCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployerU TotalIncomeFromQualifiedEquityCodeGGOriginal.
+        /// </summary>
+        internal static string RcuTotalIncomeFromQualifiedEquityCodeGGOriginal {
+            get {
+                return ResourceManager.GetString("RcuTotalIncomeFromQualifiedEquityCodeGGOriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployerU TotalIncomeUnderANonQualifiedDeferredCompensationPlanCodeZCorrect.
+        /// </summary>
+        internal static string RcuTotalIncomeUnderANonQualifiedDeferredCompensationPlanCodeZCorrect {
+            get {
+                return ResourceManager.GetString("RcuTotalIncomeUnderANonQualifiedDeferredCompensationPlanCodeZCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployerU TotalIncomeUnderANonQualifiedDeferredCompensationPlanCodeZOriginal.
+        /// </summary>
+        internal static string RcuTotalIncomeUnderANonQualifiedDeferredCompensationPlanCodeZOriginal {
+            get {
+                return ResourceManager.GetString("RcuTotalIncomeUnderANonQualifiedDeferredCompensationPlanCodeZOriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployerU TotalMedicalSavingsAccountCodeRCorrect.
+        /// </summary>
+        internal static string RcuTotalMedicalSavingsAccountCodeRCorrect {
+            get {
+                return ResourceManager.GetString("RcuTotalMedicalSavingsAccountCodeRCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployerU TotalMedicalSavingsAccountCodeROriginal.
+        /// </summary>
+        internal static string RcuTotalMedicalSavingsAccountCodeROriginal {
+            get {
+                return ResourceManager.GetString("RcuTotalMedicalSavingsAccountCodeROriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployerU TotalQualifiedAdoptionExpensesCodeTCorrect.
+        /// </summary>
+        internal static string RcuTotalQualifiedAdoptionExpensesCodeTCorrect {
+            get {
+                return ResourceManager.GetString("RcuTotalQualifiedAdoptionExpensesCodeTCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployerU TotalQualifiedAdoptionExpensesCodeTOriginal.
+        /// </summary>
+        internal static string RcuTotalQualifiedAdoptionExpensesCodeTOriginal {
+            get {
+                return ResourceManager.GetString("RcuTotalQualifiedAdoptionExpensesCodeTOriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployerU TotalSimpleRetirementAccountCodeSCorrect.
+        /// </summary>
+        internal static string RcuTotalSimpleRetirementAccountCodeSCorrect {
+            get {
+                return ResourceManager.GetString("RcuTotalSimpleRetirementAccountCodeSCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployerU TotalSimpleRetirementAccountCodeSOriginal.
+        /// </summary>
+        internal static string RcuTotalSimpleRetirementAccountCodeSOriginal {
+            get {
+                return ResourceManager.GetString("RcuTotalSimpleRetirementAccountCodeSOriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployerU TotalUncollectedEmployeeTaxOnTipsCodesABCorrect.
+        /// </summary>
+        internal static string RcuTotalUncollectedEmployeeTaxOnTipsCodesABCorrect {
+            get {
+                return ResourceManager.GetString("RcuTotalUncollectedEmployeeTaxOnTipsCodesABCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployerU TotalUncollectedEmployeeTaxOnTipsCodesABOriginal.
+        /// </summary>
+        internal static string RcuTotalUncollectedEmployeeTaxOnTipsCodesABOriginal {
+            get {
+                return ResourceManager.GetString("RcuTotalUncollectedEmployeeTaxOnTipsCodesABOriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployerU TotalUncollectedMedicareTaxCodeNCorrect.
+        /// </summary>
+        internal static string RcuTotalUncollectedMedicareTaxCodeNCorrect {
+            get {
+                return ResourceManager.GetString("RcuTotalUncollectedMedicareTaxCodeNCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployerU TotalUncollectedMedicareTaxCodeNOriginal.
+        /// </summary>
+        internal static string RcuTotalUncollectedMedicareTaxCodeNOriginal {
+            get {
+                return ResourceManager.GetString("RcuTotalUncollectedMedicareTaxCodeNOriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployerU TotalUncollectedSocialSecurityOrRRTATaxCodeMCorrect.
+        /// </summary>
+        internal static string RcuTotalUncollectedSocialSecurityOrRRTATaxCodeMCorrect {
+            get {
+                return ResourceManager.GetString("RcuTotalUncollectedSocialSecurityOrRRTATaxCodeMCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployerU TotalUncollectedSocialSecurityOrRRTATaxCodeMOriginal.
+        /// </summary>
+        internal static string RcuTotalUncollectedSocialSecurityOrRRTATaxCodeMOriginal {
+            get {
+                return ResourceManager.GetString("RcuTotalUncollectedSocialSecurityOrRRTATaxCodeMOriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployerV Record.
+        /// </summary>
+        internal static string RcvRecord {
+            get {
+                return ResourceManager.GetString("RcvRecord", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployerV RecordIdentifier.
+        /// </summary>
+        internal static string RcvRecordIdentifier {
+            get {
+                return ResourceManager.GetString("RcvRecordIdentifier", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EmployerV SupplementalData.
+        /// </summary>
+        internal static string RcvSupplementalData {
+            get {
+                return ResourceManager.GetString("RcvSupplementalData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employee City.
+        /// </summary>
+        internal static string RcwCity {
+            get {
+                return ResourceManager.GetString("RcwCity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employee CostOfEmployerSponsoredHealthCoverageCodeDDCorrect.
+        /// </summary>
+        internal static string RcwCostOfEmployerSponsoredHealthCoverageCodeDDCorrect {
+            get {
+                return ResourceManager.GetString("RcwCostOfEmployerSponsoredHealthCoverageCodeDDCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employee CostOfEmployerSponsoredHealthCoverageCodeDDOriginal.
+        /// </summary>
+        internal static string RcwCostOfEmployerSponsoredHealthCoverageCodeDDOriginal {
+            get {
+                return ResourceManager.GetString("RcwCostOfEmployerSponsoredHealthCoverageCodeDDOriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employee CountryCode.
+        /// </summary>
+        internal static string RcwCountryCode {
+            get {
+                return ResourceManager.GetString("RcwCountryCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employee DeferredCompensationCodeDCorrect.
+        /// </summary>
+        internal static string RcwDeferredCompensationCodeDCorrect {
+            get {
+                return ResourceManager.GetString("RcwDeferredCompensationCodeDCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employee DeferredCompensationCodeDOriginal.
+        /// </summary>
+        internal static string RcwDeferredCompensationCodeDOriginal {
+            get {
+                return ResourceManager.GetString("RcwDeferredCompensationCodeDOriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employee DeferredCompensationCodeECorrect.
+        /// </summary>
+        internal static string RcwDeferredCompensationCodeECorrect {
+            get {
+                return ResourceManager.GetString("RcwDeferredCompensationCodeECorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employee DeferredCompensationCodeEOriginal.
+        /// </summary>
+        internal static string RcwDeferredCompensationCodeEOriginal {
+            get {
+                return ResourceManager.GetString("RcwDeferredCompensationCodeEOriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employee DeferredCompensationCodeFCorrect.
+        /// </summary>
+        internal static string RcwDeferredCompensationCodeFCorrect {
+            get {
+                return ResourceManager.GetString("RcwDeferredCompensationCodeFCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employee DeferredCompensationCodeFOriginal.
+        /// </summary>
+        internal static string RcwDeferredCompensationCodeFOriginal {
+            get {
+                return ResourceManager.GetString("RcwDeferredCompensationCodeFOriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employee DeferredCompensationCodeGCorrect.
+        /// </summary>
+        internal static string RcwDeferredCompensationCodeGCorrect {
+            get {
+                return ResourceManager.GetString("RcwDeferredCompensationCodeGCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employee DeferredCompensationCodeGOriginal.
+        /// </summary>
+        internal static string RcwDeferredCompensationCodeGOriginal {
+            get {
+                return ResourceManager.GetString("RcwDeferredCompensationCodeGOriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employee DeferredCompensationCodeHCorrect.
+        /// </summary>
+        internal static string RcwDeferredCompensationCodeHCorrect {
+            get {
+                return ResourceManager.GetString("RcwDeferredCompensationCodeHCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employee DeferredCompensationCodeHOriginal.
+        /// </summary>
+        internal static string RcwDeferredCompensationCodeHOriginal {
+            get {
+                return ResourceManager.GetString("RcwDeferredCompensationCodeHOriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employee DeliveryAddress.
+        /// </summary>
+        internal static string RcwDeliveryAddress {
+            get {
+                return ResourceManager.GetString("RcwDeliveryAddress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employee DependentCareBenefitsCorrect.
+        /// </summary>
+        internal static string RcwDependentCareBenefitsCorrect {
+            get {
+                return ResourceManager.GetString("RcwDependentCareBenefitsCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employee DependentCareBenefitsOriginal.
+        /// </summary>
+        internal static string RcwDependentCareBenefitsOriginal {
+            get {
+                return ResourceManager.GetString("RcwDependentCareBenefitsOriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employee DesignatedRothCodeAACorrect.
+        /// </summary>
+        internal static string RcwDesignatedRothCodeAACorrect {
+            get {
+                return ResourceManager.GetString("RcwDesignatedRothCodeAACorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employee DesignatedRothCodeAAOriginal.
+        /// </summary>
+        internal static string RcwDesignatedRothCodeAAOriginal {
+            get {
+                return ResourceManager.GetString("RcwDesignatedRothCodeAAOriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employee DesignatedRothCodeBBCorrect.
+        /// </summary>
+        internal static string RcwDesignatedRothCodeBBCorrect {
+            get {
+                return ResourceManager.GetString("RcwDesignatedRothCodeBBCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employee DesignatedRothCodeBBOriginal.
+        /// </summary>
+        internal static string RcwDesignatedRothCodeBBOriginal {
+            get {
+                return ResourceManager.GetString("RcwDesignatedRothCodeBBOriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employee EmployeeFirstNameCorrect.
+        /// </summary>
+        internal static string RcwEmployeeFirstNameCorrect {
+            get {
+                return ResourceManager.GetString("RcwEmployeeFirstNameCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employee EmployeeFirstNameOriginal.
+        /// </summary>
+        internal static string RcwEmployeeFirstNameOriginal {
+            get {
+                return ResourceManager.GetString("RcwEmployeeFirstNameOriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employee EmployeeLastNameCorrect.
+        /// </summary>
+        internal static string RcwEmployeeLastNameCorrect {
+            get {
+                return ResourceManager.GetString("RcwEmployeeLastNameCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employee EmployeeLastNameOriginal.
+        /// </summary>
+        internal static string RcwEmployeeLastNameOriginal {
+            get {
+                return ResourceManager.GetString("RcwEmployeeLastNameOriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employee EmployerContributionsToSHealthSavingsAccountCodeWCorrect.
+        /// </summary>
+        internal static string RcwEmployerContributionsToSHealthSavingsAccountCodeWCorrect {
+            get {
+                return ResourceManager.GetString("RcwEmployerContributionsToSHealthSavingsAccountCodeWCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employee EmployerContributionsToSHealthSavingsAccountCodeWOriginal.
+        /// </summary>
+        internal static string RcwEmployerContributionsToSHealthSavingsAccountCodeWOriginal {
+            get {
+                return ResourceManager.GetString("RcwEmployerContributionsToSHealthSavingsAccountCodeWOriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employee EmployerCostOfPremiumsCodeCCorrect.
+        /// </summary>
+        internal static string RcwEmployerCostOfPremiumsCodeCCorrect {
+            get {
+                return ResourceManager.GetString("RcwEmployerCostOfPremiumsCodeCCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employee EmployerCostOfPremiumsCodeCOriginal.
+        /// </summary>
+        internal static string RcwEmployerCostOfPremiumsCodeCOriginal {
+            get {
+                return ResourceManager.GetString("RcwEmployerCostOfPremiumsCodeCOriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employee FederalIncomeTaxWithheldCorrect.
+        /// </summary>
+        internal static string RcwFederalIncomeTaxWithheldCorrect {
+            get {
+                return ResourceManager.GetString("RcwFederalIncomeTaxWithheldCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employee FederalIncomeTaxWithheldOriginal.
+        /// </summary>
+        internal static string RcwFederalIncomeTaxWithheldOriginal {
+            get {
+                return ResourceManager.GetString("RcwFederalIncomeTaxWithheldOriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employee ForeignPostalCode.
+        /// </summary>
+        internal static string RcwForeignPostalCode {
+            get {
+                return ResourceManager.GetString("RcwForeignPostalCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employee ForeignStateProvince.
+        /// </summary>
+        internal static string RcwForeignStateProvince {
+            get {
+                return ResourceManager.GetString("RcwForeignStateProvince", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employee IncomeFromTheExerciseOfNonstatutoryStockOptionsCodeVCorrect.
+        /// </summary>
+        internal static string RcwIncomeFromTheExerciseOfNonstatutoryStockOptionsCodeVCorrect {
+            get {
+                return ResourceManager.GetString("RcwIncomeFromTheExerciseOfNonstatutoryStockOptionsCodeVCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employee IncomeFromTheExerciseOfNonstatutoryStockOptionsCodeVOriginal.
+        /// </summary>
+        internal static string RcwIncomeFromTheExerciseOfNonstatutoryStockOptionsCodeVOriginal {
+            get {
+                return ResourceManager.GetString("RcwIncomeFromTheExerciseOfNonstatutoryStockOptionsCodeVOriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employee LocationAddress.
+        /// </summary>
+        internal static string RcwLocationAddress {
+            get {
+                return ResourceManager.GetString("RcwLocationAddress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employee MedicareTaxWithheldCorrect.
+        /// </summary>
+        internal static string RcwMedicareTaxWithheldCorrect {
+            get {
+                return ResourceManager.GetString("RcwMedicareTaxWithheldCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employee MedicareTaxWithheldOriginal.
+        /// </summary>
+        internal static string RcwMedicareTaxWithheldOriginal {
+            get {
+                return ResourceManager.GetString("RcwMedicareTaxWithheldOriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employee MedicareWagesAndTipsCorrect.
+        /// </summary>
+        internal static string RcwMedicareWagesAndTipsCorrect {
+            get {
+                return ResourceManager.GetString("RcwMedicareWagesAndTipsCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employee MedicareWagesAndTipsOriginal.
+        /// </summary>
+        internal static string RcwMedicareWagesAndTipsOriginal {
+            get {
+                return ResourceManager.GetString("RcwMedicareWagesAndTipsOriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employee MiddleNameEmployeeCorrect.
+        /// </summary>
+        internal static string RcwMiddleNameEmployeeCorrect {
+            get {
+                return ResourceManager.GetString("RcwMiddleNameEmployeeCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employee MiddleNameEmployeeOriginal.
+        /// </summary>
+        internal static string RcwMiddleNameEmployeeOriginal {
+            get {
+                return ResourceManager.GetString("RcwMiddleNameEmployeeOriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employee NonQualifiedDeferredCompensationPlanCodeYCorrect.
+        /// </summary>
+        internal static string RcwNonQualifiedDeferredCompensationPlanCodeYCorrect {
+            get {
+                return ResourceManager.GetString("RcwNonQualifiedDeferredCompensationPlanCodeYCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employee NonQualifiedDeferredCompensationPlanCodeYOriginal.
+        /// </summary>
+        internal static string RcwNonQualifiedDeferredCompensationPlanCodeYOriginal {
+            get {
+                return ResourceManager.GetString("RcwNonQualifiedDeferredCompensationPlanCodeYOriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employee NonQualifiedPlanNotSection457Correct.
+        /// </summary>
+        internal static string RcwNonQualifiedPlanNotSection457Correct {
+            get {
+                return ResourceManager.GetString("RcwNonQualifiedPlanNotSection457Correct", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employee NonQualifiedPlanNotSection457Original.
+        /// </summary>
+        internal static string RcwNonQualifiedPlanNotSection457Original {
+            get {
+                return ResourceManager.GetString("RcwNonQualifiedPlanNotSection457Original", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employee NonQualifiedPlanSection457Correct.
+        /// </summary>
+        internal static string RcwNonQualifiedPlanSection457Correct {
+            get {
+                return ResourceManager.GetString("RcwNonQualifiedPlanSection457Correct", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employee NonQualifiedPlanSection457Original.
+        /// </summary>
+        internal static string RcwNonQualifiedPlanSection457Original {
+            get {
+                return ResourceManager.GetString("RcwNonQualifiedPlanSection457Original", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employee NontaxableCombatPayCodeQCorrect.
+        /// </summary>
+        internal static string RcwNontaxableCombatPayCodeQCorrect {
+            get {
+                return ResourceManager.GetString("RcwNontaxableCombatPayCodeQCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employee NontaxableCombatPayCodeQOriginal.
+        /// </summary>
+        internal static string RcwNontaxableCombatPayCodeQOriginal {
+            get {
+                return ResourceManager.GetString("RcwNontaxableCombatPayCodeQOriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employee PermittedBenefitsUnderAQSEHRACodeFFCorrect.
+        /// </summary>
+        internal static string RcwPermittedBenefitsUnderAQSEHRACodeFFCorrect {
+            get {
+                return ResourceManager.GetString("RcwPermittedBenefitsUnderAQSEHRACodeFFCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employee PermittedBenefitsUnderAQSEHRACodeFFOriginal.
+        /// </summary>
+        internal static string RcwPermittedBenefitsUnderAQSEHRACodeFFOriginal {
+            get {
+                return ResourceManager.GetString("RcwPermittedBenefitsUnderAQSEHRACodeFFOriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employee Record.
+        /// </summary>
+        internal static string RcwRecord {
+            get {
+                return ResourceManager.GetString("RcwRecord", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employee RecordIdentifier.
+        /// </summary>
+        internal static string RcwRecordIdentifier {
+            get {
+                return ResourceManager.GetString("RcwRecordIdentifier", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employee RetirementPlanIndicatorCorrect.
+        /// </summary>
+        internal static string RcwRetirementPlanIndicatorCorrect {
+            get {
+                return ResourceManager.GetString("RcwRetirementPlanIndicatorCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employee RetirementPlanIndicatorOriginal.
+        /// </summary>
+        internal static string RcwRetirementPlanIndicatorOriginal {
+            get {
+                return ResourceManager.GetString("RcwRetirementPlanIndicatorOriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employee SocialSecurityNumberCorrect.
+        /// </summary>
+        internal static string RcwSocialSecurityNumberCorrect {
+            get {
+                return ResourceManager.GetString("RcwSocialSecurityNumberCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employee SocialSecurityNumberOriginal.
+        /// </summary>
+        internal static string RcwSocialSecurityNumberOriginal {
+            get {
+                return ResourceManager.GetString("RcwSocialSecurityNumberOriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employee SocialSecurityTaxWithheldCorrect.
+        /// </summary>
+        internal static string RcwSocialSecurityTaxWithheldCorrect {
+            get {
+                return ResourceManager.GetString("RcwSocialSecurityTaxWithheldCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employee SocialSecurityTaxWithheldOriginal.
+        /// </summary>
+        internal static string RcwSocialSecurityTaxWithheldOriginal {
+            get {
+                return ResourceManager.GetString("RcwSocialSecurityTaxWithheldOriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employee SocialSecurityTipsCorrect.
+        /// </summary>
+        internal static string RcwSocialSecurityTipsCorrect {
+            get {
+                return ResourceManager.GetString("RcwSocialSecurityTipsCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employee SocialSecurityTipsOriginal.
+        /// </summary>
+        internal static string RcwSocialSecurityTipsOriginal {
+            get {
+                return ResourceManager.GetString("RcwSocialSecurityTipsOriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employee SocialSecurityWagesCorrect.
+        /// </summary>
+        internal static string RcwSocialSecurityWagesCorrect {
+            get {
+                return ResourceManager.GetString("RcwSocialSecurityWagesCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employee SocialSecurityWagesOriginal.
+        /// </summary>
+        internal static string RcwSocialSecurityWagesOriginal {
+            get {
+                return ResourceManager.GetString("RcwSocialSecurityWagesOriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employee StateAbbreviation.
+        /// </summary>
+        internal static string RcwStateAbbreviation {
+            get {
+                return ResourceManager.GetString("RcwStateAbbreviation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employee StatutoryEmployeeIndicatorCorrect.
+        /// </summary>
+        internal static string RcwStatutoryEmployeeIndicatorCorrect {
+            get {
+                return ResourceManager.GetString("RcwStatutoryEmployeeIndicatorCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employee StatutoryEmployeeIndicatorOriginal.
+        /// </summary>
+        internal static string RcwStatutoryEmployeeIndicatorOriginal {
+            get {
+                return ResourceManager.GetString("RcwStatutoryEmployeeIndicatorOriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employee ThirdPartySickPayndicatorCorrect.
+        /// </summary>
+        internal static string RcwThirdPartySickPayndicatorCorrect {
+            get {
+                return ResourceManager.GetString("RcwThirdPartySickPayndicatorCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employee ThirdPartySickPayndicatorOriginal.
+        /// </summary>
+        internal static string RcwThirdPartySickPayndicatorOriginal {
+            get {
+                return ResourceManager.GetString("RcwThirdPartySickPayndicatorOriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employee TotalDeferredCompensationContributionsCorrect.
+        /// </summary>
+        internal static string RcwTotalDeferredCompensationContributionsCorrect {
+            get {
+                return ResourceManager.GetString("RcwTotalDeferredCompensationContributionsCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employee TotalDeferredCompensationContributionsOriginal.
+        /// </summary>
+        internal static string RcwTotalDeferredCompensationContributionsOriginal {
+            get {
+                return ResourceManager.GetString("RcwTotalDeferredCompensationContributionsOriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employee WagesTipsAndOtherCompensationCorrect.
+        /// </summary>
+        internal static string RcwWagesTipsAndOtherCompensationCorrect {
+            get {
+                return ResourceManager.GetString("RcwWagesTipsAndOtherCompensationCorrect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employee WagesTipsAndOtherCompensationOriginal.
+        /// </summary>
+        internal static string RcwWagesTipsAndOtherCompensationOriginal {
+            get {
+                return ResourceManager.GetString("RcwWagesTipsAndOtherCompensationOriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employee ZipCode.
+        /// </summary>
+        internal static string RcwZipCode {
+            get {
+                return ResourceManager.GetString("RcwZipCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employee ZipCodeExtension.
+        /// </summary>
+        internal static string RcwZipCodeExtension {
+            get {
+                return ResourceManager.GetString("RcwZipCodeExtension", resourceCulture);
             }
         }
     }
