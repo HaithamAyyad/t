@@ -2,6 +2,7 @@
 using EFW2C.Common.Enums;
 using EFW2C.Extensions;
 using EFW2C.Records;
+using EFW2C.Resource.Language;
 using System;
 using System.Windows.Forms;
 
@@ -16,7 +17,8 @@ namespace EFW2C.Fields
         private FieldTypeEnum _fieldType;
         protected FieldFormat _fieldFormat;
 
-        public string ClassName { get; set; }
+        public string ClassName { get; private set; }
+        public string ClassDescription { get; private set; }
         public string Data { get { return _data; } }
         public int Length { get { return _length; } }
         public int Pos { get { return _pos; } }
@@ -44,6 +46,11 @@ namespace EFW2C.Fields
             _data = data;
 
             ClassName = GetType().Name;
+            ClassDescription = Language.Instance.LoadDescpitionString(ClassName);
+
+            if (ClassDescription == "{Description-Not-Defined}")
+            {
+            }
         }
 
         public static bool IsFieldNullOrWhiteSpace(FieldBase field)

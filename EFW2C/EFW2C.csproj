@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Language\Language.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RecordEFW2C\BaseClasses\Common\EinFieldBase.cs" />
     <Compile Include="RecordEFW2C\BaseClasses\Common\SocialSecurityNumberOriginal.cs" />
@@ -377,9 +378,18 @@
     <Compile Include="RecordEFW2C\W2cDocument\W2cEmployeeStateTotal.cs" />
     <Compile Include="RecordEFW2C\W2cDocument\W2cSubmitter.cs" />
     <Compile Include="RecordEFW2C\W2cDocument\W2cEmployer.cs" />
+    <Compile Include="Resources\ResourceDescription.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ResourceDescription.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\MaximumWagesAndTaxTabel.xml" />
+    <EmbeddedResource Include="Resources\ResourceDescription.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ResourceDescription.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
