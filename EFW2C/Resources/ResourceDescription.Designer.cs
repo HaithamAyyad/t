@@ -1474,6 +1474,15 @@ namespace EFW2C.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to EmployerT TotalIncomeFromTheExerciseOfNonstatutoryStockOptionsCodeVOriginal.
+        /// </summary>
+        internal static string RctTotalIncomeFromTheExerciseOfNonstatutoryStockOptionsCodeVOriginal {
+            get {
+                return ResourceManager.GetString("RctTotalIncomeFromTheExerciseOfNonstatutoryStockOptionsCodeVOriginal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to EmployerT TotalMedicareTaxWithheldCorrect.
         /// </summary>
         internal static string RctTotalMedicareTaxWithheldCorrect {

@@ -210,10 +210,10 @@ namespace test.ViewModel
             {
                 var employee = DocumentDataTest.CreateEmployeeRandomly(_document);
                 var employeeOptional = DocumentDataTest.CreateEmployeeOptionalRandomly(_document);
-                var employeeState = DocumentDataTest.CreateEmployeeState(_document);
+                //var employeeState = DocumentDataTest.CreateEmployeeState(_document);
 
                 employee.SetEmployeeOptional(employeeOptional);
-                employee.SetEmployeeState(employeeState);
+                //employee.SetEmployeeState(employeeState);
 
                 _document.SelectedEmployer?.AddEmployee(employee);
             }

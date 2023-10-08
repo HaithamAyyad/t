@@ -43,7 +43,7 @@ namespace EFW2C.Resource.Language
             {
 
             }
-            if(!str.Contains(old.Substring(3)))
+            if(str != null && !str.Contains(old.Substring(3)))
             {
 
             }

@@ -226,6 +226,19 @@ namespace test.Testing
 
             return randomYear.ToString();
         }
+
+        static string GenerateRandomDateString()
+        {
+            DateTime startDate = new DateTime(2020, 1, 1);
+            DateTime endDate = new DateTime(2023, 12, 31);
+            int range = (endDate - startDate).Days;
+            int randomDays = random.Next(range);
+
+            DateTime randomDate = startDate.AddDays(randomDays);
+
+            return randomDate.ToString("yyyy-MM-dd").Replace("-","");
+        }
+
         public static W2cSubmitter CreateSubmitterData(W2cDocument document)
         {
             var submitter = new W2cSubmitter(document);
@@ -311,8 +324,8 @@ namespace test.Testing
             var employeeState = new W2cEmployeeState(document);
 
             employeeState.City = GenerateRandomCity();
-            employeeState.DateFirstEmployedCorrect = GenerateRandomDoubleAsString();
-            employeeState.DateFirstEmployedOriginal = GenerateRandomDoubleAsString();
+            employeeState.DateFirstEmployedCorrect = GenerateRandomDateString();
+            employeeState.DateFirstEmployedOriginal = GenerateRandomDateString();
 
             return employeeState;
         }
@@ -335,13 +348,13 @@ namespace test.Testing
 
                     employee.SetEmployeeOptional(employeeOptional);
 
-                    var employeeState = CreateEmployeeState(document);
+                    //var employeeState = CreateEmployeeState(document);
 
-                    employee.SetEmployeeState(employeeState);
+                    //employee.SetEmployeeState(employeeState);
 
                     var employeeStateTotal = CreateEmployeeStateTotal(document);
 
-                    employer.SetEmployeeStateTotal(employeeStateTotal);
+                    //employer.SetEmployeeStateTotal(employeeStateTotal);
 
                     employer.AddEmployee(employee);
                 }
