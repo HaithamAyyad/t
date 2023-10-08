@@ -311,8 +311,11 @@ namespace EFW2C.Manager
 
             using (StreamWriter writer = new StreamWriter(fileName))
             {
-                foreach(var record in recordList)
+                foreach (var record in recordList)
+                {
                     writer.Write(new string(record.RecordBuffer));
+                    writer.WriteLine("");
+                }
             }
         }
 
@@ -323,10 +326,10 @@ namespace EFW2C.Manager
             using (StreamReader reader = new StreamReader(fileName))
             {
                 var buffer = reader.ReadToEnd();
-                if(buffer.Length % Constants.RecordLength != 0 )
+                if((buffer.Length + 2) % (Constants.RecordLength + 2) != 0 )
                     throw new Exception($"file is not correct :{fileName} ");
 
-                for (int i = 0; i < buffer.Length; i += Constants.RecordLength)
+                for (int i = 0; i < buffer.Length; i += Constants.RecordLength + 2)
                 {
                     bufferList.Add(buffer.Substring(i, Constants.RecordLength));
                 }

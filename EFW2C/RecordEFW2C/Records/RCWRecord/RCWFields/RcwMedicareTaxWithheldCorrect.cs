@@ -34,7 +34,7 @@ namespace EFW2C.Fields
 
             var localData = DataInRecordBuffer();
 
-            if (employmentCode != EmploymentCodeEnum.X.ToString())
+            if (employmentCode == EmploymentCodeEnum.X.ToString())
             {
                 if (!string.IsNullOrWhiteSpace(localData))
                     throw new Exception($"{ClassDescription} : must be blank, because employment code is 'X'");
