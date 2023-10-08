@@ -50,7 +50,7 @@ namespace EFW2C.Fields
             double.TryParse(localData, out var localValue);
 
             if (localValue < rctSocialSecurityTipsCorrectValue + rctSocialSecurityWagesCorrectValue)
-                throw new Exception($"Value must be equal the sum of Social Security Tips and Social Security Wages");
+                throw new Exception($"{ClassDescription} Value must be equal the sum of Social Security Tips and Social Security Wages");
 
             if (employmentCode == EmploymentCodeEnum.H.ToString())
             {

@@ -286,6 +286,15 @@ namespace test.Testing
             employee.EmployeeLastNameCorrect = GenerateRandomName();
             employee.EmployeeLastNameOriginal = GenerateRandomName();
 
+
+            employee.MedicareWagesAndTipsOriginal = "100";
+            employee.MedicareWagesAndTipsCorrect = "100";
+            employee.SocialSecurityTipsOriginal = "90";
+            employee.SocialSecurityTipsCorrect = "90";
+            employee.SocialSecurityWagesOriginal = "10";
+            employee.SocialSecurityWagesCorrect = "10";
+
+
             return employee;
         }
         internal static W2cEmployeeOptional CreateEmployeeOptionalRandomly(W2cDocument document)
