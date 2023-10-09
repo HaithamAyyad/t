@@ -22,7 +22,7 @@ namespace test
              try
              {
                 var test = new TestClass();
-                //test.test();
+                test.test();
             }
             catch (Exception ex)
              {

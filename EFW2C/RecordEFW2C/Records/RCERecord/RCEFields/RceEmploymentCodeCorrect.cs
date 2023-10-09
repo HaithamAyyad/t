@@ -28,16 +28,13 @@ namespace EFW2C.Fields
             if (!base.Verify())
                 return false;
 
-            if (!IsOriginalNullOrWhiteSpace())
-            {
-                var employmentCode = DataInRecordBuffer();
+            var employmentCode = DataInRecordBuffer();
 
-                if (string.IsNullOrWhiteSpace(employmentCode))
-                    throw new Exception($"{ClassDescription} cant be empty since original field is provided");
-                
-                if (!EnumHelper.IsEmploymentCodeValid(employmentCode))
-                    throw new Exception($"{ClassDescription}: {employmentCode} is not a valid Employment Code");
-            }
+            if (string.IsNullOrWhiteSpace(employmentCode))
+                throw new Exception($"{ClassDescription} cant be empty since original field is provided");
+
+            if (!EnumHelper.IsEmploymentCodeValid(employmentCode))
+                throw new Exception($"{ClassDescription}: {employmentCode} is not a valid Employment Code");
 
             return true;
         }

@@ -11,7 +11,6 @@ namespace EFW2C.Fields
 
     internal abstract class FieldCorrect : FieldBase
     {
-        public bool IgnoreOriginalField { get; set; }
         public FieldCorrect(RecordBase record, string data)
             : base(record, data)
         {
@@ -21,54 +20,30 @@ namespace EFW2C.Fields
 
         public override abstract FieldBase Clone(RecordBase record);
 
-        public override bool Verify()
-        {
-            if (!base.Verify())
-                return false;
-
-            if(!IgnoreOriginalField && !IsOriginalNullOrWhiteSpace())
-            {
-                if(string.IsNullOrWhiteSpace(DataInRecordBuffer()))
-                    throw new Exception($"{ClassDescription}: since you provide the original field then must fill {ClassDescription}");
-            }
-
-            return true;
-        }
-
         protected override FieldTypeEnum GetFieldType()
         {
             return FieldTypeEnum.UpperCase_LeftJustify_Blank;
-        }
-
-        public override bool IsRequired()
-        {
-            return !IsOriginalNullOrWhiteSpace();
-        }
-
-        protected bool IsOriginalNullOrWhiteSpace()
-        {
-            if (!ClassName.Contains(Constants.CorrectStr))
-                throw new Exception($"{ClassDescription} this function only used for {Constants.CorrectStr} class");
-
-            var originalName = ClassName.Replace(Constants.CorrectStr, Constants.OriginalStr);
-
-            return IsFieldNullOrWhiteSpace(_record.GetField(originalName));
         }
 
         protected bool IsOneCorrectMoneyFieldProvided()
         {
             foreach (var field in _record.Fields)
             {
-                var typeOfClassFiled = Type.GetType(field.ToString())?.BaseType;
-                while (typeOfClassFiled != null)
+                var typeOfClassField = Type.GetType(field.ToString())?.BaseType;
+                while (typeOfClassField != null)
                 {
-                    if (typeOfClassFiled.ToString().Contains("MoneyCorrect"))
+                    if (typeOfClassField.ToString().Contains("MoneyCorrect"))
                         return true;
 
-                    typeOfClassFiled = typeOfClassFiled.BaseType;
+                    typeOfClassField = typeOfClassField.BaseType;
                 }
             }
 
+            return false;
+        }
+
+        public override bool IsRequired()
+        {
             return false;
         }
     }

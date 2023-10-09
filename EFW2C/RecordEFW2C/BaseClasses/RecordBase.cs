@@ -127,7 +127,7 @@ namespace EFW2C.Records
                         if (fieldList.Count > 1)
                         {
                             var str = string.Join(", ", fieldList.Select(item => item.ClassName));
-                            throw new Exception($"{ClassDescription}: the following fileds are shared with same position : {str}");
+                            throw new Exception($"{ClassDescription}: the following fields are shared with same position : {str}");
                         }
 
                         pos = pos + fieldList[0].Length;

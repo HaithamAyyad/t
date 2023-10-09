@@ -15,8 +15,6 @@ namespace EFW2C.Fields
         {
             _pos = 71;
             _length = 15;
-
-            IgnoreOriginalField = true;
         }
 
         public override FieldBase Clone(RecordBase record)
@@ -32,7 +30,6 @@ namespace EFW2C.Fields
             if (_record.GetField(typeof(RcwStatutoryEmployeeIndicatorCorrect).Name) == null &&
                 _record.GetField(typeof(RcwThirdPartySickPayndicatorCorrect).Name) == null &&
                 _record.GetField(typeof(RcwRetirementPlanIndicatorCorrect).Name) == null &&
-                 IsOriginalNullOrWhiteSpace() &&
                 !IsOneCorrectMoneyFieldProvided())
                 throw new Exception($"{ClassDescription}: you must provoide at least one indecator or the SSN original field or at least one correct money field");
 

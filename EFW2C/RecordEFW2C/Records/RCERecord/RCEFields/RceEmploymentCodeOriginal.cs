@@ -21,19 +21,5 @@ namespace EFW2C.Fields
         {
             return new RceEmploymentCodeOriginal(record, _data);
         }
-
-        public override bool Verify()
-        {
-            if (!base.Verify())
-                return false;
-
-            if(!string.IsNullOrWhiteSpace(DataInRecordBuffer()))
-            {
-                if(!IsCorrectionFieldProvided())
-                    throw new Exception($"{ClassDescription}: the correction field is not provided");
-            }
-
-            return true;
-        }
     }
 }

@@ -27,16 +27,13 @@ namespace EFW2C.Fields
             if (!base.Verify())
                 return false;
 
-            if (!IsOriginalNullOrWhiteSpace())
+            switch (DataInRecordBuffer())
             {
-                switch(DataInRecordBuffer())
-                {
-                    case "0":
-                    case "1":
-                        break;
-                    default:
-                        throw new Exception($"{ClassDescription} Field must be 0 or 1");
-                }
+                case "0":
+                case "1":
+                    break;
+                default:
+                    throw new Exception($"{ClassDescription} Field must be 0 or 1");
             }
 
             return true;

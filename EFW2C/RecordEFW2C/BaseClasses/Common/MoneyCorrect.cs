@@ -1,4 +1,5 @@
 ﻿using System;
+using EFW2C.Common.Constants;
 using EFW2C.Common.Enums;
 using EFW2C.Extensions;
 using EFW2C.Records;
@@ -25,7 +26,23 @@ namespace EFW2C.Fields
             if (!base.Verify())
                 return false;
 
+            if (!IsOriginalMoneyFieldNullOrWhiteSpace())
+            {
+                if (string.IsNullOrWhiteSpace(DataInRecordBuffer()))
+                    throw new Exception($"{ClassDescription}: since you provide the original field then must fill {ClassDescription}");
+            }
+
             return true;
+        }
+
+        private bool IsOriginalMoneyFieldNullOrWhiteSpace()
+        {
+            if (!ClassName.Contains(Constants.CorrectStr))
+                throw new Exception($"{ClassDescription} this function only used for {Constants.CorrectStr} class");
+
+            var originalFieldName = ClassName.Replace(Constants.CorrectStr, Constants.OriginalStr);
+
+            return IsFieldNullOrWhiteSpace(_record.GetField(originalFieldName));
         }
 
         protected override FieldTypeEnum GetFieldType()

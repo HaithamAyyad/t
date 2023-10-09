@@ -15,8 +15,6 @@ namespace EFW2C.Fields
         {
             _pos = 12;
             _length = 9;
-
-            IgnoreOriginalField = true;
         }
 
         public override FieldBase Clone(RecordBase record)

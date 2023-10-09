@@ -8,7 +8,7 @@ namespace EFW2C.Fields
 {
     //Created by : HSA 9-5-2023
     //Reviewed by : 
-
+    
     internal abstract class FieldOriginal : FieldBase
     {
         public FieldOriginal(RecordBase record, string data)
@@ -20,44 +20,14 @@ namespace EFW2C.Fields
 
         public override abstract FieldBase Clone(RecordBase record);
 
-        public override bool Verify()
-        {
-            if (!base.Verify())
-                return false;
-
-            if(!string.IsNullOrWhiteSpace(DataInRecordBuffer()))
-            {
-                if(!IsCorrectionFieldProvided())
-                    throw new Exception($"{ClassDescription} correction filed me be provided");
-            }
-
-            return true;
-        }
-
         protected override FieldTypeEnum GetFieldType()
         {
             return FieldTypeEnum.UpperCase_LeftJustify_Blank;
         }
 
-        protected bool IsCorrectionFieldProvided()
-        {
-            return GetCorrectField() != null;
-        }
-
-        private FieldCorrect GetCorrectField()
-        {
-            if (!ClassName.Contains(Constants.OriginalStr))
-                throw new Exception($"{ClassDescription} this function only used for {Constants.OriginalStr} class");
-
-            var correctClassName = ClassName.Replace(Constants.OriginalStr, Constants.CorrectStr);
-
-            return _record.GetField(correctClassName) as FieldCorrect;
-        }
-
-
         public override bool IsRequired()
         {
-            return IsCorrectionFieldProvided();
+            return false;
         }
     }
 }
