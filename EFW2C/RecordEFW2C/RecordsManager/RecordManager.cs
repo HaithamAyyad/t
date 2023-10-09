@@ -12,7 +12,6 @@ namespace EFW2C.Manager
     internal class RecordManager
     {
         private bool _isOpened;
-        private bool _isVerified;
 
         private bool _reSubmitted;
         private bool _unemployment;
@@ -23,12 +22,11 @@ namespace EFW2C.Manager
         private List<RceRecord> _rceRecordList;
 
         public bool IsOpened { get { return _isOpened; } }
-        public bool IsVerified { get { return _isVerified; } }
         public bool IsTIB { get { return _isTIB; } }
         public bool IsSubmitter { get { return _reSubmitted; } }
         public bool IsUnEmployment { get { return _unemployment; } }
 
-        public List<RceRecord> RceRecordList { get { return _rceRecordList; } }
+        public IEnumerable<RceRecord> RceRecordList  => _rceRecordList;
 
         public RecordManager()
         {
@@ -44,12 +42,7 @@ namespace EFW2C.Manager
         {
             _rcaRecord = rcaRecord;
 
-            SetDirty1();
-        }
-
-        private void SetDirty1()
-        {
-            _isVerified = false;
+            Open();
         }
 
         public void AddRceRecord(RceRecord rceRecord)
@@ -60,7 +53,7 @@ namespace EFW2C.Manager
                     throw new Exception($"Employer records should not exceed {Constants.MaxRceRecordsNumber}");
 
                 _rceRecordList.Add(rceRecord);
-                SetDirty1();
+                Open();
             }
         }
 
@@ -74,7 +67,6 @@ namespace EFW2C.Manager
         public void Open()
         {
             _isOpened = true;
-            SetDirty1();
         }
 
         private void CheckOpened(bool isOpened)
@@ -93,8 +85,6 @@ namespace EFW2C.Manager
 
         public bool Verify()
         {
-            _isVerified = false;
-
             if (GetRcwRecordsCount() > Constants.MaxRcwRecordsNumber)
                 throw new Exception($"Employee records should not exceed {Constants.MaxRcwRecordsNumber}");
 
@@ -122,9 +112,7 @@ namespace EFW2C.Manager
             if (!VerifyFieldsInRecords())
                 return false;
 
-            _isVerified = true;
-
-            return _isVerified;
+            return true;
         }
 
         public void Close()
@@ -244,7 +232,7 @@ namespace EFW2C.Manager
             if (_reSubmitted != value)
             {
                 _reSubmitted = value;
-                SetDirty1();
+                Open();
             }
         }
 
@@ -253,7 +241,7 @@ namespace EFW2C.Manager
             if (_unemployment != value)
             {
                 _unemployment = value;
-                SetDirty1();
+                Open();
             }
         }
 
@@ -262,7 +250,7 @@ namespace EFW2C.Manager
             if (_isTIB != value)
             {
                 _isTIB = value;
-                SetDirty1();
+                Open();
             }
         }
 
@@ -303,7 +291,11 @@ namespace EFW2C.Manager
 
         public void WriteToFile(string fileName)
         {
-            CheckOpened(false);
+            if (_isOpened)
+                Close();
+
+            if (_isOpened)
+                return;
 
             var recordList = CreateRecordList();
 

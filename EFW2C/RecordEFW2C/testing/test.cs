@@ -17,7 +17,8 @@ namespace EFW2C.RecordEFW2C.W2cDocument
         {
             var fileName1 = @"C:\1\1.txt";
             var fileName2 = @"C:\1\2.txt";
-            var fileName3 = @"C:\1\3.txt";
+            var fileName3 = @"C:\1\W2CSampleFile.txt";
+            var fileName4 = @"C:\1\4.txt";
 
             try
             {
@@ -91,11 +92,11 @@ namespace EFW2C.RecordEFW2C.W2cDocument
                 if (!AreFilesIdentical_testfunction(fileName1, fileName2))
                     throw new Exception($"for testing {fileName1} is not equal to {fileName2}");
 
-                RecordManager manager3 = RecordManager.CreateManager(fileName1);
+                RecordManager manager3 = RecordManager.CreateManager(fileName3);
 
-                manager3.WriteToFile(fileName3);
+                manager3.WriteToFile(fileName4);
 
-                if (!AreFilesIdentical_testfunction(fileName1, fileName3))
+                if (!AreFilesIdentical_testfunction(fileName4, fileName3))
                     throw new Exception($"for testing {fileName1} is not equal to {fileName3}");
 
       
