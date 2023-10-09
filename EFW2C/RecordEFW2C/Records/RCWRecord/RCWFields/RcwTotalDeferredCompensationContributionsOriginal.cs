@@ -29,7 +29,7 @@ namespace EFW2C.Fields
                 return false;
 
             if(!_record.Manager.IsTIB)
-                throw new Exception($"{ClassDescription} : This filed only should be provided when TIB is not set");
+                throw new Exception($"{ClassDescription} : This field only should be provided when TIB is not set");
 
             return true;
         }
