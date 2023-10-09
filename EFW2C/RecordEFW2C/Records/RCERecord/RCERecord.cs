@@ -112,11 +112,9 @@ namespace EFW2C.Records
                     return false;
             }
 
-            if (_rctRecord == null)
-                GenerateTotalRecords();
+            GenerateEmployeeTotalRecords();
 
-            if (_rcuRecord == null)
-                GenerateTotalOptionalRecords();
+            GenerateTotalEmployeeOptionalRecords();
 
             if (!_rctRecord.Verify())
                 return false;
@@ -197,7 +195,7 @@ namespace EFW2C.Records
             return sum;
         }
 
-        public void GenerateTotalRecords()
+        public void GenerateEmployeeTotalRecords()
         {
             var rctRecord = new RctRecord(Manager);
 
@@ -207,11 +205,14 @@ namespace EFW2C.Records
                     rctRecord.AddField(rctField.Clone(rctRecord));
             }
 
+            rctRecord.AddField(new RctNumberOfRCWRecords(rctRecord));
+
+
             SetRctRecord(rctRecord);
             rctRecord.Write();
         }
 
-        public void GenerateTotalOptionalRecords()
+        public void GenerateTotalEmployeeOptionalRecords()
         {
             _rcuRecord = null;
 
@@ -224,6 +225,8 @@ namespace EFW2C.Records
                     if (IsRcoMatchRcuFieldExists(rcuField.ClassName))
                         rcuRecord.AddField(rcuField.Clone(rcuRecord));
                 }
+
+                rcuRecord.AddField(new RcuNumberOfRCORecords(rcuRecord));
 
                 rcuRecord.SetParent(this);
                 rcuRecord.Write();
