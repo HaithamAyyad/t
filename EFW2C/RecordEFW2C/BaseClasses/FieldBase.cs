@@ -47,10 +47,6 @@ namespace EFW2C.Fields
 
             ClassName = GetType().Name;
             ClassDescription = Language.Instance.LoadDescpitionString(ClassName);
-
-            if (ClassDescription == "{Description-Not-Defined}")
-            {
-            }
         }
 
         public static bool IsFieldNullOrWhiteSpace(FieldBase field)

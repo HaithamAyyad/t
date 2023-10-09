@@ -8,9 +8,9 @@ namespace EFW2C.Fields
     //Created by : HSA 9-6-2023
     //Reviewed by : 
 
-    internal class RcuNumberOfRCORecord : FieldBase
+    internal class RcuNumberOfRCORecords : FieldBase
     {
-        public RcuNumberOfRCORecord(RecordBase record)
+        public RcuNumberOfRCORecords(RecordBase record)
             : base(record, "0")
         {
             _pos = 3;
@@ -19,7 +19,7 @@ namespace EFW2C.Fields
 
         public override FieldBase Clone(RecordBase record)
         {
-            return new RcuNumberOfRCORecord(record);
+            return new RcuNumberOfRCORecords(record);
         }
 
 

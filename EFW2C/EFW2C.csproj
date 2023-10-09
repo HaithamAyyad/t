@@ -294,7 +294,7 @@
     <Compile Include="RecordEFW2C\Records\RCTRecord\RCTFields\RctTotalWagesTipsAndOtherCompensationOriginal.cs" />
     <Compile Include="RecordEFW2C\Records\RCTRecord\RCTRecord.cs" />
     <Compile Include="RecordEFW2C\Records\RCURecord\RCUFields\RcuIdentifierField.cs" />
-    <Compile Include="RecordEFW2C\Records\RCURecord\RCUFields\RcuNumberOfRCORecord .cs" />
+    <Compile Include="RecordEFW2C\Records\RCURecord\RCUFields\RcuNumberOfRCORecords.cs" />
     <Compile Include="RecordEFW2C\Records\RCURecord\RCUFields\RcuTotalAggregateDeferralsCodeHHCorrect.cs" />
     <Compile Include="RecordEFW2C\Records\RCURecord\RCUFields\RcuTotalAggregateDeferralsCodeHHOriginal.cs" />
     <Compile Include="RecordEFW2C\Records\RCURecord\RCUFields\RcuTotalAllocatedTipsCorrect.cs" />

@@ -45,7 +45,7 @@ namespace EFW2C.RecordEFW2C.W2cDocument
             _employeeOptionalRecord = employeeOptionalRecord;
         }
 
-        public void SetEmployeeState(W2cEmployeeState employeeStateRecord)
+        public void SetEmployeeStateRecord(W2cEmployeeState employeeStateRecord)
         {
             if (_employeeStateRecord != null)
                 _employeeStateRecord.SetParent(null);

@@ -266,6 +266,79 @@ namespace test.Testing
             return submitter;
         }
 
+        internal static W2cEmployee CreateEmployeeStatically(W2cDocument document)
+        {
+            var employee = new W2cEmployee(document);
+
+            employee.SocialSecurityNumberOriginal = "758-31-2689";
+            employee.EmployeeFirstNameOriginal = "Jefferson";
+            employee.EmployeeLastNameOriginal = "Scranney";
+            employee.LocationAddress = "68 Dayton Road";
+            employee.DeliveryAddress = "Apt 163";
+            employee.City = "Columbia";
+            employee.StateAbbreviation = "SC";
+            employee.ZipCode = "29215";
+            employee.SocialSecurityNumberCorrect = "416-25-2516";
+            employee.EmployeeFirstNameCorrect = "Brook";
+            employee.EmployeeLastNameCorrect = "Scranney";
+            employee.WagesTipsAndOtherCompensationOriginal = "45212.25";
+            employee.FederalIncomeTaxWithheldOriginal = "15824.28"; //75
+            employee.SocialSecurityWagesOriginal = "55000.52";
+            employee.SocialSecurityTaxWithheldOriginal = "3410.03"; //224
+            employee.MedicareWagesAndTipsOriginal = "55005.52";
+            employee.MedicareTaxWithheldOriginal = "797.58"; //004
+            employee.SocialSecurityTipsOriginal = "9871.63";
+
+            employee.WagesTipsAndOtherCompensationCorrect = "45285.25";
+            employee.FederalIncomeTaxWithheldCorrect = "15849.83"; //75
+            employee.SocialSecurityWagesCorrect = "55852.52";
+            employee.SocialSecurityTaxWithheldCorrect = "3462.85"; //624
+            employee.MedicareWagesAndTipsCorrect = "55857.52";
+            employee.MedicareTaxWithheldCorrect = "809.93"; //404
+            employee.SocialSecurityTipsCorrect = "9855.63";
+
+            return employee;
+        }
+
+        public static W2cEmployeeState CreateEmployeeStateStatically(W2cDocument document)
+        {
+            var employeeState = new W2cEmployeeState(document);
+
+            employeeState.StateAbbreviation = "SC";
+            //employeeState. SID87412-14 15-id
+            employeeState.StateTaxableWagesOriginal = "14523.12";
+            employeeState.StateIncomeTaxWithheldOriginal = "524.12";
+            employeeState.LocalTaxableWagesOriginal = "66.32";
+            //employeeState.  10.22 box 19
+            employeeState.City = "Tuscarawas";
+
+            employeeState.StateTaxableWagesCorrect = "8741.25";
+            employeeState.StateIncomeTaxWithheldCorrect = "521.23";
+            employeeState.LocalTaxableWagesCorrect = "698.21";
+            //employeeState 11.52
+
+            return employeeState;
+        }
+
+        internal static W2cEmployeeOptional CreateEmployeeOptionalStatically(W2cDocument document)
+        {
+            var employeeOptional = new W2cEmployeeOptional(document);
+
+            employeeOptional.AllocatedTipsCorrect = "854.23";
+            employeeOptional.AllocatedTipsOriginal = "874.23";
+
+            return employeeOptional;
+        }
+        internal static W2cEmployeeOptional CreateEmployeeOptionalRandomly(W2cDocument document)
+        {
+            var employeeOptional = new W2cEmployeeOptional(document);
+
+            employeeOptional.AllocatedTipsCorrect = GenerateRandomDoubleAsString();
+            employeeOptional.AllocatedTipsOriginal = GenerateRandomDoubleAsString();
+
+            return employeeOptional;
+        }
+
         internal static W2cEmployee CreateEmployeeRandomly(W2cDocument document)
         {
             var employee = new W2cEmployee(document);
@@ -288,24 +361,16 @@ namespace test.Testing
 
 
             employee.MedicareWagesAndTipsOriginal = "100";
-            employee.MedicareWagesAndTipsCorrect = "100";
+            employee.MedicareWagesAndTipsCorrect = "102";
             employee.SocialSecurityTipsOriginal = "90";
-            employee.SocialSecurityTipsCorrect = "90";
+            employee.SocialSecurityTipsCorrect = "91";
             employee.SocialSecurityWagesOriginal = "10";
-            employee.SocialSecurityWagesCorrect = "10";
+            employee.SocialSecurityWagesCorrect = "11";
 
 
             return employee;
         }
-        internal static W2cEmployeeOptional CreateEmployeeOptionalRandomly(W2cDocument document)
-        {
-            var employeeOptional = new W2cEmployeeOptional(document);
 
-            employeeOptional.AllocatedTipsCorrect = GenerateRandomDoubleAsString();
-            employeeOptional.AllocatedTipsOriginal = GenerateRandomDoubleAsString();
-
-            return employeeOptional;
-        }
         internal static W2cEmployer CreateEmployerRandomly(W2cDocument document)
         {
             var employer = new W2cEmployer(document);
@@ -345,21 +410,22 @@ namespace test.Testing
 
             document.SetSubmitter(submitter);
 
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 1; i++)
             {
                 var employer = CreateEmployerRandomly(document);
 
-                for (int j = 0; j < 7; j++)
+                for (int j = 0; j < 1; j++)
                 {
-                    var employee = CreateEmployeeRandomly(document);
+                    //var employee = CreateEmployeeRandomly(document);
+                    var employee = CreateEmployeeStatically(document);
 
-                    var employeeOptional = CreateEmployeeOptionalRandomly(document);
+                    var employeeOptional = CreateEmployeeOptionalStatically(document);
 
                     employee.SetEmployeeOptional(employeeOptional);
 
-                    //var employeeState = CreateEmployeeState(document);
+                    var employeeState = CreateEmployeeStateStatically(document);
 
-                    //employee.SetEmployeeState(employeeState);
+                    employee.SetEmployeeStateRecord(employeeState);
 
                     var employeeStateTotal = CreateEmployeeStateTotal(document);
 
