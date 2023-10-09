@@ -279,7 +279,6 @@ namespace EFW2C.Records
                 if (record != null)
                 {
                     record.CreateFieldsFromRecordBuffer();
-                    record.WriteBlankFields();
 
                     if (record is RcaRecord rcaRecord)
                     {
@@ -294,21 +293,6 @@ namespace EFW2C.Records
             }
 
             return recordList;
-        }
-
-        internal void WriteBlankFields()
-        {
-            if (_blankFields != null)
-            {
-                foreach (var blankField in _blankFields)
-                {
-                    var pos = blankField.Item1;
-                    var length = blankField.Item2;
-
-                    for(var i = pos; i < pos + length; i++)
-                        RecordBuffer[i] = Constants.WhiteSpaceChar;
-                }
-            }
         }
 
         public void CreateFieldsFromRecordBuffer()
