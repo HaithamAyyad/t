@@ -56,6 +56,7 @@ namespace EFW2C.Fields
                 if (localValue + rcwSocialSecurityWagesCorrectValue > wageTax.SocialSecurity.MaxTaxedEarnings)
                     throw new Exception($"{ClassDescription} : value must not exceed SocialSecurity MaxTaxedEarnings");
             }
+
             return true;
         }
     }
