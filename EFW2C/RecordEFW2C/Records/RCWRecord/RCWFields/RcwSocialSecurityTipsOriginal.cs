@@ -45,7 +45,7 @@ namespace EFW2C.Fields
                 double.TryParse(rcwSocialSecurityWagesOriginal.DataInRecordBuffer(), out var rcwSocialSecurityWagesOriginalValue);
 
                 if (localValue != 0 || localValue + rcwSocialSecurityWagesOriginalValue < wageTax.SocialSecurity.MinHouseHoldCoveredWages)
-                    throw new Exception($"{ClassDescription} : vlaue must be zero or equal or greater than MinHouseHold Covered Wages");
+                    throw new Exception($"{ClassDescription} : value must be zero or equal or greater than MinHouseHold Covered Wages");
             }
             
             return true;

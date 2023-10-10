@@ -50,11 +50,11 @@ namespace EFW2C.Fields
             if (employmentCode == EmploymentCodeEnum.H.ToString())
             {
                 if (localValue != 0 || localValue + socialSecurityTipsCorrectValue < wageTax.SocialSecurity.MinHouseHoldCoveredWages)
-                    throw new Exception($"{ClassDescription} : vlaue must be zero or equal or greater than MinHouseHold Covered Wages ({wageTax.SocialSecurity.MinHouseHoldCoveredWages})");
+                    throw new Exception($"{ClassDescription} : value must be zero or equal or greater than MinHouseHold Covered Wages ({wageTax.SocialSecurity.MinHouseHoldCoveredWages})");
             }
 
             if (localValue + socialSecurityTipsCorrectValue > wageTax.SocialSecurity.MaxTaxedEarnings)
-                throw new Exception($"{ClassDescription} : vlaue must not exceed SocialSecurity MaxTaxedEarnings");
+                throw new Exception($"{ClassDescription} : value must not exceed SocialSecurity MaxTaxedEarnings");
 
             return true;
         }

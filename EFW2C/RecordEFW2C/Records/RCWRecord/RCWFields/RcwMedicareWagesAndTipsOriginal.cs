@@ -39,7 +39,7 @@ namespace EFW2C.Fields
                 var wageTax = WageTaxHelper.GetWageTax(taxYear);
 
                 if (localValue != 0 || localValue < wageTax.SocialSecurity.MinHouseHoldCoveredWages)
-                    throw new Exception($"{ClassDescription} : vlaue must be zero or equal or greater than MinHouseHold Covered Wages");
+                    throw new Exception($"{ClassDescription} : value must be zero or equal or greater than MinHouseHold Covered Wages");
             }
 
             if (employmentCode == EmploymentCodeEnum.X.ToString())
