@@ -9,7 +9,7 @@ namespace EFW2C.Fields
     //Created by : HSA 9-5-2023
     //Reviewed by : 
 
-    internal abstract class SumFieldOriginal : FieldOriginal
+    internal abstract class SumFieldOriginal : MoneyOriginal
     {
         public SumFieldOriginal(RecordBase record, string data)
             : base(record, data)
