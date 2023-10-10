@@ -385,7 +385,7 @@ namespace test.Testing
             return employer;
         }
 
-        public static W2cEmployeeStateTotal CreateEmployeeStateTotal(W2cDocument document)
+        public static W2cEmployeeStateTotal CreateEmployeeStateTotalRandomly(W2cDocument document)
         {
             var employeeStateTotal = new W2cEmployeeStateTotal(document);
             employeeStateTotal.SupplementalData = " this is data from user";
@@ -393,7 +393,7 @@ namespace test.Testing
             return employeeStateTotal;
         }
 
-        public static W2cEmployeeState CreateEmployeeState(W2cDocument document)
+        public static W2cEmployeeState CreateEmployeeStateRandomly(W2cDocument document)
         {
             var employeeState = new W2cEmployeeState(document);
 
@@ -402,6 +402,40 @@ namespace test.Testing
             employeeState.DateFirstEmployedOriginal = GenerateRandomDateString();
 
             return employeeState;
+        }
+
+        public static void FillData_staically(W2cDocument document)
+        {
+            var submitter = CreateSubmitterData(document);
+
+            document.SetSubmitter(submitter);
+
+            for (int i = 0; i < 1; i++)
+            {
+                var employer = CreateEmployerRandomly(document);
+
+                for (int j = 0; j < 1; j++)
+                {
+                    var employee = CreateEmployeeStatically(document);
+
+                    /*
+                    var employeeOptional = CreateEmployeeOptionalStatically(document);
+
+                    employee.SetEmployeeOptional(employeeOptional);
+
+                    var employeeState = CreateEmployeeStateStatically(document);
+
+                    employee.SetEmployeeStateRecord(employeeState);
+
+                    var employeeStateTotal = CreateEmployeeStateTotalRandomly(document);
+
+                    employer.SetEmployeeStateTotal(employeeStateTotal);
+                    */
+                    employer.AddEmployee(employee);
+                }
+
+                document.AddEmployer(employer);
+            }
         }
 
         public static void FillData(W2cDocument document)
@@ -416,20 +450,19 @@ namespace test.Testing
 
                 for (int j = 0; j < 1; j++)
                 {
-                    //var employee = CreateEmployeeRandomly(document);
-                    var employee = CreateEmployeeStatically(document);
+                    var employee = CreateEmployeeRandomly(document);
 
-                    var employeeOptional = CreateEmployeeOptionalStatically(document);
+                    var employeeOptional = CreateEmployeeOptionalRandomly(document);
 
                     employee.SetEmployeeOptional(employeeOptional);
 
-                    var employeeState = CreateEmployeeStateStatically(document);
+                    var employeeState = CreateEmployeeStateRandomly(document);
 
                     employee.SetEmployeeStateRecord(employeeState);
 
-                    var employeeStateTotal = CreateEmployeeStateTotal(document);
+                    var employeeStateTotal = CreateEmployeeStateTotalRandomly(document);
 
-                    //employer.SetEmployeeStateTotal(employeeStateTotal);
+                    employer.SetEmployeeStateTotal(employeeStateTotal);
 
                     employer.AddEmployee(employee);
                 }
@@ -437,5 +470,6 @@ namespace test.Testing
                 document.AddEmployer(employer);
             }
         }
+
     }
 }

@@ -131,7 +131,9 @@ namespace test.ViewModel
             _employeeState = new W2cEmployeeState(_document);
             _employeeStateTotal = new W2cEmployeeStateTotal(_document);
 
-            DocumentDataTest.FillData(_document);
+            //DocumentDataTest.FillData(_document);
+            
+            DocumentDataTest.FillData_staically(_document);
 
             ShowHideWindows();
         }
