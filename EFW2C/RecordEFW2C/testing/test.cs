@@ -202,6 +202,7 @@ namespace EFW2C.RecordEFW2C.W2cDocument
             rceRecord.AddField(new RceEinAgentFederal(rceRecord, "123456789"));
             rceRecord.AddField(new RceEinAgent(rceRecord, "123456789"));
             rceRecord.AddField(new RceEmployerName(rceRecord, "employer1"));
+            rceRecord.AddField(new RceEmploymentCodeCorrect(rceRecord, "A"));
 
             return rceRecord;
         }

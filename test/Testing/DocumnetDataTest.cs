@@ -239,6 +239,24 @@ namespace test.Testing
             return randomDate.ToString("yyyy-MM-dd").Replace("-","");
         }
 
+        static string GenerateEmploymentCodeRandomly()
+        {
+            string[] employmentCodes = { "A", "H", "M", "Q", "X", "F", "R" };
+            int randomIndex = random.Next(employmentCodes.Length);
+            return employmentCodes[randomIndex];
+        }
+        private static string GenerateSum(string value1, string value2)
+        {
+            if (double.TryParse(value1, out double doubleValue1) && double.TryParse(value2, out double doubleValue2))
+            {
+                double result = doubleValue1 + doubleValue2;
+                return result.ToString();
+            }
+            else
+            {
+                return "Invalid input. Both values must be numeric.";
+            }
+        }
         public static W2cSubmitter CreateSubmitterData(W2cDocument document)
         {
             var submitter = new W2cSubmitter(document);
@@ -285,17 +303,24 @@ namespace test.Testing
             employee.FederalIncomeTaxWithheldOriginal = "15824.28"; //75
             employee.SocialSecurityWagesOriginal = "55000.52";
             employee.SocialSecurityTaxWithheldOriginal = "3410.03"; //224
-            employee.MedicareWagesAndTipsOriginal = "55005.52";
+            
+            employee.MedicareWagesAndTipsOriginal = "5500.52";
             employee.MedicareTaxWithheldOriginal = "797.58"; //004
             employee.SocialSecurityTipsOriginal = "9871.63";
 
             employee.WagesTipsAndOtherCompensationCorrect = "45285.25";
             employee.FederalIncomeTaxWithheldCorrect = "15849.83"; //75
+            
             employee.SocialSecurityWagesCorrect = "55852.52";
+
             employee.SocialSecurityTaxWithheldCorrect = "3462.85"; //624
-            employee.MedicareWagesAndTipsCorrect = "55857.52";
+
             employee.MedicareTaxWithheldCorrect = "809.93"; //404
+            
             employee.SocialSecurityTipsCorrect = "9855.63";
+
+            employee.MedicareWagesAndTipsCorrect = GenerateSum(employee.SocialSecurityWagesCorrect,
+                                       employee.SocialSecurityTipsCorrect);
 
             return employee;
         }
@@ -360,13 +385,14 @@ namespace test.Testing
             employee.EmployeeLastNameOriginal = GenerateRandomName();
 
 
-            employee.MedicareWagesAndTipsOriginal = "100";
             employee.MedicareWagesAndTipsCorrect = "102";
             employee.SocialSecurityTipsOriginal = "90";
             employee.SocialSecurityTipsCorrect = "91";
             employee.SocialSecurityWagesOriginal = "10";
             employee.SocialSecurityWagesCorrect = "11";
 
+            employee.MedicareWagesAndTipsOriginal = GenerateSum(employee.SocialSecurityWagesCorrect,
+                                       employee.SocialSecurityTipsCorrect); 
 
             return employee;
         }
@@ -381,6 +407,7 @@ namespace test.Testing
             employer.EinAgentFederal = GenerateRandomEIN();
             employer.EinAgent = GenerateRandomEIN();
             employer.EmployerName = GenerateRandomName();
+            employer.EmploymentCodeCorrect = GenerateEmploymentCodeRandomly();
 
             return employer;
         }
