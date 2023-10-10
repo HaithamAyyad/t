@@ -53,9 +53,11 @@ namespace EFW2C.Fields
                     throw new Exception($"{ClassDescription} : value must be zero or equal or greater than MinHouseHold Covered Wages ({wageTax.SocialSecurity.MinHouseHoldCoveredWages})");
             }
 
-            if (localValue + socialSecurityTipsCorrectValue > wageTax.SocialSecurity.MaxTaxedEarnings)
-                throw new Exception($"{ClassDescription} : value must not exceed SocialSecurity MaxTaxedEarnings");
-
+            if (taxYear == 2023)
+            {
+                if (localValue + socialSecurityTipsCorrectValue > wageTax.SocialSecurity.MaxTaxedEarnings)
+                    throw new Exception($"{ClassDescription} : value must not exceed SocialSecurity MaxTaxedEarnings");
+            }
             return true;
         }
     }

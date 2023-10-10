@@ -304,9 +304,13 @@ namespace test.Testing
             employee.SocialSecurityWagesOriginal = "55000.52";
             employee.SocialSecurityTaxWithheldOriginal = "3410.03"; //224
             
-            employee.MedicareWagesAndTipsOriginal = "5500.52";
             employee.MedicareTaxWithheldOriginal = "797.58"; //004
             employee.SocialSecurityTipsOriginal = "9871.63";
+
+
+            employee.MedicareWagesAndTipsOriginal = GenerateSum(employee.SocialSecurityWagesOriginal,
+                                       employee.SocialSecurityTipsOriginal); ;
+            
 
             employee.WagesTipsAndOtherCompensationCorrect = "45285.25";
             employee.FederalIncomeTaxWithheldCorrect = "15849.83"; //75
