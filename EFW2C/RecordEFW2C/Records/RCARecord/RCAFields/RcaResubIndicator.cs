@@ -33,19 +33,6 @@ namespace EFW2C.Fields
             if(!EnumHelper.IsResubIndicatorCodeValid(localData, true))
                 throw new Exception($"{ClassDescription} must be ethier 0 or 1");
 
-            /*hsa7
-            switch (localData)
-            {
-                case "0":
-                    if (_record.Manager.IsSubmitter)
-                        throw new Exception($"{ClassDescription} must be 1 because this file marked as resubmitted");
-                    break;
-                case "1":
-                    if (!_record.Manager.IsSubmitter)
-                        throw new Exception($"{ClassDescription} must be 0 because this file marked as not resubmitted");
-                    break;
-            }
-            */
             return true;
         }
 
