@@ -198,6 +198,7 @@ namespace test.ViewModel
             {
                 _document.SelectedEmployer?.Prepare();
                 _document.SelectedEmployer?.Verify();
+                MessageBox.Show("Verified Successfully", "Employer");
             }
             catch (Exception ex)
             {
@@ -251,6 +252,7 @@ namespace test.ViewModel
             {
                 _document.SelectedEmployer?.SelectedEmployee?.Prepare();
                 _document.SelectedEmployer?.SelectedEmployee?.Verify();
+                MessageBox.Show("Verified Successfully", "Employee");
             }
             catch (Exception ex)
             {
@@ -264,6 +266,7 @@ namespace test.ViewModel
             {
                 _document.SelectedEmployer?.SelectedEmployee?.EmployeeOptionalRecord?.Prepare();
                 _document.SelectedEmployer?.SelectedEmployee?.EmployeeOptionalRecord?.Verify();
+                MessageBox.Show("Verified Successfully", "Employee Optional");
             }
             catch (Exception ex)
             {
@@ -276,6 +279,7 @@ namespace test.ViewModel
             try
             {
                 _employeeState.Verify();
+                MessageBox.Show("Verified Successfully", "Employer State");
             }
             catch (Exception ex)
             {

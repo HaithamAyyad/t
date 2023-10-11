@@ -32,6 +32,9 @@ namespace EFW2C.Fields
                     throw new Exception($"{ClassDescription}: since you provide the original field then must fill {ClassDescription}");
             }
 
+            if (IsSameAsOriginalValue())
+                throw new Exception($"{ClassDescription} the Original reported money filed must not be the same as the correct money field");
+
             return true;
         }
 

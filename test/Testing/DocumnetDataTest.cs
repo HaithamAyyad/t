@@ -94,6 +94,35 @@ namespace test.Testing
             string ein = $"{digits[0]}{digits[1]}-{digits[2]}{digits[3]}{digits[4]}{digits[5]}{digits[6]}{digits[7]}{digits[8]}";
 
             // Check if EIN starts with any of the excluded prefixes
+            string[] excludedPrefixes = { "07", "08", "09", "17", "18", "19", "28", "29", "49", "69", "70", "78", "79", "89" };
+            while (excludedPrefixes.Any(prefix => ein.StartsWith(prefix)))
+            {
+                // If the generated EIN starts with an excluded prefix, generate a new set of digits
+                for (int i = 0; i < 9; i++)
+                {
+                    digits[i] = random.Next(10);
+                }
+
+                // Format as EIN
+                ein = $"{digits[0]}{digits[1]}-{digits[2]}{digits[3]}{digits[4]}{digits[5]}{digits[6]}{digits[7]}{digits[8]}";
+            }
+
+            return ein;
+        }
+
+        public static string GenerateRandomEINFedral()
+        {
+            // Generate random digits
+            int[] digits = new int[9];
+            for (int i = 0; i < 9; i++)
+            {
+                digits[i] = random.Next(10);
+            }
+
+            // Format as EIN
+            string ein = $"{digits[0]}{digits[1]}-{digits[2]}{digits[3]}{digits[4]}{digits[5]}{digits[6]}{digits[7]}{digits[8]}";
+
+            // Check if EIN starts with any of the excluded prefixes
             string[] excludedPrefixes = { "00","07", "08", "09", "17", "18", "19", "28", "29", "49", "69", "70", "78", "79", "89" };
             while (excludedPrefixes.Any(prefix => ein.StartsWith(prefix)))
             {
@@ -303,34 +332,29 @@ namespace test.Testing
             employee.StateAbbreviation = "SC";
             employee.ZipCode = "29215";
             employee.SocialSecurityNumberCorrect = "416-25-2516";
-            employee.EmployeeFirstNameCorrect = "Brook";
+            employee.EmployeeFirstNameCorrect = "Scranney";
             employee.EmployeeLastNameCorrect = "Scranney";
+
             employee.WagesTipsAndOtherCompensationOriginal = "45212.25";
-            employee.FederalIncomeTaxWithheldOriginal = "15824.28"; //75
-            employee.SocialSecurityWagesOriginal = "55000.52";
-            employee.SocialSecurityTaxWithheldOriginal = "3410.03"; //224
-            
-            employee.MedicareTaxWithheldOriginal = "797.58"; //004
-            employee.SocialSecurityTipsOriginal = "9871.63";
-
-
-            employee.MedicareWagesAndTipsOriginal = GenerateSum(employee.SocialSecurityWagesOriginal,
-                                       employee.SocialSecurityTipsOriginal); ;
-            
-
             employee.WagesTipsAndOtherCompensationCorrect = "45285.25";
+
+            employee.FederalIncomeTaxWithheldOriginal = "15824.28"; //75
             employee.FederalIncomeTaxWithheldCorrect = "15849.83"; //75
-            
+
+            employee.SocialSecurityWagesOriginal = "55000.52";
             employee.SocialSecurityWagesCorrect = "55852.52";
 
+            employee.SocialSecurityTaxWithheldOriginal = "3410.03"; //224
             employee.SocialSecurityTaxWithheldCorrect = "3462.85"; //624
 
-            employee.MedicareTaxWithheldCorrect = "809.93"; //404
-            
-            employee.SocialSecurityTipsCorrect = "9855.63";
+            employee.SocialSecurityTipsCorrect  = "9855.63";
+            employee.SocialSecurityTipsOriginal = "5855.63";
 
-            employee.MedicareWagesAndTipsCorrect = GenerateSum(employee.SocialSecurityWagesCorrect,
-                                       employee.SocialSecurityTipsCorrect);
+            employee.MedicareTaxWithheldOriginal = "797.58"; //004
+            employee.MedicareTaxWithheldCorrect = "809.93"; //404
+
+            employee.MedicareWagesAndTipsOriginal = GenerateSum(employee.SocialSecurityWagesOriginal,employee.SocialSecurityTipsOriginal); ;
+            employee.MedicareWagesAndTipsCorrect  = GenerateSum(employee.SocialSecurityWagesCorrect, employee.SocialSecurityTipsCorrect);
 
             return employee;
         }
@@ -380,26 +404,37 @@ namespace test.Testing
 
             employee.ZipCode = GenerateRandomZipCode();
             employee.ZipCodeExtension = GenerateRandomZipCodeExt();
+
             employee.StateAbbreviation = GenerateRandomStateAbbreviation();
+
             employee.LocationAddress = GenerateRandomAddress();
+
             employee.DeliveryAddress = GenerateRandomAddress();
+
             employee.City = GenerateRandomCity();
+
             employee.ForeignPostalCode = "BOX 300";
+
             employee.SocialSecurityNumberCorrect = GenerateRandomSSN();
             employee.SocialSecurityNumberOriginal = GenerateRandomSSN();
+
             employee.SocialSecurityTaxWithheldCorrect = GenerateRandomDoubleAsString();
             employee.SocialSecurityTaxWithheldOriginal = GenerateRandomDoubleAsString();
+
             employee.EmployeeFirstNameOriginal = GenerateRandomName();
             employee.EmployeeFirstNameCorrect = GenerateRandomName();
+
             employee.EmployeeLastNameCorrect = GenerateRandomName();
             employee.EmployeeLastNameOriginal = GenerateRandomName();
 
 
-            employee.MedicareWagesAndTipsCorrect = "102";
             employee.SocialSecurityTipsOriginal = "90";
-            employee.SocialSecurityTipsCorrect = "91";
+            employee.SocialSecurityTipsCorrect = "90";
+
             employee.SocialSecurityWagesOriginal = "10";
-            employee.SocialSecurityWagesCorrect = "11";
+            employee.SocialSecurityWagesCorrect = "10";
+
+            employee.MedicareWagesAndTipsCorrect = "102";
 
             employee.MedicareWagesAndTipsOriginal = GenerateSum(employee.SocialSecurityWagesCorrect,
                                        employee.SocialSecurityTipsCorrect); 
@@ -414,10 +449,18 @@ namespace test.Testing
             employer.TaxYear = GenerateRandomTaxYear();
             employer.KindOfEmployer = GetRandomKindOfEmployer();
             employer.AgentIndicator = "1";
-            employer.EinAgentFederal = "000000000"; GenerateRandomEIN();
+            employer.EinAgentFederal = GenerateRandomEINFedral();
             employer.EinAgent = GenerateRandomEIN();
             employer.EmployerName = GenerateRandomName();
             employer.EmploymentCodeCorrect = GenerateEmploymentCodeRandomly();
+
+            employer.EstablishmentNumberOriginal = "0009";
+            employer.EstablishmentNumberCorrect = "0004";
+
+            employer.EinAgentFederalOriginal = "000";
+
+            employer.ThirdPartySickPayCorrect = "0";
+            employer.ThirdPartySickPayOriginal = "1";
 
             return employer;
         }

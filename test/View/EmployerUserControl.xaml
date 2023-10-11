@@ -32,14 +32,22 @@
                 <TextBlock Margin="5,0" Text= "AgentIndicator:" VerticalAlignment ="Top"/>
                 <TextBox Text= "{Binding Document.SelectedEmployer.AgentIndicator, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
             </StackPanel>
-            <StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
-                <TextBlock Margin="5,0" Text= "EinAgentFederal:" VerticalAlignment ="Top"/>
-                <TextBox Text= "{Binding Document.SelectedEmployer.EinAgentFederal, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
-            </StackPanel>
-            <StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
-                <TextBlock Margin="5,0" Text= "EinAgent:" VerticalAlignment ="Top"/>
-                <TextBox Text= "{Binding Document.SelectedEmployer.EinAgent, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
-            </StackPanel>
+            <GroupBox Header="Ein">
+                <StackPanel>
+                    <StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
+                        <TextBlock Margin="5,0" Text= "EinAgent:" VerticalAlignment ="Top"/>
+                        <TextBox Text= "{Binding Document.SelectedEmployer.EinAgent, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
+                    </StackPanel>
+                    <StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
+                        <TextBlock Margin="5,0" Text= "EinAgentFederal:" VerticalAlignment ="Top"/>
+                        <TextBox Text= "{Binding Document.SelectedEmployer.EinAgentFederal, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
+                    </StackPanel>
+                    <StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
+                        <TextBlock Margin="5,0" Text= "EinAgentFederalOriginal:" VerticalAlignment ="Top"/>
+                        <TextBox Text= "{Binding Document.SelectedEmployer.EinAgentFederalOriginal, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
+                    </StackPanel>
+                </StackPanel>
+            </GroupBox>
             <StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
                 <TextBlock Margin="5,0" Text= "EmployerName:" VerticalAlignment ="Top"/>
                 <TextBox Text= "{Binding Document.SelectedEmployer.EmployerName, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
@@ -55,6 +63,22 @@
             <StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
                 <TextBlock Margin="5,0" Text= "EinAgent:" VerticalAlignment ="Top"/>
                 <TextBox Text= "{Binding Document.SelectedEmployer.EinAgent, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
+            </StackPanel>
+            <StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
+                <TextBlock Margin="5,0" Text= "EstablishmentNumberOriginal" VerticalAlignment ="Top"/>
+                <TextBox Text= "{Binding Document.SelectedEmployer.EstablishmentNumberOriginal, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
+            </StackPanel>
+            <StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
+                <TextBlock Margin="5,0" Text= "EstablishmentNumberCorrect" VerticalAlignment ="Top"/>
+                <TextBox Text= "{Binding Document.SelectedEmployer.EstablishmentNumberCorrect, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
+            </StackPanel>
+            <StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
+                <TextBlock Margin="5,0" Text= "ThirdPartySickPayCorrect" VerticalAlignment ="Top"/>
+                <TextBox Text= "{Binding Document.SelectedEmployer.ThirdPartySickPayCorrect, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
+            </StackPanel>
+            <StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
+                <TextBlock Margin="5,0" Text= "ThirdPartySickPayOriginal" VerticalAlignment ="Top"/>
+                <TextBox Text= "{Binding Document.SelectedEmployer.ThirdPartySickPayOriginal, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
             </StackPanel>
         </StackPanel>
         <DockPanel Grid.Column="2" Grid.RowSpan="2">

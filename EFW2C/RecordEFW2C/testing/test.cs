@@ -155,7 +155,7 @@ namespace EFW2C.RecordEFW2C.W2cDocument
             //rcwRecord.AddField(new RcwCountryCode(rcwRecord, "UK"));
             rcwRecord.AddField(new RcwSocialSecurityNumberCorrect(rcwRecord, "123456789"));
             rcwRecord.AddField(new RcwSocialSecurityNumberOriginal(rcwRecord, "122456789"));
-            rcwRecord.AddField(new RcwSocialSecurityTaxWithheldCorrect(rcwRecord, "5656"));
+            rcwRecord.AddField(new RcwSocialSecurityTaxWithheldCorrect(rcwRecord, "15656"));
             rcwRecord.AddField(new RcwSocialSecurityTaxWithheldOriginal(rcwRecord, "5656"));
             rcwRecord.AddField(new RcwEmployeeFirstNameOriginal(rcwRecord, "John"));
             rcwRecord.AddField(new RcwEmployeeFirstNameCorrect(rcwRecord, "John"));
@@ -168,7 +168,7 @@ namespace EFW2C.RecordEFW2C.W2cDocument
         {
             var rcoRecord = new RcoRecord(manager);
 
-            rcoRecord.AddField(new RcoAllocatedTipsCorrect(rcoRecord, "10"));
+            rcoRecord.AddField(new RcoAllocatedTipsCorrect(rcoRecord, "11"));
             rcoRecord.AddField(new RcoAllocatedTipsOriginal(rcoRecord, "10"));
 
             return rcoRecord;

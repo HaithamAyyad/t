@@ -36,6 +36,9 @@ namespace EFW2C.Fields
                     throw new Exception($"{ClassDescription} Field must be 0 or 1");
             }
 
+            if (IsSameAsOriginalValue())
+                throw new Exception($"{ClassDescription} and Orignal Must enter blanks in both fields if no corrections are being reported to this data"); ;
+
             return true;
         }
     }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using EFW2C.Common.Constants;
 using EFW2C.Common.Enums;
 using EFW2C.Extensions;
@@ -25,6 +26,20 @@ namespace EFW2C.Fields
             return FieldTypeEnum.UpperCase_LeftJustify_Blank;
         }
 
+        public override bool Verify()
+        {
+            if (!base.Verify())
+                return false;
+
+            return true;
+
+        }
+
+        public override bool IsRequired()
+        {
+            return false;
+        }
+
         protected bool IsOneCorrectMoneyFieldProvided()
         {
             foreach (var field in _record.Fields)
@@ -42,9 +57,19 @@ namespace EFW2C.Fields
             return false;
         }
 
-        public override bool IsRequired()
+        protected bool IsSameAsOriginalValue()
         {
+            if (!ClassName.Contains(Constants.CorrectStr))
+                throw new Exception($"{ClassDescription} this function only used for {Constants.CorrectStr} class");
+
+            var originalFieldName = ClassName.Replace(Constants.CorrectStr, Constants.OriginalStr);
+
+            var originalField = _record.GetField(originalFieldName);
+            if (!IsFieldNullOrWhiteSpace(originalField))
+                return DataInRecordBuffer() == originalField.DataInRecordBuffer();
+
             return false;
         }
+
     }
 }

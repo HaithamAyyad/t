@@ -158,6 +158,7 @@ namespace EFW2C.Fields
                     throw new Exception($"{Constants.InternalError}{_fieldType} is not defined");
             }
         }
+
         public bool VerifcationTestOnly()
         {
             Write();

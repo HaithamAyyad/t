@@ -8,7 +8,7 @@ namespace EFW2C.Fields
     //Created by : HSA 4-9-2023
     //Reviewed by : 
 
-    internal class RceEstablishmentNumberCorrect : FieldBase
+    internal class RceEstablishmentNumberCorrect : FieldCorrect
     {
         public RceEstablishmentNumberCorrect(RecordBase record, string data)
             : base(record, data)
@@ -26,6 +26,9 @@ namespace EFW2C.Fields
         {
             if (!base.Verify())
                 return false;
+            
+            if (IsSameAsOriginalValue())
+                throw new Exception($"{ClassDescription} and Orignal Must enter blanks in both fields if no corrections are being reported to this data"); ;
 
             return true;
         }

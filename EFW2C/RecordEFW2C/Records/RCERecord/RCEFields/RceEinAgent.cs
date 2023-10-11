@@ -23,17 +23,6 @@ namespace EFW2C.Fields
             return new RceEinAgent(record, _data);
         }
 
-        public override void Write()
-        {
-            //hsa7 need to check , should not exclude anything , alwasy wirte 
-            var rceAgentIndicator = _record.GetField(typeof(RceAgentIndicator).Name);
-            if (rceAgentIndicator != null)
-            {
-                if (rceAgentIndicator.DataInRecordBuffer() == ((int)AgentIndicatorCodeEnum.One).ToString())
-                    base.Write();
-            }
-        }
-
         public override bool Verify()
         {
             if (!base.Verify())
@@ -45,8 +34,14 @@ namespace EFW2C.Fields
                 if (rceAgentIndicator.DataInRecordBuffer() == ((int)AgentIndicatorCodeEnum.One).ToString())
                 {
                     if(string.IsNullOrEmpty(DataInRecordBuffer()))
-                        throw new Exception($"{ClassDescription} must not be empty, since the {rceAgentIndicator} set to 1" );
+                        throw new Exception($"{ClassDescription} if {rceAgentIndicator.ClassDescription} equals one, then this field can't be blank");
                 }
+            }
+
+            if (rceAgentIndicator == null || (rceAgentIndicator.DataInRecordBuffer() != ((int)AgentIndicatorCodeEnum.One).ToString()))
+            {
+                if (!string.IsNullOrEmpty(DataInRecordBuffer()))
+                    throw new Exception($"{ClassDescription} Must be blank, unless '{{'Employer AgentIndicator'}}' set to 1");
             }
 
             return true;
@@ -57,9 +52,10 @@ namespace EFW2C.Fields
             var rceAgentIndicator = _record.GetField(typeof(RceAgentIndicator).Name);
             if (rceAgentIndicator != null)
             {
-                if (rceAgentIndicator.DataInRecordBuffer() == ((int)AgentIndicatorCodeEnum.One).ToString())
+                if (rceAgentIndicator.Data == ((int)AgentIndicatorCodeEnum.One).ToString())
                 {
-                    return true;
+                    if(string.IsNullOrWhiteSpace(DataInRecordBuffer()))
+                        throw new Exception($"{ClassDescription} if {rceAgentIndicator.ClassDescription} equals one, then this field can't be blank");
                 }
             }
 

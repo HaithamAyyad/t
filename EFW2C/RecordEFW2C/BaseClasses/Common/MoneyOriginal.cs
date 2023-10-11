@@ -21,30 +21,6 @@ namespace EFW2C.Fields
 
         public override abstract FieldBase Clone(RecordBase record);
 
-        public override bool Verify()
-        {
-            if (!base.Verify())
-                return false;
-
-            if (!string.IsNullOrWhiteSpace(DataInRecordBuffer()))
-            {
-                if (IsCorrectMoneyFieldNullOrWhiteSpace())
-                    throw new Exception($"{ClassDescription} correction field must be provided");
-            }
-
-            return true;
-        }
-
-        private bool IsCorrectMoneyFieldNullOrWhiteSpace()
-        {
-            if (!ClassName.Contains(Constants.OriginalStr))
-                throw new Exception($"{ClassDescription} this function only used for {Constants.OriginalStr} class");
-
-            var correctFieldName = ClassName.Replace(Constants.OriginalStr, Constants.CorrectStr);
-
-            return IsFieldNullOrWhiteSpace(_record.GetField(correctFieldName));
-        }
-
         protected override FieldTypeEnum GetFieldType()
         {
             return FieldTypeEnum.Numerical_RightJustify_Zero;
