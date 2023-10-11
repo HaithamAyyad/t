@@ -9,7 +9,7 @@ namespace EFW2C.Fields
     //Created by : HSA 9-4-2023
     //Reviewed by : HSA on ........
 
-    internal class RceEinAgentFederal : EinFieldBase
+    internal class RceEinAgentFederal : EinAgentFieldBase
     {
         public RceEinAgentFederal(RecordBase record, string data)
             : base(record, data)
@@ -22,6 +22,7 @@ namespace EFW2C.Fields
         {
             return new RceEinAgentFederal(record, _data);
         }
+
         public override bool IsRequired()
         {
             var rceAgentIndicator = _record.GetField(typeof(RceAgentIndicator).Name);

@@ -5,8 +5,8 @@ using EFW2C.Records;
 
 namespace EFW2C.Fields
 {
-    //Created by  : HSA on 9-1-2023
-    //Reviewed by : HSA on ........
+    //Created by  : Hsa on 9-1-2023
+    //Reviewed by : Hsa on 10-10-2023
 
     internal class RcaRecordIdentifier : RecordIdentifierBase
     {

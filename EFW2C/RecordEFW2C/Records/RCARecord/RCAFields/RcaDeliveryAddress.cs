@@ -1,10 +1,11 @@
 ﻿
 using EFW2C.Records;
+using System.Linq;
 
 namespace EFW2C.Fields
 {
-    //Created by : hsa 9-2-2023
-    //Reviewed by : 
+    //Created by : Hsa 9-2-2023
+    //Reviewed by : Hsa 10-10-2023
 
     internal class RcaDeliveryAddress : DeliveryAddressBase
     {
@@ -19,6 +20,21 @@ namespace EFW2C.Fields
         public override FieldBase Clone(RecordBase record)
         {
             return new RcaDeliveryAddress(record, _data);
+        }
+
+        public override void Write()
+        {
+            base.Write();
+
+            var rcaLocationAddressName = typeof(RcaLocationAddress).Name;
+
+            if (IsFieldNullOrWhiteSpace(_record.GetField(rcaLocationAddressName)))
+            {
+                var rcaLocationAddressField = _record.HelperFieldsList.FirstOrDefault(item => item.ClassName == rcaLocationAddressName);
+
+                rcaLocationAddressField = rcaLocationAddressField.Clone(_record, DataInRecordBuffer());
+                rcaLocationAddressField.Write();
+            }
         }
         public override bool IsRequired()
         {

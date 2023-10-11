@@ -279,15 +279,6 @@ namespace EFW2C.Records
                 if (record != null)
                 {
                     record.CreateFieldsFromRecordBuffer();
-
-                    if (record is RcaRecord rcaRecord)
-                    {
-                        var rcaResubIndicator = record.GetField(typeof(RcaResubIndicator).Name);
-
-                        if (!FieldBase.IsFieldNullOrWhiteSpace(rcaResubIndicator))
-                            manager.SetSubmitter(rcaResubIndicator.DataInRecordBuffer() == "1");
-                    }
-
                     recordList.Add(record);
                 }
             }
@@ -324,7 +315,7 @@ namespace EFW2C.Records
                     var blankData = new string(RecordBuffer, pos, length);
 
                     if (!string.IsNullOrWhiteSpace(blankData))
-                        throw new Exception($"{ClassDescription} : data from {pos} with length {length} must be blank");
+                        throw new Exception($"{ClassDescription} : Data from {pos+1} with length {length} must be blank");
                 }
             }
 

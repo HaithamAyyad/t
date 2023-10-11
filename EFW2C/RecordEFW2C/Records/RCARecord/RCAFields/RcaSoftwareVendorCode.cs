@@ -7,7 +7,7 @@ using EFW2C.Records;
 namespace EFW2C.Fields
 {
     //Created by : Hsa 9-1-2023
-    //Reviewed by : 
+    //Reviewed by : Hsa 10-10-2023
 
     internal class RcaSoftwareVendorCode : FieldBase
     {
@@ -36,13 +36,12 @@ namespace EFW2C.Fields
                 if (softwareCode == ((int)SoftwareCodeEnum.Code_99).ToString())
                 {
                     if (string.IsNullOrWhiteSpace(DataInRecordBuffer()))
-                        throw new Exception($"{ClassDescription} Field must not be empty, since software code marked as Off-the-ShelfSoftware");
+                        throw new Exception($"{ClassDescription} When Software Code is Off-the-Shelf Software '99' this field should be provided");
                 }
                 else
                 {
                     if (!string.IsNullOrWhiteSpace(DataInRecordBuffer()))
-                        throw new Exception($"{ClassDescription} Field must be empty, since software code not marked as Off-the-ShelfSoftware");
-
+                        throw new Exception($"{ClassDescription} When Software Code is In-House Program '98' this field must be empty");
                 }
             }
 
@@ -56,12 +55,6 @@ namespace EFW2C.Fields
 
         public override bool IsRequired()
         {
-            var rcaSoftwareCode = _record.GetField(typeof(RcaSoftwareCode).Name);
-            if (rcaSoftwareCode != null)
-            {
-                return (rcaSoftwareCode.DataInRecordBuffer() == ((int)SoftwareCodeEnum.Code_99).ToString());
-            }
-
             return false;
         }
     }

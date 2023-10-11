@@ -32,7 +32,7 @@ namespace EFW2C.Fields
             var code = DataInRecordBuffer();
 
             if (!EnumHelper.IsPreparerCodeVaild(code))
-                throw new Exception($"{ClassDescription}: {code} is not a valid preparer code.");
+                throw new Exception($"{ClassDescription} Preparer code {code} is not valid");
 
             return true;
         }
@@ -44,7 +44,8 @@ namespace EFW2C.Fields
 
         public override bool IsRequired()
         {
-            return false;
+            // we set this true , while testing AccuW2c, it is not mentioned in spec.
+            return true;
         }
     }
 }

@@ -5,8 +5,8 @@ using EFW2C.Records;
 
 namespace EFW2C.Fields
 {
-    //Created by : hsa 9-1-2023
-    //Reviewed by : 
+    //Created by : Hsa 9-1-2023
+    //Reviewed by : Hsa 10-10-2023
 
     internal class RcaSubmitterName : FieldBase
     {
@@ -20,14 +20,6 @@ namespace EFW2C.Fields
         public override FieldBase Clone(RecordBase record)
         {
             return new RcaSubmitterName(record, _data);
-        }
-
-        public override bool Verify()
-        {
-            if (!base.Verify())
-                return false;
-
-            return true;
         }
 
         protected override FieldTypeEnum GetFieldType()

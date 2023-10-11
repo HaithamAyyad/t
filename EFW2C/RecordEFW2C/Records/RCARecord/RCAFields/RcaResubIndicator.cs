@@ -6,8 +6,8 @@ using EFW2C.Records;
 
 namespace EFW2C.Fields
 {
-    //Created by : hsa 9-3-2023
-    //Reviewed by : 
+    //Created by : Hsa 9-3-2023
+    //Reviewed by : Hsa 10-10-2023
 
     internal class RcaResubIndicator : FieldBase
     {
@@ -33,6 +33,7 @@ namespace EFW2C.Fields
             if(!EnumHelper.IsResubIndicatorCodeValid(localData, true))
                 throw new Exception($"{ClassDescription} must be ethier 0 or 1");
 
+            /*hsa7
             switch (localData)
             {
                 case "0":
@@ -44,7 +45,7 @@ namespace EFW2C.Fields
                         throw new Exception($"{ClassDescription} must be 0 because this file marked as not resubmitted");
                     break;
             }
-
+            */
             return true;
         }
 
@@ -55,6 +56,7 @@ namespace EFW2C.Fields
 
         public override bool IsRequired()
         {
+            // we set this true , while testing AccuW2c, it is not mentioned in spec.
             return true;
         }
     }

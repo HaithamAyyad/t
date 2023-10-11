@@ -25,6 +25,7 @@ namespace EFW2C.Fields
 
         public override void Write()
         {
+            //hsa7 need to check , should not exclude anything , alwasy wirte 
             var rceAgentIndicator = _record.GetField(typeof(RceAgentIndicator).Name);
             if (rceAgentIndicator != null)
             {

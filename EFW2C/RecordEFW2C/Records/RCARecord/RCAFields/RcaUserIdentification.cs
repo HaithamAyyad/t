@@ -6,7 +6,7 @@ using EFW2C.Records;
 namespace EFW2C.Fields
 {
     //Created by : HSA 9-1-2023
-    //Reviewed by : HSA on ........
+    //Reviewed by : HSA 10-10-2023
 
     internal class RcaUserIdentification : FieldBase
     {
@@ -22,17 +22,8 @@ namespace EFW2C.Fields
             return new RcaUserIdentification(record, _data);
         }
 
-        public override bool Verify()
-        {
-            if (!base.Verify())
-                return false;
-
-            return true;
-        }
-
         protected override FieldTypeEnum GetFieldType()
         {
-            //need to check
             return FieldTypeEnum.Numerical_LeftJustify_Blank;
         }
 

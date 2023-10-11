@@ -61,13 +61,10 @@ namespace EFW2C.Fields
             switch (_fieldType)
             {
                 case FieldTypeEnum.UpperCase_LeftJustify_Blank:
-                    data = data.ToUpper();
-                    break;
                 case FieldTypeEnum.UpperCase_Address_LeftJustify_Blank:
                     data = data.ToUpper();
                     break;
             }
-
 
             field._data = data;
 
@@ -132,7 +129,7 @@ namespace EFW2C.Fields
                 case FieldTypeEnum.CaseSensitive_LeftJustify:
                     break;
                 default:
-                    throw new Exception($"{_fieldType} is not handeled");
+                    throw new Exception($"{Constants.InternalError}{_fieldType} is not defined");
             }
 
             return true;
@@ -154,8 +151,11 @@ namespace EFW2C.Fields
                 case FieldTypeEnum.UpperCase_LeftJustify_Blank:
                 case FieldTypeEnum.Numerical_LeftJustify_Blank:
                 case FieldTypeEnum.CaseSensitive_LeftJustify:
+                case FieldTypeEnum.UpperCase_Address_LeftJustify_Blank:
                     Array.Copy(_data.ToCharArray(), 0, _record.RecordBuffer, _pos, _data.Length);
                     break;
+                default:
+                    throw new Exception($"{Constants.InternalError}{_fieldType} is not defined");
             }
         }
         public bool VerifcationTestOnly()

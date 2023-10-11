@@ -29,7 +29,7 @@ namespace EFW2C.Fields
             {
                 var foreignStateProvinceClassName = $"{_record.ClassName.Substring(0, 3)}ForeignStateProvince";
                 if (!IsFieldNullOrWhiteSpace(_record.GetField(foreignStateProvinceClassName)))
-                    throw new Exception($"{ClassDescription} can't provid this field and {foreignStateProvinceClassName} at the sametime");
+                    throw new Exception($"{ClassDescription} can't be provided with {foreignStateProvinceClassName} at the sametime");
             }
 
             if (!EnumHelper.IsValidStateCode(DataInRecordBuffer()))

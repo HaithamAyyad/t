@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using EFW2C.Common.Enums;
 using EFW2C.Common.Helper;
 using EFW2C.Extensions;
@@ -6,8 +7,8 @@ using EFW2C.Records;
 
 namespace EFW2C.Fields
 {
-    //Created by : hSa 9-3-2023
-    //Reviewed by : 
+    //Created by : Hsa 9-3-2023
+    //Reviewed by : Hsa 10-10-203
 
     internal class RcaResubWageFile : FieldBase
     {
@@ -23,34 +24,37 @@ namespace EFW2C.Fields
             return new RcaResubWageFile(record, _data);
         }
 
-        public override void Write()
+        private bool IsValidResubWageFile(string data)
         {
-            var rcaResubIndicator = _record.GetField(typeof(RcaResubIndicator).Name);
+            if (data.Length != _length)
+                return false;
 
-            if (rcaResubIndicator != null && rcaResubIndicator.DataInRecordBuffer() == "1")
-                base.Write();
+            return data.All(c => char.IsUpper(c) || char.IsDigit(c));
         }
+
         public override bool Verify()
         {
             if (!base.Verify())
                 return false;
 
+            var localData = DataInRecordBuffer();
+
+            if(!IsValidResubWageFile(localData))
+                throw new Exception($"{ClassDescription} Is not Valid Resub Wage File");
+
             var rcaResubIndicator = _record.GetField(typeof(RcaResubIndicator).Name);
 
             if (rcaResubIndicator != null)
             {
-                var localData = DataInRecordBuffer();
- 
                 switch (rcaResubIndicator.DataInRecordBuffer())
                 {
                     case "1":
                         if (string.IsNullOrWhiteSpace(localData))
-                            throw new Exception($"{ClassDescription} cannot be empty because {rcaResubIndicator.ClassName} is set to 1");
+                            throw new Exception($"{ClassDescription} if {rcaResubIndicator.ClassDescription} equals one, then this field can't be blank");
                         break;
-
                     case "0":
                         if (!string.IsNullOrWhiteSpace(Data))
-                            throw new Exception($"{ClassDescription} must be empty because {rcaResubIndicator.ClassName} is set to 0");
+                            throw new Exception($"{ClassDescription} if {rcaResubIndicator.ClassDescription} equals zero, then this field must be blank");
                         break;
                 }
             }
@@ -67,8 +71,13 @@ namespace EFW2C.Fields
         {
             var rcaResubIndicator = _record.GetField(typeof(RcaResubIndicator).Name);
             if (!IsFieldNullOrWhiteSpace(rcaResubIndicator))
-                return (rcaResubIndicator.DataInRecordBuffer()) == ((int)ResubIndicatorCodeEnum.One).ToString();
-
+            {
+                if (rcaResubIndicator.Data == ((int)ResubIndicatorCodeEnum.One).ToString())
+                {
+                    if (string.IsNullOrWhiteSpace(DataInRecordBuffer()))
+                        throw new Exception($"{ClassDescription} if {rcaResubIndicator.ClassDescription} equals one, then this field can't be blank");
+                }
+            }
             return false;
         }
     }

@@ -5,8 +5,8 @@ using EFW2C.Records;
 
 namespace EFW2C.Fields
 {
-    //Created by : hsa 9-2-2023
-    //Reviewed by : 
+    //Created by : Has 9-2-2023
+    //Reviewed by : Hsa 10-10-2023
 
     internal abstract class ForeignPostalCodeBase : FieldBase
     {
@@ -27,8 +27,8 @@ namespace EFW2C.Fields
             if (!string.IsNullOrWhiteSpace(DataInRecordBuffer()))
             {
                 var foreignStateProvinceClassName = $"{_record.ClassName.Substring(0, 3)}ForeignStateProvince";
-                if (!IsFieldNullOrWhiteSpace(_record.GetField(foreignStateProvinceClassName)))
-                    throw new Exception($"{ClassDescription} this field should not be provided or should be empty, or you should provide {foreignStateProvinceClassName}");
+                if (IsFieldNullOrWhiteSpace(_record.GetField(foreignStateProvinceClassName)))
+                    throw new Exception($"{ClassDescription} Should not be provided isnce {foreignStateProvinceClassName} is not provided");
             }
 
             return true;

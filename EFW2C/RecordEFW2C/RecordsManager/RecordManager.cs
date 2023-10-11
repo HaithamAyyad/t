@@ -13,7 +13,6 @@ namespace EFW2C.Manager
     {
         private bool _isOpened;
 
-        private bool _reSubmitted;
         private bool _unemployment;
         private bool _isTIB;
 
@@ -23,7 +22,6 @@ namespace EFW2C.Manager
 
         public bool IsOpened { get { return _isOpened; } }
         public bool IsTIB { get { return _isTIB; } }
-        public bool IsSubmitter { get { return _reSubmitted; } }
         public bool IsUnEmployment { get { return _unemployment; } }
 
         public IEnumerable<RceRecord> RceRecordList  => _rceRecordList;
@@ -159,7 +157,6 @@ namespace EFW2C.Manager
         {
             var manager = new RecordManager()
             {
-                _reSubmitted = _reSubmitted,
                 _unemployment = _unemployment,
                 _isTIB = _isTIB,
             };
@@ -225,15 +222,6 @@ namespace EFW2C.Manager
             }
 
             return true;
-        }
-
-        public void SetSubmitter(bool value)
-        {
-            if (_reSubmitted != value)
-            {
-                _reSubmitted = value;
-                Open();
-            }
         }
 
         public void SetUnEmployment(bool value)

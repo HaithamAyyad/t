@@ -72,6 +72,7 @@
   <ItemGroup>
     <Compile Include="Language\Language.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RecordEFW2C\BaseClasses\Common\EinAgentFieldBase.cs" />
     <Compile Include="RecordEFW2C\BaseClasses\Common\EinFieldBase.cs" />
     <Compile Include="RecordEFW2C\BaseClasses\Common\SocialSecurityNumberOriginal.cs" />
     <Compile Include="RecordEFW2C\BaseClasses\Common\SocialSecurityNumberCorrect.cs" />

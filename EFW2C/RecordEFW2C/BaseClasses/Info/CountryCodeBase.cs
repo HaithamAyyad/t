@@ -6,8 +6,8 @@ using EFW2C.Records;
 
 namespace EFW2C.Fields
 {
-    //Created by : hsa 9-2-2023
-    //Reviewed by : 
+    //Created by : Hsa 9-2-2023
+    //Reviewed by : Has 10-1-203
 
     internal abstract class CountryCodeBase : FieldBase
     {
@@ -29,7 +29,6 @@ namespace EFW2C.Fields
         {
             if (!base.Verify())
                 return false;
-
 
             var localData = DataInRecordBuffer();
 

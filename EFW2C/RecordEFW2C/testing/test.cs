@@ -23,7 +23,6 @@ namespace EFW2C.RecordEFW2C.W2cDocument
             try
             {
                 var manager = new RecordManager();
-                manager.SetSubmitter(true);
                 manager.SetTIB(true);
 
                 var rcaRecord = CreateRcaRecord(manager);
@@ -152,7 +151,7 @@ namespace EFW2C.RecordEFW2C.W2cDocument
             rcwRecord.AddField(new RcwDeliveryAddress(rcwRecord, "Alask box 444 0"));
             rcwRecord.AddField(new RcwCity(rcwRecord, "City1"));
             //rcwRecord.AddField(new RcwForeignStateProvince(rcwRecord, "KKK"));
-            rcwRecord.AddField(new RcwForeignPostalCode(rcwRecord, "BOX 300"));
+            //rcwRecord.AddField(new RcwForeignPostalCode(rcwRecord, "BOX 300"));
             //rcwRecord.AddField(new RcwCountryCode(rcwRecord, "UK"));
             rcwRecord.AddField(new RcwSocialSecurityNumberCorrect(rcwRecord, "123456789"));
             rcwRecord.AddField(new RcwSocialSecurityNumberOriginal(rcwRecord, "122456789"));
@@ -203,6 +202,7 @@ namespace EFW2C.RecordEFW2C.W2cDocument
             rceRecord.AddField(new RceEinAgent(rceRecord, "123456789"));
             rceRecord.AddField(new RceEmployerName(rceRecord, "employer1"));
             rceRecord.AddField(new RceEmploymentCodeCorrect(rceRecord, "A"));
+            rceRecord.AddField(new RceStateAbbreviation(rceRecord, "AL"));
 
             return rceRecord;
         }
@@ -223,7 +223,7 @@ namespace EFW2C.RecordEFW2C.W2cDocument
             rcaRecord.AddField(new RcaDeliveryAddress(rcaRecord, "Alask box 444 0"));
             rcaRecord.AddField(new RcaCity(rcaRecord, "City1"));
             //rcaRecord.AddField(new RcaForeignStateProvince(rcaRecord, "KKK"));
-            rcaRecord.AddField(new RcaForeignPostalCode(rcaRecord, "BOX 300"));
+            //rcaRecord.AddField(new RcaForeignPostalCode(rcaRecord, "BOX 300"));
             //rcaRecord.AddField(new RcaCountryCode(rcaRecord, "UK"));
             rcaRecord.AddField(new RcaContactPhone(rcaRecord, "9090000000"));
             rcaRecord.AddField(new RcaContactPhoneExtension(rcaRecord, "108"));
@@ -231,7 +231,7 @@ namespace EFW2C.RecordEFW2C.W2cDocument
             rcaRecord.AddField(new RcaContactFax(rcaRecord, "123456456"));
             rcaRecord.AddField(new RcaPreparerCode(rcaRecord, "A"));
             rcaRecord.AddField(new RcaResubIndicator(rcaRecord, "1"));
-            rcaRecord.AddField(new RcaResubWageFile(rcaRecord, "hjhfj"));
+            rcaRecord.AddField(new RcaResubWageFile(rcaRecord, "hjhwfw"));
             return rcaRecord;
         }
     }

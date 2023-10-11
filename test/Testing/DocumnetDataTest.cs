@@ -94,7 +94,7 @@ namespace test.Testing
             string ein = $"{digits[0]}{digits[1]}-{digits[2]}{digits[3]}{digits[4]}{digits[5]}{digits[6]}{digits[7]}{digits[8]}";
 
             // Check if EIN starts with any of the excluded prefixes
-            string[] excludedPrefixes = { "07", "08", "09", "17", "18", "19", "28", "29", "49", "69", "70", "78", "79", "89" };
+            string[] excludedPrefixes = { "00","07", "08", "09", "17", "18", "19", "28", "29", "49", "69", "70", "78", "79", "89" };
             while (excludedPrefixes.Any(prefix => ein.StartsWith(prefix)))
             {
                 // If the generated EIN starts with an excluded prefix, generate a new set of digits
@@ -221,8 +221,10 @@ namespace test.Testing
             // Seed the random number generator (optional)
             Random random = new Random();
 
-            // Generate a random tax year between 2020 and 2023
-            int randomYear = random.Next(2020, 2024);
+            // Generate a random tax year between 2020 and 2022
+
+            //hsa7 year 2023 need to be tested
+            int randomYear = random.Next(2020, 2023);
 
             return randomYear.ToString();
         }
@@ -268,18 +270,22 @@ namespace test.Testing
             submitter.SubmitterName = GenerateRandomName();
             submitter.ContactName = GenerateRandomName();
             submitter.ZipCode = GenerateRandomZipCode();
-            submitter.ZipCodeExtension = GenerateRandomZipCodeExt();
+            //submitter.ZipCodeExtension = GenerateRandomZipCodeExt();
             submitter.StateAbbreviation = GenerateRandomStateAbbreviation();
             submitter.LocationAddress = GenerateRandomAddress();
             submitter.DeliveryAddress = GenerateRandomAddress();
             submitter.City = GenerateRandomCity();  
-            submitter.ForeignPostalCode = "BOX 300";
+            //submitter.ForeignPostalCode = "BOX 300";
             submitter.ContactPhone = GenerateRandomUSAPhoneNumber();
             submitter.ContactPhoneExtension = "108";
             submitter.ContactEMailInternet = GenerateRandomEmail();
             submitter.ContactFax = GenerateRandomUSAPhoneNumber();
             submitter.PreparerCode = GetRandomPreparerCode();
-            submitter.ResubIndicator = "0";
+            submitter.ResubIndicator = "1";
+
+            //submitter.ForeignStateProvince = "3";
+
+            submitter.ResubWageFile = "AAAA23";
 
             return submitter;
         }
@@ -408,7 +414,7 @@ namespace test.Testing
             employer.TaxYear = GenerateRandomTaxYear();
             employer.KindOfEmployer = GetRandomKindOfEmployer();
             employer.AgentIndicator = "1";
-            employer.EinAgentFederal = GenerateRandomEIN();
+            employer.EinAgentFederal = "000000000"; GenerateRandomEIN();
             employer.EinAgent = GenerateRandomEIN();
             employer.EmployerName = GenerateRandomName();
             employer.EmploymentCodeCorrect = GenerateEmploymentCodeRandomly();

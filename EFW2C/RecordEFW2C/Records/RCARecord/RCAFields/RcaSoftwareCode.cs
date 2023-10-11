@@ -6,8 +6,8 @@ using EFW2C.Records;
 
 namespace EFW2C.Fields
 {
-    //Created by : 
-    //Reviewed by : 
+    //Created by : Hsa 9-1-2023
+    //Reviewed by : Hsa 10-10-2023
 
     internal class RcaSoftwareCode : FieldBase
     {
@@ -30,7 +30,7 @@ namespace EFW2C.Fields
             var localData = DataInRecordBuffer();
 
             if (!EnumHelper.IsSoftwareCodeValid(localData, true))
-                throw new Exception($"{ClassDescription} must be either 98 or 99");
+                throw new Exception($"{ClassDescription} Must be either 98 or 99");
 
             return true;
         }

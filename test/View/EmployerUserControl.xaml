@@ -44,6 +44,18 @@
                 <TextBlock Margin="5,0" Text= "EmployerName:" VerticalAlignment ="Top"/>
                 <TextBox Text= "{Binding Document.SelectedEmployer.EmployerName, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
             </StackPanel>
+            <StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
+                <TextBlock Margin="5,0" Text= "EmploymentCodeCorrect:" VerticalAlignment ="Top"/>
+                <TextBox Text= "{Binding Document.SelectedEmployer.EmploymentCodeCorrect, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
+            </StackPanel>
+            <StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
+                <TextBlock Margin="5,0" Text= "EmploymentCodeOriginal:" VerticalAlignment ="Top"/>
+                <TextBox Text= "{Binding Document.SelectedEmployer.EmploymentCodeOriginal, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
+            </StackPanel>
+            <StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
+                <TextBlock Margin="5,0" Text= "EinAgent:" VerticalAlignment ="Top"/>
+                <TextBox Text= "{Binding Document.SelectedEmployer.EinAgent, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
+            </StackPanel>
         </StackPanel>
         <DockPanel Grid.Column="2" Grid.RowSpan="2">
             <Button DockPanel.Dock="Bottom" Margin="0,10" Content="Create Random Employee" IsEnabled="True" Command="{Binding CreateRandomEmployeeCommand}" HorizontalContentAlignment="Center" />

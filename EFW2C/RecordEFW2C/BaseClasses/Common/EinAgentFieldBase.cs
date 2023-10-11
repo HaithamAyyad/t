@@ -6,12 +6,12 @@ using EFW2C.Records;
 
 namespace EFW2C.Fields
 {
-    //Created by : HSA 9-1-2023
-    //Reviewed by : HSA on ........
+    //Created by : Hsa 10-10-2023
+    //Reviewed by : HSA 10-10-203
 
-    internal abstract class EinFieldBase : FieldBase
+    internal abstract class EinAgentFieldBase : FieldBase
     {
-        public EinFieldBase(RecordBase record, string data)
+        public EinAgentFieldBase(RecordBase record, string data)
             : base(record, data)
         {
             _pos = -1;
@@ -27,7 +27,7 @@ namespace EFW2C.Fields
                 
             var invalidList = new List<string>
             {
-                "07", "08", "09", "17", "18", "19", "28", "29",
+                "00","07", "08", "09", "17", "18", "19", "28", "29",
                 "49", "69", "70", "78", "79", "89"
             };
 
