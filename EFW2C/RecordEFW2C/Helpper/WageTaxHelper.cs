@@ -76,6 +76,12 @@ namespace EFW2C.Common.Helper
                 EmployeeMaxAnnualTax = double.Parse(employeeMaxAnnualTax),
             };
 
+            if (medicareData.MaxTaxedEarnings == -1)
+                medicareData.MaxTaxedEarnings = double.MaxValue;
+
+            if (medicareData.EmployeeMaxAnnualTax == -1)
+                medicareData.EmployeeMaxAnnualTax = double.MaxValue;
+
             return new WageTax() { SocialSecurity = socialSecurityData, MediCare = medicareData };
         }
 

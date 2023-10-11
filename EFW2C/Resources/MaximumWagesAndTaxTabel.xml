@@ -9,11 +9,11 @@
 			<Medicare       TaxRate="1.450" MaxTaxedEarning="-1" EmployeeMaxAnnualTax="-1"/>
 		</Year> />
 		<Year value="2021">
-			<SocialSecurity TaxRate="6.200" MaxTaxedEarning="147,000.00" EmployeeMaxAnnualTax="9,114.00" MinHouseHoldCoveredWages="2,400.00"/>
+			<SocialSecurity TaxRate="6.200" MaxTaxedEarning="142,000.00" EmployeeMaxAnnualTax="8,853.60" MinHouseHoldCoveredWages="2,300.00"/>
 			<Medicare       TaxRate="1.450" MaxTaxedEarning="-1" EmployeeMaxAnnualTax="-1"/>
 		</Year> />
 		<Year value="2020">
-			<SocialSecurity TaxRate="6.200" MaxTaxedEarning="147,000.00" EmployeeMaxAnnualTax="9,114.00" MinHouseHoldCoveredWages="2,400.00"/>
+			<SocialSecurity TaxRate="6.200" MaxTaxedEarning="137,700.00" EmployeeMaxAnnualTax="8,537.40" MinHouseHoldCoveredWages="2,200.00"/>
 			<Medicare       TaxRate="1.450" MaxTaxedEarning="-1" EmployeeMaxAnnualTax="-1"/>
 		</Year> />
 	</Years>
