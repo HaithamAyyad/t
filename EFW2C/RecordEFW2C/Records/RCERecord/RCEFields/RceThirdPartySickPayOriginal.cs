@@ -5,8 +5,8 @@ using EFW2C.Records;
 
 namespace EFW2C.Fields
 {
-    //Created by : HSA 9-5-2023
-    //Reviewed by : 
+    //Created by : Hsa 9-5-2023
+    //Reviewed by : Hsa 10-11-2023
 
     internal class RceThirdPartySickPayOriginal : FieldOriginal
     {

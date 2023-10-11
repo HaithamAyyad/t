@@ -2,8 +2,8 @@
 
 namespace EFW2C.Fields
 {
-    //Created by : hsa 9-4-2023
-    //Reviewed by : 
+    //Created by : Hsa 9-4-2023
+    //Reviewed by : Hsa 10-11-2023
 
     internal class RceContactEMailInternet : ContactEMailInternetBase
     {

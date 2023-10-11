@@ -72,6 +72,10 @@
                 <TextBox Text= "{Binding Document.Submitter.City , Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
             </StackPanel>
             <StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
+                <TextBlock Margin="5,0" Text= "ForeignStateProvince:" VerticalAlignment ="Top"/>
+                <TextBox Text= "{Binding Document.Submitter.ForeignStateProvince, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
+            </StackPanel>
+            <StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
                 <TextBlock Margin="5,0" Text= "ForeignPostalCode:" VerticalAlignment ="Top"/>
                 <TextBox Text= "{Binding Document.Submitter.ForeignPostalCode, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
             </StackPanel>

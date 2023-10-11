@@ -24,13 +24,6 @@ namespace EFW2C.Fields
             if (!base.Verify())
                 return false;
 
-            if (!string.IsNullOrWhiteSpace(DataInRecordBuffer()))
-            {
-                var foreignStateProvinceClassName = $"{_record.ClassName.Substring(0, 3)}ForeignStateProvince";
-                if (IsFieldNullOrWhiteSpace(_record.GetField(foreignStateProvinceClassName)))
-                    throw new Exception($"{ClassDescription} Should not be provided isnce {foreignStateProvinceClassName} is not provided");
-            }
-
             return true;
         }
 

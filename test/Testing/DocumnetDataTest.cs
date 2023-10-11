@@ -304,7 +304,7 @@ namespace test.Testing
             submitter.LocationAddress = GenerateRandomAddress();
             submitter.DeliveryAddress = GenerateRandomAddress();
             submitter.City = GenerateRandomCity();  
-            //submitter.ForeignPostalCode = "BOX 300";
+            submitter.ForeignPostalCode = "BOX 300";
             submitter.ContactPhone = GenerateRandomUSAPhoneNumber();
             submitter.ContactPhoneExtension = "108";
             submitter.ContactEMailInternet = GenerateRandomEmail();
@@ -451,8 +451,10 @@ namespace test.Testing
             employer.AgentIndicator = "1";
             employer.EinAgentFederal = GenerateRandomEINFedral();
             employer.EinAgent = GenerateRandomEIN();
-            employer.EmployerName = GenerateRandomName();
+            //employer.EmployerName = GenerateRandomName();
+
             employer.EmploymentCodeCorrect = GenerateEmploymentCodeRandomly();
+            employer.EmploymentCodeOriginal = GenerateEmploymentCodeRandomly();
 
             employer.EstablishmentNumberOriginal = "0009";
             employer.EstablishmentNumberCorrect = "0004";
@@ -461,6 +463,20 @@ namespace test.Testing
 
             employer.ThirdPartySickPayCorrect = "0";
             employer.ThirdPartySickPayOriginal = "1";
+
+            employer.LocationAddress = GenerateRandomAddress();
+
+            employer.DeliveryAddress = GenerateRandomAddress();
+
+            employer.StateAbbreviation = GenerateRandomStateAbbreviation();
+
+            employer.ContactPhone = GenerateRandomUSAPhoneNumber();
+            employer.ContactPhoneExtension = "108";
+
+            employer.ContactEMailInternet = GenerateRandomEmail();
+
+            employer.ForeignPostalCode = "BOX 300";
+            employer.ForeignStateProvince = "3";
 
             return employer;
         }

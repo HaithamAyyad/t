@@ -42,12 +42,12 @@
                 <TextBox Text= "{Binding Document.SelectedEmployer.SelectedEmployee.ForeignPostalCode, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
             </StackPanel>
             <StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
-                <TextBlock Margin="5,0" Text= "SocialSecurityNumberCorrect:" VerticalAlignment ="Top"/>
-                <TextBox Text= "{Binding Document.SelectedEmployer.SelectedEmployee.SocialSecurityNumberCorrect, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
-            </StackPanel>
-            <StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
                 <TextBlock Margin="5,0" Text= "SocialSecurityNumberOriginal:" VerticalAlignment ="Top"/>
                 <TextBox Text= "{Binding Document.SelectedEmployer.SelectedEmployee.SocialSecurityNumberOriginal, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
+            </StackPanel>
+            <StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
+                <TextBlock Margin="5,0" Text= "SocialSecurityNumberCorrect:" VerticalAlignment ="Top"/>
+                <TextBox Text= "{Binding Document.SelectedEmployer.SelectedEmployee.SocialSecurityNumberCorrect, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
             </StackPanel>
             <StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
                 <TextBlock Margin="5,0" Text= "SocialSecurityTaxWithheldCorrect:" VerticalAlignment ="Top"/>

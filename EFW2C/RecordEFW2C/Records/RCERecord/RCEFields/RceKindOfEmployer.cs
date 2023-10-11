@@ -6,8 +6,8 @@ using EFW2C.Records;
 
 namespace EFW2C.Fields
 {
-    //Created by : HSA 9-4-2023
-    //Reviewed by : 
+    //Created by : Hsa 9-4-2023
+    //Reviewed by : Hsa 10-11-2023
 
     internal class RceKindOfEmployer : FieldBase
     {
@@ -30,7 +30,7 @@ namespace EFW2C.Fields
 
             var localData = DataInRecordBuffer();
             if (!EnumHelper.IsKindOfEmployerValid(localData))
-                throw new Exception($"{ClassDescription} : {localData} is not one of Employer Kind");
+                throw new Exception($"{ClassDescription} : is not one vaild KindOfEmployer");
 
             return true;
         }
