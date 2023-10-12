@@ -69,7 +69,7 @@ namespace test.ViewModel
             }
         }
 
-
+        public bool ShowOptionalRecords { get; set; }
         private bool _showEmployer;
         public bool ShowEmployer
         {
@@ -84,7 +84,6 @@ namespace test.ViewModel
             }
         }
 
-
         private bool _showEmployeeCollection;
         public bool ShowEmployeeCollection
         {
@@ -98,8 +97,6 @@ namespace test.ViewModel
                 }
             }
         }
-
-
         public ICommand VerifySubmitterCommand { get; set; }
         public ICommand VerifyEmployerCommand { get; set; }
         public ICommand VerifyEmployeeCommand { get; set; }
@@ -113,8 +110,9 @@ namespace test.ViewModel
         public ICommand PreviousCommand { get; set; }
 
         public W2cDocument Document { get { return _document; } }
-        public DocumentViewModel()
+        public DocumentViewModel( bool showOptionalRecords)
         {
+            ShowOptionalRecords = showOptionalRecords;
             VerifySubmitterCommand = new RelayCommand(VerifySubmitterCommandHandler);
             VerifyEmployerCommand = new RelayCommand(VerifyEmployerCommandHandler);
             VerifyEmployeeCommand = new RelayCommand(VerifyEmployeeCommandHandler);
@@ -133,7 +131,7 @@ namespace test.ViewModel
 
             //DocumentDataTest.FillData(_document);
             
-            DocumentDataTest.FillData_staically(_document);
+            DocumentDataTest.FillData_staically(_document, showOptionalRecords);
 
             ShowHideWindows();
         }

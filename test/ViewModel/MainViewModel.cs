@@ -18,16 +18,15 @@ namespace test.ViewModel
 {
     public class MainViewModel : INotifyPropertyChanged
     {
-        private string _documentName;
-
-        public string DocumentName
+        private bool _showOptionalRecord;
+        public bool ShowOptionalRecord
         {
-            get { return _documentName; }
+            get { return _showOptionalRecord; }
             set 
             {
-                if (_documentName != value)
+                if (_showOptionalRecord != value)
                 {
-                    _documentName = value;
+                    _showOptionalRecord = value;
                     OnPropertyChanged();
                 }
             }
@@ -42,7 +41,8 @@ namespace test.ViewModel
 
         private void CreateDocumentCommandHandler()
         {
-            var documentViewModel = new DocumentViewModel();
+            var documentViewModel = new DocumentViewModel(_showOptionalRecord);
+            
             var documentWindow = WindowsManager.CreateWindow(documentViewModel);
             documentWindow.ShowDialog();
 

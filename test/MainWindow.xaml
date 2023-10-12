@@ -9,7 +9,10 @@
         WindowStartupLocation="CenterScreen">
     
     <DockPanel Background="Bisque">
-        <Button Margin="30" DockPanel.Dock="Bottom" Content="Create Document" Command="{Binding CreateDocumentCommand}" />
+        <StackPanel Margin="30" DockPanel.Dock="Bottom" >
+            <Button Content="Create Document" Command="{Binding CreateDocumentCommand}" />
+            <CheckBox Content="Include Optional Records" IsChecked="{Binding ShowOptionalRecord, Mode=TwoWay}"/>
+        </StackPanel>
         <Label DockPanel.Dock="Top"/>
     </DockPanel>
 </Window>

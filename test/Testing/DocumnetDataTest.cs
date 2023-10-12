@@ -272,7 +272,8 @@ namespace test.Testing
 
         static string GenerateEmploymentCodeRandomly()
         {
-            string[] employmentCodes = { "A", "H", "M", "Q", "X", "F", "R" };
+            //string[] employmentCodes = { "A", "H", "M", "Q", "X", "F", "R" };
+            string[] employmentCodes = { "A", "M", "Q", "X", "F", "R" };
             int randomIndex = random.Next(employmentCodes.Length);
             return employmentCodes[randomIndex];
         }
@@ -500,7 +501,7 @@ namespace test.Testing
             return employeeState;
         }
 
-        public static void FillData_staically(W2cDocument document)
+        public static void FillData_staically(W2cDocument document, bool showOptionalRecord)
         {
             var submitter = CreateSubmitterData(document);
 
@@ -514,24 +515,37 @@ namespace test.Testing
                 {
                     var employee = CreateEmployeeRandomly(document);
 
-                    /*
-                    var employeeOptional = CreateEmployeeOptionalStatically(document);
+                    if (showOptionalRecord)
+                    {
+                        var employeeOptional = CreateEmployeeOptionalStatically_not_used(document);
 
-                    employee.SetEmployeeOptional(employeeOptional);
+                        employee.SetEmployeeOptional(employeeOptional);
 
-                    var employeeState = CreateEmployeeStateStatically(document);
+                        var employeeState = CreateEmployeeStateStatically_not(document);
 
-                    employee.SetEmployeeStateRecord(employeeState);
+                        employee.SetEmployeeStateRecord(employeeState);
 
-                    var employeeStateTotal = CreateEmployeeStateTotalRandomly(document);
+                        var employeeStateTotal = CreateEmployeeStateTotalRandomly(document);
 
-                    employer.SetEmployeeStateTotal(employeeStateTotal);
-                    */
+                        employer.SetEmployeeStateTotal(employeeStateTotal);
+                    }
+                    
                     employer.AddEmployee(employee);
                 }
 
                 document.AddEmployer(employer);
             }
+        }
+
+        private static W2cEmployeeState CreateEmployeeStateStatically_not(W2cDocument document)
+        {
+            var w2cEmployeeState = new W2cEmployeeState(document);
+            //w2cEmployeeState.SocialSecurityNumberCorrect = GenerateRandomSSN();
+            //w2cEmployeeState.DateFirstEmployedCorrect
+
+            w2cEmployeeState.StateQuarterlyUnemploymentInsuranceTotalWagesCorrect = "3";
+            w2cEmployeeState.StateQuarterlyUnemploymentInsuranceTotalWagesOriginal = "3";
+            return w2cEmployeeState;
         }
 
         public static void FillData(W2cDocument document)

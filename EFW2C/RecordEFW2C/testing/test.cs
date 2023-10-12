@@ -137,6 +137,7 @@ namespace EFW2C.RecordEFW2C.W2cDocument
         {
             var rcsRecord = new RcsRecord(manager);
 
+            rcsRecord.AddField(new RcsSocialSecurityNumberCorrect(rcsRecord, "000000000"));
             return rcsRecord;
         }
 

@@ -85,7 +85,7 @@
     <Compile Include="Converter\BooleanToVisibilityConverter.cs" />
     <Compile Include="Interface\IViewModel.cs" />
     <Compile Include="Testing\DocumnetDataTest.cs" />
-    <Compile Include="View\MainViewModel.cs" />
+    <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\DocumentViewModel.cs" />
     <Compile Include="View\EmployeeCollectionUserControl.xaml.cs">
       <DependentUpon>EmployeeCollectionUserControl.xaml</DependentUpon>

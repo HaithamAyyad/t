@@ -13,7 +13,7 @@ namespace EFW2C.Manager
     {
         private bool _isOpened;
 
-        private bool _unemployment;
+        private bool _unemployment = true;
         private bool _isTIB;
 
         private RcaRecord _rcaRecord;
