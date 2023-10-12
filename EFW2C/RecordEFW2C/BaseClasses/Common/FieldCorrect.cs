@@ -57,14 +57,22 @@ namespace EFW2C.Fields
             return false;
         }
 
-        protected bool IsSameAsOriginalValue()
+        protected FieldBase GetOriginalField()
         {
             if (!ClassName.Contains(Constants.CorrectStr))
                 throw new Exception($"{ClassDescription} this function only used for {Constants.CorrectStr} class");
 
             var originalFieldName = ClassName.Replace(Constants.CorrectStr, Constants.OriginalStr);
 
-            var originalField = _record.GetField(originalFieldName);
+            return _record.GetField(originalFieldName);
+        }
+
+        protected bool IsSameAsOriginalValue()
+        {
+            if (!ClassName.Contains(Constants.CorrectStr))
+                throw new Exception($"{ClassDescription} this function only used for {Constants.CorrectStr} class");
+
+            var originalField = GetOriginalField();
             if (!IsFieldNullOrWhiteSpace(originalField))
                 return DataInRecordBuffer() == originalField.DataInRecordBuffer();
 

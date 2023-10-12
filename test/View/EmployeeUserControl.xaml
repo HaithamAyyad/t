@@ -11,8 +11,52 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition  Width="*"/>
+        </Grid.ColumnDefinitions>
 
         <StackPanel>
+            <StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
+                <TextBlock Margin="5,0" Text= "StateAbbreviation:" VerticalAlignment ="Top"/>
+                <TextBox Text= "{Binding Document.SelectedEmployer.SelectedEmployee.StateAbbreviation, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
+            </StackPanel>
+            <GroupBox Header="Names">
+                <StackPanel>
+                    <StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
+                        <TextBlock Margin="5,0" Text= "EmployeeFirstNameOriginal:" VerticalAlignment ="Top"/>
+                        <TextBox Text= "{Binding Document.SelectedEmployer.SelectedEmployee.EmployeeFirstNameOriginal, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
+                    </StackPanel>
+                    <StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
+                        <TextBlock Margin="5,0" Text= "EmployeeFirstNameCorrect:" VerticalAlignment ="Top"/>
+                        <TextBox Text= "{Binding Document.SelectedEmployer.SelectedEmployee.EmployeeFirstNameCorrect, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
+                    </StackPanel>
+                    <StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
+                        <TextBlock Margin="5,0" Text= "EmployeeLastNameOriginal" VerticalAlignment ="Top"/>
+                        <TextBox Text= "{Binding Document.SelectedEmployer.SelectedEmployee.EmployeeLastNameOriginal, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
+                    </StackPanel>
+                    <StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
+                        <TextBlock Margin="5,0" Text= "EmployeeLastNameCorrect" VerticalAlignment ="Top"/>
+                        <TextBox Text= "{Binding Document.SelectedEmployer.SelectedEmployee.EmployeeLastNameCorrect, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
+                    </StackPanel>
+                    <StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
+                        <TextBlock Margin="5,0" Text= "MiddleNameEmployeeCorrect" VerticalAlignment ="Top"/>
+                        <TextBox Text= "{Binding Document.SelectedEmployer.SelectedEmployee.MiddleNameEmployeeCorrect, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
+                    </StackPanel>
+                    <StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
+                        <TextBlock Margin="5,0" Text= "MiddleNameEmployeeOriginal" VerticalAlignment ="Top"/>
+                        <TextBox Text= "{Binding Document.SelectedEmployer.SelectedEmployee.MiddleNameEmployeeOriginal, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
+                    </StackPanel>
+                </StackPanel>
+            </GroupBox>
+            <StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
+                <TextBlock Margin="5,0" Text= "SocialSecurityNumberOriginal:" VerticalAlignment ="Top"/>
+                <TextBox Text= "{Binding Document.SelectedEmployer.SelectedEmployee.SocialSecurityNumberOriginal, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
+            </StackPanel>
+            <StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
+                <TextBlock Margin="5,0" Text= "SocialSecurityNumberCorrect:" VerticalAlignment ="Top"/>
+                <TextBox Text= "{Binding Document.SelectedEmployer.SelectedEmployee.SocialSecurityNumberCorrect, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
+            </StackPanel>
             <StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
                 <TextBlock Margin="5,0" Text= "ZipCode:" VerticalAlignment ="Top"/>
                 <TextBox Text= "{Binding Document.SelectedEmployer.SelectedEmployee.ZipCode, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
@@ -20,10 +64,6 @@
             <StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
                 <TextBlock Margin="5,0" Text= "ZipCodeExtension:" VerticalAlignment ="Top"/>
                 <TextBox Text= "{Binding Document.SelectedEmployer.SelectedEmployee.ZipCodeExtension, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
-            </StackPanel>
-            <StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
-                <TextBlock Margin="5,0" Text= "StateAbbreviation:" VerticalAlignment ="Top"/>
-                <TextBox Text= "{Binding Document.SelectedEmployer.SelectedEmployee.StateAbbreviation, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
             </StackPanel>
             <StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
                 <TextBlock Margin="5,0" Text= "LocationAddress:" VerticalAlignment ="Top"/>
@@ -42,36 +82,12 @@
                 <TextBox Text= "{Binding Document.SelectedEmployer.SelectedEmployee.ForeignPostalCode, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
             </StackPanel>
             <StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
-                <TextBlock Margin="5,0" Text= "SocialSecurityNumberOriginal:" VerticalAlignment ="Top"/>
-                <TextBox Text= "{Binding Document.SelectedEmployer.SelectedEmployee.SocialSecurityNumberOriginal, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
-            </StackPanel>
-            <StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
-                <TextBlock Margin="5,0" Text= "SocialSecurityNumberCorrect:" VerticalAlignment ="Top"/>
-                <TextBox Text= "{Binding Document.SelectedEmployer.SelectedEmployee.SocialSecurityNumberCorrect, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
-            </StackPanel>
-            <StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
                 <TextBlock Margin="5,0" Text= "SocialSecurityTaxWithheldCorrect:" VerticalAlignment ="Top"/>
                 <TextBox Text= "{Binding Document.SelectedEmployer.SelectedEmployee.SocialSecurityTaxWithheldCorrect, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
             </StackPanel>
             <StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
                 <TextBlock Margin="5,0" Text= "SocialSecurityTaxWithheldOriginal:" VerticalAlignment ="Top"/>
                 <TextBox Text= "{Binding Document.SelectedEmployer.SelectedEmployee.SocialSecurityTaxWithheldOriginal, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
-            </StackPanel>
-            <StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
-                <TextBlock Margin="5,0" Text= "EmployeeFirstNameOriginal:" VerticalAlignment ="Top"/>
-                <TextBox Text= "{Binding Document.SelectedEmployer.SelectedEmployee.EmployeeFirstNameOriginal, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
-            </StackPanel>
-            <StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
-                <TextBlock Margin="5,0" Text= "EmployeeFirstNameCorrect:" VerticalAlignment ="Top"/>
-                <TextBox Text= "{Binding Document.SelectedEmployer.SelectedEmployee.EmployeeFirstNameCorrect, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
-            </StackPanel>
-            <StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
-                <TextBlock Margin="5,0" Text= "EmployeeLastNameCorrect" VerticalAlignment ="Top"/>
-                <TextBox Text= "{Binding Document.SelectedEmployer.SelectedEmployee.EmployeeLastNameCorrect, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
-            </StackPanel>
-            <StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
-                <TextBlock Margin="5,0" Text= "EmployeeLastNameOriginal" VerticalAlignment ="Top"/>
-                <TextBox Text= "{Binding Document.SelectedEmployer.SelectedEmployee.EmployeeLastNameOriginal, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
             </StackPanel>
             <StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
                 <TextBlock Margin="5,0" Text= "SocialSecurityTipsOriginal" VerticalAlignment ="Top"/>
@@ -90,12 +106,12 @@
                 <TextBox Text= "{Binding Document.SelectedEmployer.SelectedEmployee.SocialSecurityWagesCorrect, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
             </StackPanel>
             <StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
-                <TextBlock Margin="5,0" Text= "MedicareWagesAndTipsCorrect" VerticalAlignment ="Top"/>
-                <TextBox Text= "{Binding Document.SelectedEmployer.SelectedEmployee.MedicareWagesAndTipsCorrect, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
-            </StackPanel>
-            <StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
                 <TextBlock Margin="5,0" Text= "MedicareWagesAndTipsOriginal" VerticalAlignment ="Top"/>
                 <TextBox Text= "{Binding Document.SelectedEmployer.SelectedEmployee.MedicareWagesAndTipsOriginal, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
+            </StackPanel>
+            <StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
+                <TextBlock Margin="5,0" Text= "MedicareWagesAndTipsCorrect" VerticalAlignment ="Top"/>
+                <TextBox Text= "{Binding Document.SelectedEmployer.SelectedEmployee.MedicareWagesAndTipsCorrect, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
             </StackPanel>
             <StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
                 <TextBlock Margin="5,0" Text= "MedicareTaxWithheldOriginal" VerticalAlignment ="Top"/>
@@ -110,5 +126,15 @@
             <Button Margin="10,0" Content="Verify" IsEnabled="True" Command="{Binding VerifyEmployeeCommand}" HorizontalContentAlignment="Center" />
         </StackPanel>
 
+        <StackPanel Grid.Row="0" Grid.Column="1" Margin="40,0">
+            <StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
+                <TextBlock Margin="5,0" Text= "FederalIncomeTaxWithheldOriginal:" VerticalAlignment ="Top"/>
+                <TextBox Text= "{Binding Document.SelectedEmployer.SelectedEmployee.FederalIncomeTaxWithheldOriginal, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
+            </StackPanel>
+            <StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
+                <TextBlock Margin="5,0" Text= "FederalIncomeTaxWithheldCorrect:" VerticalAlignment ="Top"/>
+                <TextBox Text= "{Binding Document.SelectedEmployer.SelectedEmployee.FederalIncomeTaxWithheldCorrect, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </UserControl>

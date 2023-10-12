@@ -288,6 +288,77 @@ namespace test.Testing
                 return "Invalid input. Both values must be numeric.";
             }
         }
+
+        internal static W2cEmployee CreateEmployeeStatically_notUsed(W2cDocument document)
+        {
+            var employee = new W2cEmployee(document);
+
+            employee.SocialSecurityNumberOriginal = "758-31-2689";
+            employee.EmployeeFirstNameOriginal = "Jefferson";
+            employee.EmployeeLastNameOriginal = "Scranney";
+            employee.LocationAddress = "68 Dayton Road";
+            employee.DeliveryAddress = "Apt 163";
+            employee.City = "Columbia";
+            employee.StateAbbreviation = "SC";
+            employee.ZipCode = "29215";
+            employee.SocialSecurityNumberCorrect = "416-25-2516";
+            employee.EmployeeFirstNameCorrect = "Scranney";
+            employee.EmployeeLastNameCorrect = "Scranney";
+
+            employee.WagesTipsAndOtherCompensationOriginal = "45212.25";
+            employee.WagesTipsAndOtherCompensationCorrect = "45285.25";
+
+            employee.FederalIncomeTaxWithheldOriginal = "15824.28"; //75
+            employee.FederalIncomeTaxWithheldCorrect = "15849.83"; //75
+
+            employee.SocialSecurityWagesOriginal = "55000.52";
+            employee.SocialSecurityWagesCorrect = "55852.52";
+
+            employee.SocialSecurityTaxWithheldOriginal = "3410.03"; //224
+            employee.SocialSecurityTaxWithheldCorrect = "3462.85"; //624
+
+            employee.SocialSecurityTipsCorrect = "9855.63";
+            employee.SocialSecurityTipsOriginal = "5855.63";
+
+            employee.MedicareTaxWithheldOriginal = "797.58"; //004
+            employee.MedicareTaxWithheldCorrect = "809.93"; //404
+
+            employee.MedicareWagesAndTipsOriginal = GenerateSum(employee.SocialSecurityWagesOriginal, employee.SocialSecurityTipsOriginal); ;
+            employee.MedicareWagesAndTipsCorrect = GenerateSum(employee.SocialSecurityWagesCorrect, employee.SocialSecurityTipsCorrect);
+
+            return employee;
+        }
+
+        public static W2cEmployeeState CreateEmployeeStateStatically_not_used(W2cDocument document)
+        {
+            var employeeState = new W2cEmployeeState(document);
+
+            employeeState.StateAbbreviation = "SC";
+            //employeeState. SID87412-14 15-id
+            employeeState.StateTaxableWagesOriginal = "14523.12";
+            employeeState.StateIncomeTaxWithheldOriginal = "524.12";
+            employeeState.LocalTaxableWagesOriginal = "66.32";
+            //employeeState.  10.22 box 19
+            employeeState.City = "Tuscarawas";
+
+            employeeState.StateTaxableWagesCorrect = "8741.25";
+            employeeState.StateIncomeTaxWithheldCorrect = "521.23";
+            employeeState.LocalTaxableWagesCorrect = "698.21";
+            //employeeState 11.52
+
+            return employeeState;
+        }
+
+        internal static W2cEmployeeOptional CreateEmployeeOptionalStatically_not_used(W2cDocument document)
+        {
+            var employeeOptional = new W2cEmployeeOptional(document);
+
+            employeeOptional.AllocatedTipsCorrect = "854.23";
+            employeeOptional.AllocatedTipsOriginal = "874.23";
+
+            return employeeOptional;
+        }
+
         public static W2cSubmitter CreateSubmitterData(W2cDocument document)
         {
             var submitter = new W2cSubmitter(document);
@@ -319,75 +390,6 @@ namespace test.Testing
             return submitter;
         }
 
-        internal static W2cEmployee CreateEmployeeStatically(W2cDocument document)
-        {
-            var employee = new W2cEmployee(document);
-
-            employee.SocialSecurityNumberOriginal = "758-31-2689";
-            employee.EmployeeFirstNameOriginal = "Jefferson";
-            employee.EmployeeLastNameOriginal = "Scranney";
-            employee.LocationAddress = "68 Dayton Road";
-            employee.DeliveryAddress = "Apt 163";
-            employee.City = "Columbia";
-            employee.StateAbbreviation = "SC";
-            employee.ZipCode = "29215";
-            employee.SocialSecurityNumberCorrect = "416-25-2516";
-            employee.EmployeeFirstNameCorrect = "Scranney";
-            employee.EmployeeLastNameCorrect = "Scranney";
-
-            employee.WagesTipsAndOtherCompensationOriginal = "45212.25";
-            employee.WagesTipsAndOtherCompensationCorrect = "45285.25";
-
-            employee.FederalIncomeTaxWithheldOriginal = "15824.28"; //75
-            employee.FederalIncomeTaxWithheldCorrect = "15849.83"; //75
-
-            employee.SocialSecurityWagesOriginal = "55000.52";
-            employee.SocialSecurityWagesCorrect = "55852.52";
-
-            employee.SocialSecurityTaxWithheldOriginal = "3410.03"; //224
-            employee.SocialSecurityTaxWithheldCorrect = "3462.85"; //624
-
-            employee.SocialSecurityTipsCorrect  = "9855.63";
-            employee.SocialSecurityTipsOriginal = "5855.63";
-
-            employee.MedicareTaxWithheldOriginal = "797.58"; //004
-            employee.MedicareTaxWithheldCorrect = "809.93"; //404
-
-            employee.MedicareWagesAndTipsOriginal = GenerateSum(employee.SocialSecurityWagesOriginal,employee.SocialSecurityTipsOriginal); ;
-            employee.MedicareWagesAndTipsCorrect  = GenerateSum(employee.SocialSecurityWagesCorrect, employee.SocialSecurityTipsCorrect);
-
-            return employee;
-        }
-
-        public static W2cEmployeeState CreateEmployeeStateStatically(W2cDocument document)
-        {
-            var employeeState = new W2cEmployeeState(document);
-
-            employeeState.StateAbbreviation = "SC";
-            //employeeState. SID87412-14 15-id
-            employeeState.StateTaxableWagesOriginal = "14523.12";
-            employeeState.StateIncomeTaxWithheldOriginal = "524.12";
-            employeeState.LocalTaxableWagesOriginal = "66.32";
-            //employeeState.  10.22 box 19
-            employeeState.City = "Tuscarawas";
-
-            employeeState.StateTaxableWagesCorrect = "8741.25";
-            employeeState.StateIncomeTaxWithheldCorrect = "521.23";
-            employeeState.LocalTaxableWagesCorrect = "698.21";
-            //employeeState 11.52
-
-            return employeeState;
-        }
-
-        internal static W2cEmployeeOptional CreateEmployeeOptionalStatically(W2cDocument document)
-        {
-            var employeeOptional = new W2cEmployeeOptional(document);
-
-            employeeOptional.AllocatedTipsCorrect = "854.23";
-            employeeOptional.AllocatedTipsOriginal = "874.23";
-
-            return employeeOptional;
-        }
         internal static W2cEmployeeOptional CreateEmployeeOptionalRandomly(W2cDocument document)
         {
             var employeeOptional = new W2cEmployeeOptional(document);
@@ -402,42 +404,44 @@ namespace test.Testing
         {
             var employee = new W2cEmployee(document);
 
-            employee.ZipCode = GenerateRandomZipCode();
-            employee.ZipCodeExtension = GenerateRandomZipCodeExt();
-
-            employee.StateAbbreviation = GenerateRandomStateAbbreviation();
-
-            employee.LocationAddress = GenerateRandomAddress();
-
-            employee.DeliveryAddress = GenerateRandomAddress();
-
-            employee.City = GenerateRandomCity();
-
-            employee.ForeignPostalCode = "BOX 300";
-
-            employee.SocialSecurityNumberCorrect = GenerateRandomSSN();
-            employee.SocialSecurityNumberOriginal = GenerateRandomSSN();
-
-            employee.SocialSecurityTaxWithheldCorrect = GenerateRandomDoubleAsString();
-            employee.SocialSecurityTaxWithheldOriginal = GenerateRandomDoubleAsString();
-
             employee.EmployeeFirstNameOriginal = GenerateRandomName();
             employee.EmployeeFirstNameCorrect = GenerateRandomName();
 
             employee.EmployeeLastNameCorrect = GenerateRandomName();
             employee.EmployeeLastNameOriginal = GenerateRandomName();
 
+            employee.MiddleNameEmployeeOriginal = GenerateRandomName();
+            employee.MiddleNameEmployeeCorrect = GenerateRandomName();
 
-            employee.SocialSecurityTipsOriginal = "90";
-            employee.SocialSecurityTipsCorrect = "90";
+            employee.SocialSecurityNumberCorrect = GenerateRandomSSN();
+            employee.SocialSecurityNumberOriginal = GenerateRandomSSN();
 
-            employee.SocialSecurityWagesOriginal = "10";
-            employee.SocialSecurityWagesCorrect = "10";
+            employee.StateAbbreviation = GenerateRandomStateAbbreviation();
 
-            employee.MedicareWagesAndTipsCorrect = "102";
+            employee.City = GenerateRandomCity();
+            employee.ZipCode = GenerateRandomZipCode();
+            employee.ZipCodeExtension = GenerateRandomZipCodeExt();
+            employee.LocationAddress = GenerateRandomAddress();
+            employee.DeliveryAddress = GenerateRandomAddress();
+
+            employee.ForeignPostalCode = "BOX 300";
+
+            employee.SocialSecurityTaxWithheldCorrect = GenerateRandomDoubleAsString();
+            employee.SocialSecurityTaxWithheldOriginal = GenerateRandomDoubleAsString();
+
+            employee.SocialSecurityTipsOriginal = GenerateRandomDoubleAsString();
+            employee.SocialSecurityTipsCorrect = GenerateRandomDoubleAsString();
+
+            employee.SocialSecurityWagesOriginal = GenerateRandomDoubleAsString();
+            employee.SocialSecurityWagesCorrect = GenerateRandomDoubleAsString();
+
+            employee.MedicareWagesAndTipsCorrect = GenerateRandomDoubleAsString();
 
             employee.MedicareWagesAndTipsOriginal = GenerateSum(employee.SocialSecurityWagesCorrect,
-                                       employee.SocialSecurityTipsCorrect); 
+                                       employee.SocialSecurityTipsCorrect);
+
+            employee.FederalIncomeTaxWithheldOriginal = GenerateRandomDoubleAsString(); ;
+            employee.FederalIncomeTaxWithheldCorrect = GenerateRandomDoubleAsString(); ;
 
             return employee;
         }
@@ -446,12 +450,24 @@ namespace test.Testing
         {
             var employer = new W2cEmployer(document);
 
+            //employer.EmployerName = GenerateRandomName();
+            employer.ContactEMailInternet = GenerateRandomEmail();
+            employer.ContactPhone = GenerateRandomUSAPhoneNumber();
+            employer.ContactPhoneExtension = "108";
+            employer.LocationAddress = GenerateRandomAddress();
+            employer.DeliveryAddress = GenerateRandomAddress();
+
+            employer.StateAbbreviation = GenerateRandomStateAbbreviation();
+            //employer.ForeignStateProvince = "3";
+            employer.ForeignPostalCode = "BOX 300";
+
+            employer.EinAgentFederalOriginal = "000";
+            employer.EinAgentFederal = GenerateRandomEINFedral();
+            employer.EinAgent = GenerateRandomEIN();
+
             employer.TaxYear = GenerateRandomTaxYear();
             employer.KindOfEmployer = GetRandomKindOfEmployer();
             employer.AgentIndicator = "1";
-            employer.EinAgentFederal = GenerateRandomEINFedral();
-            employer.EinAgent = GenerateRandomEIN();
-            //employer.EmployerName = GenerateRandomName();
 
             employer.EmploymentCodeCorrect = GenerateEmploymentCodeRandomly();
             employer.EmploymentCodeOriginal = GenerateEmploymentCodeRandomly();
@@ -459,24 +475,8 @@ namespace test.Testing
             employer.EstablishmentNumberOriginal = "0009";
             employer.EstablishmentNumberCorrect = "0004";
 
-            employer.EinAgentFederalOriginal = "000";
-
             employer.ThirdPartySickPayCorrect = "0";
             employer.ThirdPartySickPayOriginal = "1";
-
-            employer.LocationAddress = GenerateRandomAddress();
-
-            employer.DeliveryAddress = GenerateRandomAddress();
-
-            employer.StateAbbreviation = GenerateRandomStateAbbreviation();
-
-            employer.ContactPhone = GenerateRandomUSAPhoneNumber();
-            employer.ContactPhoneExtension = "108";
-
-            employer.ContactEMailInternet = GenerateRandomEmail();
-
-            employer.ForeignPostalCode = "BOX 300";
-            employer.ForeignStateProvince = "3";
 
             return employer;
         }
@@ -512,7 +512,7 @@ namespace test.Testing
 
                 for (int j = 0; j < 1; j++)
                 {
-                    var employee = CreateEmployeeStatically(document);
+                    var employee = CreateEmployeeRandomly(document);
 
                     /*
                     var employeeOptional = CreateEmployeeOptionalStatically(document);

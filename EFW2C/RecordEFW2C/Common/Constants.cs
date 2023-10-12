@@ -20,5 +20,6 @@ namespace EFW2C.Common.Constants
         public static string Str_666 = "666";
         public static string Str_9 = "9";
         public static string InternalError = "InternalError:-";
+        public static string SNN_Empty = "000000000";
     }
 }

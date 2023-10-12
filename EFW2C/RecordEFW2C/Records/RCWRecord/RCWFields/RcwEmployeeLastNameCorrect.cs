@@ -5,8 +5,8 @@ using EFW2C.Records;
 
 namespace EFW2C.Fields
 {
-    //Created by : 9-9-2023
-    //Reviewed by : 
+    //Created by : Hsa 9-9-2023
+    //Reviewed by : Hsa 10-12-2023
 
     internal class RcwEmployeeLastNameCorrect : FieldCorrect
     {
@@ -27,30 +27,12 @@ namespace EFW2C.Fields
             if (!base.Verify())
                 return false;
 
-            if (_record.GetField(typeof(RcwStatutoryEmployeeIndicatorCorrect).Name) == null &&
-                _record.GetField(typeof(RcwThirdPartySickPayndicatorCorrect).Name) == null &&
-                _record.GetField(typeof(RcwRetirementPlanIndicatorCorrect).Name) == null &&
-                !IsOneCorrectMoneyFieldProvided())
-                throw new Exception($"{ClassDescription}: you must provoide at least one indecator or the SSN original field or at least one correct money field");
-
-
             return true;
         }
 
         public override bool IsRequired()
         {
-            if (base.IsRequired())
-                return true;
-
-            if (_record.GetField(typeof(RcwStatutoryEmployeeIndicatorCorrect).Name) != null
-                || _record.GetField(typeof(RcwThirdPartySickPayndicatorCorrect).Name) != null
-                || _record.GetField(typeof(RcwRetirementPlanIndicatorCorrect).Name) != null)
-                return true;
-
-            if (IsOneCorrectMoneyFieldProvided())
-                return true;
-
-            return false;
+            return true;
         }
     }
 }

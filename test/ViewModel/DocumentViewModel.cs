@@ -250,6 +250,8 @@ namespace test.ViewModel
         {
             try
             {
+                _document.SelectedEmployer?.SelectedEmployee?.Parent.Prepare();
+                _document.SelectedEmployer?.SelectedEmployee?.Parent.Verify();
                 _document.SelectedEmployer?.SelectedEmployee?.Prepare();
                 _document.SelectedEmployer?.SelectedEmployee?.Verify();
                 MessageBox.Show("Verified Successfully", "Employee");

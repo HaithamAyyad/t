@@ -6,7 +6,7 @@ using EFW2C.Records;
 namespace EFW2C.Fields
 {
     //Created by : 9-9-2023
-    //Reviewed by : 
+    //Reviewed by : Hsa 10-11-2023
 
     internal class RcwEmployeeFirstNameOriginal : FieldOriginal
     {

@@ -6,8 +6,8 @@ using EFW2C.Records;
 
 namespace EFW2C.Fields
 {
-    //Created by : 9-9-2023
-    //Reviewed by : 
+    //Created by : Hsa 9-9-2023
+    //Reviewed by : Hsa 10-11-2023
 
     internal class RcwSocialSecurityNumberOriginal : SocialSecurityNumberOriginal
     {
@@ -28,6 +28,7 @@ namespace EFW2C.Fields
             if (!base.Verify())
                 return false;
 
+            //hsa7 ask for it
             var localData = DataInRecordBuffer();
             var strValid1 = localData.Substring(0, 3);
             var strValid2 = localData.Substring(0, 1);

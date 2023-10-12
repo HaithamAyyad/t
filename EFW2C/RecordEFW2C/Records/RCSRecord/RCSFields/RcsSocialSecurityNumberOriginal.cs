@@ -6,7 +6,7 @@ using EFW2C.Records;
 namespace EFW2C.Fields
 {
     //Created by : 9-9-2023
-    //Reviewed by : 
+    //Reviewed by : 10-11-2023
 
     internal class RcsSocialSecurityNumberOriginal : SocialSecurityNumberOriginal
     {
@@ -20,14 +20,6 @@ namespace EFW2C.Fields
         public override FieldBase Clone(RecordBase record)
         {
             return new RcsSocialSecurityNumberOriginal(record, _data);
-        }
-
-        public override bool Verify()
-        {
-            if (!base.Verify())
-                return false;
-
-            return true;
         }
     }
 }

@@ -2,11 +2,12 @@
 using EFW2C.Common.Enums;
 using EFW2C.Records;
 using System;
+using System.Linq;
 
 namespace EFW2C.Fields
 {
-    //Created by : 9-9-2023
-    //Reviewed by : 
+    //Created by : Hsa 9-9-2023
+    //Reviewed by : Hsa 10-11-2023
 
     internal class RcwSocialSecurityNumberCorrect : SocialSecurityNumberCorrect
     {
@@ -22,6 +23,22 @@ namespace EFW2C.Fields
             return new RcwSocialSecurityNumberCorrect(record, _data);
         }
 
+        public override void Write()
+        {
+            base.Write();
+
+            var socialSecurityNumberOriginalField = GetOriginalField();
+            if(socialSecurityNumberOriginalField == null )
+            {
+                var socialSecurityNumberOriginalName = typeof(RcwSocialSecurityNumberOriginal).Name;
+
+                socialSecurityNumberOriginalField = _record.HelperFieldsList.FirstOrDefault(item => item.ClassName == socialSecurityNumberOriginalName);
+
+                socialSecurityNumberOriginalField = socialSecurityNumberOriginalField.Clone(_record, Constants.SNN_Empty);
+                socialSecurityNumberOriginalField.Write();
+            }
+
+        }
         public override bool Verify()
         {
             if (!base.Verify())
@@ -29,14 +46,8 @@ namespace EFW2C.Fields
 
             var lacalData = DataInRecordBuffer();
 
-            if(lacalData.Substring(0, 3) == Constants.Str_666 || lacalData.Substring(0, 1) == Constants.Str_9)
-                throw new Exception($"{ClassDescription}: Social Security Number, should not start with '666' or '9'");
-
-            if (_record.GetField(typeof(RcwStatutoryEmployeeIndicatorCorrect).Name) == null &&
-                _record.GetField(typeof(RcwThirdPartySickPayndicatorCorrect).Name) == null  &&
-                _record.GetField(typeof(RcwRetirementPlanIndicatorCorrect).Name) == null    &&
-                !IsOneCorrectMoneyFieldProvided())
-               throw new Exception($"{ClassDescription}: you must provoide at least one indecator or the SSN original field or at least one correct money field");
+            if (lacalData.Substring(0, 3) == Constants.Str_666 || lacalData.Substring(0, 1) == Constants.Str_9)
+                throw new Exception($"{ClassDescription}: May not start with '666' or '9'");
 
             return true;
         }
@@ -48,18 +59,7 @@ namespace EFW2C.Fields
 
         public override bool IsRequired()
         {
-            if (base.IsRequired())
-                return true;
-
-            if (_record.GetField(typeof(RcwStatutoryEmployeeIndicatorCorrect).Name) != null
-                || _record.GetField(typeof(RcwThirdPartySickPayndicatorCorrect).Name) != null
-                || _record.GetField(typeof(RcwRetirementPlanIndicatorCorrect).Name) !=null)
-                return true;
-
-            if (IsOneCorrectMoneyFieldProvided())
-                return true;
-
-            return false;
+            return true;
         }
     }
 }
