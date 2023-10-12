@@ -436,10 +436,10 @@ namespace test.Testing
             employee.SocialSecurityWagesOriginal = GenerateRandomDoubleAsString();
             employee.SocialSecurityWagesCorrect = GenerateRandomDoubleAsString();
 
-            employee.MedicareWagesAndTipsCorrect = GenerateSum(employee.SocialSecurityWagesOriginal,
+            employee.MedicareWagesAndTipsOriginal = GenerateSum(employee.SocialSecurityWagesOriginal,
                                         employee.SocialSecurityTipsOriginal);
 
-            employee.MedicareWagesAndTipsOriginal = GenerateSum(employee.SocialSecurityWagesCorrect,
+            employee.MedicareWagesAndTipsCorrect = GenerateSum(employee.SocialSecurityWagesCorrect,
                                        employee.SocialSecurityTipsCorrect);
 
             employee.FederalIncomeTaxWithheldOriginal = GenerateRandomDoubleAsString(); ;
