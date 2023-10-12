@@ -6,7 +6,7 @@ using EFW2C.Records;
 namespace EFW2C.Fields
 {
     //Created by : 9-9-2023
-    //Reviewed by : 
+    //Reviewed by : Hsa 10-12-2023
 
     internal class RcsStateControlNumberOriginal : FieldOriginal
     {
@@ -21,7 +21,7 @@ namespace EFW2C.Fields
         {
             return new RcsStateControlNumberOriginal(record, _data);
         }
-
+        //Applies to Income Tax reporting.
         public override bool Verify()
         {
             if (!base.Verify())

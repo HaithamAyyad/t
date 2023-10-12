@@ -6,8 +6,8 @@ using EFW2C.Records;
 
 namespace EFW2C.Fields
 {
-    //Created by : HSA 9-9-2023
-    //Reviewed by : 
+    //Created by : Hsa 9-9-2023
+    //Reviewed by : Hsa 10-12-2023
 
     internal class RcsStateCode : FieldBase
     {
@@ -31,7 +31,7 @@ namespace EFW2C.Fields
             var localData = DataInRecordBuffer();
 
             if (!EnumHelper.IsValidStateCode(localData, true))
-                throw new Exception($"{ClassDescription} {localData} is not a valid state code");
+                throw new Exception($"{ClassDescription} is not valid state code");
 
             return true;
         }
@@ -45,5 +45,8 @@ namespace EFW2C.Fields
         {
             return false;
         }
+
+        //Applies to Income Tax reporting.
     }
 }
+

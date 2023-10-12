@@ -6,7 +6,7 @@ using EFW2C.Records;
 namespace EFW2C.Fields
 {
     //Created by  : HSA on 9-1-2023
-    //Reviewed by : HSA on ........
+    //Reviewed by : 
 
     internal abstract class RecordIdentifierBase : FieldBase
     {

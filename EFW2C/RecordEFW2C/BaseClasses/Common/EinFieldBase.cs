@@ -6,8 +6,8 @@ using EFW2C.Records;
 
 namespace EFW2C.Fields
 {
-    //Created by : HSA 9-1-2023
-    //Reviewed by : HSA on ........
+    //Created by : Hsa 9-1-2023
+    //Reviewed by : 
 
     internal abstract class EinFieldBase : FieldBase
     {

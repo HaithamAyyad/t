@@ -56,10 +56,5 @@ namespace EFW2C.Fields
         {
             return FieldTypeEnum.Numerical_Only;
         }
-
-        public override bool IsRequired()
-        {
-            return true;
-        }
     }
 }

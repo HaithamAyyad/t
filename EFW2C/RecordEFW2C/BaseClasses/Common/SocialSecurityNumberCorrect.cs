@@ -18,5 +18,10 @@ namespace EFW2C.Fields
             _length = -1;
             _fieldFormat = FieldFormat.Hyphen;
         }
+
+        public override bool IsRequired()
+        {
+            return true;
+        }
     }
 }

@@ -5,8 +5,8 @@ using EFW2C.Records;
 
 namespace EFW2C.Fields
 {
-    //Created by : HSA 9-9-2023
-    //Reviewed by : 
+    //Created by : Hsa 9-9-2023
+    //Reviewed by : Hsa 10-12-2023
 
     internal class RcsReportingPeriodOriginal : UnEmploymentReportingOriginal
     {
@@ -21,5 +21,17 @@ namespace EFW2C.Fields
         {
             return new RcsReportingPeriodOriginal(record, _data);
         }
+
+        public override bool Verify()
+        {
+            if (!base.Verify())
+                return false;
+
+            if (!_record.Manager.IsUnEmployment && !string.IsNullOrWhiteSpace(DataInRecordBuffer()))
+                throw new Exception($"{ClassDescription} : This field only applies to unemployment reporting");
+
+            return true;
+        }
     }
 }
+
