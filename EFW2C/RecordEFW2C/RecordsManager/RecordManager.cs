@@ -13,16 +13,11 @@ namespace EFW2C.Manager
     {
         private bool _isOpened;
 
-        private bool _unemployment = true;
-        private bool _isTIB;
-
         private RcaRecord _rcaRecord;
         private RcfRecord _rcfRecord;
         private List<RceRecord> _rceRecordList;
 
         public bool IsOpened { get { return _isOpened; } }
-        public bool IsTIB { get { return _isTIB; } }
-        public bool IsUnEmployment { get { return _unemployment; } }
 
         public IEnumerable<RceRecord> RceRecordList  => _rceRecordList;
 
@@ -155,11 +150,7 @@ namespace EFW2C.Manager
 
         public RecordManager Clone()
         {
-            var manager = new RecordManager()
-            {
-                _unemployment = _unemployment,
-                _isTIB = _isTIB,
-            };
+            var manager = new RecordManager();
 
             manager.SetRcaRecord((RcaRecord)_rcaRecord.Clone(manager));
 
@@ -222,24 +213,6 @@ namespace EFW2C.Manager
             }
 
             return true;
-        }
-
-        public void SetUnEmployment(bool value)
-        {
-            if (_unemployment != value)
-            {
-                _unemployment = value;
-                Open();
-            }
-        }
-
-        public void SetTIB(bool value)
-        {
-            if (_isTIB != value)
-            {
-                _isTIB = value;
-                Open();
-            }
         }
 
         private List<RecordBase> CreateRecordList()

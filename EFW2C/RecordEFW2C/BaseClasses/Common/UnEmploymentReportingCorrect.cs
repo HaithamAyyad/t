@@ -5,8 +5,8 @@ using EFW2C.Records;
 
 namespace EFW2C.Fields
 {
-    //Created by : 
-    //Reviewed by : 
+    //Created by : Hsa 9-8-2023
+    //Reviewed by : Hsa 10-12-2023
 
     internal abstract class UnEmploymentReportingCorrect : FieldCorrect
     {
@@ -18,17 +18,5 @@ namespace EFW2C.Fields
         }
 
         public override abstract FieldBase Clone(RecordBase record);
-
-        public override bool Verify()
-        {
-            if (!base.Verify())
-                return false;
-
-            if (!_record.Manager.IsUnEmployment && !string.IsNullOrWhiteSpace(DataInRecordBuffer()))
-                throw new Exception($"{ClassDescription} : This field only applies to unemployment reporting");
-
-            return true;
-        }
-
     }
 }

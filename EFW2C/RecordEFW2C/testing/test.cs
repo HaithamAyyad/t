@@ -23,7 +23,6 @@ namespace EFW2C.RecordEFW2C.W2cDocument
             try
             {
                 var manager = new RecordManager();
-                manager.SetTIB(true);
 
                 var rcaRecord = CreateRcaRecord(manager);
                 rcaRecord.Write();

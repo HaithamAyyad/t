@@ -799,42 +799,6 @@ namespace EFW2C.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to EmployeeS DateFirstEmployedCorrect.
-        /// </summary>
-        internal static string RcsDateFirstEmployedCorrect {
-            get {
-                return ResourceManager.GetString("RcsDateFirstEmployedCorrect", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to EmployeeS DateFirstEmployedOriginal.
-        /// </summary>
-        internal static string RcsDateFirstEmployedOriginal {
-            get {
-                return ResourceManager.GetString("RcsDateFirstEmployedOriginal", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to EmployeeS DateOfSeparationCorrect.
-        /// </summary>
-        internal static string RcsDateOfSeparationCorrect {
-            get {
-                return ResourceManager.GetString("RcsDateOfSeparationCorrect", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to EmployeeS DateOfSeparationOriginal.
-        /// </summary>
-        internal static string RcsDateOfSeparationOriginal {
-            get {
-                return ResourceManager.GetString("RcsDateOfSeparationOriginal", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to EmployeeS DeliveryAddress.
         /// </summary>
         internal static string RcsDeliveryAddress {
@@ -943,24 +907,6 @@ namespace EFW2C.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to EmployeeS NumberOfWeeksWorkedCorrect.
-        /// </summary>
-        internal static string RcsNumberOfWeeksWorkedCorrect {
-            get {
-                return ResourceManager.GetString("RcsNumberOfWeeksWorkedCorrect", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to EmployeeS NumberOfWeeksWorkedOriginal.
-        /// </summary>
-        internal static string RcsNumberOfWeeksWorkedOriginal {
-            get {
-                return ResourceManager.GetString("RcsNumberOfWeeksWorkedOriginal", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to EmployeeS OptionalCode.
         /// </summary>
         internal static string RcsOptionalCode {
@@ -993,24 +939,6 @@ namespace EFW2C.Resources {
         internal static string RcsRecordIdentifier {
             get {
                 return ResourceManager.GetString("RcsRecordIdentifier", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to EmployeeS ReportingPeriodCorrect.
-        /// </summary>
-        internal static string RcsReportingPeriodCorrect {
-            get {
-                return ResourceManager.GetString("RcsReportingPeriodCorrect", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to EmployeeS ReportingPeriodOriginal.
-        /// </summary>
-        internal static string RcsReportingPeriodOriginal {
-            get {
-                return ResourceManager.GetString("RcsReportingPeriodOriginal", resourceCulture);
             }
         }
         
@@ -1074,24 +1002,6 @@ namespace EFW2C.Resources {
         internal static string RcsStateControlNumberOriginal {
             get {
                 return ResourceManager.GetString("RcsStateControlNumberOriginal", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to EmployeeS StateEmployerAccountNumberCorrect.
-        /// </summary>
-        internal static string RcsStateEmployerAccountNumberCorrect {
-            get {
-                return ResourceManager.GetString("RcsStateEmployerAccountNumberCorrect", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to EmployeeS StateEmployerAccountNumberOriginal.
-        /// </summary>
-        internal static string RcsStateEmployerAccountNumberOriginal {
-            get {
-                return ResourceManager.GetString("RcsStateEmployerAccountNumberOriginal", resourceCulture);
             }
         }
         
@@ -1659,24 +1569,6 @@ namespace EFW2C.Resources {
         internal static string RctTotalSocialSecurityWagesOriginal {
             get {
                 return ResourceManager.GetString("RctTotalSocialSecurityWagesOriginal", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to EmployerT TotalTotalDeferredCompensationContributionsCorrect.
-        /// </summary>
-        internal static string RctTotalTotalDeferredCompensationContributionsCorrect {
-            get {
-                return ResourceManager.GetString("RctTotalTotalDeferredCompensationContributionsCorrect", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to EmployerT TotalTotalDeferredCompensationContributionsOriginal.
-        /// </summary>
-        internal static string RctTotalTotalDeferredCompensationContributionsOriginal {
-            get {
-                return ResourceManager.GetString("RctTotalTotalDeferredCompensationContributionsOriginal", resourceCulture);
             }
         }
         
@@ -2568,24 +2460,6 @@ namespace EFW2C.Resources {
         internal static string RcwThirdPartySickPayndicatorOriginal {
             get {
                 return ResourceManager.GetString("RcwThirdPartySickPayndicatorOriginal", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Employee TotalDeferredCompensationContributionsCorrect.
-        /// </summary>
-        internal static string RcwTotalDeferredCompensationContributionsCorrect {
-            get {
-                return ResourceManager.GetString("RcwTotalDeferredCompensationContributionsCorrect", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Employee TotalDeferredCompensationContributionsOriginal.
-        /// </summary>
-        internal static string RcwTotalDeferredCompensationContributionsOriginal {
-            get {
-                return ResourceManager.GetString("RcwTotalDeferredCompensationContributionsOriginal", resourceCulture);
             }
         }
         

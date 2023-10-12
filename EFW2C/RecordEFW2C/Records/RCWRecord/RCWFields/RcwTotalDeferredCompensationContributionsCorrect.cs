@@ -18,20 +18,22 @@ namespace EFW2C.Fields
             _length = 11;
         }
 
-        public override FieldBase Clone(RecordBase record)
-        {
-            return new RcwTotalDeferredCompensationContributionsCorrect(record, _data);
-        }
-
         public override bool Verify()
         {
             if (!base.Verify())
                 return false;
 
-            if (!_record.Manager.IsTIB)
-                throw new Exception($"{ClassDescription} : This field only should be provided when TIB is set");
+            var taxYear = ((RctRecord)_record).Parent.GetTaxYear();
+
+            if (taxYear < 1987 || taxYear > 2005)
+                throw new Exception($"{ClassDescription} : This field only for tax year 1987 to 2005");
 
             return true;
+        }
+
+        public override FieldBase Clone(RecordBase record)
+        {
+            return new RcwTotalDeferredCompensationContributionsCorrect(record, _data);
         }
     }
 }

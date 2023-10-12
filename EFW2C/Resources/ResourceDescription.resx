@@ -363,18 +363,6 @@
   <data name="RcsCountryCode" xml:space="preserve">
     <value>EmployeeS CountryCode</value>
   </data>
-  <data name="RcsDateFirstEmployedCorrect" xml:space="preserve">
-    <value>EmployeeS DateFirstEmployedCorrect</value>
-  </data>
-  <data name="RcsDateFirstEmployedOriginal" xml:space="preserve">
-    <value>EmployeeS DateFirstEmployedOriginal</value>
-  </data>
-  <data name="RcsDateOfSeparationCorrect" xml:space="preserve">
-    <value>EmployeeS DateOfSeparationCorrect</value>
-  </data>
-  <data name="RcsDateOfSeparationOriginal" xml:space="preserve">
-    <value>EmployeeS DateOfSeparationOriginal</value>
-  </data>
   <data name="RcsDeliveryAddress" xml:space="preserve">
     <value>EmployeeS DeliveryAddress</value>
   </data>
@@ -411,12 +399,6 @@
   <data name="RcsLocationAddress" xml:space="preserve">
     <value>EmployeeS LocationAddress</value>
   </data>
-  <data name="RcsNumberOfWeeksWorkedCorrect" xml:space="preserve">
-    <value>EmployeeS NumberOfWeeksWorkedCorrect</value>
-  </data>
-  <data name="RcsNumberOfWeeksWorkedOriginal" xml:space="preserve">
-    <value>EmployeeS NumberOfWeeksWorkedOriginal</value>
-  </data>
   <data name="RcsOptionalCode" xml:space="preserve">
     <value>EmployeeS OptionalCode</value>
   </data>
@@ -428,12 +410,6 @@
   </data>
   <data name="RcsRecordIdentifier" xml:space="preserve">
     <value>EmployeeS RecordIdentifier</value>
-  </data>
-  <data name="RcsReportingPeriodCorrect" xml:space="preserve">
-    <value>EmployeeS ReportingPeriodCorrect</value>
-  </data>
-  <data name="RcsReportingPeriodOriginal" xml:space="preserve">
-    <value>EmployeeS ReportingPeriodOriginal</value>
   </data>
   <data name="RcsSocialSecurityNumberCorrect" xml:space="preserve">
     <value>EmployeeS SocialSecurityNumberCorrect</value>
@@ -455,12 +431,6 @@
   </data>
   <data name="RcsStateControlNumberOriginal" xml:space="preserve">
     <value>EmployeeS StateControlNumberOriginal</value>
-  </data>
-  <data name="RcsStateEmployerAccountNumberCorrect" xml:space="preserve">
-    <value>EmployeeS StateEmployerAccountNumberCorrect</value>
-  </data>
-  <data name="RcsStateEmployerAccountNumberOriginal" xml:space="preserve">
-    <value>EmployeeS StateEmployerAccountNumberOriginal</value>
   </data>
   <data name="RcsStateIncomeTaxWithheldCorrect" xml:space="preserve">
     <value>EmployeeS StateIncomeTaxWithheldCorrect</value>
@@ -650,12 +620,6 @@
   </data>
   <data name="RctTotalSocialSecurityWagesOriginal" xml:space="preserve">
     <value>EmployerT TotalSocialSecurityWagesOriginal</value>
-  </data>
-  <data name="RctTotalTotalDeferredCompensationContributionsCorrect" xml:space="preserve">
-    <value>EmployerT TotalTotalDeferredCompensationContributionsCorrect</value>
-  </data>
-  <data name="RctTotalTotalDeferredCompensationContributionsOriginal" xml:space="preserve">
-    <value>EmployerT TotalTotalDeferredCompensationContributionsOriginal</value>
   </data>
   <data name="RctTotalWagesTipsAndOtherCompensationCorrect" xml:space="preserve">
     <value>EmployerT TotalWagesTipsAndOtherCompensationCorrect</value>
@@ -953,12 +917,6 @@
   </data>
   <data name="RcwThirdPartySickPayndicatorOriginal" xml:space="preserve">
     <value>Employee ThirdPartySickPayndicatorOriginal</value>
-  </data>
-  <data name="RcwTotalDeferredCompensationContributionsCorrect" xml:space="preserve">
-    <value>Employee TotalDeferredCompensationContributionsCorrect</value>
-  </data>
-  <data name="RcwTotalDeferredCompensationContributionsOriginal" xml:space="preserve">
-    <value>Employee TotalDeferredCompensationContributionsOriginal</value>
   </data>
   <data name="RcwWagesTipsAndOtherCompensationCorrect" xml:space="preserve">
     <value>Employee WagesTipsAndOtherCompensationCorrect</value>

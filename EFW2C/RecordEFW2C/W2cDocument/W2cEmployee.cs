@@ -1073,36 +1073,6 @@ namespace EFW2C.RecordEFW2C.W2cDocument
             }
         }
 
-        private string _totalDeferredCompensationContributionsCorrect;
-        public string TotalDeferredCompensationContributionsCorrect
-        {
-            get { return _totalDeferredCompensationContributionsCorrect; }
-            set
-            {
-                if (_totalDeferredCompensationContributionsCorrect != value)
-                {
-                    _totalDeferredCompensationContributionsCorrect = value;
-                    AddData(value);
-                    OnPropertyChanged();
-                }
-            }
-        }
-
-        private string _totalDeferredCompensationContributionsOriginal;
-        public string TotalDeferredCompensationContributionsOriginal
-        {
-            get { return _totalDeferredCompensationContributionsOriginal; }
-            set
-            {
-                if (_totalDeferredCompensationContributionsOriginal != value)
-                {
-                    _totalDeferredCompensationContributionsOriginal = value;
-                    AddData(value);
-                    OnPropertyChanged();
-                }
-            }
-        }
-
         private string _wagesTipsAndOtherCompensationCorrect;
         public string WagesTipsAndOtherCompensationCorrect
         {
@@ -1235,8 +1205,6 @@ namespace EFW2C.RecordEFW2C.W2cDocument
             mapDictionary.Add(nameof(StatutoryEmployeeIndicatorOriginal), typeof(RcwStatutoryEmployeeIndicatorOriginal).Name);
             mapDictionary.Add(nameof(ThirdPartySickPayndicatorCorrect), typeof(RcwThirdPartySickPayndicatorCorrect).Name);
             mapDictionary.Add(nameof(ThirdPartySickPayndicatorOriginal), typeof(RcwThirdPartySickPayndicatorOriginal).Name);
-            mapDictionary.Add(nameof(TotalDeferredCompensationContributionsCorrect), typeof(RcwTotalDeferredCompensationContributionsCorrect).Name);
-            mapDictionary.Add(nameof(TotalDeferredCompensationContributionsOriginal), typeof(RcwTotalDeferredCompensationContributionsOriginal).Name);
             mapDictionary.Add(nameof(WagesTipsAndOtherCompensationCorrect), typeof(RcwWagesTipsAndOtherCompensationCorrect).Name);
             mapDictionary.Add(nameof(WagesTipsAndOtherCompensationOriginal), typeof(RcwWagesTipsAndOtherCompensationOriginal).Name);
             mapDictionary.Add(nameof(ZipCode), typeof(RcwZipCode).Name);

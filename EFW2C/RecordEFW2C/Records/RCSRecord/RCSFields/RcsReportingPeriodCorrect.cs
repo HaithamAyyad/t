@@ -21,16 +21,5 @@ namespace EFW2C.Fields
         {
             return new RcsReportingPeriodCorrect(record, _data);
         }
-
-        public override bool Verify()
-        {
-            if (!base.Verify())
-                return false;
-
-            if (!_record.Manager.IsUnEmployment && !string.IsNullOrWhiteSpace(DataInRecordBuffer()))
-                throw new Exception($"{ClassDescription} : This field only applies to unemployment reporting");
-
-            return true;
-        }
     }
 }

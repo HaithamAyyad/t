@@ -61,7 +61,7 @@ namespace EFW2C.RecordEFW2C.W2cDocument
         }
 
         private string _dateFirstEmployedCorrect;
-        public string DateFirstEmployedCorrect
+        private string DateFirstEmployedCorrect
         {
             get { return _dateFirstEmployedCorrect; }
             set
@@ -76,7 +76,7 @@ namespace EFW2C.RecordEFW2C.W2cDocument
         }
 
         private string _dateFirstEmployedOriginal;
-        public string DateFirstEmployedOriginal
+        private string DateFirstEmployedOriginal
         {
             get { return _dateFirstEmployedOriginal; }
             set
@@ -91,7 +91,7 @@ namespace EFW2C.RecordEFW2C.W2cDocument
         }
 
         private string _dateOfSeparationCorrect;
-        public string DateOfSeparationCorrect
+        private string DateOfSeparationCorrect
         {
             get { return _dateOfSeparationCorrect; }
             set
@@ -106,7 +106,7 @@ namespace EFW2C.RecordEFW2C.W2cDocument
         }
 
         private string _dateOfSeparationOriginal;
-        public string DateOfSeparationOriginal
+        private string DateOfSeparationOriginal
         {
             get { return _dateOfSeparationOriginal; }
             set
@@ -301,7 +301,7 @@ namespace EFW2C.RecordEFW2C.W2cDocument
         }
 
         private string _numberOfWeeksWorkedCorrect;
-        public string NumberOfWeeksWorkedCorrect
+        private string NumberOfWeeksWorkedCorrect
         {
             get { return _numberOfWeeksWorkedCorrect; }
             set
@@ -316,7 +316,7 @@ namespace EFW2C.RecordEFW2C.W2cDocument
         }
 
         private string _numberOfWeeksWorkedOriginal;
-        public string NumberOfWeeksWorkedOriginal
+        private string NumberOfWeeksWorkedOriginal
         {
             get { return _numberOfWeeksWorkedOriginal; }
             set
@@ -331,7 +331,7 @@ namespace EFW2C.RecordEFW2C.W2cDocument
         }
 
         private string _optionalCode;
-        public string OptionalCode
+        private string OptionalCode
         {
             get { return _optionalCode; }
             set
@@ -361,7 +361,7 @@ namespace EFW2C.RecordEFW2C.W2cDocument
         }
 
         private string _reportingPeriodCorrect;
-        public string ReportingPeriodCorrect
+        private string ReportingPeriodCorrect
         {
             get { return _reportingPeriodCorrect; }
             set
@@ -376,7 +376,7 @@ namespace EFW2C.RecordEFW2C.W2cDocument
         }
 
         private string _reportingPeriodOriginal;
-        public string ReportingPeriodOriginal
+        private string ReportingPeriodOriginal
         {
             get { return _reportingPeriodOriginal; }
             set
@@ -496,7 +496,7 @@ namespace EFW2C.RecordEFW2C.W2cDocument
         }
 
         private string _stateEmployerAccountNumberCorrect;
-        public string StateEmployerAccountNumberCorrect
+        private string StateEmployerAccountNumberCorrect
         {
             get { return _stateEmployerAccountNumberCorrect; }
             set
@@ -511,7 +511,7 @@ namespace EFW2C.RecordEFW2C.W2cDocument
         }
 
         private string _stateEmployerAccountNumberOriginal;
-        public string StateEmployerAccountNumberOriginal
+        private string StateEmployerAccountNumberOriginal
         {
             get { return _stateEmployerAccountNumberOriginal; }
             set
@@ -556,7 +556,7 @@ namespace EFW2C.RecordEFW2C.W2cDocument
         }
 
         private string _stateQuarterlyUnemploymentInsuranceTotalWagesCorrect;
-        public string StateQuarterlyUnemploymentInsuranceTotalWagesCorrect
+        private string StateQuarterlyUnemploymentInsuranceTotalWagesCorrect
         {
             get { return _stateQuarterlyUnemploymentInsuranceTotalWagesCorrect; }
             set
@@ -571,7 +571,7 @@ namespace EFW2C.RecordEFW2C.W2cDocument
         }
 
         private string _stateQuarterlyUnemploymentInsuranceTotalWagesOriginal;
-        public string StateQuarterlyUnemploymentInsuranceTotalWagesOriginal
+        private string StateQuarterlyUnemploymentInsuranceTotalWagesOriginal
         {
             get { return _stateQuarterlyUnemploymentInsuranceTotalWagesOriginal; }
             set
@@ -742,10 +742,7 @@ namespace EFW2C.RecordEFW2C.W2cDocument
 
             mapDictionary.Add(nameof(City), typeof(RcsCity).Name);
             mapDictionary.Add(nameof(CountryCode), typeof(RcsCountryCode).Name);
-            mapDictionary.Add(nameof(DateFirstEmployedCorrect), typeof(RcsDateFirstEmployedCorrect).Name);
-            mapDictionary.Add(nameof(DateFirstEmployedOriginal), typeof(RcsDateFirstEmployedOriginal).Name);
             mapDictionary.Add(nameof(DateOfSeparationCorrect), typeof(RcsDateOfSeparationCorrect).Name);
-            mapDictionary.Add(nameof(DateOfSeparationOriginal), typeof(RcsDateOfSeparationOriginal).Name);
             mapDictionary.Add(nameof(DeliveryAddress), typeof(RcsDeliveryAddress).Name);
             mapDictionary.Add(nameof(EmployeeFirstNameCorrect), typeof(RcsEmployeeFirstNameCorrect).Name);
             mapDictionary.Add(nameof(EmployeeFirstNameOriginal), typeof(RcsEmployeeFirstNameOriginal).Name);
@@ -758,12 +755,8 @@ namespace EFW2C.RecordEFW2C.W2cDocument
             mapDictionary.Add(nameof(LocalTaxableWagesCorrect), typeof(RcsLocalTaxableWagesCorrect).Name);
             mapDictionary.Add(nameof(LocalTaxableWagesOriginal), typeof(RcsLocalTaxableWagesOriginal).Name);
             mapDictionary.Add(nameof(LocationAddress), typeof(RcsLocationAddress).Name);
-            mapDictionary.Add(nameof(NumberOfWeeksWorkedCorrect), typeof(RcsNumberOfWeeksWorkedCorrect).Name);
-            mapDictionary.Add(nameof(NumberOfWeeksWorkedOriginal), typeof(RcsNumberOfWeeksWorkedOriginal).Name);
             mapDictionary.Add(nameof(OptionalCode), typeof(RcsOptionalCode).Name);
             mapDictionary.Add(nameof(OtherStateData), typeof(RcsOtherStateData).Name);
-            mapDictionary.Add(nameof(ReportingPeriodCorrect), typeof(RcsReportingPeriodCorrect).Name);
-            mapDictionary.Add(nameof(ReportingPeriodOriginal), typeof(RcsReportingPeriodOriginal).Name);
             mapDictionary.Add(nameof(SocialSecurityNumberCorrect), typeof(RcsSocialSecurityNumberCorrect).Name);
             mapDictionary.Add(nameof(SocialSecurityNumberOriginal), typeof(RcsSocialSecurityNumberOriginal).Name);
             mapDictionary.Add(nameof(StateAbbreviation), typeof(RcsStateAbbreviation).Name);

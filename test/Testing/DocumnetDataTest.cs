@@ -496,9 +496,6 @@ namespace test.Testing
             var employeeState = new W2cEmployeeState(document);
 
             employeeState.City = GenerateRandomCity();
-            employeeState.DateFirstEmployedCorrect = GenerateRandomDateString();
-            employeeState.DateFirstEmployedOriginal = GenerateRandomDateString();
-
             return employeeState;
         }
 
@@ -543,8 +540,6 @@ namespace test.Testing
             var w2cEmployeeState = new W2cEmployeeState(document);
             w2cEmployeeState.SocialSecurityNumberCorrect = GenerateRandomSSN();
 
-            w2cEmployeeState.StateQuarterlyUnemploymentInsuranceTotalWagesCorrect = GenerateRandomDoubleAsString();
-            w2cEmployeeState.StateQuarterlyUnemploymentInsuranceTotalWagesOriginal = GenerateRandomDoubleAsString(); ;
             return w2cEmployeeState;
         }
 
