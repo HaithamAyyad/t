@@ -6,8 +6,8 @@ using EFW2C.Records;
 
 namespace EFW2C.Fields
 {
-    //Created by : HSA 9-9-2023
-    //Reviewed by : 
+    //Created by : Hsa 9-9-2023
+    //Reviewed by : Hsa 10-12-2023
 
     internal class RcwSocialSecurityTaxWithheldCorrect : MoneyCorrect
     {
@@ -32,16 +32,15 @@ namespace EFW2C.Fields
 
             var employmentCode = ((RcwRecord)_record).Parent.GetEmploymentCode();
             if (employmentCode == EmploymentCodeEnum.Q.ToString() || employmentCode == EmploymentCodeEnum.X.ToString())
-                throw new Exception($"{ClassDescription} : since employment code is {employmentCode}, this field must not be provided");
+                throw new Exception($"{ClassDescription} : Must be balnk if EmploymentCode is {employmentCode}");
 
             if (taxYear == 2023)
             {
                 var localData = DataInRecordBuffer();
                 double.TryParse(localData, out var localValue);
                 if(localValue > 993240)
-                    throw new Exception($"{ClassDescription} since year is 2023 the value must not exceed $9,932.40");
+                    throw new Exception($"{ClassDescription} value must not exceed $9,932.40 if year 2023" );
             }
-
 
             return true;
         }

@@ -5,7 +5,7 @@ using EFW2C.Records;
 
 namespace EFW2C.Fields
 {
-    //Created by : HSA 9-42023
+    //Created by : Hsa 9-42023
     //Reviewed by : Hsa 10-12-2023
 
     internal class RcwForeignStateProvince : ForeignStateProvinceBase

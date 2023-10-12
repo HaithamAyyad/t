@@ -7,8 +7,8 @@ using EFW2C.Records;
 
 namespace EFW2C.Fields
 {
-    //Created by : HSA 9-9-2023
-    //Reviewed by : 
+    //Created by : Hsa 9-9-2023
+    //Reviewed by : Hsa 10-12-2023
 
     internal class RcwSocialSecurityWagesCorrect : MoneyCorrect
     {
@@ -33,7 +33,7 @@ namespace EFW2C.Fields
 
             var employmentCode = ((RcwRecord)_record).Parent.GetEmploymentCode();
             if (employmentCode == EmploymentCodeEnum.Q.ToString() || employmentCode == EmploymentCodeEnum.X.ToString())
-                throw new Exception($"{ClassDescription} : since employment code is {employmentCode}, this field must not be provided");
+                throw new Exception($"{ClassDescription} : Must be balnk if EmploymentCode is {employmentCode}");
 
             var localData = DataInRecordBuffer();
             double.TryParse(localData, out var localValue);
@@ -43,7 +43,7 @@ namespace EFW2C.Fields
             var rcwSocialSecurityTipsCorrect = _record.GetField(typeof(RcwSocialSecurityTipsCorrect).Name);
 
             if (rcwSocialSecurityTipsCorrect == null)
-                throw new Exception($"{ClassDescription}: RcwSocialSecurityTipsCorrect must be provided");
+                throw new Exception($"{ClassDescription}: Must be black or provid SocialSecurityTipsCorrect");
 
             double.TryParse(rcwSocialSecurityTipsCorrect.DataInRecordBuffer(), out var socialSecurityTipsCorrectValue);
 

@@ -7,8 +7,8 @@ using EFW2C.Records;
 
 namespace EFW2C.Fields
 {
-    //Created by : HSA 9-9-2023
-    //Reviewed by : 
+    //Created by : Hsa 9-9-2023
+    //Reviewed by : Hsa 10-12-2023
 
     internal class RcwMedicareTaxWithheldCorrect : MoneyCorrect
     {
@@ -37,8 +37,9 @@ namespace EFW2C.Fields
             if (employmentCode == EmploymentCodeEnum.X.ToString())
             {
                 if (!string.IsNullOrWhiteSpace(localData))
-                    throw new Exception($"{ClassDescription} : must be blank, because employment code is 'X'");
+                    throw new Exception($"{ClassDescription} must be blank if EmploymentCode is 'X'");
             }
+
 
             return true;
         }

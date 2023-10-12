@@ -42,7 +42,7 @@ namespace EFW2C.Fields
                 double.TryParse(localData, out var localValue);
 
                 if (localValue != 0 || localValue < wageTax.SocialSecurity.MinHouseHoldCoveredWages)
-                    throw new Exception($"{ClassDescription} : value must be zero or equal or greater than MinHouseHold Covered Wages");
+                    throw new Exception($"{ClassDescription} : value must be zero or equal or greater than MinHouseHold Covered Wages if EmploymentCode is 'H'");
             }
 
             if (employmentCode == EmploymentCodeEnum.X.ToString())

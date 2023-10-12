@@ -7,8 +7,8 @@ using EFW2C.Records;
 
 namespace EFW2C.Fields
 {
-    //Created by : HSA 9-9-2023
-    //Reviewed by : 
+    //Created by : Hsa 9-9-2023
+    //Reviewed by : Hsa 10-12-2023
 
     internal class RcwSocialSecurityTipsOriginal : MoneyOriginal
     {
@@ -40,12 +40,12 @@ namespace EFW2C.Fields
 
                 var rcwSocialSecurityWagesOriginal = _record.GetField(typeof(RcwSocialSecurityWagesOriginal).Name);
                 if (rcwSocialSecurityWagesOriginal == null)
-                    throw new Exception($"{ClassDescription}: RcwSocialSecurityWagesOriginal must be provided");
+                    throw new Exception($"{ClassDescription}: Must be blank or provid SocialSecurityWagesOriginal");
 
                 double.TryParse(rcwSocialSecurityWagesOriginal.DataInRecordBuffer(), out var rcwSocialSecurityWagesOriginalValue);
 
                 if (localValue != 0 || localValue + rcwSocialSecurityWagesOriginalValue < wageTax.SocialSecurity.MinHouseHoldCoveredWages)
-                    throw new Exception($"{ClassDescription} : value must be zero or equal or greater than MinHouseHold Covered Wages");
+                    throw new Exception($"{ClassDescription} : value must be zero or equal or greater than MinHouseHold Covered Wages if EmploymentCode is 'H'");
             }
             
             return true;

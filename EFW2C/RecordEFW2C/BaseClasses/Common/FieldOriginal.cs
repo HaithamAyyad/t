@@ -7,8 +7,8 @@ using EFW2C.Records;
 
 namespace EFW2C.Fields
 {
-    //Created by : HSA 9-5-2023
-    //Reviewed by : 
+    //Created by : Hsa 9-5-2023
+    //Reviewed by : Hsa 10-12-2023
     
     internal abstract class FieldOriginal : FieldBase
     {
@@ -26,16 +26,6 @@ namespace EFW2C.Fields
             return FieldTypeEnum.UpperCase_LeftJustify_Blank;
         }
 
-        private string GetCorrectClassDescription()
-        {
-            if (!ClassName.Contains(Constants.OriginalStr))
-                throw new Exception($"{ClassDescription} this function only used for {Constants.OriginalStr} class");
-
-            var correctFieldName = ClassName.Replace(Constants.OriginalStr, Constants.CorrectStr);
-
-            return _record.HelperFieldsList.FirstOrDefault(x => x.ClassName == correctFieldName).ClassDescription;
-        }
-
         public override bool Verify()
         {
             if (!base.Verify())
@@ -50,6 +40,11 @@ namespace EFW2C.Fields
             return true;
         }
 
+        public override bool IsRequired()
+        {
+            return false;
+        }
+
         private bool IsCorrectFieldNullOrWhiteSpace()
         {
             if (!ClassName.Contains(Constants.OriginalStr))
@@ -60,9 +55,24 @@ namespace EFW2C.Fields
             return IsFieldNullOrWhiteSpace(_record.GetField(correctFieldName));
         }
 
-        public override bool IsRequired()
+        protected FieldBase GetCorrectField()
         {
-            return false;
+            if (!ClassName.Contains(Constants.OriginalStr))
+                throw new Exception($"{ClassDescription} this function only used for {Constants.OriginalStr} class");
+
+            var correctFieldName = ClassName.Replace(Constants.OriginalStr, Constants.CorrectStr);
+
+            return _record.GetField(correctFieldName);
+        }
+
+        private string GetCorrectClassDescription()
+        {
+            if (!ClassName.Contains(Constants.OriginalStr))
+                throw new Exception($"{ClassDescription} this function only used for {Constants.OriginalStr} class");
+
+            var correctFieldName = ClassName.Replace(Constants.OriginalStr, Constants.CorrectStr);
+
+            return _record.HelperFieldsList.FirstOrDefault(x => x.ClassName == correctFieldName).ClassDescription;
         }
     }
 }
