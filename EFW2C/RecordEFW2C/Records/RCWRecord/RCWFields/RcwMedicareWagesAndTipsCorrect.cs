@@ -47,7 +47,7 @@ namespace EFW2C.Fields
                 if (employmentCode == EmploymentCodeEnum.H.ToString())
                 {
                     if (localValue != 0 || localValue < wageTax.SocialSecurity.MinHouseHoldCoveredWages)
-                        throw new Exception($"{ClassDescription} : value must be zero or equal or greater than MinHouseHold Covered Wages ({wageTax.SocialSecurity.MinHouseHoldCoveredWages})");
+                        throw new Exception($"{ClassDescription} : Must be zero or equal or greater than MinHouseHold Covered Wages ({wageTax.SocialSecurity.MinHouseHoldCoveredWages})");
                 }
                 else
                 {
@@ -64,7 +64,7 @@ namespace EFW2C.Fields
                     double.TryParse(rcwSocialSecurityWagesCorrect.DataInRecordBuffer(), out var rcwSocialSecurityWagesCorrectValue);
 
                     if (localValue < rcwSocialSecurityTipsCorrectValue + rcwSocialSecurityWagesCorrectValue)
-                        throw new Exception($"{ClassDescription} value must be equal or grater than the sum of Social Security Tips and Social Security Wages");
+                        throw new Exception($"{ClassDescription} Must be equal or grater than the sum of Social Security Tips and Social Security Wages");
                 }
             }
 

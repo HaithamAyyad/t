@@ -7,8 +7,8 @@ using EFW2C.Records;
 
 namespace EFW2C.Fields
 {
-    //Created by : HSA 9-9-2023
-    //Reviewed by : 
+    //Created by : Hsa 9-9-2023
+    //Reviewed by : Hsa 10-12-2023
 
     internal class RctTotalMedicareWagesAndTipsCorrect : SumFieldCorrect
     {
@@ -57,13 +57,13 @@ namespace EFW2C.Fields
                 var wageTax = WageTaxHelper.GetWageTax(taxYear);
 
                 if (localValue != 0 || localValue < wageTax.SocialSecurity.MinHouseHoldCoveredWages)
-                    throw new Exception($"{ClassDescription} : must be zero or equal to or greater than the annual Household minimum for the tax year being reported");
+                    throw new Exception($"{ClassDescription} : Must be zero or equal to or greater than the annual Household minimum for the tax year being reported");
             }
 
             if (employmentCode == EmploymentCodeEnum.X.ToString())
             {
                 if (!string.IsNullOrWhiteSpace(localData))
-                    throw new Exception($"{ClassDescription} : must be blank because employment code is X");
+                    throw new Exception($"{ClassDescription} : Must be blank if employment code is X");
             }
 
             return true;

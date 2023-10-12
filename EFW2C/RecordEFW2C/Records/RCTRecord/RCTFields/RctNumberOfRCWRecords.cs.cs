@@ -9,8 +9,8 @@ using System.Threading.Tasks;
 
 namespace EFW2C.Fields
 {
-    //Created by : HSA 9-8-2023
-    //Reviewed by : 
+    //Created by : Hsa 9-8-2023
+    //Reviewed by : Hsa 10-12-2023
 
     internal class RctNumberOfRCWRecords : FieldBase
     {
@@ -36,7 +36,7 @@ namespace EFW2C.Fields
                 return false;
 
             if (int.Parse(DataInRecordBuffer()) != ((RctRecord)_record).Parent.GetRcwRecordsCount())
-                throw new Exception($"{ClassDescription} number of RCW is not correct");
+                throw new Exception($"{ClassDescription} number of Employee records is not correct");
 
             return true;
         }

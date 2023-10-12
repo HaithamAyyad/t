@@ -7,8 +7,8 @@ using EFW2C.Records;
 
 namespace EFW2C.Fields
 {
-    //Created by : HSA 9-9-2023
-    //Reviewed by : 
+    //Created by : Hsa 9-9-2023
+    //Reviewed by : Hsa 10-12-2023
 
     internal class RctTotalMedicareWagesAndTipsOriginal : SumFieldOriginal
     {
@@ -22,7 +22,6 @@ namespace EFW2C.Fields
         {
             return new RctTotalMedicareWagesAndTipsOriginal(record);
         }
-
 
         public override bool Verify()
         {
@@ -42,13 +41,13 @@ namespace EFW2C.Fields
                 double.TryParse(localData, out var localValue);
 
                 if (localValue != 0 || localValue < wageTax.SocialSecurity.MinHouseHoldCoveredWages)
-                    throw new Exception($"{ClassDescription} : value must be zero or equal or greater than MinHouseHold Covered Wages if EmploymentCode is 'H'");
+                    throw new Exception($"{ClassDescription} : Must be zero or equal or greater than MinHouseHold Covered Wages if EmploymentCode is 'H'");
             }
 
             if (employmentCode == EmploymentCodeEnum.X.ToString())
             {
                 if (!string.IsNullOrWhiteSpace(localData))
-                    throw new Exception($"{ClassDescription} : must be blank because employment code is X");
+                    throw new Exception($"{ClassDescription} : Must be blank if employment code is X");
             }
 
             return true;
