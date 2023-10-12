@@ -6,7 +6,7 @@ using EFW2C.Records;
 namespace EFW2C.Fields
 {
     //Created by : Hsa 9-2-2023
-    //Reviewed by : Has 10-10-2023
+    //Reviewed by : Hsa 10-10-2023
 
     internal class RcaForeignPostalCode : ForeignPostalCodeBase
     {

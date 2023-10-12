@@ -5,8 +5,8 @@ using EFW2C.Records;
 
 namespace EFW2C.Fields
 {
-    //Created by : 
-    //Reviewed by : 
+    //Created by : Hsa 9-6-2023
+    //Reviewed by : Hsa 10-12-2023
 
     internal class RcoAllocatedTipsCorrect : MoneyCorrect
     {
@@ -21,14 +21,5 @@ namespace EFW2C.Fields
         {
             return new RcoAllocatedTipsCorrect(record, _data);
         }
-
-        public override bool Verify()
-        {
-            if (!base.Verify())
-                return false;
-
-            return true;
-        }
-
     }
 }
