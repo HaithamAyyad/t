@@ -6,8 +6,8 @@ using EFW2C.Records;
 
 namespace EFW2C.Fields
 {
-    //Created by : HSA 9-8-2023
-    //Reviewed by : 
+    //Created by : Hsa 9-8-2023
+    //Reviewed by : Hsa 10-12-2-23
 
     internal class RcuTotalAggregateDeferralsCodeHHOriginal : SumFieldOriginal
     {

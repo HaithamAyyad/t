@@ -5,8 +5,8 @@ using EFW2C.Records;
 
 namespace EFW2C.Fields
 {
-    //Created by : HSA 9-6-2023
-    //Reviewed by : 
+    //Created by : Hsa 9-6-2023
+    //Reviewed by : Hsa 10-12-2023
 
     internal class RcuNumberOfRCORecords : FieldBase
     {
@@ -35,7 +35,7 @@ namespace EFW2C.Fields
                 return false;
 
             if (int.Parse(DataInRecordBuffer()) != ((RcuRecord)_record).Parent.GetRcoRecordsCount())
-                throw new Exception($"{ClassDescription} number of RCO is not correct");
+                throw new Exception($"{ClassDescription} number of Employee Optional Records is not correct");
 
             return true;
         }
