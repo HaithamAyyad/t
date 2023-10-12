@@ -16,11 +16,11 @@
             <TabItem Header="Emloyee">
                 <local:EmployeeUserControl/>
             </TabItem>
-            <TabItem Header="Emloyee Optional">
+            <TabItem Header="Emloyee Optional"  IsEnabled="{Binding ShowOptionalRecords}">
                 <local:EmployeeOptionalUserControl/>
             </TabItem>
-            <TabItem Header="Emloyee State">
-                <local:EmployeeStateUserControl/>
+            <TabItem Header="Emloyee State"  IsEnabled="{Binding ShowOptionalRecords}">
+                <local:EmployeeStateUserControl />
             </TabItem>
 
         </TabControl>

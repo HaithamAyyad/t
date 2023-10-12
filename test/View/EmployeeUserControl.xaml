@@ -89,30 +89,38 @@
                 <TextBlock Margin="5,0" Text= "SocialSecurityTaxWithheldOriginal:" VerticalAlignment ="Top"/>
                 <TextBox Text= "{Binding Document.SelectedEmployer.SelectedEmployee.SocialSecurityTaxWithheldOriginal, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
             </StackPanel>
-            <StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
-                <TextBlock Margin="5,0" Text= "SocialSecurityTipsOriginal" VerticalAlignment ="Top"/>
-                <TextBox Text= "{Binding Document.SelectedEmployer.SelectedEmployee.SocialSecurityTipsOriginal, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
-            </StackPanel>
-            <StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
-                <TextBlock Margin="5,0" Text= "SocialSecurityTipsCorrect" VerticalAlignment ="Top"/>
-                <TextBox Text= "{Binding Document.SelectedEmployer.SelectedEmployee.SocialSecurityTipsCorrect, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
-            </StackPanel>
-            <StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
-                <TextBlock Margin="5,0" Text= "SocialSecurityWagesOriginal" VerticalAlignment ="Top"/>
-                <TextBox Text= "{Binding Document.SelectedEmployer.SelectedEmployee.SocialSecurityWagesOriginal, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
-            </StackPanel>
-            <StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
-                <TextBlock Margin="5,0" Text= "SocialSecurityWagesCorrect" VerticalAlignment ="Top"/>
-                <TextBox Text= "{Binding Document.SelectedEmployer.SelectedEmployee.SocialSecurityWagesCorrect, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
-            </StackPanel>
-            <StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
-                <TextBlock Margin="5,0" Text= "MedicareWagesAndTipsOriginal" VerticalAlignment ="Top"/>
-                <TextBox Text= "{Binding Document.SelectedEmployer.SelectedEmployee.MedicareWagesAndTipsOriginal, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
-            </StackPanel>
-            <StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
-                <TextBlock Margin="5,0" Text= "MedicareWagesAndTipsCorrect" VerticalAlignment ="Top"/>
-                <TextBox Text= "{Binding Document.SelectedEmployer.SelectedEmployee.MedicareWagesAndTipsCorrect, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
-            </StackPanel>
+            <GroupBox Margin="20,0"  Header="Correct Fields">
+                <StackPanel>
+                    <StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
+                        <TextBlock Margin="5,0" Text= "MedicareWagesAndTipsCorrect" VerticalAlignment ="Top"/>
+                        <TextBox Text= "{Binding Document.SelectedEmployer.SelectedEmployee.MedicareWagesAndTipsCorrect, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
+                    </StackPanel>
+                    <StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
+                        <TextBlock Margin="5,0" Text= "SocialSecurityTipsCorrect" VerticalAlignment ="Top"/>
+                        <TextBox Text= "{Binding Document.SelectedEmployer.SelectedEmployee.SocialSecurityTipsCorrect, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
+                    </StackPanel>
+                    <StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
+                        <TextBlock Margin="5,0" Text= "SocialSecurityWagesCorrect" VerticalAlignment ="Top"/>
+                        <TextBox Text= "{Binding Document.SelectedEmployer.SelectedEmployee.SocialSecurityWagesCorrect, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
+                    </StackPanel>
+                </StackPanel>
+            </GroupBox>
+            <GroupBox Margin="20,0"  Header="Original Fields">
+                <StackPanel>
+                    <StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
+                        <TextBlock Margin="5,0" Text= "MedicareWagesAndTipsOriginal" VerticalAlignment ="Top"/>
+                        <TextBox Text= "{Binding Document.SelectedEmployer.SelectedEmployee.MedicareWagesAndTipsOriginal, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
+                    </StackPanel>
+                    <StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
+                        <TextBlock Margin="5,0" Text= "SocialSecurityTipsOriginal" VerticalAlignment ="Top"/>
+                        <TextBox Text= "{Binding Document.SelectedEmployer.SelectedEmployee.SocialSecurityTipsOriginal, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
+                    </StackPanel>
+                    <StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
+                        <TextBlock Margin="5,0" Text= "SocialSecurityWagesOriginal" VerticalAlignment ="Top"/>
+                        <TextBox Text= "{Binding Document.SelectedEmployer.SelectedEmployee.SocialSecurityWagesOriginal, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
+                    </StackPanel>
+                </StackPanel>
+            </GroupBox>
             <StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
                 <TextBlock Margin="5,0" Text= "MedicareTaxWithheldOriginal" VerticalAlignment ="Top"/>
                 <TextBox Text= "{Binding Document.SelectedEmployer.SelectedEmployee.MedicareTaxWithheldOriginal, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>

@@ -298,13 +298,12 @@ namespace test.ViewModel
                 _document.Verify();
 
                 _document.SaveDocument(fileName);
-                MessageBox.Show($"{fileName} : Document created correctly");
+                MessageBox.Show($"{fileName} : Document created", "Success");
             }
             catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-
         }
 
         private bool GetSaveFileName(out string fileName)

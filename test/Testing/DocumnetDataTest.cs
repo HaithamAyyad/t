@@ -436,7 +436,8 @@ namespace test.Testing
             employee.SocialSecurityWagesOriginal = GenerateRandomDoubleAsString();
             employee.SocialSecurityWagesCorrect = GenerateRandomDoubleAsString();
 
-            employee.MedicareWagesAndTipsCorrect = GenerateRandomDoubleAsString();
+            employee.MedicareWagesAndTipsCorrect = GenerateSum(employee.SocialSecurityWagesOriginal,
+                                        employee.SocialSecurityTipsOriginal);
 
             employee.MedicareWagesAndTipsOriginal = GenerateSum(employee.SocialSecurityWagesCorrect,
                                        employee.SocialSecurityTipsCorrect);
@@ -540,11 +541,10 @@ namespace test.Testing
         private static W2cEmployeeState CreateEmployeeStateStatically_not(W2cDocument document)
         {
             var w2cEmployeeState = new W2cEmployeeState(document);
-            //w2cEmployeeState.SocialSecurityNumberCorrect = GenerateRandomSSN();
-            //w2cEmployeeState.DateFirstEmployedCorrect
+            w2cEmployeeState.SocialSecurityNumberCorrect = GenerateRandomSSN();
 
-            w2cEmployeeState.StateQuarterlyUnemploymentInsuranceTotalWagesCorrect = "3";
-            w2cEmployeeState.StateQuarterlyUnemploymentInsuranceTotalWagesOriginal = "3";
+            w2cEmployeeState.StateQuarterlyUnemploymentInsuranceTotalWagesCorrect = GenerateRandomDoubleAsString();
+            w2cEmployeeState.StateQuarterlyUnemploymentInsuranceTotalWagesOriginal = GenerateRandomDoubleAsString(); ;
             return w2cEmployeeState;
         }
 
