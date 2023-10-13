@@ -87,6 +87,31 @@ namespace EFW2C.RecordEFW2C.W2cDocument
             base.Prepare();
         }
 
+        public void MoveToNextEmployer()
+        {
+            var currentIndex = _employeeList.IndexOf(SelectedEmployee);
+            if (currentIndex < _employeeList.Count - 1)
+                SelectedEmployee = _employeeList[currentIndex + 1];
+        }
+        
+        public void MoveToPreviousEmployee()
+        {
+            var currentIndex = _employeeList.IndexOf(SelectedEmployee);
+            if (currentIndex > 0)
+                SelectedEmployee = _employeeList[currentIndex - 1];
+        }
+
+        public bool CanMoveToNextEmployee()
+        {
+            return _employeeList.IndexOf(SelectedEmployee) < _employeeList.Count - 1;
+        }
+
+        public bool CanMoveToPrevious()
+        {
+            return _employeeList.IndexOf(SelectedEmployee) > 0;
+        }
+
+
         #region Properties
         private string _agentIndicator;
         public string AgentIndicator

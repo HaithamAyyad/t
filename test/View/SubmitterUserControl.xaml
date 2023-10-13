@@ -108,6 +108,7 @@
             <Button Margin="10,0" Content="Verify" Command="{Binding VerifySubmitterCommand}" HorizontalContentAlignment="Center" />
         </StackPanel>
         <DockPanel Grid.Column="3" Grid.RowSpan="2" >
+            <TextBlock DockPanel.Dock="Top" Text="Emplyers List"/>
             <Button DockPanel.Dock="Bottom" Margin="0,10" Content="Create Random Employer" IsEnabled="True" Command="{Binding CreateRandomEmployerCommand}" HorizontalContentAlignment="Center" />
             <ListBox  Background="OldLace" 
                   ItemsSource="{Binding Document.EmployerList}" 

@@ -69,6 +69,30 @@ namespace EFW2C.RecordEFW2C.W2cDocument
             }
         }
 
+        public void MoveToNextEmployer()
+        {
+            var currentIndex = _employerList.IndexOf(SelectedEmployer);
+            if (currentIndex < _employerList.Count - 1)
+                SelectedEmployer = _employerList[currentIndex + 1];
+        }
+
+        public void MoveToPreviousEmployer()
+        {
+            var currentIndex = _employerList.IndexOf(SelectedEmployer);
+            if (currentIndex > 0)
+                SelectedEmployer = _employerList[currentIndex - 1];
+        }
+
+        public bool CanMoveToNextEmployer()
+        {
+            return _employerList.IndexOf(SelectedEmployer) < _employerList.Count - 1;
+        }
+
+        public bool CanMoveToPreviousEmployer()
+        {
+            return _employerList.IndexOf(SelectedEmployer) > 0;
+        }
+
         public bool Verify()
         {
             if (!_submitter.Verify())

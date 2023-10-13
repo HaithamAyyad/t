@@ -132,6 +132,8 @@
         </StackPanel>
         <StackPanel Orientation="Horizontal" Grid.Row="1">
             <Button Margin="10,0" Content="Verify" IsEnabled="True" Command="{Binding VerifyEmployeeCommand}" HorizontalContentAlignment="Center" />
+            <Button Margin="10,0,0,0" Content="Next" IsEnabled="True" Command="{Binding MoveToNextEmployeeCommand}" HorizontalContentAlignment="Center" />
+            <Button Margin="3,0" Content="Previous" IsEnabled="True" Command="{Binding MoveToPrevEmployeeCommand}" HorizontalContentAlignment="Center" />
         </StackPanel>
 
         <StackPanel Grid.Row="0" Grid.Column="1" Margin="40,0">

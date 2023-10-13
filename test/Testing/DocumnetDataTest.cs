@@ -472,7 +472,19 @@ namespace test.Testing
             employer.AgentIndicator = "1";
 
             employer.EmploymentCodeCorrect = GenerateEmploymentCodeRandomly();
+
+
             employer.EmploymentCodeOriginal = GenerateEmploymentCodeRandomly();
+            while(employer.EmploymentCodeOriginal == employer.EmploymentCodeCorrect)
+            {
+                employer.EmploymentCodeOriginal = GenerateEmploymentCodeRandomly();
+            }
+
+
+            if(employer.EmploymentCodeOriginal == employer.EmploymentCodeCorrect)
+            {
+
+            }
 
             employer.EstablishmentNumberOriginal = "0009";
             employer.EstablishmentNumberCorrect = "0004";

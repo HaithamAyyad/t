@@ -99,6 +99,10 @@ namespace test.ViewModel
         }
         public ICommand VerifySubmitterCommand { get; set; }
         public ICommand VerifyEmployerCommand { get; set; }
+        public ICommand MoveToNextEmployerCommand { get; set; }
+        public ICommand MoveToPrevEmployerCommand { get; set; }
+        public ICommand MoveToNextEmployeeCommand2 { get; set; }
+        public ICommand MoveToPrevEmployeeCommand { get; set; }
         public ICommand VerifyEmployeeCommand { get; set; }
         public ICommand CreateRandomEmployeeCommand { get; set; }
         public ICommand CreateRandomEmployerCommand { get; set; }
@@ -110,12 +114,22 @@ namespace test.ViewModel
         public ICommand PreviousCommand { get; set; }
 
         public W2cDocument Document { get { return _document; } }
+
+        public bool CanMoveToNextEmployer { get { return _document.CanMoveToNextEmployer(); } }
+        public bool CanMoveToPrevEmployer { get { return _document.CanMoveToPreviousEmployer(); } }
+
         public DocumentViewModel( bool showOptionalRecords)
         {
             ShowOptionalRecords = showOptionalRecords;
             VerifySubmitterCommand = new RelayCommand(VerifySubmitterCommandHandler);
             VerifyEmployerCommand = new RelayCommand(VerifyEmployerCommandHandler);
+            MoveToNextEmployerCommand = new RelayCommand(MoveToNextEmployerCommandHandler);
+            MoveToPrevEmployerCommand = new RelayCommand(MoveToPrevEmployerCommandHandler);
+
             VerifyEmployeeCommand = new RelayCommand(VerifyEmployeeCommandHandler);
+            MoveToNextEmployeeCommand2 = new RelayCommand(MoveToNextEmployeeCommandHandler);
+            MoveToPrevEmployeeCommand = new RelayCommand(MoveToPrevEmployeeCommandHandler);
+
             CreateRandomEmployeeCommand = new RelayCommand(CreateRandomEmployeeCommandHandler);
             CreateRandomEmployerCommand = new RelayCommand(CreateRandomEmployerCommandHandler);
             VerifyEmployeeOptionalCommand = new RelayCommand(VerifyEmployeeOptionalCommandHandler);
@@ -202,6 +216,26 @@ namespace test.ViewModel
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void MoveToNextEmployerCommandHandler()
+        {
+            _document.MoveToNextEmployer();
+        }
+
+        private void MoveToPrevEmployerCommandHandler()
+        {
+            _document.MoveToPreviousEmployer();
+        }
+
+        private void MoveToNextEmployeeCommandHandler()
+        {
+            _document.SelectedEmployer.MoveToNextEmployer();
+        }
+
+        private void MoveToPrevEmployeeCommandHandler()
+        {
+            _document.SelectedEmployer.MoveToPreviousEmployee();
         }
 
         private void CreateRandomEmployeeCommandHandler()
