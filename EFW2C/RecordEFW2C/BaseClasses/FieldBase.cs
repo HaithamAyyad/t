@@ -4,6 +4,7 @@ using EFW2C.Extensions;
 using EFW2C.Records;
 using EFW2C.Resource.Language;
 using System;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace EFW2C.Fields
@@ -78,7 +79,49 @@ namespace EFW2C.Fields
 
         protected bool VerifyEmail(string email)
         {
+            if (string.IsNullOrWhiteSpace(email))
+                return false;
+
+            email = email.Trim();
+
+            if (email.Count(c => c == '@') != 1)
+                return false;
+
+            var parts = email.Split('@');
+
+            if (parts.Length != 2)
+                return false;
+
+            var leftPart = parts[0].Trim();
+            var rightPart = parts[1].Trim();
+
+            if (leftPart.EndsWith(".") || 
+                rightPart.StartsWith(".") || 
+                rightPart.Contains("-") || 
+                rightPart.Contains(".-") || 
+                rightPart.Contains("-.") || 
+                ContainsInvalidCharacters(email))
+                return false;
+
+            if (email.Any(char.IsWhiteSpace) || 
+                email.StartsWith(".") || 
+                email.EndsWith(".") || 
+                email.StartsWith("-") || 
+                email.EndsWith("-") || 
+                email.StartsWith("@") || 
+                email.EndsWith("@"))
+                return false;
+
+            if (!System.Text.RegularExpressions.Regex.IsMatch(rightPart, @"^[a-zA-Z0-9-.]+$"))
+                return false;
+
             return true;
+        }
+
+        private bool ContainsInvalidCharacters(string input)
+        {
+            string invalidCharacters = ")(~!#$%^&*+{}|?’= / `";
+            return input.IndexOfAny(invalidCharacters.ToCharArray()) != -1;
         }
 
         private bool VerifyWrite()
