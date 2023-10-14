@@ -30,7 +30,7 @@ namespace EFW2C.Fields
 
             var employmentCode = ((RcwRecord)_record).Parent.GetEmploymentCode();
             if (employmentCode == EmploymentCodeEnum.Q.ToString() || employmentCode == EmploymentCodeEnum.X.ToString())
-                throw new Exception($"{ClassDescription} : Must be balnk if EmploymentCode is {employmentCode}");
+                throw new Exception($"{ClassDescription} : Must be blank if EmploymentCode is {employmentCode}");
 
             return true;
         }

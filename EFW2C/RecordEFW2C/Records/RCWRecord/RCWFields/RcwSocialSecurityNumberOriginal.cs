@@ -23,21 +23,6 @@ namespace EFW2C.Fields
             return new RcwSocialSecurityNumberOriginal(record, _data);
         }
 
-        public override bool Verify()
-        {
-            if (!base.Verify())
-                return false;
-
-            //hsa7 ask for it
-            var localData = DataInRecordBuffer();
-            var strValid1 = localData.Substring(0, 3);
-            var strValid2 = localData.Substring(0, 1);
-            if(strValid1 == Constants.Str_666 || strValid2 == Constants.Str_9)
-                throw new Exception($"{ClassDescription}: Social Security Number, should not start with '666' or '9'");
-
-            return true;
-        }
-
         protected override FieldTypeEnum GetFieldType()
         {
             return FieldTypeEnum.Numerical_Only;

@@ -38,7 +38,7 @@ namespace EFW2C.Fields
                 sum = rcuRecord.Parent.GetRcoFieldsSum(fieldClassName);
             }
 
-            if (sum > 0)
+            if (sum >= 0)
             {
                 _data = sum.ToString();
                 base.Write();

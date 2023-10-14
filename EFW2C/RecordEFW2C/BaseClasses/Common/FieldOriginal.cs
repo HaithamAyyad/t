@@ -33,8 +33,8 @@ namespace EFW2C.Fields
 
             if (!string.IsNullOrWhiteSpace(DataInRecordBuffer()))
             {
-                 if (IsCorrectFieldNullOrWhiteSpace())
-                    throw new Exception($"{ClassDescription} {GetCorrectClassDescription()} Must not be blank. Otherwise enter blank in this field");
+                if (IsFieldNullOrWhiteSpace(GetCorrectField()))
+                    throw new Exception($"{ClassDescription} Must be blank. Otherwise fill Correct field");
             }
 
             return true;
@@ -43,16 +43,6 @@ namespace EFW2C.Fields
         public override bool IsRequired()
         {
             return false;
-        }
-
-        private bool IsCorrectFieldNullOrWhiteSpace()
-        {
-            if (!ClassName.Contains(Constants.OriginalStr))
-                throw new Exception($"{ClassDescription} this function only used for {Constants.OriginalStr} class");
-
-            var correctFieldName = ClassName.Replace(Constants.OriginalStr, Constants.CorrectStr);
-
-            return IsFieldNullOrWhiteSpace(_record.GetField(correctFieldName));
         }
 
         protected FieldBase GetCorrectField()

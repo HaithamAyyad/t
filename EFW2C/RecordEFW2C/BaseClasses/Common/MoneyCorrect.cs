@@ -26,26 +26,22 @@ namespace EFW2C.Fields
             if (!base.Verify())
                 return false;
 
-            if (!IsOriginalMoneyFieldNullOrWhiteSpace())
+            var originalField = GetOriginalField();
+            if (!IsFieldNullOrWhiteSpace(originalField))
             {
                 if (string.IsNullOrWhiteSpace(DataInRecordBuffer()))
-                    throw new Exception($"{ClassDescription}: since you provide the original field then must fill {ClassDescription}");
+                    throw new Exception($"{ClassDescription}: Must not be blank Otherwise enter blank in original field");
+            }
+            else
+            {
+                if (!string.IsNullOrWhiteSpace(DataInRecordBuffer()))
+                    throw new Exception($"{ClassDescription}: Must be blank or fill original field");
             }
 
             if (IsSameAsOriginalValue())
                 throw new Exception($"{ClassDescription} the Original reported money filed must not be the same as the correct money field");
 
             return true;
-        }
-
-        private bool IsOriginalMoneyFieldNullOrWhiteSpace()
-        {
-            if (!ClassName.Contains(Constants.CorrectStr))
-                throw new Exception($"{ClassDescription} this function only used for {Constants.CorrectStr} class");
-
-            var originalFieldName = ClassName.Replace(Constants.CorrectStr, Constants.OriginalStr);
-
-            return IsFieldNullOrWhiteSpace(_record.GetField(originalFieldName));
         }
 
         protected override FieldTypeEnum GetFieldType()

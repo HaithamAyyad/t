@@ -165,21 +165,26 @@ namespace EFW2C.Records
         public int GetRcwFieldsSum(string fieldClassName)
         {
             var sum = 0;
+            var atLeastOne = false;
 
             foreach (var rcwRecord in _rcwRecordList)
             {
                 var field = rcwRecord.GetField(fieldClassName);
 
                 if (field != null)
+                {
+                    atLeastOne = true;
                     sum += int.Parse(field.DataInRecordBuffer());
+                }
             }
 
-            return sum;
+            return atLeastOne ? sum : -1;
         }
 
         public int GetRcoFieldsSum(string fieldClassName)
         {
             var sum = 0;
+            var atLeastOne = false;
 
             foreach (var rcwRecord in _rcwRecordList)
             {
@@ -188,11 +193,14 @@ namespace EFW2C.Records
                     var field = rcwRecord.RcoRecord.GetField(fieldClassName);
 
                     if (field != null)
+                    {
+                        atLeastOne = true;
                         sum += int.Parse(field.DataInRecordBuffer());
+                    }
                 }
             }
 
-            return sum;
+            return atLeastOne? sum: -1;
         }
 
         public void GenerateEmployeeTotalRecords()
