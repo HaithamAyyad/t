@@ -93,10 +93,11 @@ namespace EFW2C.Common.Helper
                     wageTax = _wageTaxTabel[year];
 
             if (wageTax == null)
-                throw new Exception($"Tax year {year} is not set in the tabel");
+                throw new Exception($"Tax year is supported");
 
             return wageTax;
         }
 
     }
 }
+ 

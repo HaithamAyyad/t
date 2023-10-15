@@ -6,7 +6,7 @@ using EFW2C.Common.Constants;
 using EFW2C.Common.Enums;
 using EFW2C.Fields;
 using EFW2C.Manager;
-using EFW2C.Resource.Language;
+using EFW2C.Languages;
 
 namespace EFW2C.Records
 {

@@ -5,7 +5,7 @@ using System.Resources;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EFW2C.Resource.Language
+namespace EFW2C.Languages
 {
     public class Language
     {

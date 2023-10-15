@@ -2,7 +2,7 @@
 using EFW2C.Common.Enums;
 using EFW2C.Extensions;
 using EFW2C.Records;
-using EFW2C.Resource.Language;
+using EFW2C.Languages;
 using System;
 using System.Linq;
 using System.Windows.Forms;
