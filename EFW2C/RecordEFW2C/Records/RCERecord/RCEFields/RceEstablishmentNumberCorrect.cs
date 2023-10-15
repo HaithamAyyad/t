@@ -1,6 +1,7 @@
 ﻿using System;
 using EFW2C.Common.Enums;
 using EFW2C.Extensions;
+using EFW2C.Languages;
 using EFW2C.Records;
 
 namespace EFW2C.Fields
@@ -28,7 +29,7 @@ namespace EFW2C.Fields
                 return false;
             
             if (IsSameAsOriginalValue())
-                throw new Exception($"{ClassDescription} and Orignal Must enter blanks in both fields if no corrections are being reported to this data"); ;
+                throw new Exception(Error.Instance.GetError(ClassDescription, Error.Instance.MustEnterBlanksIfNoCorrections));
 
             return true;
         }

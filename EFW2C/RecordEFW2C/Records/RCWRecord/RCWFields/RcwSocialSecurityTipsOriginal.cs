@@ -3,6 +3,7 @@ using EFW2C.Common.Constants;
 using EFW2C.Common.Enums;
 using EFW2C.Common.Helper;
 using EFW2C.Extensions;
+using EFW2C.Languages;
 using EFW2C.Records;
 
 namespace EFW2C.Fields
@@ -40,12 +41,12 @@ namespace EFW2C.Fields
 
                 var rcwSocialSecurityWagesOriginal = _record.GetField(typeof(RcwSocialSecurityWagesOriginal).Name);
                 if (rcwSocialSecurityWagesOriginal == null)
-                    throw new Exception($"{ClassDescription}: Must be blank or provid SocialSecurityWagesOriginal");
+                    throw new Exception(Error.Instance.GetError(ClassDescription, Error.Instance.MustBeBlankOtherwiseFill, "SocialSecurityWagesOriginal with correct data"));
 
                 double.TryParse(rcwSocialSecurityWagesOriginal.DataInRecordBuffer(), out var rcwSocialSecurityWagesOriginalValue);
 
                 if (localValue != 0 || localValue + rcwSocialSecurityWagesOriginalValue < wageTax.SocialSecurity.MinHouseHoldCoveredWages)
-                    throw new Exception($"{ClassDescription} : Must be zero or equal or greater than MinHouseHold Covered Wages if EmploymentCode is 'H'");
+                    throw new Exception(Error.Instance.GetError(ClassDescription, Error.Instance.MustBeZeroOrEqualToOrGreaterToHousHoldForYearIfCodeH));
             }
             
             return true;

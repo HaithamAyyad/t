@@ -89,6 +89,7 @@
     <Compile Include="RecordEFW2C\BaseClasses\Info\ZIPCodeBase.cs" />
     <Compile Include="RecordEFW2C\BaseClasses\Info\ZIPCodeExtensionBase.cs" />
     <Compile Include="RecordEFW2C\BaseClasses\RecordBase.cs" />
+    <Compile Include="Language\Error.cs" />
     <Compile Include="RecordEFW2C\Common\Constants.cs" />
     <Compile Include="RecordEFW2C\Common\enums.cs" />
     <Compile Include="RecordEFW2C\Common\WageTax.cs" />
@@ -99,7 +100,6 @@
     <Compile Include="RecordEFW2C\Helpper\RecordOrders.cs" />
     <Compile Include="RecordEFW2C\Helpper\WageTaxHelper.cs" />
     <Compile Include="RecordEFW2C\RecordsManager\RecordManager.cs" />
-    <Compile Include="RecordEFW2C\Records\FieldTemplate.cs" />
     <Compile Include="RecordEFW2C\Records\RCARecord\RCAFields\RcaCity.cs" />
     <Compile Include="RecordEFW2C\Records\RCARecord\RCAFields\RcaContactEMailInternet.cs" />
     <Compile Include="RecordEFW2C\Records\RCARecord\RCAFields\RcaContactFax.cs" />
@@ -408,10 +408,12 @@
     <EmbeddedResource Include="Resources\ResourceExceptions.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>ResourceExceptions.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\ResourceDescription.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>ResourceDescription.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

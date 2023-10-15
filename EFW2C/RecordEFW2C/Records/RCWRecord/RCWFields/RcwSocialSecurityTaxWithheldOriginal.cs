@@ -2,6 +2,7 @@
 using EFW2C.Common.Constants;
 using EFW2C.Common.Enums;
 using EFW2C.Extensions;
+using EFW2C.Languages;
 using EFW2C.Records;
 
 namespace EFW2C.Fields
@@ -30,7 +31,7 @@ namespace EFW2C.Fields
 
             var employmentCode = ((RcwRecord)_record).Parent.GetEmploymentCode();
             if (employmentCode == EmploymentCodeEnum.Q.ToString() || employmentCode == EmploymentCodeEnum.X.ToString())
-                throw new Exception($"{ClassDescription} : Must be blank if EmploymentCode is {employmentCode}");
+                throw new Exception(Error.Instance.GetError(ClassDescription, Error.Instance.MustBeBlankIfEmploymentCodeIs, employmentCode));
 
             return true;
         }

@@ -1,6 +1,7 @@
 ﻿using System;
 using EFW2C.Common.Enums;
 using EFW2C.Extensions;
+using EFW2C.Languages;
 using EFW2C.Records;
 
 namespace EFW2C.Fields
@@ -33,7 +34,7 @@ namespace EFW2C.Fields
                 return false;
 
             if (int.Parse(DataInRecordBuffer()) != _record.Manager.GetRcwRecordsCount())
-                throw new Exception($"Number of employee records is not correct");
+                throw new Exception(Error.Instance.GetError(ClassDescription, Error.Instance.NumberOfEmployeeRecordsIsNotCorrect));
 
             return true;
         }

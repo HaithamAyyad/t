@@ -2,6 +2,7 @@
 using EFW2C.Common.Enums;
 using EFW2C.Extensions;
 using EFW2C.Fields;
+using EFW2C.Languages;
 using EFW2C.Manager;
 using System;
 using System.Collections.Generic;
@@ -58,7 +59,7 @@ namespace EFW2C.Records
             if (rcwRecord != null && !_rcwRecordList.Contains(rcwRecord))
             {
                 if (_rcwRecordList.Count + 1 > Constants.MaxRcwRecordsNumber)
-                    throw new Exception($"Employee records should not exceed {Constants.MaxRcwRecordsNumber}");
+                    throw new Exception(Error.Instance.GetError("Employer ", Error.Instance.RecordsShouldNotExceed, Constants.MaxRcwRecordsNumber));
 
                 rcwRecord.SetParent(this);
                 _rcwRecordList.Add(rcwRecord);
@@ -126,8 +127,8 @@ namespace EFW2C.Records
             }
 
             if (!IsRecordNullOrEmpty(_rcvRecord) && !IsRcsRecordExists())
-                throw new Exception($"Remove State-Total record or add State record");
-
+                throw new Exception(Error.Instance.GetError(Error.Instance.Remove, "State-Total record ", "or add State record")); 
+            
             return true;
         }
 
@@ -157,7 +158,7 @@ namespace EFW2C.Records
         {
             var taxYearField = GetField(typeof(RceTaxYear).Name);
             if (FieldBase.IsFieldNullOrWhiteSpace(taxYearField))
-                throw new Exception($"{ClassDescription}: tax year field is not provided");
+                throw new Exception(Error.Instance.GetError(ClassDescription, Error.Instance.CantBeBlank));
 
             return int.Parse(taxYearField.DataInRecordBuffer());
         }

@@ -37,9 +37,7 @@ namespace EFW2C.Fields
             foreach (var invalidStr in invalidList)
             {
                 if (invalidStr == str)
-                {
-                    throw new Exception($"{ClassDescription} Must not start with {string.Join(", ", invalidList)}");
-                }
+                    throw new Exception(Error.Instance.GetError(ClassDescription, Error.Instance.MustNotStartWith, string.Join(", ", invalidList)));
             }
 
             return true;

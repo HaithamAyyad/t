@@ -127,19 +127,19 @@ namespace EFW2C.Fields
         private bool VerifyWrite()
         {
             if (string.IsNullOrWhiteSpace(_data))
-                throw new Exception($"{ClassDescription} data can't be null or empty");
+                throw new Exception(Error.Instance.GetError(ClassDescription, Error.Instance.CantBeEmpty));
 
             if (_length == -1)
-                throw new Exception($"{ClassDescription} Length is not set");
+                throw new Exception(Error.Instance.GetInternalError(ClassDescription, Error.Instance.LengthIsNotSet));
 
             if (_pos == -1)
-                throw new Exception($"{ClassDescription} Postion is not set");
+                throw new Exception(Error.Instance.GetInternalError(ClassDescription, Error.Instance.PostionIsNotSet));
 
             if (_pos < 0 || _pos + _length > _record.RecordBuffer.Length)
-                throw new Exception($"{ClassDescription} Postion and Length is not correct");
+                throw new Exception(Error.Instance.GetInternalError(ClassDescription, Error.Instance.PostionAndLengthIsNotCorrect));
 
             if (_length < _data.Length)
-                throw new Exception($"{ClassDescription} Length exceeds {_length} ");
+                throw new Exception(Error.Instance.GetError(ClassDescription, Error.Instance.LengthExceeds, _length));
 
             switch (_fieldType)
             {
@@ -150,29 +150,30 @@ namespace EFW2C.Fields
                     if (_fieldType == FieldTypeEnum.Numerical_Only)
                     {
                         if (_data.Length != _length)
-                            throw new Exception($"{ClassDescription} lenght is not correct\n it must be {_length}");
+                            throw new Exception(Error.Instance.GetError(ClassDescription, Error.Instance.LenghtMustBeExactly, _length));
                     }
 
                     foreach (char c in _data)
                     {
                         if (!char.IsDigit(c))
-                            throw new Exception($"{ClassDescription} field must be numerical");
+                            throw new Exception(Error.Instance.GetError(ClassDescription, Error.Instance.MustBeNumerical));
+
                     }
                     break;
 
                 case FieldTypeEnum.UpperCase_LeftJustify_Blank:
                     if (!_data.IsUpper())
-                        throw new Exception($"{ClassDescription} Field must be upper case");
+                        throw new Exception(Error.Instance.GetError(ClassDescription, Error.Instance.MustBeUpperCase));
                     break;
                 case FieldTypeEnum.UpperCase_Address_LeftJustify_Blank:
                     var tempData = _data.Replace(",", string.Empty);
                     if (!tempData.IsUpper())
-                        throw new Exception($"{ClassDescription} Field must be upper case");
+                        throw new Exception(Error.Instance.GetError(ClassDescription, Error.Instance.MustBeUpperCase));
                     break;
                 case FieldTypeEnum.CaseSensitive_LeftJustify:
                     break;
                 default:
-                    throw new Exception($"{Constants.InternalError}{_fieldType} is not defined");
+                    throw new Exception(Error.Instance.GetInternalError(_fieldType + " ", Error.Instance.IsNotDefined));
             }
 
             return true;
@@ -198,7 +199,7 @@ namespace EFW2C.Fields
                     Array.Copy(_data.ToCharArray(), 0, _record.RecordBuffer, _pos, _data.Length);
                     break;
                 default:
-                    throw new Exception($"{Constants.InternalError}{_fieldType} is not defined");
+                    throw new Exception(Error.Instance.GetInternalError(_fieldType + " ", Error.Instance.IsNotDefined));
             }
         }
 
@@ -215,10 +216,10 @@ namespace EFW2C.Fields
         public virtual bool Verify()
         {
             if (_length == -1)
-                throw new Exception($"{ClassDescription} Length is not set");
+                throw new Exception(Error.Instance.GetInternalError(ClassDescription, Error.Instance.LengthIsNotSet));
 
             if (_pos == -1)
-                throw new Exception($"{ClassDescription} Postion is not set");
+                throw new Exception(Error.Instance.GetInternalError(ClassDescription, Error.Instance.PostionIsNotSet));
 
             switch (_fieldType)
             {
@@ -227,30 +228,30 @@ namespace EFW2C.Fields
                     for (var i = _pos; i < _pos + _length; i++)
                     {
                         if (!char.IsDigit(_record.RecordBuffer[i]))
-                            throw new Exception($"{ClassDescription} field must be numerical");
+                            throw new Exception(Error.Instance.GetError(ClassDescription, Error.Instance.MustBeNumerical));
                     }
                     break;
                 case FieldTypeEnum.Numerical_LeftJustify_Blank:
                     for (var i = _pos; i < _pos + _length; i++)
                     {
                         if (!(char.IsDigit(_record.RecordBuffer[i]) || char.IsWhiteSpace(_record.RecordBuffer[i])))
-                            throw new Exception($"{ClassDescription} field must be numerical");
+                            throw new Exception(Error.Instance.GetError(ClassDescription, Error.Instance.MustBeNumerical));
                     }
                     break;
                 case FieldTypeEnum.UpperCase_LeftJustify_Blank:
                     var str = DataInRecordBuffer();
                     if (!str.IsUpper())
-                        throw new Exception($"{ClassDescription} Field must be upper case");
+                        throw new Exception(Error.Instance.GetError(ClassDescription, Error.Instance.MustBeUpperCase));
                     break;
                 case FieldTypeEnum.UpperCase_Address_LeftJustify_Blank:
                     str = DataInRecordBuffer().Replace(",","");
                     if (!str.IsUpper())
-                        throw new Exception($"{ClassDescription} Field must be upper case");
+                        throw new Exception(Error.Instance.GetError(ClassDescription, Error.Instance.MustBeUpperCase));
                     break;
                 case FieldTypeEnum.CaseSensitive_LeftJustify:
                     break;
                 default:
-                    throw new Exception($"{_fieldType} is not handeled");
+                    throw new Exception(Error.Instance.GetInternalError(_fieldType + " ", Error.Instance.IsNotDefined));
             }
 
             return true;

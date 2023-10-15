@@ -2,6 +2,7 @@
 using EFW2C.Common.Constants;
 using EFW2C.Common.Enums;
 using EFW2C.Extensions;
+using EFW2C.Languages;
 using EFW2C.Records;
 
 namespace EFW2C.Fields
@@ -32,14 +33,14 @@ namespace EFW2C.Fields
 
             var employmentCode = ((RcwRecord)_record).Parent.GetEmploymentCode();
             if (employmentCode == EmploymentCodeEnum.Q.ToString() || employmentCode == EmploymentCodeEnum.X.ToString())
-                throw new Exception($"{ClassDescription} : Must be blank if EmploymentCode is {employmentCode}");
+                throw new Exception(Error.Instance.GetError(ClassDescription, Error.Instance.MustBeBlankIfEmploymentCodeIs, employmentCode));
 
             if (taxYear == 2023)
             {
                 var localData = DataInRecordBuffer();
                 double.TryParse(localData, out var localValue);
                 if(localValue > 993240)
-                    throw new Exception($"{ClassDescription} value must not exceed $9,932.40 if year 2023" );
+                    throw new Exception(Error.Instance.GetError(ClassDescription, Error.Instance.IfYear2023ValueMustNotExceed, "$9,932.40"));
             }
 
             return true;

@@ -3,6 +3,7 @@ using EFW2C.Common.Constants;
 using EFW2C.Common.Enums;
 using EFW2C.Common.Helper;
 using EFW2C.Extensions;
+using EFW2C.Languages;
 using EFW2C.Records;
 
 namespace EFW2C.Fields
@@ -33,7 +34,7 @@ namespace EFW2C.Fields
 
             var employmentCode = ((RcwRecord)_record).Parent.GetEmploymentCode();
             if (employmentCode == EmploymentCodeEnum.Q.ToString() || employmentCode == EmploymentCodeEnum.X.ToString())
-                throw new Exception($"{ClassDescription} : Must be blank if EmploymentCode is {employmentCode}");
+                throw new Exception(Error.Instance.GetError(ClassDescription, Error.Instance.MustBeBlankIfEmploymentCodeIs, employmentCode));
 
             var localData = DataInRecordBuffer();
             double.TryParse(localData, out var localValue);
@@ -43,21 +44,22 @@ namespace EFW2C.Fields
             var rcwSocialSecurityTipsCorrect = _record.GetField(typeof(RcwSocialSecurityTipsCorrect).Name);
 
             if (rcwSocialSecurityTipsCorrect == null)
-                throw new Exception($"{ClassDescription}: Must be black or provid SocialSecurityTipsCorrect");
+                throw new Exception(Error.Instance.GetError(ClassDescription, Error.Instance.MustBeBlankOtherwiseFill, "SocialSecurityTipsCorrect with correct data"));
 
             double.TryParse(rcwSocialSecurityTipsCorrect.DataInRecordBuffer(), out var socialSecurityTipsCorrectValue);
 
             if (employmentCode == EmploymentCodeEnum.H.ToString())
             {
                 if (localValue != 0 || localValue + socialSecurityTipsCorrectValue < wageTax.SocialSecurity.MinHouseHoldCoveredWages)
-                    throw new Exception($"{ClassDescription} : Must be zero or equal or greater than MinHouseHold Covered Wages ({wageTax.SocialSecurity.MinHouseHoldCoveredWages})");
+                    throw new Exception(Error.Instance.GetError(ClassDescription, Error.Instance.MustBeZeroOrEqualToOrGreaterToHousHoldForYearIfCodeH));
             }
 
-            if (taxYear == 2023)
+            /*hsa7
+             * if (taxYear == 2023)
             {
                 if (localValue + socialSecurityTipsCorrectValue > wageTax.SocialSecurity.MaxTaxedEarnings)
                     throw new Exception($"{ClassDescription} : value must not exceed SocialSecurity MaxTaxedEarnings");
-            }
+            }*/
 
             return true;
         }

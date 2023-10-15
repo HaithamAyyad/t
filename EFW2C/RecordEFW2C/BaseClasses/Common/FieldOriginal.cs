@@ -35,7 +35,7 @@ namespace EFW2C.Fields
             if (!string.IsNullOrWhiteSpace(DataInRecordBuffer()))
             {
                 if (IsFieldNullOrWhiteSpace(GetCorrectField()))
-                    throw new Exception($"{ClassDescription} Must be blank. Otherwise fill Correct field");
+                    throw new Exception(Error.Instance.GetError(ClassDescription, Error.Instance.MustBeBlankOtherwiseFill, "Correct field"));
             }
 
             return true;
@@ -49,21 +49,11 @@ namespace EFW2C.Fields
         protected FieldBase GetCorrectField()
         {
             if (!ClassName.Contains(Constants.OriginalStr))
-                throw new Exception($"{ClassDescription} this function only used for {Constants.OriginalStr} class");
+                throw new Exception(Error.Instance.GetInternalError(ClassDescription, Error.Instance.ThisFunctionOnlyUseFor, Constants.OriginalStr + "classes"));
 
             var correctFieldName = ClassName.Replace(Constants.OriginalStr, Constants.CorrectStr);
 
             return _record.GetField(correctFieldName);
-        }
-
-        private string GetCorrectClassDescription()
-        {
-            if (!ClassName.Contains(Constants.OriginalStr))
-                throw new Exception($"{ClassDescription} this function only used for {Constants.OriginalStr} class");
-
-            var correctFieldName = ClassName.Replace(Constants.OriginalStr, Constants.CorrectStr);
-
-            return _record.HelperFieldsList.FirstOrDefault(x => x.ClassName == correctFieldName).ClassDescription;
         }
     }
 }

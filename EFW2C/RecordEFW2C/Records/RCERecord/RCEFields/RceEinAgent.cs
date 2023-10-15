@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using EFW2C.Common.Enums;
 using EFW2C.Extensions;
+using EFW2C.Languages;
 using EFW2C.Records;
 
 namespace EFW2C.Fields
@@ -34,14 +35,14 @@ namespace EFW2C.Fields
                 if (rceAgentIndicator.DataInRecordBuffer() == ((int)AgentIndicatorCodeEnum.One).ToString())
                 {
                     if(string.IsNullOrEmpty(DataInRecordBuffer()))
-                        throw new Exception($"{ClassDescription} if {rceAgentIndicator.ClassDescription} equals one, then this field can't be blank");
+                        throw new Exception(Error.Instance.GetError(ClassDescription, Error.Instance.CantBeBlankIf, rceAgentIndicator.ClassDescription + "equals one"));
                 }
             }
 
             if (rceAgentIndicator == null || (rceAgentIndicator.DataInRecordBuffer() != ((int)AgentIndicatorCodeEnum.One).ToString()))
             {
                 if (!string.IsNullOrEmpty(DataInRecordBuffer()))
-                    throw new Exception($"{ClassDescription} Must be blank, unless '{{'Employer AgentIndicator'}}' set to 1");
+                    throw new Exception(Error.Instance.GetError(ClassDescription, Error.Instance.MustBeBlankOtherwiseFill, "Employer AgentIndicator " + "One"));
             }
 
             return true;
@@ -55,7 +56,7 @@ namespace EFW2C.Fields
                 if (rceAgentIndicator.Data == ((int)AgentIndicatorCodeEnum.One).ToString())
                 {
                     if(string.IsNullOrWhiteSpace(DataInRecordBuffer()))
-                        throw new Exception($"{ClassDescription} if {rceAgentIndicator.ClassDescription} equals one, then this field can't be blank");
+                        throw new Exception(Error.Instance.GetError(ClassDescription, Error.Instance.CantBeBlankIf, rceAgentIndicator.ClassDescription + "equals one"));
                 }
             }
 

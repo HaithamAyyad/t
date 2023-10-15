@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using EFW2C.Extensions;
+using EFW2C.Languages;
 
 namespace EFW2C.RecordEFW2C.W2cDocument
 {
@@ -49,7 +50,7 @@ namespace EFW2C.RecordEFW2C.W2cDocument
                             dataValue = dataValue.Trim();
 
                             if (!IsValidMoneyFormat(dataValue))
-                                throw new Exception($"{fieldName}: is not correct money field");
+                                throw new Exception(Error.Instance.GetError(fieldName + " ", Error.Instance.NotCorrectMoneyData));
 
                             dataValue = ConvertMoneyToCent(dataValue);
 

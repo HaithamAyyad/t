@@ -2,6 +2,7 @@
 using EFW2C.Common.Constants;
 using EFW2C.Common.Enums;
 using EFW2C.Extensions;
+using EFW2C.Languages;
 using EFW2C.Records;
 
 namespace EFW2C.Fields
@@ -26,7 +27,7 @@ namespace EFW2C.Fields
             var taxYear = ((RctRecord)_record).Parent.GetTaxYear();
 
             if (taxYear < 1987 || taxYear > 2005)
-                throw new Exception($"{ClassDescription} : This field only for tax year 1987 to 2005");
+                throw new Exception(Error.Instance.GetError(ClassDescription, Error.Instance.ForYear87And05));
 
             return true;
         }

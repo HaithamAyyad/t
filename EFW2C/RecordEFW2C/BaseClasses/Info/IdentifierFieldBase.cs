@@ -1,6 +1,7 @@
 ﻿using System;
 using EFW2C.Common.Enums;
 using EFW2C.Extensions;
+using EFW2C.Languages;
 using EFW2C.Records;
 
 namespace EFW2C.Fields
@@ -27,7 +28,7 @@ namespace EFW2C.Fields
             var uu = DataInRecordBuffer();
 
             if (DataInRecordBuffer() != _record.RecordName.ToUpper())
-                throw new Exception($"{ClassDescription} Field must be {_record.RecordName.ToUpper()}");
+                throw new Exception(Error.Instance.GetInternalError(ClassDescription, Error.Instance.FieldMustBe));
 
             return true;
         }

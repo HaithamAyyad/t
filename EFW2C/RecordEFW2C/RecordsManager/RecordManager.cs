@@ -5,6 +5,7 @@ using System.Linq;
 using EFW2C.Common.Constants;
 using EFW2C.Common.Helper;
 using EFW2C.Fields;
+using EFW2C.Languages;
 using EFW2C.Records;
 
 namespace EFW2C.Manager
@@ -43,7 +44,7 @@ namespace EFW2C.Manager
             if (rceRecord != null)
             {
                 if (_rceRecordList.Count + 1 > Constants.MaxRceRecordsNumber)
-                    throw new Exception($"Employer records should not exceed {Constants.MaxRceRecordsNumber}");
+                    throw new Exception(Error.Instance.GetError("Employer ", Error.Instance.RecordsShouldNotExceed, Constants.MaxRceRecordsNumber));
 
                 _rceRecordList.Add(rceRecord);
                 Open();
@@ -67,28 +68,28 @@ namespace EFW2C.Manager
             if (isOpened)
             {
                 if (!_isOpened)
-                    throw new Exception($"Document is Closed");
+                    throw new Exception(Error.Instance.GetError("", Error.Instance.DocumentIsClosed));
             }
             else
             {
                 if (_isOpened)
-                    throw new Exception($"Document is Opened");
+                    throw new Exception(Error.Instance.GetError("", Error.Instance.DocumentIsOpened));
             }
         }
 
         public bool Verify()
         {
             if (GetRcwRecordsCount() > Constants.MaxRcwRecordsNumber)
-                throw new Exception($"Employee records should not exceed {Constants.MaxRcwRecordsNumber}");
+                throw new Exception(Error.Instance.GetError("Employer ", Error.Instance.RecordsShouldNotExceed, Constants.MaxRcwRecordsNumber));
 
             if (GetRceRecordsCount() > Constants.MaxRceRecordsNumber)
-                throw new Exception($"Employer records should not exceed {Constants.MaxRceRecordsNumber}");
+                throw new Exception(Error.Instance.GetError("Employer ", Error.Instance.RecordsShouldNotExceed, Constants.MaxRceRecordsNumber));
 
             if (!_rcaRecord.Verify())
                 return false;
 
             if (_rceRecordList.Count == 0)
-                throw new Exception($"At least one Employer records should be provided");
+                throw new Exception(Error.Instance.GetError("", Error.Instance.AtLeastOneEmployerRecordShouldBeProvided));
 
             foreach (var rceRecord in _rceRecordList)
             {
@@ -280,7 +281,7 @@ namespace EFW2C.Manager
             {
                 var buffer = reader.ReadToEnd();
                 if((buffer.Length + 2) % (Constants.RecordLength + 2) != 0 )
-                    throw new Exception($"file is not correct :{fileName} ");
+                    throw new Exception(Error.Instance.GetError(fileName + " ", Error.Instance.FileIsNotCorrect));
 
                 for (int i = 0; i < buffer.Length; i += Constants.RecordLength + 2)
                 {
@@ -296,7 +297,7 @@ namespace EFW2C.Manager
             try
             {
                 if (!File.Exists(fileName))
-                    throw new Exception($"File {fileName} is not exists");
+                    throw new Exception(Error.Instance.GetError(fileName, Error.Instance.FileIsNotExists));
 
                 var manager = new RecordManager();
 
@@ -310,7 +311,7 @@ namespace EFW2C.Manager
                 }
                 catch(Exception ex)
                 {
-                    throw new Exception($"Invaild file {fileName} : { ex.Message}");
+                    throw new Exception($"{Error.Instance.GetError("", Error.Instance.InvaildFile)} {fileName}: { ex.Message}");
                 }
 
                 manager.SetRcaRecord((RcaRecord)recordList[0]);
@@ -356,7 +357,7 @@ namespace EFW2C.Manager
                 }
 
                 if (recordList[index] as RcfRecord == null)
-                    throw new Exception($"RcfRecord is not provided");
+                    throw new Exception(Error.Instance.GetInternalError("RcfRecord ", Error.Instance.IsNotProvided));
 
                 manager.Close();
 
@@ -364,7 +365,7 @@ namespace EFW2C.Manager
             }
             catch (Exception ex)
             {
-                throw new Exception($"Create Manager faild, {ex.Message}");
+                throw new Exception($"{Error.Instance.GetError("", Error.Instance.CreateManagerFaild)} , {ex.Message}");
             }
         }
     }

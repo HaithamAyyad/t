@@ -2,6 +2,7 @@
 using EFW2C.Common.Enums;
 using EFW2C.Common.Helper;
 using EFW2C.Extensions;
+using EFW2C.Languages;
 using EFW2C.Records;
 
 namespace EFW2C.Fields
@@ -33,7 +34,7 @@ namespace EFW2C.Fields
             if (!string.IsNullOrWhiteSpace(localData))
             {
                 if (!EnumHelper.IsAgentIndicatorValid(localData, true))
-                    throw new Exception($"{ClassDescription} is not Valid Agent Indicator");
+                    throw new Exception(Error.Instance.GetError(ClassDescription, Error.Instance.IsNotValidAgentIndicator));
             }
 
             return true;

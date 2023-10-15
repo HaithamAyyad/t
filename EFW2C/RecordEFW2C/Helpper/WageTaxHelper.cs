@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EFW2C.Languages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -93,7 +94,7 @@ namespace EFW2C.Common.Helper
                     wageTax = _wageTaxTabel[year];
 
             if (wageTax == null)
-                throw new Exception($"Tax year is supported");
+                throw new Exception(Error.Instance.GetError("", Error.Instance.TaxYearIsNotSupported));
 
             return wageTax;
         }

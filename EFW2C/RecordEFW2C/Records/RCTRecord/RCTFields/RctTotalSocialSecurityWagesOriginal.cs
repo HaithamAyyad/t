@@ -3,6 +3,7 @@ using EFW2C.Common.Constants;
 using EFW2C.Common.Enums;
 using EFW2C.Common.Helper;
 using EFW2C.Extensions;
+using EFW2C.Languages;
 using EFW2C.Records;
 using test.RecordEFW2C.Common;
 
@@ -43,7 +44,7 @@ namespace EFW2C.Fields
                 double.TryParse(localData, out var localValue);
 
                 if (localValue != 0 || localValue < wageTax.SocialSecurity.MinHouseHoldCoveredWages)
-                    throw new Exception($"{ClassDescription} : Must be zero or equal to or greater than the annual Household minimum for the tax year being reported");
+                    throw new Exception(Error.Instance.GetError(ClassDescription, Error.Instance.MustBeZeroOrEqualToOrGreaterToHousHoldForYearIfCodeH));
             }
 
             return true;

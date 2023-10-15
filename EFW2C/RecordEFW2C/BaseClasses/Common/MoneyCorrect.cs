@@ -2,6 +2,7 @@
 using EFW2C.Common.Constants;
 using EFW2C.Common.Enums;
 using EFW2C.Extensions;
+using EFW2C.Languages;
 using EFW2C.Records;
 
 namespace EFW2C.Fields
@@ -30,16 +31,16 @@ namespace EFW2C.Fields
             if (!IsFieldNullOrWhiteSpace(originalField))
             {
                 if (string.IsNullOrWhiteSpace(DataInRecordBuffer()))
-                    throw new Exception($"{ClassDescription}: Must not be blank Otherwise enter blank in original field");
+                    throw new Exception(Error.Instance.GetError(ClassDescription, Error.Instance.MustBeBlankOtherwiseFill, "Original field"));
             }
             else
             {
                 if (!string.IsNullOrWhiteSpace(DataInRecordBuffer()))
-                    throw new Exception($"{ClassDescription}: Must be blank or fill original field");
+                    throw new Exception(Error.Instance.GetError(ClassDescription, Error.Instance.MustBeBlankOtherwiseFill, "Original Blank"));
             }
 
             if (IsSameAsOriginalValue())
-                throw new Exception($"{ClassDescription} the Original reported money filed must not be the same as the correct money field");
+                throw new Exception(Error.Instance.GetError(ClassDescription, Error.Instance.MoneyOriginalMustNotSameAsCorrect));
 
             return true;
         }

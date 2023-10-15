@@ -3,6 +3,7 @@ using System.Linq;
 using EFW2C.Common.Enums;
 using EFW2C.Common.Helper;
 using EFW2C.Extensions;
+using EFW2C.Languages;
 using EFW2C.Records;
 
 namespace EFW2C.Fields
@@ -40,7 +41,7 @@ namespace EFW2C.Fields
             var localData = DataInRecordBuffer();
 
             if(!IsValidResubWageFile(localData))
-                throw new Exception($"{ClassDescription} Is not Valid Resub Wage File");
+                throw new Exception(Error.Instance.GetError(ClassDescription, Error.Instance.IsNotValidResubWageFile));
 
             var rcaResubIndicator = _record.GetField(typeof(RcaResubIndicator).Name);
 
@@ -50,11 +51,11 @@ namespace EFW2C.Fields
                 {
                     case "1":
                         if (string.IsNullOrWhiteSpace(localData))
-                            throw new Exception($"{ClassDescription} if {rcaResubIndicator.ClassDescription} equals one, then this field can't be blank");
+                            throw new Exception(Error.Instance.GetError(ClassDescription, Error.Instance.CantBeBlankIf, rcaResubIndicator.ClassDescription + " equals one"));
                         break;
                     case "0":
                         if (!string.IsNullOrWhiteSpace(Data))
-                            throw new Exception($"{ClassDescription} if {rcaResubIndicator.ClassDescription} equals zero, then this field must be blank");
+                            throw new Exception(Error.Instance.GetError(ClassDescription, Error.Instance.MustBeBlankOtherwiseFill, rcaResubIndicator.ClassDescription + " One"));
                         break;
                 }
             }
@@ -75,7 +76,7 @@ namespace EFW2C.Fields
                 if (rcaResubIndicator.Data == ((int)ResubIndicatorCodeEnum.One).ToString())
                 {
                     if (string.IsNullOrWhiteSpace(DataInRecordBuffer()))
-                        throw new Exception($"{ClassDescription} if {rcaResubIndicator.ClassDescription} equals one, then this field can't be blank");
+                        throw new Exception(Error.Instance.GetError(ClassDescription, Error.Instance.CantBeBlankIf, rcaResubIndicator.ClassDescription + "equals one"));
                 }
             }
             return false;

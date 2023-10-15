@@ -3,6 +3,7 @@ using EFW2C.Common.Constants;
 using EFW2C.Common.Enums;
 using EFW2C.Common.Helper;
 using EFW2C.Extensions;
+using EFW2C.Languages;
 using EFW2C.Records;
 
 namespace EFW2C.Fields
@@ -37,7 +38,7 @@ namespace EFW2C.Fields
             if (employmentCode == EmploymentCodeEnum.X.ToString())
             {
                 if (!string.IsNullOrWhiteSpace(localData))
-                    throw new Exception($"{ClassDescription} must be blank if EmploymentCode is 'X'");
+                    throw new Exception(Error.Instance.GetError(ClassDescription, Error.Instance.MustBeBlankIfEmploymentCodeIs, employmentCode));
             }
             else
             {
@@ -47,25 +48,27 @@ namespace EFW2C.Fields
                 if (employmentCode == EmploymentCodeEnum.H.ToString())
                 {
                     if (localValue != 0 || localValue < wageTax.SocialSecurity.MinHouseHoldCoveredWages)
-                        throw new Exception($"{ClassDescription} : Must be zero or equal or greater than MinHouseHold Covered Wages ({wageTax.SocialSecurity.MinHouseHoldCoveredWages})");
+                        throw new Exception(Error.Instance.GetError(ClassDescription, Error.Instance.MustBeZeroOrEqualToOrGreaterToHousHoldForYearIfCodeH));
                 }
                 else
                 {
                     var rcwSocialSecurityTipsCorrect = _record.GetField(typeof(RcwSocialSecurityTipsCorrect).Name);
 
                     if (rcwSocialSecurityTipsCorrect == null)
-                        throw new Exception($"{ClassDescription}: RcwSocialSecurityTipsCorrect must be provided");
+                        throw new Exception(Error.Instance.GetError(ClassDescription, Error.Instance.MustBeBlankOtherwiseFill, "SocialSecurityTipsCorrect with correct data"));
 
                     var rcwSocialSecurityWagesCorrect = _record.GetField(typeof(RcwSocialSecurityWagesCorrect).Name);
                     if (rcwSocialSecurityWagesCorrect == null)
-                        throw new Exception($"{ClassDescription}: RcwSocialSecurityWagesCorrect must be provided");
+                        throw new Exception(Error.Instance.GetError(ClassDescription, Error.Instance.MustBeBlankOtherwiseFill, "SocialSecurityWagesCorrect with correct data"));
 
                     double.TryParse(rcwSocialSecurityTipsCorrect.DataInRecordBuffer(), out var rcwSocialSecurityTipsCorrectValue);
                     double.TryParse(rcwSocialSecurityWagesCorrect.DataInRecordBuffer(), out var rcwSocialSecurityWagesCorrectValue);
 
                     if (localValue < rcwSocialSecurityTipsCorrectValue + rcwSocialSecurityWagesCorrectValue)
-                        throw new Exception($"{ClassDescription} Must be equal or grater than the sum of Social Security Tips and Social Security Wages");
+                        throw new Exception(Error.Instance.GetError(ClassDescription, Error.Instance.MustBeEqualOrGraterThanTheSumOf,
+                            $"{rcwSocialSecurityWagesCorrect.ClassDescription} and {rcwSocialSecurityTipsCorrect.ClassDescription}"));
                 }
+                
             }
 
             return true;

@@ -2,6 +2,7 @@
 using EFW2C.Common.Enums;
 using EFW2C.Common.Helper;
 using EFW2C.Extensions;
+using EFW2C.Languages;
 using EFW2C.Records;
 
 namespace EFW2C.Fields
@@ -32,7 +33,7 @@ namespace EFW2C.Fields
             var code = DataInRecordBuffer();
 
             if (!EnumHelper.IsPreparerCodeVaild(code))
-                throw new Exception($"{ClassDescription} Preparer code {code} is not valid");
+                throw new Exception(Error.Instance.GetError(ClassDescription, Error.Instance.PreparerCodeIsNotValid));
 
             return true;
         }

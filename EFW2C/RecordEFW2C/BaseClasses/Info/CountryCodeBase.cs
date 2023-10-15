@@ -2,6 +2,7 @@
 using EFW2C.Common.Enums;
 using EFW2C.Common.Helper;
 using EFW2C.Extensions;
+using EFW2C.Languages;
 using EFW2C.Records;
 
 namespace EFW2C.Fields
@@ -40,11 +41,11 @@ namespace EFW2C.Fields
                 if (!IsFieldNullOrWhiteSpace(stateAbbreviationField))
                 {
                     if (EnumHelper.IsStateTerritoriseMiltary(stateAbbreviationField.DataInRecordBuffer()))
-                        throw new Exception($"{ClassDescription} should not be provieded, since {stateAbbreviationField} is provided");
+                        throw new Exception(Error.Instance.GetError(ClassDescription, Error.Instance.MustBeBlankOtherwiseFill, "StateAbbreviation Blank"));
                 }
 
                 if (!EnumHelper.IsCountryCodeValid(localData))
-                    throw new Exception($"{ClassDescription} country code is not correct");
+                    throw new Exception(Error.Instance.GetError(ClassDescription, Error.Instance.CountryCodeIsNotCorrect));
             }
 
             return true;

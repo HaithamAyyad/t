@@ -24,13 +24,14 @@ namespace EFW2C.Fields
             if (!base.Verify())
                 return false;
 
+            /*hsa7
             if (!string.IsNullOrWhiteSpace(DataInRecordBuffer()))
             {
                 var stateAbbreviationClassName = $"{_record.ClassName.Substring(0, 3)}StateAbbreviation";
 
                 if (IsFieldNullOrWhiteSpace(_record.GetField(stateAbbreviationClassName)))
                     throw new Exception($"{ClassDescription} must be empty since {stateAbbreviationClassName} is not provided");
-            }
+            }*/
 
             return true;
         }

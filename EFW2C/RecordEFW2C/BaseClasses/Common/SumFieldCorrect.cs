@@ -2,6 +2,7 @@
 using EFW2C.Common.Constants;
 using EFW2C.Common.Enums;
 using EFW2C.Extensions;
+using EFW2C.Languages;
 using EFW2C.Records;
 
 namespace EFW2C.Fields
@@ -69,7 +70,7 @@ namespace EFW2C.Fields
             int.TryParse(DataInRecordBuffer(), out var localSum);
 
             if (sum != localSum)
-                throw new Exception($"{ClassDescription} Total is not correct");
+                throw new Exception(Error.Instance.GetError(ClassDescription, Error.Instance.TotalIsNotCorrect));
 
             return true;
         }

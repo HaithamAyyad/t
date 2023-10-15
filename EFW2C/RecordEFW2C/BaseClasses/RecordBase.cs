@@ -80,7 +80,7 @@ namespace EFW2C.Records
             var field = _helperFieldsList.FirstOrDefault(item => item.ClassName == fieldName);
 
             if (field == null)
-                throw new Exception($"CreateField() : you are trying to get invalid class : {fieldName}");
+                throw new Exception(Error.Instance.GetInternalError("CreateField()", Error.Instance.InvalidClass));
 
             return field.Clone(record, data);
         }
@@ -90,7 +90,7 @@ namespace EFW2C.Records
             foreach (var field in fields)
             {
                 if (record.ClassName.Substring(0, 3) != field.ClassName.Substring(0, 3))
-                    throw new Exception($"{field.ClassName} doesn't belong to {record.ClassName}");
+                    throw new Exception(Error.Instance.GetInternalError(field.ClassName + " ", Error.Instance.DoesntBelongTo, record.ClassName));
             }
 
             return true;
@@ -106,7 +106,7 @@ namespace EFW2C.Records
             try
             {
                 if (_helperFieldsList.Count == 0)
-                    throw new Exception($"{ClassDescription} : HelperFieldList() HelperFieldList is empty");
+                    throw new Exception(Error.Instance.GetInternalError("HelperFieldList()" + " ", Error.Instance.IsEmpty));
 
                 var duplicateNames = _helperFieldsList.GroupBy(item => item.ClassName)
                                                       .Where(group => group.Count() > 1)
@@ -114,7 +114,7 @@ namespace EFW2C.Records
                                                       .ToList();
 
                 if (duplicateNames.Any())
-                    throw new Exception($"{duplicateNames[0]} : this field is already added in helperFieldList");
+                    throw new Exception(Error.Instance.GetInternalError(duplicateNames[0] + " ", Error.Instance.AlreadyAddedIn, "helperFieldList"));
 
                 var pos = 0;
 
@@ -127,7 +127,7 @@ namespace EFW2C.Records
                         if (fieldList.Count > 1)
                         {
                             var str = string.Join(", ", fieldList.Select(item => item.ClassName));
-                            throw new Exception($"{ClassDescription}: the following fields are shared with same position : {str}");
+                                throw new Exception(Error.Instance.GetInternalError(ClassDescription, Error.Instance.SharedWithSamePosition, str));
                         }
 
                         pos = pos + fieldList[0].Length;
@@ -141,7 +141,7 @@ namespace EFW2C.Records
                         if (blankList != null && blankList.Count != 0)
                         {
                             if (blankList.Count > 1)
-                                throw new Exception($"{ClassDescription}: the {pos} position is added more than once in blank list");
+                                throw new Exception(Error.Instance.GetInternalError(ClassDescription, pos.ToString() + " ", Error.Instance.PositionAddedMoreThanOnceInBlankList));
 
                             pos = pos + blankList[0].Item2;
                             continue;
@@ -152,8 +152,7 @@ namespace EFW2C.Records
                 }
 
                 if (pos != 1024)
-                    throw new Exception($"{ClassDescription} : {pos + 1} : has no field or not added to blank list");
-
+                    throw new Exception(Error.Instance.GetInternalError(ClassDescription, (pos + 1).ToString()+ " ", Error.Instance.HasNoFieldOrNotAddedToBlankList));
             }
             catch (Exception ex)
             {
@@ -168,7 +167,7 @@ namespace EFW2C.Records
             var validField = _helperFieldsList.FirstOrDefault(item => item.ClassName == fieldClassName);
 
             if (validField == null)
-                throw new Exception($"GetField() : you are trying to get invalid class : {fieldClassName}");
+                throw new Exception(Error.Instance.GetInternalError("GetField()", Error.Instance.InvalidClass));
 
             return _fields.FirstOrDefault(field => field.ClassName == fieldClassName);
         }
@@ -177,7 +176,7 @@ namespace EFW2C.Records
         {
 
             if (IsFieldExists(field))
-                throw new Exception($"{field.ClassName} is already added to {ClassDescription}");
+                throw new Exception(Error.Instance.GetInternalError(field.ClassName, Error.Instance.AlreadyAddedTo, ClassDescription));
 
             _fields.Add(field);
         }
@@ -315,7 +314,7 @@ namespace EFW2C.Records
                     var blankData = new string(RecordBuffer, pos, length);
 
                     if (!string.IsNullOrWhiteSpace(blankData))
-                        throw new Exception($"{ClassDescription} : Data from {pos+1} with length {length} must be blank");
+                        throw new Exception(Error.Instance.GetInternalError(ClassDescription, $"[{pos + 1} - {length}] ", Error.Instance.MustBeBlank));
                 }
             }
 
@@ -327,9 +326,7 @@ namespace EFW2C.Records
             foreach (var reqField in _helperFieldsList)
             {
                 if (reqField.IsRequired() && !IsFieldExists(reqField))
-                {
-                    throw new Exception($"{reqField.ClassDescription} Field is required");
-                }
+                    throw new Exception(Error.Instance.GetInternalError(reqField.ClassDescription, Error.Instance.FieldIsRequired));
             }
 
             return true;

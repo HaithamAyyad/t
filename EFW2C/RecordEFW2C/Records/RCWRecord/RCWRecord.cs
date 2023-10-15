@@ -1,5 +1,6 @@
 ﻿using EFW2C.Common.Enums;
 using EFW2C.Fields;
+using EFW2C.Languages;
 using EFW2C.Manager;
 using System;
 using System.Collections.Generic;
@@ -73,7 +74,7 @@ namespace EFW2C.Records
         public override bool Verify()
         {
             if(_parent == null)
-                throw new Exception($"Employee : must be added to Employer");
+                throw new Exception(Error.Instance.GetError(ClassDescription, Error.Instance.MustBeAddedTo, "Employer"));
 
             if (_rcoRecord != null)
             {

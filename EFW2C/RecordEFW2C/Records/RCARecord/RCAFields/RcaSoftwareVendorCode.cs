@@ -2,6 +2,7 @@
 using EFW2C.Common.Constants;
 using EFW2C.Common.Enums;
 using EFW2C.Extensions;
+using EFW2C.Languages;
 using EFW2C.Records;
 
 namespace EFW2C.Fields
@@ -35,13 +36,13 @@ namespace EFW2C.Fields
 
                 if (softwareCode == ((int)SoftwareCodeEnum.Code_99).ToString())
                 {
-                    if (string.IsNullOrWhiteSpace(DataInRecordBuffer()))
-                        throw new Exception($"{ClassDescription} When Software Code is Off-the-Shelf Software '99' this field should be provided");
+                    if (!string.IsNullOrWhiteSpace(DataInRecordBuffer()))
+                        throw new Exception(Error.Instance.GetError(ClassDescription, Error.Instance.CantBeBlankIf, "Software Code 99"));
                 }
                 else
                 {
                     if (!string.IsNullOrWhiteSpace(DataInRecordBuffer()))
-                        throw new Exception($"{ClassDescription} When Software Code is In-House Program '98' this field must be empty");
+                        throw new Exception(Error.Instance.GetError(ClassDescription, Error.Instance.MustBeBlankOtherwiseFill, "Software Code 99"));
                 }
             }
 

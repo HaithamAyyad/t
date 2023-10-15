@@ -61,7 +61,7 @@ namespace EFW2C.Fields
         protected FieldBase GetOriginalField()
         {
             if (!ClassName.Contains(Constants.CorrectStr))
-                throw new Exception($"{ClassDescription} this function only used for {Constants.CorrectStr} class");
+                throw new Exception(Error.Instance.GetInternalError(ClassDescription, Error.Instance.ThisFunctionOnlyUseFor, Constants.CorrectStr + "classes"));
 
             var originalFieldName = ClassName.Replace(Constants.CorrectStr, Constants.OriginalStr);
 
@@ -71,7 +71,7 @@ namespace EFW2C.Fields
         protected bool IsSameAsOriginalValue()
         {
             if (!ClassName.Contains(Constants.CorrectStr))
-                throw new Exception($"{ClassDescription} this function only used for {Constants.CorrectStr} class");
+                throw new Exception(Error.Instance.GetInternalError(ClassDescription, Error.Instance.ThisFunctionOnlyUseFor, Constants.CorrectStr + "classes"));
 
             var originalField = GetOriginalField();
             if (!IsFieldNullOrWhiteSpace(originalField))

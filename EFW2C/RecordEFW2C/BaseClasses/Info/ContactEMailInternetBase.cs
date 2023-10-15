@@ -1,6 +1,7 @@
 ﻿using System;
 using EFW2C.Common.Enums;
 using EFW2C.Extensions;
+using EFW2C.Languages;
 using EFW2C.Records;
 
 namespace EFW2C.Fields
@@ -28,10 +29,10 @@ namespace EFW2C.Fields
             var email = DataInRecordBuffer();
 
             if (string.IsNullOrWhiteSpace(email))
-                throw new Exception($"{ClassDescription} email is empty");
+                throw new Exception(Error.Instance.GetError(ClassDescription, Error.Instance.EmailIsEmpty));
 
             if (!VerifyEmail(email))
-                throw new Exception($"{ClassDescription} email is not correct");
+                throw new Exception(Error.Instance.GetError(ClassDescription, Error.Instance.EmailIsNotCorrect));
 
             return true;
         }

@@ -63,33 +63,6 @@ namespace EFW2C.Extensions
             return char.IsDigit(c) || c == ' ';
         }
     }
-    public static class ArrayExtensions
-    {
-        public static bool Compare<T>(this T[] array1, int startPos1, T[] array2, int length)
-        {
-            if (array1 == null || array2 == null)
-            {
-                return array1 == array2;
-            }
-
-            if (startPos1 < 0 || length <= 0 ||
-                startPos1 + length > array1.Length || length > array2.Length)
-            {
-                throw new ArgumentException("Invalid positions or length.");
-            }
-
-            for (int i = 0; i < length; i++)
-            {
-                if (!EqualityComparer<T>.Default.Equals(array1[startPos1 + i], array2[i]))
-                {
-                    return false;
-                }
-            }
-
-            return true;
-        }
-    }
-
     public static class CharArrayExtensions
     {
         public static void Fill(this char[] array, char value, int pos, int length)

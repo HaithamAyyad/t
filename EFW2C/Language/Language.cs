@@ -52,10 +52,10 @@ namespace EFW2C.Languages
         }
         public string LoadExceptionString(string str)
         {
-            var descriptionStr = "{Exception-Not-Defined}";
+            var descriptionStr = $"{{{_exceptionsManager.GetString("Exception-Not-Defined")}}}";
             try
             {
-                str = _descpitionDesourceManager.GetString(str);
+                str = _exceptionsManager.GetString(str);
                 if (str != null)
                     descriptionStr = str;
             }
