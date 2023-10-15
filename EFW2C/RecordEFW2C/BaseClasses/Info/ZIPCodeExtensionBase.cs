@@ -1,6 +1,7 @@
 ﻿using System;
 using EFW2C.Common.Enums;
 using EFW2C.Extensions;
+using EFW2C.Languages;
 using EFW2C.Records;
 
 namespace EFW2C.Fields
@@ -24,21 +25,19 @@ namespace EFW2C.Fields
             if (!base.Verify())
                 return false;
 
-            /*hsa7
             if (!string.IsNullOrWhiteSpace(DataInRecordBuffer()))
             {
                 var zipCodeClassName = $"{_record.ClassName.Substring(0, 3)}ZipCode";
                 if (IsFieldNullOrWhiteSpace(_record.GetField(zipCodeClassName)))
-                    throw new Exception($"{ClassDescription} must be empty since {zipCodeClassName} is not provided");
+                    throw new Exception(Error.Instance.GetError(ClassDescription, Error.Instance.MustBeBlankOtherwiseFill, $"{zipCodeClassName.Substring(3)}"));
             }
-            */
 
             return true;
         }
 
         protected override FieldTypeEnum GetFieldType()
         {
-            return FieldTypeEnum.Numerical_LeftJustify_Blank;
+            return FieldTypeEnum.Numerical_Only;
         }
 
         public override bool IsRequired()

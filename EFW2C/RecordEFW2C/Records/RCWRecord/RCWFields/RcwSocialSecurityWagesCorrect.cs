@@ -54,12 +54,8 @@ namespace EFW2C.Fields
                     throw new Exception(Error.Instance.GetError(ClassDescription, Error.Instance.MustBeZeroOrEqualToOrGreaterToHousHoldForYearIfCodeH));
             }
 
-            /*hsa7
-             * if (taxYear == 2023)
-            {
-                if (localValue + socialSecurityTipsCorrectValue > wageTax.SocialSecurity.MaxTaxedEarnings)
-                    throw new Exception($"{ClassDescription} : value must not exceed SocialSecurity MaxTaxedEarnings");
-            }*/
+            if (localValue + socialSecurityTipsCorrectValue > wageTax.SocialSecurity.MaxTaxedEarnings)
+                throw new Exception(Error.Instance.GetError(ClassDescription, " plus SocialSecurityTipsCorrect ", Error.Instance.MustNotExceedSocialSecurityMaxTaxedEarnings));
 
             return true;
         }

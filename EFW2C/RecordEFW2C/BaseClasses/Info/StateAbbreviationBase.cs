@@ -30,7 +30,9 @@ namespace EFW2C.Fields
             {
                 var foreignStateProvinceClassName = $"{_record.ClassName.Substring(0, 3)}ForeignStateProvince";
                 if (!IsFieldNullOrWhiteSpace(_record.GetField(foreignStateProvinceClassName)))
-                    throw new Exception(Error.Instance.GetError(ClassDescription, Error.Instance.MustBeBlankOtherwiseFill, $"{foreignStateProvinceClassName} Blank"));
+                {
+                    throw new Exception(Error.Instance.GetError(ClassDescription, Error.Instance.MustBeBlankOtherwiseFill, $"{foreignStateProvinceClassName.Substring(3)} Blank"));
+                }
             }
 
             if (!EnumHelper.IsValidStateCode(DataInRecordBuffer()))

@@ -36,7 +36,7 @@ namespace EFW2C.Fields
 
                 if (softwareCode == ((int)SoftwareCodeEnum.Code_99).ToString())
                 {
-                    if (!string.IsNullOrWhiteSpace(DataInRecordBuffer()))
+                    if (string.IsNullOrWhiteSpace(DataInRecordBuffer()))
                         throw new Exception(Error.Instance.GetError(ClassDescription, Error.Instance.CantBeBlankIf, "Software Code 99"));
                 }
                 else
@@ -51,7 +51,7 @@ namespace EFW2C.Fields
 
         protected override FieldTypeEnum GetFieldType()
         {
-            return FieldTypeEnum.Numerical_LeftJustify_Blank;
+            return FieldTypeEnum.Numerical_Only;
         }
 
         public override bool IsRequired()

@@ -252,7 +252,6 @@ namespace test.Testing
 
             // Generate a random tax year between 2020 and 2022
 
-            //hsa7 year 2023 need to be tested
             int randomYear = random.Next(2020, 2023);
 
             return randomYear.ToString();

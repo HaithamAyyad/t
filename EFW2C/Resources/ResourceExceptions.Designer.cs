@@ -475,6 +475,15 @@ namespace EFW2C.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Must not exceed social security maxtaxed earnings..
+        /// </summary>
+        internal static string Must_Not_Exceed_SocialSecurity_MaxTaxedEarnings {
+            get {
+                return ResourceManager.GetString("Must_Not_Exceed_SocialSecurity_MaxTaxedEarnings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Must not start with .
         /// </summary>
         internal static string Must_Not_Start_With {

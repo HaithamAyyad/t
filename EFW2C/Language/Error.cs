@@ -72,6 +72,7 @@ namespace EFW2C.Languages
         public string CantBeBlank { get; set; }
         public string NumberOfEmployeeRecordsIsNotCorrect { get; set; }
         public string NumberOfEmployeeOptionalRecordsIsNotCorrect { get; set; }
+        public string MustNotExceedSocialSecurityMaxTaxedEarnings { get; set; }
         public string Remove { get; set; }
 
         public Error()
@@ -134,6 +135,7 @@ namespace EFW2C.Languages
             CantBeBlank = Language.Instance.LoadExceptionString("Cant_Be_Blank");
             NumberOfEmployeeRecordsIsNotCorrect = Language.Instance.LoadExceptionString("NumberOf_Employee_Records_IsNot_Correct");
             NumberOfEmployeeOptionalRecordsIsNotCorrect = Language.Instance.LoadExceptionString("NumberOf_EmployeeOptional_Records_IsNotCorrect");
+            MustNotExceedSocialSecurityMaxTaxedEarnings = Language.Instance.LoadExceptionString("Must_Not_Exceed_SocialSecurity_MaxTaxedEarnings");
             Remove = Language.Instance.LoadExceptionString("Remove");
         }
 

@@ -24,7 +24,7 @@ namespace EFW2C.Fields
             if (!base.Verify())
                 return false;
 
-            /*hsa7
+            /* removed as what AccuW2c2011 works
             if (!string.IsNullOrWhiteSpace(DataInRecordBuffer()))
             {
                 var stateAbbreviationClassName = $"{_record.ClassName.Substring(0, 3)}StateAbbreviation";
@@ -38,7 +38,7 @@ namespace EFW2C.Fields
 
         protected override FieldTypeEnum GetFieldType()
         {
-            return FieldTypeEnum.Numerical_LeftJustify_Blank;
+            return FieldTypeEnum.Numerical_Only;
         }
 
         public override bool IsRequired()
