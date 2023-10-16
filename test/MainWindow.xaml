@@ -5,13 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:test"
         mc:Ignorable="d"
-        Title="MainWindow" Height="150" Width="300"
+        Title="MainWindow" Height="170" Width="300"
         WindowStartupLocation="CenterScreen">
     
     <DockPanel Background="Bisque">
         <StackPanel Margin="30" DockPanel.Dock="Bottom" >
-            <Button Content="Create Document" Command="{Binding CreateDocumentCommand}" />
             <CheckBox Content="Include Optional Records" IsChecked="{Binding ShowOptionalRecord, Mode=TwoWay}"/>
+            <StackPanel Margin="0,3" Orientation="Horizontal">
+                <TextBlock Text="Number Of Random Records :"/>
+                <TextBox Text="{Binding NumberOfRandomRecords, Mode=TwoWay}" Width="50"/>
+            </StackPanel>
+            <Button Content="Create Document" Command="{Binding CreateDocumentCommand}" />
         </StackPanel>
         <Label DockPanel.Dock="Top"/>
     </DockPanel>

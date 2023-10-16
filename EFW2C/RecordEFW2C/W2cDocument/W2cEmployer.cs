@@ -87,19 +87,20 @@ namespace EFW2C.RecordEFW2C.W2cDocument
             base.Prepare();
         }
 
-        public void MoveToNextEmployer()
+        public void MoveToNextEmployee()
         {
-            var currentIndex = _employeeList.IndexOf(SelectedEmployee);
-            if (currentIndex < _employeeList.Count - 1)
-                SelectedEmployee = _employeeList[currentIndex + 1];
+            var index = _employeeList.IndexOf(SelectedEmployee) + 1;
+            if (index < _employeeList.Count)
+                SelectedEmployee = _employeeList[index];
         }
-        
+
         public void MoveToPreviousEmployee()
         {
-            var currentIndex = _employeeList.IndexOf(SelectedEmployee);
-            if (currentIndex > 0)
-                SelectedEmployee = _employeeList[currentIndex - 1];
+            var index = _employeeList.IndexOf(SelectedEmployee) - 1;
+            if (index >= 0)
+                SelectedEmployee = _employeeList[index];
         }
+
 
         public bool CanMoveToNextEmployee()
         {

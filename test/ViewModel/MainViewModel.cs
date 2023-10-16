@@ -31,17 +31,33 @@ namespace test.ViewModel
                 }
             }
         }
+        private string _numberOfRandomRecords;
+
+        public string NumberOfRandomRecords
+        {
+            get { return _numberOfRandomRecords; }
+            set 
+            {
+                if (_numberOfRandomRecords != value)
+                {
+                    _numberOfRandomRecords = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
 
         public ICommand CreateDocumentCommand { get; set; }
 
         public MainViewModel() 
         {
             CreateDocumentCommand = new RelayCommand(CreateDocumentCommandHandler);
+            _numberOfRandomRecords = "1";
         }
 
         private void CreateDocumentCommandHandler()
         {
-            var documentViewModel = new DocumentViewModel(_showOptionalRecord);
+            int.TryParse(NumberOfRandomRecords, out var nRr);
+            var documentViewModel = new DocumentViewModel(_showOptionalRecord, nRr);
             
             var documentWindow = WindowsManager.CreateWindow(documentViewModel);
             documentWindow.ShowDialog();

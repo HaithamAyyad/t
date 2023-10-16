@@ -70,6 +70,8 @@ namespace test.ViewModel
         }
 
         public bool ShowOptionalRecords { get; set; }
+        public int NumberOfRandomRecords { get; set; }
+
         private bool _showEmployer;
         public bool ShowEmployer
         {
@@ -101,7 +103,7 @@ namespace test.ViewModel
         public ICommand VerifyEmployerCommand { get; set; }
         public ICommand MoveToNextEmployerCommand { get; set; }
         public ICommand MoveToPrevEmployerCommand { get; set; }
-        public ICommand MoveToNextEmployeeCommand2 { get; set; }
+        public ICommand MoveToNextEmployeeCommand { get; set; }
         public ICommand MoveToPrevEmployeeCommand { get; set; }
         public ICommand VerifyEmployeeCommand { get; set; }
         public ICommand CreateRandomEmployeeCommand { get; set; }
@@ -118,16 +120,17 @@ namespace test.ViewModel
         public bool CanMoveToNextEmployer { get { return _document.CanMoveToNextEmployer(); } }
         public bool CanMoveToPrevEmployer { get { return _document.CanMoveToPreviousEmployer(); } }
 
-        public DocumentViewModel( bool showOptionalRecords)
+        public DocumentViewModel( bool showOptionalRecords, int numberOfRandomRecords)
         {
             ShowOptionalRecords = showOptionalRecords;
+            NumberOfRandomRecords = numberOfRandomRecords;
             VerifySubmitterCommand = new RelayCommand(VerifySubmitterCommandHandler);
             VerifyEmployerCommand = new RelayCommand(VerifyEmployerCommandHandler);
             MoveToNextEmployerCommand = new RelayCommand(MoveToNextEmployerCommandHandler);
             MoveToPrevEmployerCommand = new RelayCommand(MoveToPrevEmployerCommandHandler);
 
             VerifyEmployeeCommand = new RelayCommand(VerifyEmployeeCommandHandler);
-            MoveToNextEmployeeCommand2 = new RelayCommand(MoveToNextEmployeeCommandHandler);
+            MoveToNextEmployeeCommand = new RelayCommand(MoveToNextEmployeeCommandHandler);
             MoveToPrevEmployeeCommand = new RelayCommand(MoveToPrevEmployeeCommandHandler);
 
             CreateRandomEmployeeCommand = new RelayCommand(CreateRandomEmployeeCommandHandler);
@@ -145,7 +148,7 @@ namespace test.ViewModel
 
             //DocumentDataTest.FillData(_document);
             
-            DocumentDataTest.FillData_staically(_document, showOptionalRecords);
+            DocumentDataTest.FillData_staically(_document, showOptionalRecords, numberOfRandomRecords);
 
             ShowHideWindows();
         }
@@ -230,7 +233,7 @@ namespace test.ViewModel
 
         private void MoveToNextEmployeeCommandHandler()
         {
-            _document.SelectedEmployer.MoveToNextEmployer();
+            _document.SelectedEmployer.MoveToNextEmployee();
         }
 
         private void MoveToPrevEmployeeCommandHandler()

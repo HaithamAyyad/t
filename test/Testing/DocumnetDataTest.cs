@@ -161,7 +161,7 @@ namespace test.Testing
             return cities[random.Next(cities.Length)];
         }
 
-        public static string GenerateRandomDoubleAsString()
+        public static string GenerateRandomDoubleAsString(string dontmatch)
         {
             int precision = random.Next(3); // Randomly choose precision: 0, 1, or 2 decimal places
             int integerPart = random.Next(5000); // Limit to a maximum of 5000
@@ -169,7 +169,12 @@ namespace test.Testing
             double generatedDouble = integerPart / Math.Pow(10, precision);
             double roundedDouble = Math.Round(generatedDouble, precision);
 
-            return roundedDouble.ToString("F" + precision);
+            
+            var result = roundedDouble.ToString("F" + precision);
+            if (dontmatch == result)
+                GenerateRandomDoubleAsString(dontmatch);
+
+            return result;
         }
 
         public static string GenerateRandomSSN()
@@ -272,7 +277,8 @@ namespace test.Testing
         static string GenerateEmploymentCodeRandomly()
         {
             //string[] employmentCodes = { "A", "H", "M", "Q", "X", "F", "R" };
-            string[] employmentCodes = { "A", "M", "Q", "X", "F", "R" };
+            //string[] employmentCodes = { "A", "M", "Q", "X", "F", "R" };
+            string[] employmentCodes = { "A", "M", "F", "R" };
             int randomIndex = random.Next(employmentCodes.Length);
             return employmentCodes[randomIndex];
         }
@@ -323,7 +329,7 @@ namespace test.Testing
             employee.MedicareTaxWithheldOriginal = "797.58"; //004
             employee.MedicareTaxWithheldCorrect = "809.93"; //404
 
-            employee.MedicareWagesAndTipsOriginal = GenerateSum(employee.SocialSecurityWagesOriginal, employee.SocialSecurityTipsOriginal); ;
+            employee.MedicareWagesAndTipsOriginal = GenerateSum(employee.SocialSecurityWagesOriginal, employee.SocialSecurityTipsOriginal);
             employee.MedicareWagesAndTipsCorrect = GenerateSum(employee.SocialSecurityWagesCorrect, employee.SocialSecurityTipsCorrect);
 
             return employee;
@@ -382,6 +388,7 @@ namespace test.Testing
             submitter.ContactFax = GenerateRandomUSAPhoneNumber();
             submitter.PreparerCode = GetRandomPreparerCode();
             submitter.ResubIndicator = "1";
+            //submitter.CountryCode = "UK";
 
             //submitter.ForeignStateProvince = "3";
 
@@ -394,8 +401,8 @@ namespace test.Testing
         {
             var employeeOptional = new W2cEmployeeOptional(document);
 
-            employeeOptional.AllocatedTipsCorrect = GenerateRandomDoubleAsString();
-            employeeOptional.AllocatedTipsOriginal = GenerateRandomDoubleAsString();
+            employeeOptional.AllocatedTipsCorrect = GenerateRandomDoubleAsString("");
+            employeeOptional.AllocatedTipsOriginal = GenerateRandomDoubleAsString(employeeOptional.AllocatedTipsCorrect);
 
             return employeeOptional;
         }
@@ -426,23 +433,24 @@ namespace test.Testing
 
             employee.ForeignPostalCode = "BOX 300";
 
-            employee.SocialSecurityTaxWithheldCorrect = GenerateRandomDoubleAsString();
-            employee.SocialSecurityTaxWithheldOriginal = GenerateRandomDoubleAsString();
+            /* fill manually
+            employee.SocialSecurityTaxWithheldCorrect = GenerateRandomDoubleAsString("");
+            employee.SocialSecurityTaxWithheldOriginal = GenerateRandomDoubleAsString(employee.SocialSecurityTaxWithheldCorrect);
 
-            employee.SocialSecurityTipsOriginal = GenerateRandomDoubleAsString();
-            employee.SocialSecurityTipsCorrect = GenerateRandomDoubleAsString();
+            employee.SocialSecurityTipsOriginal = GenerateRandomDoubleAsString("");
+            employee.SocialSecurityTipsCorrect = GenerateRandomDoubleAsString(employee.SocialSecurityTipsOriginal);
 
-            employee.SocialSecurityWagesOriginal = GenerateRandomDoubleAsString();
-            employee.SocialSecurityWagesCorrect = GenerateRandomDoubleAsString();
-
+            employee.SocialSecurityWagesOriginal = GenerateRandomDoubleAsString("");
+            employee.SocialSecurityWagesCorrect = GenerateRandomDoubleAsString(employee.SocialSecurityWagesOriginal);
+            
             employee.MedicareWagesAndTipsOriginal = GenerateSum(employee.SocialSecurityWagesOriginal,
                                         employee.SocialSecurityTipsOriginal);
 
             employee.MedicareWagesAndTipsCorrect = GenerateSum(employee.SocialSecurityWagesCorrect,
                                        employee.SocialSecurityTipsCorrect);
-
-            employee.FederalIncomeTaxWithheldOriginal = GenerateRandomDoubleAsString(); ;
-            employee.FederalIncomeTaxWithheldCorrect = GenerateRandomDoubleAsString(); ;
+            */
+            employee.FederalIncomeTaxWithheldOriginal = GenerateRandomDoubleAsString("");
+            employee.FederalIncomeTaxWithheldCorrect = GenerateRandomDoubleAsString(employee.FederalIncomeTaxWithheldOriginal);
 
             return employee;
         }
@@ -464,7 +472,7 @@ namespace test.Testing
 
             employer.EinAgentFederalOriginal = "000";
             employer.EinAgentFederal = GenerateRandomEINFedral();
-            employer.EinAgent = GenerateRandomEIN();
+            employer.EinAgent = GenerateRandomEINFedral();
 
             employer.TaxYear = GenerateRandomTaxYear();
             employer.KindOfEmployer = GetRandomKindOfEmployer();
@@ -510,17 +518,17 @@ namespace test.Testing
             return employeeState;
         }
 
-        public static void FillData_staically(W2cDocument document, bool showOptionalRecord)
+        public static void FillData_staically(W2cDocument document, bool showOptionalRecord, int numberOfRandomRecords)
         {
             var submitter = CreateSubmitterData(document);
 
             document.SetSubmitter(submitter);
 
-            for (int i = 0; i < 1; i++)
+            for (int i = 0; i < numberOfRandomRecords; i++)
             {
                 var employer = CreateEmployerRandomly(document);
 
-                for (int j = 0; j < 1; j++)
+                for (int j = 0; j < numberOfRandomRecords; j++)
                 {
                     var employee = CreateEmployeeRandomly(document);
 

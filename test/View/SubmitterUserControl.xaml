@@ -60,6 +60,10 @@
                 <TextBox Text= "{Binding Document.Submitter.StateAbbreviation, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
             </StackPanel>
             <StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
+                <TextBlock Margin="5,0" Text= "CountryCode:" VerticalAlignment ="Top"/>
+                <TextBox Text= "{Binding Document.Submitter.CountryCode, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
+            </StackPanel>
+            <StackPanel Margin="0,3,0,0"  Orientation="Horizontal">
                 <TextBlock Margin="5,0" Text= "LocationAddress:" VerticalAlignment ="Top"/>
                 <TextBox Text= "{Binding Document.Submitter.LocationAddress, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
             </StackPanel>
