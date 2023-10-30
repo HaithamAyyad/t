@@ -139,6 +139,11 @@ namespace EFW2C.W2cDocument
             return true;
         }
 
+        public int GetLenght(string propName)
+        {
+            return _record.GetHelperField(_mapPropFieldDictionary[propName]).Length;
+        }
+        
         protected abstract Dictionary<string, string> CreateMapPropFieldDictionay();
 
         public event PropertyChangedEventHandler PropertyChanged;

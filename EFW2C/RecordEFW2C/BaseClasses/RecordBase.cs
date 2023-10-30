@@ -162,6 +162,16 @@ namespace EFW2C.Records
             return true;
         }
 
+        public FieldBase GetHelperField(string fieldClassName)
+        {
+            var helperField = _helperFieldsList.FirstOrDefault(item => item.ClassName == fieldClassName);
+
+            if (helperField == null)
+                throw new Exception(Error.Instance.GetInternalError("GetField()", Error.Instance.InvalidClass));
+
+            return helperField;
+        }
+
         public FieldBase GetField(string fieldClassName)
         {
             var validField = _helperFieldsList.FirstOrDefault(item => item.ClassName == fieldClassName);
