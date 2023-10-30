@@ -15,7 +15,7 @@ namespace EFW2C.Records
         private RecordManager _manager;
         protected List<FieldBase> _fields;
         private List<FieldBase> _helperFieldsList;
-        private List<(int, int)> _blankFields;
+        private List<Tuple<int, int>> _blankFields;
         public RecordManager Manager { get { return _manager; } }
         public char[] RecordBuffer { get; private set; }
         public string RecordName { get; set; }
@@ -333,7 +333,7 @@ namespace EFW2C.Records
         }
 
         protected abstract List<FieldBase> CreateHelperFieldsList();
-        protected abstract List<(int, int)> CreateBlankList();
+        protected abstract List<Tuple<int, int>> CreateBlankList();
         public abstract RecordBase Clone(RecordManager manager);
     }
 }

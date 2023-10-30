@@ -29,11 +29,11 @@ namespace EFW2C.Records
             return rcfRecord;
         }
 
-        protected override List<(int, int)> CreateBlankList()
+        protected override List<Tuple<int, int>> CreateBlankList()
         {
-            return new List<(int, int)>
+            return new List<Tuple<int, int>>
             {
-                (12, 1012)
+                new Tuple<int, int>(12, 1012)
             };
         }
 

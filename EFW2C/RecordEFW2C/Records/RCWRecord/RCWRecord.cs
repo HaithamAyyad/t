@@ -91,16 +91,16 @@ namespace EFW2C.Records
             return base.Verify();
         }
 
-        protected override List<(int, int)> CreateBlankList()
+        protected override List<Tuple<int, int>> CreateBlankList()
         {
-            return new List<(int, int)>
+            return new List<Tuple<int, int>>
             {
-                (198, 5),
-                (397, 22),
-                (573, 22),
-                (683, 22),
-                (859, 143),
-                (1008, 16),
+                new Tuple<int, int>(198, 5),
+                new Tuple<int, int>(397, 22),
+                new Tuple<int, int>(573, 22),
+                new Tuple<int, int>(683, 22),
+                new Tuple<int, int>(859, 143),
+                new Tuple<int, int>(1008, 16),
             };
         }
 

@@ -45,13 +45,13 @@ namespace EFW2C.Records
             return base.Verify();
         }
 
-        protected override List<(int, int)> CreateBlankList()
+        protected override List<Tuple<int, int>> CreateBlankList()
         {
-            return new List<(int, int)>
+            return new List<Tuple<int, int>>
             {
-                (3, 9),
-                (188, 22),
-                (276, 748)
+                new Tuple<int, int>(3, 9),
+                new Tuple<int, int>(188, 22),
+                new Tuple<int, int>(276, 748)
             };
         }
 

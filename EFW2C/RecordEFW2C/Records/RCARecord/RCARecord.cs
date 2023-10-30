@@ -29,16 +29,16 @@ namespace EFW2C.Records
             return rcaRecord;
         }
 
-        protected override List<(int, int)> CreateBlankList()
+        protected override List<Tuple<int, int>> CreateBlankList()
         {
-            return new List<(int, int)> 
-            { 
-                (24, 5), 
-                (165, 6), 
-                (258, 3), 
-                (301, 3), 
-                (314, 1), 
-                (323, 701) 
+            return new List<Tuple<int, int>> 
+            {
+                new Tuple<int, int>(24, 5),
+                new Tuple<int, int>(165, 6),
+                new Tuple<int, int>(258, 3),
+                new Tuple<int, int>(301, 3),
+                new Tuple<int, int>(314, 1),
+                new Tuple<int, int>(323, 701) 
             };
         }
 

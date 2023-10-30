@@ -299,13 +299,13 @@ namespace EFW2C.Records
             return count;
         }
 
-        protected override List<(int, int)> CreateBlankList()
+        protected override List<Tuple<int, int>> CreateBlankList()
         {
-            return new List<(int, int)>
+            return new List<Tuple<int, int>>
             {
-                (177, 4),
-                (225, 1),
-                (324, 700)
+                new Tuple<int, int>(177, 4),
+                new Tuple<int, int>(225, 1),
+                new Tuple<int, int>(324, 700)
             };
         }
 
