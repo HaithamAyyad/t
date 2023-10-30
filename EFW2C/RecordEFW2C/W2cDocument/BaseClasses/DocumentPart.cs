@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using EFW2C.Extensions;
 using EFW2C.Languages;
+using EFW2C.RecordEFW2C.Helpper;
 
 namespace EFW2C.W2cDocument
 {
@@ -143,7 +144,7 @@ namespace EFW2C.W2cDocument
         {
             return _record.GetHelperField(_mapPropFieldDictionary[propName]).Length;
         }
-        
+
         protected abstract Dictionary<string, string> CreateMapPropFieldDictionay();
 
         public event PropertyChangedEventHandler PropertyChanged;

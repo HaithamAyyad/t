@@ -94,6 +94,7 @@
     <Compile Include="RecordEFW2C\Common\Constants.cs" />
     <Compile Include="RecordEFW2C\Common\enums.cs" />
     <Compile Include="RecordEFW2C\Common\WageTax.cs" />
+    <Compile Include="RecordEFW2C\Helpper\DictionaryHelper.cs" />
     <Compile Include="RecordEFW2C\W2cDocument\BaseClasses\DocumentPart.cs" />
     <Compile Include="RecordEFW2C\W2cDocument\W2cDocument.cs" />
     <Compile Include="RecordEFW2C\Helpper\EnumHelper.cs" />

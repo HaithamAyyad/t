@@ -1,4 +1,5 @@
 ﻿using EFW2C.Manager;
+using EFW2C.RecordEFW2C.Helpper;
 using EFW2C.Records;
 using System;
 using System.Collections.Generic;
@@ -128,6 +129,19 @@ namespace EFW2C.W2cDocument
             SetSubmitter(null);
             _employerList.Clear();
             _manager.Reset();
+        }
+
+        public static List<string> GetUsaStateNames()
+        {
+            return DictionaryHelper.UsaStateName.Keys.ToList();
+        }
+
+        public static string GetUsaAbbRreviationsStateNames(string stateName)
+        {
+            if (DictionaryHelper.UsaStateName.ContainsKey(stateName))
+                return DictionaryHelper.UsaStateName[stateName];
+
+            return string.Empty;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
