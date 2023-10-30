@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace EFW2C.RecordEFW2C.W2cDocument
+namespace EFW2C.Test
 {
     public class TestClass
     {

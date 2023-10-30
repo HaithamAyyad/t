@@ -9,7 +9,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EFW2C.RecordEFW2C.W2cDocument
+namespace EFW2C.W2cDocument
 {
     public class W2cSubmitter : DocumentPart
     {

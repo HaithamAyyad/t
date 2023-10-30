@@ -1,4 +1,4 @@
-﻿using EFW2C.RecordEFW2C.W2cDocument;
+﻿using EFW2C.W2cDocument;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;

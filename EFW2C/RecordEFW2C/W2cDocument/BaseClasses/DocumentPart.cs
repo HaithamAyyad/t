@@ -12,7 +12,7 @@ using System.Windows.Forms;
 using EFW2C.Extensions;
 using EFW2C.Languages;
 
-namespace EFW2C.RecordEFW2C.W2cDocument
+namespace EFW2C.W2cDocument
 {
     public abstract class DocumentPart : INotifyPropertyChanged
     {
