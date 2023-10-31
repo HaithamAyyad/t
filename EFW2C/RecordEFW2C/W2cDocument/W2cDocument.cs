@@ -138,8 +138,11 @@ namespace EFW2C.W2cDocument
 
         public static string GetUsaAbbRreviationsStateNames(string stateName)
         {
-            if (DictionaryHelper.UsaStateName.ContainsKey(stateName))
-                return DictionaryHelper.UsaStateName[stateName];
+            if (!string.IsNullOrEmpty(stateName))
+            {
+                if (DictionaryHelper.UsaStateName.ContainsKey(stateName))
+                    return DictionaryHelper.UsaStateName[stateName];
+            }
 
             return string.Empty;
         }
