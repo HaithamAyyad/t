@@ -133,15 +133,87 @@ namespace EFW2C.W2cDocument
 
         public static List<string> GetUsaStateNames()
         {
-            return DictionaryHelper.UsaStateName.Keys.ToList();
+            return DictionaryHelper.UsaStateNameDictionary.Keys.ToList();
         }
 
-        public static string GetUsaAbbRreviationsStateNames(string stateName)
+        public static string GetUsaAbbreviationsStateNames(string stateName)
         {
             if (!string.IsNullOrEmpty(stateName))
             {
-                if (DictionaryHelper.UsaStateName.ContainsKey(stateName))
-                    return DictionaryHelper.UsaStateName[stateName];
+                if (DictionaryHelper.UsaStateNameDictionary.ContainsKey(stateName))
+                    return DictionaryHelper.UsaStateNameDictionary[stateName];
+            }
+
+            return string.Empty;
+        }
+
+        public static string GetUsaStateNameFromAbbreviation(string stateAbbreviation)
+        {
+            if (!string.IsNullOrEmpty(stateAbbreviation))
+            {
+                var stateName = DictionaryHelper.UsaStateNameDictionary.FirstOrDefault(x => x.Value == stateAbbreviation).Key;
+
+                if (stateName != null)
+                    return stateName;
+            }
+
+            return string.Empty;
+        }
+
+        public static List<string> GetEmploymentCodeNames()
+        {
+            return DictionaryHelper.EmploymentCodeNameDictionary.Keys.ToList();
+        }
+
+        public static string GetEmploymentCodeAbbreviation(string employmentCode)
+        {
+            if (!string.IsNullOrEmpty(employmentCode))
+            {
+                if (DictionaryHelper.EmploymentCodeNameDictionary.ContainsKey(employmentCode))
+                    return DictionaryHelper.EmploymentCodeNameDictionary[employmentCode];
+            }
+
+            return string.Empty;
+        }
+
+        public static string GetEmploymentCodeFromAbbreviation(string employmentCodeAbbreviation)
+        {
+            if (!string.IsNullOrEmpty(employmentCodeAbbreviation))
+            {
+                var employmentCodeName = DictionaryHelper.EmploymentCodeNameDictionary.FirstOrDefault(x => x.Value == employmentCodeAbbreviation).Key;
+
+                if (employmentCodeName != null)
+                    return employmentCodeName;
+            }
+
+            return string.Empty;
+        }
+
+
+        public static List<string> GetKindOfEmployerNames()
+        {
+            return DictionaryHelper.KindOfEmployerNameDictionary.Keys.ToList();
+        }
+
+        public static string GetKindOfEmployerNameAbbreviation(string kindOfEmployer)
+        {
+            if (!string.IsNullOrEmpty(kindOfEmployer))
+            {
+                if (DictionaryHelper.KindOfEmployerNameDictionary.ContainsKey(kindOfEmployer))
+                    return DictionaryHelper.KindOfEmployerNameDictionary[kindOfEmployer];
+            }
+
+            return string.Empty;
+        }
+
+        public static string GetKindOfEmployerNameFromAbbreviation(string kindOfEmployerAbbreviation)
+        {
+            if (!string.IsNullOrEmpty(kindOfEmployerAbbreviation))
+            {
+                var kindOfEmployerName = DictionaryHelper.KindOfEmployerNameDictionary.FirstOrDefault(x => x.Value == kindOfEmployerAbbreviation).Key;
+
+                if (kindOfEmployerName != null)
+                    return kindOfEmployerName;
             }
 
             return string.Empty;

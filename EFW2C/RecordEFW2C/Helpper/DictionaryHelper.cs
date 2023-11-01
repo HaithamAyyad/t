@@ -8,7 +8,7 @@ namespace EFW2C.RecordEFW2C.Helpper
 {
     public class DictionaryHelper
     {
-        public static Dictionary<string, string> UsaStateName = new Dictionary<string, string>
+        public static Dictionary<string, string> UsaStateNameDictionary = new Dictionary<string, string>
         {
             {"Alabama", "AL"},
             {"Alaska", "AK"},
@@ -62,6 +62,26 @@ namespace EFW2C.RecordEFW2C.Helpper
             {"Wisconsin", "WI"},
             {"Wyoming", "WY"}
     };
+
+        public static Dictionary<string, string> EmploymentCodeNameDictionary = new Dictionary<string, string>
+        {
+            {"941/941-SS", "R"},
+            {"Military", "M"},
+            {"943", "A"},
+            {"944", "F"},
+            {"CT-1", "X"},
+            {"Hshld. Emp.", "H"},
+            { "Medicare govt. emp.", "Q"}
+        };
+
+        public static Dictionary<string, string> KindOfEmployerNameDictionary = new Dictionary<string, string>
+        {
+            {"None apply", "N"},
+            {"Federal govt.", "F"},
+            {"State/local non-501c", "S"},
+            {"501c non-govt.", "T"},
+            { "State/local 501c", "Y"},
+        };
     }
 
 }
