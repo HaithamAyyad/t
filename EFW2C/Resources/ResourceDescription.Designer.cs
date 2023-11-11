@@ -2446,20 +2446,20 @@ namespace EFW2C.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Employee ThirdPartySickPayndicatorCorrect.
+        ///   Looks up a localized string similar to Employee ThirdPartySickPayIndicatorCorrect.
         /// </summary>
-        internal static string RcwThirdPartySickPayndicatorCorrect {
+        internal static string RcwThirdPartySickPayIndicatorCorrect {
             get {
-                return ResourceManager.GetString("RcwThirdPartySickPayndicatorCorrect", resourceCulture);
+                return ResourceManager.GetString("RcwThirdPartySickPayIndicatorCorrect", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Employee ThirdPartySickPayndicatorOriginal.
+        ///   Looks up a localized string similar to Employee ThirdPartySickPayIndicatorOriginal.
         /// </summary>
-        internal static string RcwThirdPartySickPayndicatorOriginal {
+        internal static string RcwThirdPartySickPayIndicatorOriginal {
             get {
-                return ResourceManager.GetString("RcwThirdPartySickPayndicatorOriginal", resourceCulture);
+                return ResourceManager.GetString("RcwThirdPartySickPayIndicatorOriginal", resourceCulture);
             }
         }
         

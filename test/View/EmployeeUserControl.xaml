@@ -236,10 +236,10 @@
                 </StackPanel>
             </StackPanel>
             <StackPanel Margin="0,3,0,0"  Orientation="Horizontal" Grid.Column="1">
-                <TextBlock Margin="5,0" Text= "ThirdPartySickPayndicator:" VerticalAlignment ="Top"/>
+                <TextBlock Margin="5,0" Text= "ThirdPartySickPayIndicator:" VerticalAlignment ="Top"/>
                 <StackPanel Orientation="Horizontal">
-                    <TextBox Margin="0,0,3,0" Text= "{Binding Document.SelectedEmployer.SelectedEmployee.ThirdPartySickPayndicatorOriginal, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
-                    <TextBox  Text= "{Binding Document.SelectedEmployer.SelectedEmployee.ThirdPartySickPayndicatorCorrect, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
+                    <TextBox Margin="0,0,3,0" Text= "{Binding Document.SelectedEmployer.SelectedEmployee.ThirdPartySickPayIndicatorOriginal, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
+                    <TextBox  Text= "{Binding Document.SelectedEmployer.SelectedEmployee.ThirdPartySickPayIndicatorCorrect, Mode=TwoWay}" VerticalAlignment ="Top" Width="120" Height="20"/>
                 </StackPanel>
             </StackPanel>
             <StackPanel Margin="0,3,0,0"  Orientation="Horizontal" Grid.Column="1">

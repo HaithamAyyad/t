@@ -912,11 +912,11 @@
   <data name="RcwStatutoryEmployeeIndicatorOriginal" xml:space="preserve">
     <value>Employee StatutoryEmployeeIndicatorOriginal</value>
   </data>
-  <data name="RcwThirdPartySickPayndicatorCorrect" xml:space="preserve">
-    <value>Employee ThirdPartySickPayndicatorCorrect</value>
+  <data name="RcwThirdPartySickPayIndicatorCorrect" xml:space="preserve">
+    <value>Employee ThirdPartySickPayIndicatorCorrect</value>
   </data>
-  <data name="RcwThirdPartySickPayndicatorOriginal" xml:space="preserve">
-    <value>Employee ThirdPartySickPayndicatorOriginal</value>
+  <data name="RcwThirdPartySickPayIndicatorOriginal" xml:space="preserve">
+    <value>Employee ThirdPartySickPayIndicatorOriginal</value>
   </data>
   <data name="RcwWagesTipsAndOtherCompensationCorrect" xml:space="preserve">
     <value>Employee WagesTipsAndOtherCompensationCorrect</value>

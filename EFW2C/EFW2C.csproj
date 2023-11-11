@@ -346,8 +346,8 @@
     <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\RcwSocialSecurityNumberOriginal.cs" />
     <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\RcwStatutoryEmployeeIndicatorCorrect.cs" />
     <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\RcwStatutoryEmployeeIndicatorOriginal.cs" />
-    <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\RcwThirdPartySickPayndicatorCorrect.cs" />
-    <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\RcwThirdPartySickPayndicatorOriginal.cs" />
+    <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\RcwThirdPartySickPayIndicatorCorrect.cs" />
+    <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\RcwThirdPartySickPayIndicatorOriginal.cs" />
     <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\RcwCostOfEmployerSponsoredHealthCoverageCodeDDCorrect.cs" />
     <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\RcwCostOfEmployerSponsoredHealthCoverageCodeDDOriginal.cs" />
     <Compile Include="RecordEFW2C\Records\RCWRecord\RCWFields\RcwDeferredCompensationCodeDCorrect.cs" />

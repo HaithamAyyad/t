@@ -8,9 +8,9 @@ namespace EFW2C.Fields
     //Created by : Hsa 9-9-2023
     //Reviewed by : Hsa 10-12-2023
 
-    internal class RcwThirdPartySickPayndicatorOriginal : FieldOriginal
+    internal class RcwThirdPartySickPayIndicatorOriginal : FieldOriginal
     {
-        public RcwThirdPartySickPayndicatorOriginal(RecordBase record, string data)
+        public RcwThirdPartySickPayIndicatorOriginal(RecordBase record, string data)
             : base(record, data)
         {
             _pos = 1006;
@@ -19,7 +19,7 @@ namespace EFW2C.Fields
 
         public override FieldBase Clone(RecordBase record)
         {
-            return new RcwThirdPartySickPayndicatorOriginal(record, _data);
+            return new RcwThirdPartySickPayIndicatorOriginal(record, _data);
         }
 
         public override bool Verify()

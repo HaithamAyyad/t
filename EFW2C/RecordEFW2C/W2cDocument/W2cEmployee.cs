@@ -1043,30 +1043,30 @@ namespace EFW2C.W2cDocument
             }
         }
 
-        private string _thirdPartySickPayndicatorCorrect;
-        public string ThirdPartySickPayndicatorCorrect
+        private string _thirdPartySickPayIndicatorCorrect;
+        public string ThirdPartySickPayIndicatorCorrect
         {
-            get { return _thirdPartySickPayndicatorCorrect; }
+            get { return _thirdPartySickPayIndicatorCorrect; }
             set
             {
-                if (_thirdPartySickPayndicatorCorrect != value)
+                if (_thirdPartySickPayIndicatorCorrect != value)
                 {
-                    _thirdPartySickPayndicatorCorrect = value;
+                    _thirdPartySickPayIndicatorCorrect = value;
                     AddData(value);
                     OnPropertyChanged();
                 }
             }
         }
 
-        private string _thirdPartySickPayndicatorOriginal;
-        public string ThirdPartySickPayndicatorOriginal
+        private string _thirdPartySickPayIndicatorOriginal;
+        public string ThirdPartySickPayIndicatorOriginal
         {
-            get { return _thirdPartySickPayndicatorOriginal; }
+            get { return _thirdPartySickPayIndicatorOriginal; }
             set
             {
-                if (_thirdPartySickPayndicatorOriginal != value)
+                if (_thirdPartySickPayIndicatorOriginal != value)
                 {
-                    _thirdPartySickPayndicatorOriginal = value;
+                    _thirdPartySickPayIndicatorOriginal = value;
                     AddData(value);
                     OnPropertyChanged();
                 }
@@ -1203,8 +1203,8 @@ namespace EFW2C.W2cDocument
             mapDictionary.Add(nameof(StateAbbreviation), typeof(RcwStateAbbreviation).Name);
             mapDictionary.Add(nameof(StatutoryEmployeeIndicatorCorrect), typeof(RcwStatutoryEmployeeIndicatorCorrect).Name);
             mapDictionary.Add(nameof(StatutoryEmployeeIndicatorOriginal), typeof(RcwStatutoryEmployeeIndicatorOriginal).Name);
-            mapDictionary.Add(nameof(ThirdPartySickPayndicatorCorrect), typeof(RcwThirdPartySickPayndicatorCorrect).Name);
-            mapDictionary.Add(nameof(ThirdPartySickPayndicatorOriginal), typeof(RcwThirdPartySickPayndicatorOriginal).Name);
+            mapDictionary.Add(nameof(ThirdPartySickPayIndicatorCorrect), typeof(RcwThirdPartySickPayIndicatorCorrect).Name);
+            mapDictionary.Add(nameof(ThirdPartySickPayIndicatorOriginal), typeof(RcwThirdPartySickPayIndicatorOriginal).Name);
             mapDictionary.Add(nameof(WagesTipsAndOtherCompensationCorrect), typeof(RcwWagesTipsAndOtherCompensationCorrect).Name);
             mapDictionary.Add(nameof(WagesTipsAndOtherCompensationOriginal), typeof(RcwWagesTipsAndOtherCompensationOriginal).Name);
             mapDictionary.Add(nameof(ZipCode), typeof(RcwZipCode).Name);
