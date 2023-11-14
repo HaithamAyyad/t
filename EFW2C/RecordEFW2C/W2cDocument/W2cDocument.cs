@@ -1,4 +1,5 @@
-﻿using EFW2C.Manager;
+﻿using EFW2C.Common.Enums;
+using EFW2C.Manager;
 using EFW2C.RecordEFW2C.Helpper;
 using EFW2C.Records;
 using System;
@@ -163,6 +164,11 @@ namespace EFW2C.W2cDocument
         public static List<string> GetEmploymentCodeNames()
         {
             return DictionaryHelper.EmploymentCodeNameDictionary.Keys.ToList();
+        }
+
+        public static List<string> GetCountryCodeNames()
+        {
+            return Enum.GetNames(typeof(CountryCode)).ToList();
         }
 
         public static string GetEmploymentCodeAbbreviation(string employmentCode)
