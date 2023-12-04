@@ -83,5 +83,4 @@ namespace EFW2C.RecordEFW2C.Helpper
             { "State/local 501c", "Y"},
         };
     }
-
 }
