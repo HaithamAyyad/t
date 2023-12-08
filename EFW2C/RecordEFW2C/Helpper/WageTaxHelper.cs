@@ -59,10 +59,10 @@ namespace EFW2C.Common.Helper
 
             var socialSecurityData = new WageTaxData()
             {
-                TaxRate = double.Parse(taxRate),
-                MaxTaxedEarnings = double.Parse(maxTaxedEarning),
-                EmployeeMaxAnnualTax = double.Parse(employeeMaxAnnualTax),
-                MinHouseHoldCoveredWages = double.Parse(minHouseHoldCoveredWages)
+                TaxRate = decimal.Parse(taxRate),
+                MaxTaxedEarnings = decimal.Parse(maxTaxedEarning),
+                EmployeeMaxAnnualTax = decimal.Parse(employeeMaxAnnualTax),
+                MinHouseHoldCoveredWages = decimal.Parse(minHouseHoldCoveredWages)
             };
 
             var medicareElm = element.Element("Medicare");
@@ -72,16 +72,16 @@ namespace EFW2C.Common.Helper
 
             var medicareData = new WageTaxData()
             {
-                TaxRate = double.Parse(taxRate),
-                MaxTaxedEarnings = double.Parse(maxTaxedEarning),
-                EmployeeMaxAnnualTax = double.Parse(employeeMaxAnnualTax),
+                TaxRate = decimal.Parse(taxRate),
+                MaxTaxedEarnings = decimal.Parse(maxTaxedEarning),
+                EmployeeMaxAnnualTax = decimal.Parse(employeeMaxAnnualTax),
             };
 
             if (medicareData.MaxTaxedEarnings == -1)
-                medicareData.MaxTaxedEarnings = double.MaxValue;
+                medicareData.MaxTaxedEarnings = decimal.MaxValue;
 
             if (medicareData.EmployeeMaxAnnualTax == -1)
-                medicareData.EmployeeMaxAnnualTax = double.MaxValue;
+                medicareData.EmployeeMaxAnnualTax = decimal.MaxValue;
 
             return new WageTax() { SocialSecurity = socialSecurityData, MediCare = medicareData };
         }

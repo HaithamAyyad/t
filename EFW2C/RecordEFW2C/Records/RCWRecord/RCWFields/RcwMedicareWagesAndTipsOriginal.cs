@@ -36,7 +36,7 @@ namespace EFW2C.Fields
 
             if (employmentCode == EmploymentCodeEnum.H.ToString())
             {
-                double.TryParse(localData, out var localValue);
+                decimal.TryParse(localData, out var localValue);
                 var wageTax = WageTaxHelper.GetWageTax(taxYear);
 
                 if (localValue != 0 || localValue < wageTax.SocialSecurity.MinHouseHoldCoveredWages)

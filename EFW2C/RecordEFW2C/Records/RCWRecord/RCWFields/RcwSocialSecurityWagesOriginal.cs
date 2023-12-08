@@ -30,7 +30,7 @@ namespace EFW2C.Fields
             if (employmentCode == EmploymentCodeEnum.H.ToString())
             {
                 var localData = DataInRecordBuffer();
-                double.TryParse(localData, out var localValue);
+                decimal.TryParse(localData, out var localValue);
                 var taxYear = ((RcwRecord)_record).Parent.GetTaxYear();
                 var wageTax = WageTaxHelper.GetWageTax(taxYear);
 

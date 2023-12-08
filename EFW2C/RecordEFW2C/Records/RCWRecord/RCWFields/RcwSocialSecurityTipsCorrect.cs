@@ -37,14 +37,14 @@ namespace EFW2C.Fields
                 throw new Exception(Error.Instance.GetError(ClassDescription, Error.Instance.MustBeBlankIfEmploymentCodeIs, employmentCode));
 
             var localData = DataInRecordBuffer();
-            double.TryParse(localData, out var localValue);
+            decimal.TryParse(localData, out var localValue);
             var wageTax = WageTaxHelper.GetWageTax(taxYear);
 
             var rcwSocialSecurityWagesCorrect = _record.GetField(typeof(RcwSocialSecurityWagesCorrect).Name);
             if (rcwSocialSecurityWagesCorrect == null)
                 throw new Exception(Error.Instance.GetError(ClassDescription, Error.Instance.MustBeBlankOtherwiseFill, "SocialSecurityWagesCorrect with correct data"));
 
-            double.TryParse(rcwSocialSecurityWagesCorrect.DataInRecordBuffer(), out var rcwSocialSecurityWagesCorrectValue);
+            decimal.TryParse(rcwSocialSecurityWagesCorrect.DataInRecordBuffer(), out var rcwSocialSecurityWagesCorrectValue);
 
             if (employmentCode == EmploymentCodeEnum.H.ToString())
             {

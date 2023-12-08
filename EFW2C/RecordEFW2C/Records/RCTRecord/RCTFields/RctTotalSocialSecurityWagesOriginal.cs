@@ -41,7 +41,7 @@ namespace EFW2C.Fields
             {
                 var wageTax = WageTaxHelper.GetWageTax(taxYear);
 
-                double.TryParse(localData, out var localValue);
+                decimal.TryParse(localData, out var localValue);
 
                 if (localValue != 0 || localValue < wageTax.SocialSecurity.MinHouseHoldCoveredWages)
                     throw new Exception(Error.Instance.GetError(ClassDescription, Error.Instance.MustBeZeroOrEqualToOrGreaterToHousHoldForYearIfCodeH));

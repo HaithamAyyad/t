@@ -8,10 +8,10 @@ namespace test.RecordEFW2C.Common
 {
     internal class WageTaxData
     {
-        public double TaxRate { get; set; }
-        public double MaxTaxedEarnings { get; set; }
-        public double EmployeeMaxAnnualTax { get; set; }
-        public double MinHouseHoldCoveredWages { get; set; }
+        public decimal TaxRate { get; set; }
+        public decimal MaxTaxedEarnings { get; set; }
+        public decimal EmployeeMaxAnnualTax { get; set; }
+        public decimal MinHouseHoldCoveredWages { get; set; }
     }
 
     internal class  WageTax

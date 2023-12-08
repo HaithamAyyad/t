@@ -42,7 +42,7 @@ namespace EFW2C.Fields
             }
             else
             {
-                double.TryParse(localData, out var localValue);
+                decimal.TryParse(localData, out var localValue);
                 var wageTax = WageTaxHelper.GetWageTax(taxYear);
 
                 if (employmentCode == EmploymentCodeEnum.H.ToString())
@@ -61,8 +61,8 @@ namespace EFW2C.Fields
                     if (rcwSocialSecurityWagesCorrect == null)
                         throw new Exception(Error.Instance.GetError(ClassDescription, Error.Instance.MustBeBlankOtherwiseFill, "SocialSecurityWagesCorrect with correct data"));
 
-                    double.TryParse(rcwSocialSecurityTipsCorrect.DataInRecordBuffer(), out var rcwSocialSecurityTipsCorrectValue);
-                    double.TryParse(rcwSocialSecurityWagesCorrect.DataInRecordBuffer(), out var rcwSocialSecurityWagesCorrectValue);
+                    decimal.TryParse(rcwSocialSecurityTipsCorrect.DataInRecordBuffer(), out var rcwSocialSecurityTipsCorrectValue);
+                    decimal.TryParse(rcwSocialSecurityWagesCorrect.DataInRecordBuffer(), out var rcwSocialSecurityWagesCorrectValue);
 
                     if (localValue < rcwSocialSecurityTipsCorrectValue + rcwSocialSecurityWagesCorrectValue)
                         throw new Exception(Error.Instance.GetError(ClassDescription, Error.Instance.MustBeEqualOrGraterThanTheSumOf,

@@ -36,14 +36,14 @@ namespace EFW2C.Fields
 
             if (employmentCode == EmploymentCodeEnum.H.ToString())
             {
-                double.TryParse(localData, out var localValue);
+                decimal.TryParse(localData, out var localValue);
                 var wageTax = WageTaxHelper.GetWageTax(taxYear);
 
                 var rcwSocialSecurityWagesOriginal = _record.GetField(typeof(RcwSocialSecurityWagesOriginal).Name);
                 if (rcwSocialSecurityWagesOriginal == null)
                     throw new Exception(Error.Instance.GetError(ClassDescription, Error.Instance.MustBeBlankOtherwiseFill, "SocialSecurityWagesOriginal with correct data"));
 
-                double.TryParse(rcwSocialSecurityWagesOriginal.DataInRecordBuffer(), out var rcwSocialSecurityWagesOriginalValue);
+                decimal.TryParse(rcwSocialSecurityWagesOriginal.DataInRecordBuffer(), out var rcwSocialSecurityWagesOriginalValue);
 
                 if (localValue != 0 || localValue + rcwSocialSecurityWagesOriginalValue < wageTax.SocialSecurity.MinHouseHoldCoveredWages)
                     throw new Exception(Error.Instance.GetError(ClassDescription, Error.Instance.MustBeZeroOrEqualToOrGreaterToHousHoldForYearIfCodeH));

@@ -37,7 +37,7 @@ namespace EFW2C.Fields
                 throw new Exception(Error.Instance.GetError(ClassDescription, Error.Instance.MustBeBlankIfEmploymentCodeIs, employmentCode));
 
             var localData = DataInRecordBuffer();
-            double.TryParse(localData, out var localValue);
+            decimal.TryParse(localData, out var localValue);
             
             var wageTax = WageTaxHelper.GetWageTax(taxYear);
 
@@ -46,7 +46,7 @@ namespace EFW2C.Fields
             if (rcwSocialSecurityTipsCorrect == null)
                 throw new Exception(Error.Instance.GetError(ClassDescription, Error.Instance.MustBeBlankOtherwiseFill, "SocialSecurityTipsCorrect with correct data"));
 
-            double.TryParse(rcwSocialSecurityTipsCorrect.DataInRecordBuffer(), out var socialSecurityTipsCorrectValue);
+            decimal.TryParse(rcwSocialSecurityTipsCorrect.DataInRecordBuffer(), out var socialSecurityTipsCorrectValue);
 
             if (employmentCode == EmploymentCodeEnum.H.ToString())
             {

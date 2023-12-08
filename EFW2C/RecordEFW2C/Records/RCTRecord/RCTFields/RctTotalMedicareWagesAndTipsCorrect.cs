@@ -45,10 +45,10 @@ namespace EFW2C.Fields
             if (rctSocialSecurityWagesCorrect == null)
                 throw new Exception(Error.Instance.GetError(ClassDescription, Error.Instance.MustBeBlankOtherwiseFill, "SocialSecurityWagesCorrect with correct data"));
 
-            double.TryParse(rctSocialSecurityTipsCorrect.DataInRecordBuffer(), out var rctSocialSecurityTipsCorrectValue);
-            double.TryParse(rctSocialSecurityWagesCorrect.DataInRecordBuffer(), out var rctSocialSecurityWagesCorrectValue);
+            decimal.TryParse(rctSocialSecurityTipsCorrect.DataInRecordBuffer(), out var rctSocialSecurityTipsCorrectValue);
+            decimal.TryParse(rctSocialSecurityWagesCorrect.DataInRecordBuffer(), out var rctSocialSecurityWagesCorrectValue);
 
-            double.TryParse(localData, out var localValue);
+            decimal.TryParse(localData, out var localValue);
 
             if (localValue < rctSocialSecurityTipsCorrectValue + rctSocialSecurityWagesCorrectValue)
                 throw new Exception(Error.Instance.GetError(ClassDescription, Error.Instance.MustBeEqualOrGraterThanTheSumOf,
