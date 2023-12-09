@@ -43,7 +43,8 @@ namespace EFW2C.Fields
 
         public override bool IsRequired()
         {
-            return false;
+            //Note 4000, This field is not required in the spec. but didn't pass on AccuW2C 2011
+            return true;
         }
     }
 }
