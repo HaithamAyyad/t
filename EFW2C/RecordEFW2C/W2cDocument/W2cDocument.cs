@@ -120,6 +120,7 @@ namespace EFW2C.W2cDocument
         public void Prepar()
         {
             _submitter?.Prepare();
+            _submitter?.Verify();
 
             foreach (var employer in _employerList)
                 employer.Prepare();
