@@ -25,7 +25,7 @@ namespace EFW2C.Fields
         {
             var fieldClassName = ClassName.ReplaceFirstOccurrence(Constants.TotalStr, "");
 
-            var sum = 0;
+            decimal sum = 0;
 
             if (_record is RctRecord rctRecord)
             {
@@ -53,7 +53,7 @@ namespace EFW2C.Fields
 
             var fieldClassName = ClassName.ReplaceFirstOccurrence(Constants.TotalStr, "");
 
-            var sum = 0;
+            decimal sum = 0;
 
             if (_record is RctRecord rctRecord)
             {
@@ -67,7 +67,7 @@ namespace EFW2C.Fields
                 sum = rcuRecord.Parent.GetRcoFieldsSum(fieldClassName);
             }
 
-            int.TryParse(DataInRecordBuffer(), out var localSum);
+            decimal.TryParse(DataInRecordBuffer(), out var localSum);
 
             if (sum != localSum)
                 throw new Exception(Error.Instance.GetError(ClassDescription, Error.Instance.TotalIsNotCorrect));

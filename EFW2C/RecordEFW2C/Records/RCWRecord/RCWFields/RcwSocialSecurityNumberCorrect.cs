@@ -1,5 +1,6 @@
 ﻿using EFW2C.Common.Constants;
 using EFW2C.Common.Enums;
+using EFW2C.Languages;
 using EFW2C.Records;
 using System;
 using System.Linq;
@@ -23,21 +24,15 @@ namespace EFW2C.Fields
             return new RcwSocialSecurityNumberCorrect(record, _data);
         }
 
-        public override void Write()
+        public override bool Verify()
         {
-            base.Write();
+            if (!base.Verify())
+                return false;
 
-            var socialSecurityNumberOriginalField = GetOriginalField();
-            if(socialSecurityNumberOriginalField == null )
-            {
-                var socialSecurityNumberOriginalName = typeof(RcwSocialSecurityNumberOriginal).Name;
+            if (IsSameAsOriginalValue())
+                throw new Exception(Error.Instance.GetError(ClassDescription, Error.Instance.MoneyOriginalMustNotSameAsCorrect));
 
-                socialSecurityNumberOriginalField = _record.HelperFieldsList.FirstOrDefault(item => item.ClassName == socialSecurityNumberOriginalName);
-
-                socialSecurityNumberOriginalField = socialSecurityNumberOriginalField.Clone(_record, Constants.SNN_Empty);
-                socialSecurityNumberOriginalField.Write();
-            }
-
+            return true;
         }
 
         protected override FieldTypeEnum GetFieldType()

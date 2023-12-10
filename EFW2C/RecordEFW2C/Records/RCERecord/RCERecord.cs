@@ -163,9 +163,9 @@ namespace EFW2C.Records
             return int.Parse(taxYearField.DataInRecordBuffer());
         }
 
-        public int GetRcwFieldsSum(string fieldClassName)
+        public decimal GetRcwFieldsSum(string fieldClassName)
         {
-            var sum = 0;
+            decimal sum = 0;
             var atLeastOne = false;
 
             foreach (var rcwRecord in _rcwRecordList)
@@ -175,16 +175,16 @@ namespace EFW2C.Records
                 if (field != null)
                 {
                     atLeastOne = true;
-                    sum += int.Parse(field.DataInRecordBuffer());
+                    sum += decimal.Parse(field.DataInRecordBuffer());
                 }
             }
 
             return atLeastOne ? sum : -1;
         }
 
-        public int GetRcoFieldsSum(string fieldClassName)
+        public decimal GetRcoFieldsSum(string fieldClassName)
         {
-            var sum = 0;
+            decimal sum = 0;
             var atLeastOne = false;
 
             foreach (var rcwRecord in _rcwRecordList)
@@ -196,7 +196,7 @@ namespace EFW2C.Records
                     if (field != null)
                     {
                         atLeastOne = true;
-                        sum += int.Parse(field.DataInRecordBuffer());
+                        sum += decimal.Parse(field.DataInRecordBuffer());
                     }
                 }
             }

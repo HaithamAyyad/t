@@ -63,6 +63,7 @@ namespace EFW2C.Extensions
             return char.IsDigit(c) || c == ' ';
         }
     }
+
     public static class CharArrayExtensions
     {
         public static void Fill(this char[] array, char value, int pos, int length)
