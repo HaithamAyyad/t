@@ -101,8 +101,7 @@ namespace EFW2C.Test
                 if (!manager.Verify())
                     MessageBox.Show("Error");
                 else
-                    MessageBox.Show("Sucess");
-
+                    MessageBox.Show("Success");
             }
             catch (Exception ex)
             {
