@@ -23,7 +23,12 @@ namespace EFW2C.Extensions
             for (int i = 0; i < input.Length; i++)
             {
                 var c = input[i];
-                if (!(char.IsUpper(c) || char.IsDigit(c) || char.IsWhiteSpace(c)))
+                if (!(char.IsUpper(c) || 
+                    char.IsDigit(c) || 
+                    char.IsWhiteSpace(c) || 
+                    c == '-'  || 
+                    c == '\'' || 
+                    c == '.' ))
                 {
                     return false;
                 }

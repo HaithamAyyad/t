@@ -37,7 +37,7 @@ namespace EFW2C.Fields
                     throw new Exception(Error.Instance.GetError(ClassDescription, Error.Instance.MustBeBlankIfEmploymentCodeIs, employmentCode));
             }
 
-            return false;
+            return true;
         }
     }
 }
