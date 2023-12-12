@@ -1,4 +1,5 @@
 ﻿using EFW2C.Common.Enums;
+using EFW2C.Common.Helper;
 using EFW2C.Manager;
 using EFW2C.RecordEFW2C.Helpper;
 using EFW2C.Records;
@@ -133,98 +134,100 @@ namespace EFW2C.W2cDocument
             _manager.Reset();
         }
 
-        public static List<string> GetUsaStateNames()
+        public static List<string> GetUsaStateNameList()
         {
             return DictionaryHelper.UsaStateNameDictionary.Keys.ToList();
         }
 
-        public static string GetUsaAbbreviationsState(string stateName)
+        public static string GetUsaAbbreviationsStateCode(string name)
         {
-            if (!string.IsNullOrEmpty(stateName))
-            {
-                if (DictionaryHelper.UsaStateNameDictionary.ContainsKey(stateName))
-                    return DictionaryHelper.UsaStateNameDictionary[stateName];
-            }
+            if (DictionaryHelper.UsaStateNameDictionary.ContainsKey(name))
+                return DictionaryHelper.UsaStateNameDictionary[name];
 
             return string.Empty;
         }
 
-        public static string GetUsaStateName(string stateAbbreviation)
+        public static bool IsValidStateCode(string state, bool value = false)
         {
-            if (!string.IsNullOrEmpty(stateAbbreviation))
-            {
-                var stateName = DictionaryHelper.UsaStateNameDictionary.FirstOrDefault(x => x.Value == stateAbbreviation).Key;
+            return EnumHelper.IsValidStateCode(state, value);
+        }
 
-                if (stateName != null)
-                    return stateName;
-            }
+        public static string GetUsaStateName(string code)
+        {
+            if (DictionaryHelper.UsaStateNameDictionary.ContainsValue(code))
+                return DictionaryHelper.UsaStateNameDictionary.FirstOrDefault(x => x.Value == code).Key;
 
             return string.Empty;
         }
 
-        public static List<string> GetEmploymentCodeNames()
+        public static List<string> GetEmploymentCodeNameList()
         {
             return DictionaryHelper.EmploymentCodeNameDictionary.Keys.ToList();
         }
 
-        public static List<string> GetCountryCodeNames()
+        public static List<string> GetCountryCodeNameList()
         {
             return Enum.GetNames(typeof(CountryCode)).ToList();
         }
 
-        public static string GetEmploymentCodeAbbreviation(string employmentCodeName)
+        public static string GetEmploymentCode(string name)
         {
-            if (!string.IsNullOrEmpty(employmentCodeName))
-            {
-                if (DictionaryHelper.EmploymentCodeNameDictionary.ContainsKey(employmentCodeName))
-                    return DictionaryHelper.EmploymentCodeNameDictionary[employmentCodeName];
-            }
+            if (DictionaryHelper.EmploymentCodeNameDictionary.ContainsKey(name))
+                return DictionaryHelper.EmploymentCodeNameDictionary[name];
 
             return string.Empty;
         }
 
-        public static string GetEmploymentCodeName(string employmentCodeAbbreviation)
+        public static string GetEmploymentCodeName(string code)
         {
-            if (!string.IsNullOrEmpty(employmentCodeAbbreviation))
-            {
-                var employmentCode = DictionaryHelper.EmploymentCodeNameDictionary.FirstOrDefault(x => x.Value == employmentCodeAbbreviation).Key;
-
-                if (employmentCode != null)
-                    return employmentCode;
-            }
+            if (DictionaryHelper.EmploymentCodeNameDictionary.ContainsValue(code))
+                return DictionaryHelper.EmploymentCodeNameDictionary.FirstOrDefault(x => x.Value == code).Key;
 
             return string.Empty;
         }
-
 
         public static List<string> GetKindOfEmployerNames()
         {
             return DictionaryHelper.KindOfEmployerNameDictionary.Keys.ToList();
         }
 
-        public static string GetKindOfEmployerAbbreviation(string kindOfEmployerName)
+        public static string GetKindOfEmployerCode(string name)
         {
-            if (!string.IsNullOrEmpty(kindOfEmployerName))
-            {
-                if (DictionaryHelper.KindOfEmployerNameDictionary.ContainsKey(kindOfEmployerName))
-                    return DictionaryHelper.KindOfEmployerNameDictionary[kindOfEmployerName];
-            }
+            if (DictionaryHelper.KindOfEmployerNameDictionary.ContainsKey(name))
+                return DictionaryHelper.KindOfEmployerNameDictionary[name];
 
             return string.Empty;
         }
 
-        public static string GetKindOfEmployerName(string kindOfEmployerAbbreviation)
+        public static string GetKindOfEmployerName(string code)
         {
-            if (!string.IsNullOrEmpty(kindOfEmployerAbbreviation))
-            {
-                var kindOfEmployerName = DictionaryHelper.KindOfEmployerNameDictionary.FirstOrDefault(x => x.Value == kindOfEmployerAbbreviation).Key;
-
-                if (kindOfEmployerName != null)
-                    return kindOfEmployerName;
-            }
+            if (DictionaryHelper.KindOfEmployerNameDictionary.ContainsValue(code))
+                return DictionaryHelper.KindOfEmployerNameDictionary.FirstOrDefault(x => x.Value == code).Key;
 
             return string.Empty;
         }
+
+        public static List<string> GetPreparerCodeNameList()
+        {
+            return DictionaryHelper.PreparerCodeDictionary.Keys.ToList();
+        }
+
+        public static string GetPreparerCodeName(string code)
+        {
+            if (DictionaryHelper.PreparerCodeDictionary.ContainsValue(code))
+                return DictionaryHelper.PreparerCodeDictionary.FirstOrDefault(x => x.Value == code).Key;
+
+            return string.Empty;
+        }
+
+        public static string GetPreparerCode(string name)
+        {
+            if (DictionaryHelper.PreparerCodeDictionary.ContainsKey(name))
+                return DictionaryHelper.PreparerCodeDictionary[name];
+
+            return string.Empty;
+        }
+
 
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged([CallerMemberName] string propertyName = "")

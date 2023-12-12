@@ -82,5 +82,14 @@ namespace EFW2C.RecordEFW2C.Helpper
             {"501c non-govt.", "T"},
             { "State/local 501c", "Y"},
         };
+
+        public static Dictionary<string, string> PreparerCodeDictionary = new Dictionary<string, string>
+        {
+            {"Accounting Firm", "A"},
+            {"Self-prepared", "L"},
+            {"Service Bureau", "S"},
+            {"Parent Company", "P"},
+            {" Other", "O"},
+        };
     }
 }

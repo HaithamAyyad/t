@@ -43,7 +43,7 @@ namespace EFW2C.Common.Helper
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Can't open {tabelName} {ex.Message}");
+                MessageBox.Show($"Can't open {tabelName} {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             _wageTaxTabel = tabel;

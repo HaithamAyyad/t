@@ -209,7 +209,7 @@ namespace EFW2C.Fields
             if (!Verify())
                 return false;
 
-            MessageBox.Show($"verifcation for{ClassDescription} Successed");
+            MessageBox.Show($"verifcation for{ClassDescription} Successed", "Successed", MessageBoxButtons.OK, MessageBoxIcon.Information);
             return true;
         }
 
