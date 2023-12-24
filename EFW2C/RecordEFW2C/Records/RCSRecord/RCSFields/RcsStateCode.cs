@@ -10,7 +10,7 @@ namespace EFW2C.Fields
     //Created by : Hsa 9-9-2023
     //Reviewed by : Hsa 10-12-2023
 
-    internal class RcsStateCode : FieldBase
+    internal class RcsStateCode : StateBase
     {
         public RcsStateCode(RecordBase record, string data)
             : base(record, data)
@@ -23,31 +23,6 @@ namespace EFW2C.Fields
         {
             return new RcsStateCode(record, _data);
         }
-
-        public override bool Verify()
-        {
-            if (!base.Verify())
-                return false;
-
-            var localData = DataInRecordBuffer();
-
-            if (!EnumHelper.IsValidStateCode(localData, true))
-                throw new Exception(Error.Instance.GetError(ClassDescription, Error.Instance.StateCodeIsNotValid));
-
-            return true;
-        }
-
-        protected override FieldTypeEnum GetFieldType()
-        {
-            return FieldTypeEnum.Numerical_Only;
-        }
-
-        public override bool IsRequired()
-        {
-            return false;
-        }
-
-        //Applies to Income Tax reporting.
     }
 }
 

@@ -86,6 +86,7 @@
     <Compile Include="RecordEFW2C\BaseClasses\Info\ForeignStateProvinceBase.cs" />
     <Compile Include="RecordEFW2C\BaseClasses\Info\IdentifierFieldBase.cs" />
     <Compile Include="RecordEFW2C\BaseClasses\Info\LocationAddressBase.cs" />
+    <Compile Include="RecordEFW2C\BaseClasses\Info\StateBase.cs" />
     <Compile Include="RecordEFW2C\BaseClasses\Info\StateAbbreviationBase.cs" />
     <Compile Include="RecordEFW2C\BaseClasses\Info\ZIPCodeBase.cs" />
     <Compile Include="RecordEFW2C\BaseClasses\Info\ZIPCodeExtensionBase.cs" />

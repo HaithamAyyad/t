@@ -346,7 +346,7 @@ namespace EFW2C.W2cDocument
         }
 
         private string _otherStateData;
-        public string OtherStateData
+        private string OtherStateData
         {
             get { return _otherStateData; }
             set
@@ -466,7 +466,7 @@ namespace EFW2C.W2cDocument
         }
 
         private string _stateControlNumberCorrect;
-        public string StateControlNumberCorrect
+        private string StateControlNumberCorrect
         {
             get { return _stateControlNumberCorrect; }
             set
@@ -481,7 +481,7 @@ namespace EFW2C.W2cDocument
         }
 
         private string _stateControlNumberOriginal;
-        public string StateControlNumberOriginal
+        private string StateControlNumberOriginal
         {
             get { return _stateControlNumberOriginal; }
             set
@@ -496,7 +496,7 @@ namespace EFW2C.W2cDocument
         }
 
         private string _stateEmployerAccountNumberCorrect;
-        private string StateEmployerAccountNumberCorrect
+        public string StateEmployerAccountNumberCorrect
         {
             get { return _stateEmployerAccountNumberCorrect; }
             set
@@ -511,7 +511,7 @@ namespace EFW2C.W2cDocument
         }
 
         private string _stateEmployerAccountNumberOriginal;
-        private string StateEmployerAccountNumberOriginal
+        public string StateEmployerAccountNumberOriginal
         {
             get { return _stateEmployerAccountNumberOriginal; }
             set
@@ -646,7 +646,7 @@ namespace EFW2C.W2cDocument
         }
 
         private string _taxingEntityCodeCorrect;
-        public string TaxingEntityCodeCorrect
+        private string TaxingEntityCodeCorrect
         {
             get { return _taxingEntityCodeCorrect; }
             set
@@ -661,7 +661,7 @@ namespace EFW2C.W2cDocument
         }
 
         private string _taxingEntityCodeOriginal;
-        public string TaxingEntityCodeOriginal
+        private string TaxingEntityCodeOriginal
         {
             get { return _taxingEntityCodeOriginal; }
             set
@@ -676,7 +676,7 @@ namespace EFW2C.W2cDocument
         }
 
         private string _taxTypeCodeCorrect;
-        public string TaxTypeCodeCorrect
+        private string TaxTypeCodeCorrect
         {
             get { return _taxTypeCodeCorrect; }
             set
@@ -691,7 +691,7 @@ namespace EFW2C.W2cDocument
         }
 
         private string _taxTypeCodeOriginal;
-        public string TaxTypeCodeOriginal
+        private string TaxTypeCodeOriginal
         {
             get { return _taxTypeCodeOriginal; }
             set

@@ -10,7 +10,7 @@ namespace EFW2C.Fields
     //Created by : Hsa 9-2-2023
     //Reviewed by : 
 
-    internal abstract class StateAbbreviationBase : FieldBase
+    internal abstract class StateAbbreviationBase : StateBase
     {
         public StateAbbreviationBase(RecordBase record, string data)
             : base(record, data)
@@ -35,20 +35,7 @@ namespace EFW2C.Fields
                 }
             }
 
-            if (!EnumHelper.IsValidStateCode(DataInRecordBuffer()))
-                throw new Exception(Error.Instance.GetError(ClassDescription, Error.Instance.StateCodeIsNotValid));
-
             return true;
-        }
-
-        protected override FieldTypeEnum GetFieldType()
-        {
-            return FieldTypeEnum.UpperCase_LeftJustify_Blank;
-        }
-
-        public override bool IsRequired()
-        {
-            return false;
         }
     }
 }

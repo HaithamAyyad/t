@@ -10,7 +10,7 @@ namespace EFW2C.Fields
     //Created by : Hsa 9-9-2023
     //Reviewed by : Hsa 10-12-2023
 
-    internal class RcsStateCodeIncomeTax : FieldBase
+    internal class RcsStateCodeIncomeTax : StateBase
     {
         public RcsStateCodeIncomeTax(RecordBase record, string data)
             : base(record, data)
@@ -22,29 +22,6 @@ namespace EFW2C.Fields
         public override FieldBase Clone(RecordBase record)
         {
             return new RcsStateCodeIncomeTax(record, _data);
-        }
-
-        public override bool Verify()
-        {
-            if (!base.Verify())
-                return false;
-
-            var localData = DataInRecordBuffer();
-
-            if (!EnumHelper.IsValidStateCode(localData, true))
-                throw new Exception(Error.Instance.GetError(ClassDescription, Error.Instance.StateCodeIsNotValid));
-
-            return true;
-        }
-
-        protected override FieldTypeEnum GetFieldType()
-        {
-            return FieldTypeEnum.Numerical_Only;
-        }
-
-        public override bool IsRequired()
-        {
-            return false;
         }
     }
 }
