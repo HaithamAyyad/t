@@ -256,7 +256,7 @@
     <value>Must enter blanks in both fields Orignal and Correct if no corrections are being reported to this data.</value>
   </data>
   <data name="Must_Not_Exceed_SocialSecurity_MaxTaxedEarnings" xml:space="preserve">
-    <value>Must not exceed social security maxtaxed earnings.</value>
+    <value>Must not exceed maximum taxable earnings for social security.</value>
   </data>
   <data name="Must_Not_Start_With" xml:space="preserve">
     <value>Must not start with </value>

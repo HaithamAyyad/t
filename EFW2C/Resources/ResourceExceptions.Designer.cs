@@ -475,7 +475,7 @@ namespace EFW2C.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Must not exceed social security maxtaxed earnings..
+        ///   Looks up a localized string similar to Must not exceed maximum taxable earnings for social security..
         /// </summary>
         internal static string Must_Not_Exceed_SocialSecurity_MaxTaxedEarnings {
             get {
