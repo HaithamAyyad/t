@@ -55,16 +55,27 @@ namespace EFW2C.W2cDocument
 
                             dataValue = ConvertMoneyToCent(dataValue);
 
+                            if (string.IsNullOrWhiteSpace(dataValue))
+                                continue;
+
                             field = _record.CreateField(_record, _mapPropFieldDictionary[data.Key], dataValue);
 
                             break;
                         case FieldFormat.Hyphen:
                             dataValue = dataValue.Replace("-", "");
+                            if (string.IsNullOrWhiteSpace(dataValue))
+                                continue;
+
                             field = _record.CreateField(_record, _mapPropFieldDictionary[data.Key], dataValue);
                             break;
                         case FieldFormat.Phone:
                             char[] charsToRemove = { ' ', '-', '(', ')' };
-                            dataValue = charsToRemove.Aggregate(dataValue, (current, c) => current.Replace(c.ToString(), "")); field = _record.CreateField(_record, _mapPropFieldDictionary[data.Key], dataValue);
+                            dataValue = charsToRemove.Aggregate(dataValue, (current, c) => current.Replace(c.ToString(), ""));
+
+                            if (string.IsNullOrWhiteSpace(dataValue))
+                                continue;
+                            
+                            field = _record.CreateField(_record, _mapPropFieldDictionary[data.Key], dataValue);
                             break;
                     }
 
