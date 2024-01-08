@@ -40,12 +40,12 @@ namespace EFW2C.Extensions
         {
             foreach (char c in input)
             {
-                if (char.IsDigit(c) && !excludeList.Contains(c))
+                if (!char.IsDigit(c) && !excludeList.Contains(c))
                 {
-                    return true;
+                    return false;
                 }
             }
-            return false;
+            return true;
         }
 
         public static string ReplaceFirstOccurrence(this string original, string oldValue, string newValue)
